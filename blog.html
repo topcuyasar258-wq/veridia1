@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Görüşler &amp; Makaleler — Veridia Ajans Blog</title>
+    <meta name="description" content="Dijital büyüme, marka yönetimi ve güncel algoritmalar hakkında stratejik içerikler.">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/shared.css">
+    <style>
+        body { padding-top: 8rem; }
+        .blog-header { margin-bottom: 4rem; padding: 0 4rem; max-width: 900px; }
+        .blog-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: var(--off-white);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        .blog-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 0 4rem 6rem;
+        }
+        .blog-card {
+            background: var(--surface-1);
+            border: 1px solid rgba(201,168,76,0.1);
+            padding: 2.5rem;
+            transition: transform 0.3s, border-color 0.3s;
+            cursor: none;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201,168,76,0.3);
+        }
+        .blog-card h2 {
+            font-family: 'Bebas Neue', serif;
+            font-size: 2rem;
+            color: var(--off-white);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+        .blog-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .read-more {
+            display: inline-block; padding: 0.7rem 1.5rem;
+            background: var(--gold); color: var(--accent-ink);
+            font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em;
+            text-transform: uppercase; text-decoration: none; transition: background 0.2s; cursor: none;
+        }
+        @media (max-width: 768px) {
+            body { padding-top: 6rem; }
+            .blog-header, .blog-grid { padding-left: 1.5rem; padding-right: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- KURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="menu-close" type="button" onclick="closeMobileMenu()" aria-label="Menuyu kapat">✕</button>
+  <a href="/blog.html">Blog</a>
+  <a href="/veridia-ajans.html#about" onclick="closeMobileMenu()">Hakkımızda</a>
+  <a href="/veridia-ajans.html#services" onclick="closeMobileMenu()">Hizmetler</a>
+  <a href="/veridia-ajans.html#quote" onclick="closeMobileMenu()">Hızlı Teklif</a>
+  <a href="/veridia-ajans.html#analyze" onclick="closeMobileMenu()">Analiz</a>
+  <a href="/veridia-ajans.html#sectors" onclick="closeMobileMenu()">Sektörler</a>
+  <a href="/veridia-ajans.html#portfolio" onclick="closeMobileMenu()">Portfolyo</a>
+  <a href="/veridia-ajans.html#contact" onclick="closeMobileMenu()">İletişim</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/veridia-ajans.html" class="nav-logo">Veridia</a>
+  <ul class="nav-links">
+    <li><a href="/blog.html" style="color:var(--gold);opacity:1;">Blog</a></li>
+    <li><a href="/veridia-ajans.html#about">Hakkımızda</a></li>
+    <li><a href="/veridia-ajans.html#services">Hizmetler</a></li>
+    <li><a href="/veridia-ajans.html#quote">Hızlı Teklif</a></li>
+    <li><a href="/veridia-ajans.html#analyze">Analiz</a></li>
+    <li><a href="/veridia-ajans.html#sectors">Sektörler</a></li>
+    <li><a href="/veridia-ajans.html#portfolio">Portfolyo</a></li>
+    <li><a href="/veridia-ajans.html#contact">İletişim</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Menü" aria-controls="mobileMenu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="blog-header">
+    <p class="section-label" style="text-transform:uppercase; letter-spacing:0.3em; color:var(--gold); font-size:0.68rem; margin-bottom:1rem;">Strateji & Vizyon</p>
+    <h1 class="blog-title">Görüşler &amp; Makaleler</h1>
+    <p class="blog-subtitle">Dijital büyüme stratejileri, içerik sistemleri ve performans pazarlamasına dair derinlemesine analizler.</p>
+</div>
+
+<div class="blog-grid">
+    <article class="blog-card">
+        <h2>Instagram Algoritmasını Kırmak: 2026 Rehberi</h2>
+        <p>Instagram'ın yeni sıralama faktörleri marka görünürlüğünü nasıl etkiliyor? Etkileşim tüyoları ve format karması optimizasyonu.</p>
+        <a href="/blog/instagram-algoritmasi.html" class="read-more">Makaleyi Oku</a>
+    </article>
+    <article class="blog-card">
+        <h2>B2B Pazarlamada Dönüşüm Hunisi</h2>
+        <p>Geleneksel pazarlamadan dijital CRM otomasyonlarına geçiş. Lead kalitesini artırıp satış döngülerini kısalttığımız taktikler.</p>
+        <a href="#" class="read-more">Çok Yakında</a>
+    </article>
+</div>
+
+<script>
+  // SCROLL PROGRESS
+  window.addEventListener('scroll', () => {
+    const wScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if(document.getElementById('scrollBar')) {
+      document.getElementById('scrollBar').style.width = (wScroll / height) * 100 + '%';
+    }
+    const nav = document.getElementById('navbar');
+    if (wScroll > 50) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // CURSOR
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+  document.addEventListener('mousemove', e => {
+    if(cursor) { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; }
+    setTimeout(() => {
+      if(cursorRing) { cursorRing.style.left = e.clientX + 'px'; cursorRing.style.top = e.clientY + 'px'; }
+    }, 40);
+  });
+  document.querySelectorAll('a, button, .blog-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { if(cursorRing) { cursorRing.style.transform = 'translate(-50%, -50%) scale(1.5)'; cursorRing.style.borderColor = 'var(--gold)'; } });
+    el.addEventListener('mouseleave', () => { if(cursorRing) { cursorRing.style.transform = 'translate(-50%, -50%) scale(1)'; cursorRing.style.borderColor = 'var(--gold)'; } });
+  });
+
+  // MOBILE MENU
+  const mobileMenu = document.getElementById('mobileMenu');
+  const hamburger = document.getElementById('hamburger');
+  function toggleMobileMenu() {
+    if(mobileMenu) mobileMenu.classList.toggle('open');
+    if(hamburger) hamburger.classList.toggle('open');
+  }
+  function closeMobileMenu() {
+    if(mobileMenu) mobileMenu.classList.remove('open');
+    if(hamburger) hamburger.classList.remove('open');
+  }
+</script>
+</body>
+</html>

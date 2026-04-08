@@ -1,0 +1,4 @@
+.env
+automation/.env
+__pycache__/
+analysis_snapshots.sqlite3

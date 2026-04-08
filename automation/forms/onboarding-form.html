@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yankura Onboarding</title>
+  <style>
+    :root {
+      --bg: #f4f0ea;
+      --panel: rgba(255,255,255,0.84);
+      --ink: #191816;
+      --muted: #69645c;
+      --line: rgba(25,24,22,0.12);
+      --accent: #0f766e;
+      --success: #d5efe8;
+      --radius: 24px;
+      --shadow: 0 24px 64px rgba(30, 31, 22, 0.1);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(15,118,110,0.12), transparent 26%),
+        radial-gradient(circle at bottom left, rgba(191,77,40,0.1), transparent 28%),
+        var(--bg);
+      padding: 32px 16px;
+    }
+    .card {
+      width: min(860px, 100%);
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      letter-spacing: -0.04em;
+    }
+    p { color: var(--muted); line-height: 1.7; }
+    form { display: grid; gap: 14px; margin-top: 24px; }
+    .row { display: grid; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    label { display: grid; gap: 8px; font-weight: 600; }
+    input, textarea {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+      font: inherit;
+      background: rgba(255,255,255,0.92);
+    }
+    textarea { min-height: 130px; resize: vertical; }
+    button {
+      width: fit-content;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      padding: 14px 22px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .meta, .status {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.7);
+      border: 1px dashed var(--line);
+    }
+    .status {
+      background: var(--success);
+      display: none;
+    }
+    .status.show { display: block; }
+    @media (max-width: 720px) {
+      .row { grid-template-columns: 1fr; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="card">
+    <p style="text-transform:uppercase; letter-spacing:0.16em; font-size:0.76rem; color:var(--accent);">Yankura Client Kickoff</p>
+    <h1>Onboarding formu</h1>
+    <p>Teklif onayından sonra bu form <code>Workflow 06</code> içindeki onboarding adımlarını tetikler: brief oluşturma, Drive klasörü açma, ilk içerik takvimi üretme ve ekip bildirimlerini başlatma.</p>
+
+    <div class="meta">
+      <strong>İpucu:</strong> Bu sayfa URL içinden <code>leadPageId</code> ve <code>approvalToken</code> parametrelerini otomatik alır. Email içindeki bağlantıyı doğrudan kullanırsan ekstra ayar yapman gerekmez.
+    </div>
+
+    <form id="onboardingForm">
+      <div class="row">
+        <label>
+          Lead page ID
+          <input name="leadPageId" id="leadPageId" required>
+        </label>
+        <label>
+          Approval token
+          <input name="approvalToken" id="approvalToken" required>
+        </label>
+      </div>
+
+      <div class="row">
+        <label>
+          Marka adı
+          <input name="brandName" id="brandName" required>
+        </label>
+        <label>
+          Email
+          <input name="email" id="email" type="email">
+        </label>
+      </div>
+
+      <label>
+        Website
+        <input name="website" placeholder="https://ornek.com">
+      </label>
+
+      <label>
+        Hedef kitle
+        <textarea name="targetAudience" placeholder="Örn. İstanbul merkezli, 25-40 yaş arası, satın alma kararı veren işletme sahipleri" required></textarea>
+      </label>
+
+      <label>
+        Marka sesi
+        <textarea name="brandVoice" placeholder="Örn. Güven veren, net, biraz da enerjik" required></textarea>
+      </label>
+
+      <label>
+        Kaçınılacak konular
+        <textarea name="avoidTopics" placeholder="Örn. fiyat yarışı, politik dil, abartılı vaatler"></textarea>
+      </label>
+
+      <label>
+        İlk 60 günlük ana hedef
+        <textarea name="primaryGoal" placeholder="Örn. demo talebi toplamak ve Meta reklam tarafında ilk ROAS benchmarkını çıkarmak" required></textarea>
+      </label>
+
+      <label>
+        n8n webhook tabanı
+        <input id="baseUrl" value="http://localhost:5678">
+      </label>
+
+      <button type="submit">Onboarding’i başlat</button>
+      <div id="status" class="status"></div>
+    </form>
+  </section>
+
+  <script>
+    const qs = new URLSearchParams(window.location.search);
+    for (const id of ['leadPageId', 'approvalToken', 'brandName', 'email']) {
+      const element = document.getElementById(id);
+      const value = qs.get(id);
+      if (element && value) element.value = value;
+    }
+
+    const baseUrlInput = document.getElementById('baseUrl');
+    const savedBase = localStorage.getItem('yankura-n8n-base');
+    if (savedBase) baseUrlInput.value = savedBase;
+
+    const statusEl = document.getElementById('status');
+    document.getElementById('onboardingForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      localStorage.setItem('yankura-n8n-base', baseUrlInput.value.trim());
+      statusEl.classList.remove('show');
+
+      const payload = Object.fromEntries(new FormData(event.currentTarget).entries());
+      try {
+        const response = await fetch(`${baseUrlInput.value.replace(/\/$/, '')}/webhook/yankura/onboarding-form`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        statusEl.textContent = 'Onboarding yanıtı alındı. Workflow 06 arka planda devam ediyor.';
+        statusEl.classList.add('show');
+      } catch (error) {
+        statusEl.textContent = `Gönderim başarısız: ${error.message}`;
+        statusEl.classList.add('show');
+      }
+    });
+  </script>
+</body>
+</html>

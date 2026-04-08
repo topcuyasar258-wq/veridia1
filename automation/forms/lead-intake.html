@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yankura Lead Intake</title>
+  <style>
+    :root {
+      --bg: #f7efe6;
+      --panel: rgba(255, 255, 255, 0.82);
+      --ink: #1b1b18;
+      --muted: #6b665d;
+      --line: rgba(27, 27, 24, 0.12);
+      --accent: #bf4d28;
+      --accent-soft: #f6d7ca;
+      --shadow: 0 24px 60px rgba(29, 23, 15, 0.12);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(191, 77, 40, 0.12), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(55, 116, 126, 0.12), transparent 30%),
+        var(--bg);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .shell {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      gap: 28px;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 4.3rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      margin: 0 0 18px 0;
+      max-width: 10ch;
+    }
+
+    p {
+      margin: 0 0 16px 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .row {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      font-size: 0.92rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 14px 16px;
+      font: inherit;
+      color: var(--ink);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      padding: 14px 22px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    .config {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px dashed var(--line);
+    }
+
+    .status {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--accent-soft);
+      color: var(--ink);
+      display: none;
+    }
+
+    .status.show { display: block; }
+
+    ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    code {
+      background: rgba(27, 27, 24, 0.08);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.92em;
+    }
+
+    @media (max-width: 860px) {
+      .shell, .row { grid-template-columns: 1fr; }
+      body { padding: 22px 14px; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <p style="text-transform:uppercase; letter-spacing:0.16em; font-size:0.75rem; color:var(--accent);">Yankura Intake Layer</p>
+      <h1>Lead yakalama formu</h1>
+      <p>Bu sayfa Tally, Typeform veya özel HTML formu yerine doğrudan n8n webhook’una veri gönderen örnek bir istemcidir. Form yanıtı, <code>Workflow 01</code> içindeki router akışını tetikler.</p>
+      <ul>
+        <li>Webhook varsayılanı: <code>http://localhost:5678/webhook/yankura/lead-intake</code></li>
+        <li>ManyChat, WhatsApp veya başka kanallar için aynı veri sözleşmesini kullanabilirsin.</li>
+        <li>Form gönderildiğinde lead Notion’a yazılır ve teklif workflow’u otomatik tetiklenir.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="config">
+        <label>
+          n8n webhook tabanı
+          <input id="baseUrl" value="http://localhost:5678" autocomplete="off">
+        </label>
+      </div>
+
+      <form id="leadForm">
+        <div class="row">
+          <label>
+            Ad soyad
+            <input name="name" placeholder="Örn. Elif Aydın" required>
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" placeholder="ornek@firma.com" required>
+          </label>
+        </div>
+
+        <div class="row">
+          <label>
+            Telefon
+            <input name="phone" placeholder="+90 5xx xxx xx xx">
+          </label>
+          <label>
+            Marka / firma
+            <input name="company" placeholder="Yankura Cafe">
+          </label>
+        </div>
+
+        <div class="row">
+          <label>
+            Sektör
+            <input name="sector" placeholder="Yeme & içme">
+          </label>
+          <label>
+            Aylık bütçe
+            <input name="budget" placeholder="30.000 TL">
+          </label>
+        </div>
+
+        <label>
+          Talep edilen hizmet
+          <select name="service">
+            <option value="sosyal medya yönetimi">Sosyal medya yönetimi</option>
+            <option value="reklam kampanyası">Reklam kampanyası</option>
+            <option value="içerik üretimi">İçerik üretimi</option>
+            <option value="raporlama">Raporlama</option>
+            <option value="diğer">Diğer</option>
+          </select>
+        </label>
+
+        <label>
+          Hedef / ihtiyaç notu
+          <textarea name="request" placeholder="Örn. Instagram ve TikTok için haftalık içerik akışı, Meta reklam kurulumu ve aylık raporlama desteği istiyoruz." required></textarea>
+        </label>
+
+        <button type="submit">Lead’i n8n’e gönder</button>
+        <div id="status" class="status"></div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const baseUrlInput = document.getElementById('baseUrl');
+    const statusEl = document.getElementById('status');
+    const savedBase = localStorage.getItem('yankura-n8n-base');
+    if (savedBase) baseUrlInput.value = savedBase;
+
+    document.getElementById('leadForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      statusEl.classList.remove('show');
+      localStorage.setItem('yankura-n8n-base', baseUrlInput.value.trim());
+
+      const payload = Object.fromEntries(new FormData(event.currentTarget).entries());
+      payload.source = 'web_form';
+
+      try {
+        const response = await fetch(`${baseUrlInput.value.replace(/\/$/, '')}/webhook/yankura/lead-intake`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        statusEl.textContent = 'Lead başarıyla gönderildi. Workflow 01 arka planda çalışıyor.';
+        statusEl.classList.add('show');
+        event.currentTarget.reset();
+      } catch (error) {
+        statusEl.textContent = `Gönderim başarısız: ${error.message}`;
+        statusEl.classList.add('show');
+      }
+    });
+  </script>
+</body>
+</html>
