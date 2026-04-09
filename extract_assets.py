@@ -1,6 +1,6 @@
 import re
 
-with open("veridia-ajans.html", "r", encoding="utf-8") as f:
+with open("index.html", "r", encoding="utf-8") as f:
     html = f.read()
 
 # Extract styles
@@ -14,7 +14,7 @@ if style_match:
 # We can also extract the cursor and nav JS if we want, but let's just do CSS for now to make sure styles overlap exactly.
 # Note: Actually it is tricky to separate JS without error handling. So we will write a tiny blog.js for the cursor.
 
-with open("veridia-ajans.html", "w", encoding="utf-8") as f:
+with open("index.html", "w", encoding="utf-8") as f:
     f.write(html)
 
 print("CSS extracted successfully")

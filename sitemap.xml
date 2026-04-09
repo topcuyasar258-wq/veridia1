@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>http://127.0.0.1:8000/veridia-ajans.html</loc>
-      <lastmod>2023-11-01</lastmod>
+      <loc>https://veridia.com.tr/</loc>
+      <lastmod>2026-04-09</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
    <url>
-      <loc>http://127.0.0.1:8000/blog.html</loc>
+      <loc>https://veridia.com.tr/blog.html</loc>
+      <lastmod>2026-04-09</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://127.0.0.1:8000/blog/instagram-algoritmasi.html</loc>
+      <loc>https://veridia.com.tr/blog/instagram-algoritmasi.html</loc>
+      <lastmod>2026-04-09</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://veridia.com.tr/blog/b2b-pazarlamada-donusum-hunisi.html</loc>
+      <lastmod>2026-04-09</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://veridia.com.tr/gizlilik-politikasi.html</loc>
+      <lastmod>2026-04-09</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.4</priority>
+   </url>
+   <url>
+      <loc>https://veridia.com.tr/kvkk-aydinlatma-metni.html</loc>
+      <lastmod>2026-04-09</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.4</priority>
    </url>
 </urlset>

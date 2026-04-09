@@ -2,11 +2,15 @@
 from __future__ import annotations
 
 import json
+import logging
 import math
 import os
+import posixpath
 import sqlite3
 import ssl
 import statistics
+import threading
+import time
 from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -15,12 +19,12 @@ from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qs, quote, urlparse
+from urllib.parse import parse_qs, quote, unquote, urlparse
 from urllib import error, request
 
 
 ROOT = Path(__file__).resolve().parent
-HOST = os.environ.get("HOST", "0.0.0.0").strip() or "0.0.0.0"
+HOST = os.environ.get("HOST", "127.0.0.1").strip() or "127.0.0.1"
 DB_PATH = ROOT / "analysis_snapshots.sqlite3"
 
 
@@ -43,7 +47,53 @@ APIFY_ACTOR = os.environ.get("APIFY_ACTOR", "apify~instagram-profile-scraper").s
 APIFY_TIMEOUT_SECS = int(os.environ.get("APIFY_TIMEOUT_SECS", "120"))
 APIFY_MEMORY_MB = int(os.environ.get("APIFY_MEMORY_MB", "256"))
 APIFY_INPUT_FIELD = os.environ.get("APIFY_INPUT_FIELD", "").strip()
-APIFY_ALLOW_INSECURE_SSL = os.environ.get("APIFY_ALLOW_INSECURE_SSL", "1").strip() == "1"
+APIFY_ALLOW_INSECURE_SSL = os.environ.get("APIFY_ALLOW_INSECURE_SSL", "0").strip() == "1"
+INSTAGRAM_ANALYSIS_ENABLED = os.environ.get("INSTAGRAM_ANALYSIS_ENABLED", "0").strip() == "1"
+MAX_REQUEST_BODY_BYTES = int(os.environ.get("MAX_REQUEST_BODY_BYTES", "4096"))
+RATE_LIMIT_WINDOW_SECS = int(os.environ.get("RATE_LIMIT_WINDOW_SECS", "300"))
+RATE_LIMIT_MAX_REQUESTS = int(os.environ.get("RATE_LIMIT_MAX_REQUESTS", "5"))
+MAX_PROXY_IMAGE_BYTES = int(os.environ.get("MAX_PROXY_IMAGE_BYTES", "5242880"))
+
+DEFAULT_ALLOWED_ORIGINS = (
+    f"http://127.0.0.1:{PORT}",
+    f"http://localhost:{PORT}",
+    "https://veridia.com.tr",
+    "https://www.veridia.com.tr",
+)
+PUBLIC_FILE_PATHS = frozenset(
+    {
+        "/index.html",
+        "/blog.html",
+        "/gizlilik-politikasi.html",
+        "/kvkk-aydinlatma-metni.html",
+        "/robots.txt",
+        "/sitemap.xml",
+    }
+)
+PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/")
+IMAGE_PROXY_ALLOWED_HOSTS = ("cdninstagram.com", "fbcdn.net")
+SECURITY_HEADERS = {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+    "Content-Security-Policy": (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline'; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "img-src 'self' data: https:; "
+        "font-src 'self' https://fonts.gstatic.com data:; "
+        "connect-src 'self'; "
+        "object-src 'none'; "
+        "base-uri 'self'; "
+        "frame-ancestors 'none'; "
+        "form-action 'self' https://wa.me"
+    ),
+}
+
+logger = logging.getLogger("veridia.server")
+_rate_limit_lock = threading.Lock()
+_rate_limit_events: dict[str, list[float]] = {}
 
 BENCHMARK_ERS = {
     "brand": {
@@ -138,8 +188,31 @@ class Metrics:
     comment_rate: float
 
 
+class NoRedirectHandler(request.HTTPRedirectHandler):
+    def redirect_request(
+        self,
+        req: request.Request,
+        fp: Any,
+        code: int,
+        msg: str,
+        headers: Any,
+        newurl: str,
+    ) -> None:
+        return None
+
+
 def clamp(value: float, low: float, high: float) -> float:
     return max(low, min(high, value))
+
+
+def env_csv(name: str, defaults: tuple[str, ...]) -> frozenset[str]:
+    raw = os.environ.get(name, "")
+    if raw.strip():
+        return frozenset(item.strip() for item in raw.split(",") if item.strip())
+    return frozenset(defaults)
+
+
+ALLOWED_ORIGINS = env_csv("ALLOWED_ORIGINS", DEFAULT_ALLOWED_ORIGINS)
 
 
 def trimmed_mean(values: list[float]) -> float:
@@ -206,29 +279,107 @@ def build_apify_input(username: str) -> dict[str, Any]:
     return payload
 
 
+def build_opener(*, allow_redirects: bool, insecure_ssl: bool) -> request.OpenerDirector:
+    handlers: list[Any] = []
+    if not allow_redirects:
+        handlers.append(NoRedirectHandler())
+    context = ssl._create_unverified_context() if insecure_ssl else ssl.create_default_context()
+    handlers.append(request.HTTPSHandler(context=context))
+    return request.build_opener(*handlers)
+
+
 def run_request(req: request.Request) -> str:
     try:
-        with request.urlopen(req, timeout=APIFY_TIMEOUT_SECS + 10) as response:
+        opener = build_opener(allow_redirects=True, insecure_ssl=False)
+        with opener.open(req, timeout=APIFY_TIMEOUT_SECS + 10) as response:
             return response.read().decode("utf-8")
     except error.URLError as exc:
         if isinstance(exc.reason, ssl.SSLCertVerificationError) and APIFY_ALLOW_INSECURE_SSL:
-            insecure_context = ssl._create_unverified_context()
-            with request.urlopen(req, timeout=APIFY_TIMEOUT_SECS + 10, context=insecure_context) as response:
+            opener = build_opener(allow_redirects=True, insecure_ssl=True)
+            with opener.open(req, timeout=APIFY_TIMEOUT_SECS + 10) as response:
                 return response.read().decode("utf-8")
         raise
 
 
 def fetch_binary_url(url: str) -> tuple[bytes, str]:
     req = request.Request(url, headers={"User-Agent": "Mozilla/5.0", "Accept": "image/*"})
-    try:
-        with request.urlopen(req, timeout=APIFY_TIMEOUT_SECS + 10) as response:
-            return response.read(), response.headers.get_content_type() or "image/jpeg"
-    except error.URLError as exc:
-        if isinstance(exc.reason, ssl.SSLCertVerificationError) and APIFY_ALLOW_INSECURE_SSL:
-            insecure_context = ssl._create_unverified_context()
-            with request.urlopen(req, timeout=APIFY_TIMEOUT_SECS + 10, context=insecure_context) as response:
-                return response.read(), response.headers.get_content_type() or "image/jpeg"
-        raise
+    opener = build_opener(allow_redirects=False, insecure_ssl=False)
+    with opener.open(req, timeout=APIFY_TIMEOUT_SECS + 10) as response:
+        content_length = response.headers.get("Content-Length")
+        if content_length and safe_int(content_length, default=MAX_PROXY_IMAGE_BYTES + 1) > MAX_PROXY_IMAGE_BYTES:
+            raise AnalyzeError(HTTPStatus.BAD_GATEWAY, "Profil görseli çok büyük.")
+
+        body = response.read(MAX_PROXY_IMAGE_BYTES + 1)
+        if len(body) > MAX_PROXY_IMAGE_BYTES:
+            raise AnalyzeError(HTTPStatus.BAD_GATEWAY, "Profil görseli çok büyük.")
+
+        content_type = response.headers.get_content_type() or "application/octet-stream"
+        if not content_type.startswith("image/"):
+            raise AnalyzeError(HTTPStatus.BAD_GATEWAY, "Upstream içerik görsel değil.")
+        return body, content_type
+
+
+def normalize_request_path(raw_path: str) -> str | None:
+    decoded = unquote(urlparse(raw_path).path or "/")
+    if "\x00" in decoded:
+        return None
+
+    normalized = posixpath.normpath(decoded)
+    if decoded.endswith("/") and normalized != "/":
+        normalized = f"{normalized}/"
+    if not normalized.startswith("/"):
+        normalized = f"/{normalized}"
+
+    parts = [part for part in normalized.split("/") if part not in ("", ".")]
+    if any(part == ".." or part.startswith(".") for part in parts):
+        return None
+    return "/" + "/".join(parts) if parts else "/"
+
+
+def is_public_path(path: str) -> bool:
+    if path in PUBLIC_FILE_PATHS:
+        return True
+    return any(path.startswith(prefix) and path != prefix for prefix in PUBLIC_DIR_PREFIXES)
+
+
+def is_origin_allowed(origin: str) -> bool:
+    return origin in ALLOWED_ORIGINS
+
+
+def get_allowed_origin_header(origin: str | None) -> str | None:
+    if not origin:
+        return None
+    if is_origin_allowed(origin):
+        return origin
+    return None
+
+
+def get_rate_limit_key(handler: "AppHandler") -> str:
+    return handler.client_address[0]
+
+
+def consume_rate_limit(handler: "AppHandler") -> int | None:
+    now = time.time()
+    key = get_rate_limit_key(handler)
+
+    with _rate_limit_lock:
+        active = [ts for ts in _rate_limit_events.get(key, []) if now - ts < RATE_LIMIT_WINDOW_SECS]
+        if len(active) >= RATE_LIMIT_MAX_REQUESTS:
+            retry_after = max(1, int(RATE_LIMIT_WINDOW_SECS - (now - active[0])))
+            _rate_limit_events[key] = active
+            return retry_after
+        active.append(now)
+        _rate_limit_events[key] = active
+        return None
+
+
+def clear_rate_limit_state() -> None:
+    with _rate_limit_lock:
+        _rate_limit_events.clear()
+
+
+def is_allowed_image_host(host: str) -> bool:
+    return any(host == allowed or host.endswith(f".{allowed}") for allowed in IMAGE_PROXY_ALLOWED_HOSTS)
 
 
 def apify_request(username: str) -> dict[str, Any]:
@@ -862,18 +1013,32 @@ def build_analysis(username: str) -> dict[str, Any]:
     }
 
 
-def json_response(handler: "AppHandler", status: int, payload: dict[str, Any]) -> None:
+def json_response(
+    handler: "AppHandler",
+    status: int,
+    payload: dict[str, Any],
+    *,
+    extra_headers: dict[str, str] | None = None,
+) -> None:
     raw = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     handler.send_response(status)
     handler.send_header("Content-Type", "application/json; charset=utf-8")
     handler.send_header("Content-Length", str(len(raw)))
     handler.send_header("Cache-Control", "no-store")
-    handler.send_header("Access-Control-Allow-Origin", "*")
+    for header, value in (extra_headers or {}).items():
+        handler.send_header(header, value)
+    origin = get_allowed_origin_header(handler.headers.get("Origin"))
+    if origin:
+        handler.send_header("Access-Control-Allow-Origin", origin)
+        handler.send_header("Vary", "Origin")
     handler.end_headers()
     handler.wfile.write(raw)
 
 
 class AppHandler(SimpleHTTPRequestHandler):
+    server_version = "Veridia"
+    sys_version = ""
+
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, directory=str(ROOT), **kwargs)
 
@@ -883,27 +1048,57 @@ class AppHandler(SimpleHTTPRequestHandler):
             self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
             self.send_header("Pragma", "no-cache")
             self.send_header("Expires", "0")
+        for header, value in SECURITY_HEADERS.items():
+            self.send_header(header, value)
         super().end_headers()
 
     def do_OPTIONS(self) -> None:
+        if normalize_request_path(self.path) != "/api/analyze-instagram":
+            self.send_error(HTTPStatus.NOT_FOUND)
+            return
+
+        origin = self.headers.get("Origin")
+        if origin and not is_origin_allowed(origin):
+            self.send_error(HTTPStatus.FORBIDDEN, "Bu origin icin izin yok.")
+            return
+
         self.send_response(HTTPStatus.NO_CONTENT)
-        self.send_header("Access-Control-Allow-Origin", "*")
+        allowed_origin = get_allowed_origin_header(origin)
+        if allowed_origin:
+            self.send_header("Access-Control-Allow-Origin", allowed_origin)
+            self.send_header("Vary", "Origin")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
+        self.send_header("Access-Control-Max-Age", "600")
         self.end_headers()
 
     def do_GET(self) -> None:
         parsed = urlparse(self.path)
-        if parsed.path == "/api/profile-image":
+        normalized_path = normalize_request_path(self.path)
+        if normalized_path is None:
+            self.send_error(HTTPStatus.NOT_FOUND)
+            return
+
+        if normalized_path == "/api/profile-image":
             self.handle_profile_image_proxy(parsed.query)
             return
 
-        if parsed.path in ("/", "/index.html", "/asdfadsf.html"):
+        if normalized_path == "/":
+            self.path = "/index.html"
+            super().do_GET()
+            return
+
+        if normalized_path in ("/index.html", "/asdfadsf.html", "/veridia-ajans.html"):
             self.send_response(HTTPStatus.MOVED_PERMANENTLY)
-            self.send_header("Location", "/veridia-ajans.html")
+            self.send_header("Location", "/")
             self.end_headers()
             return
 
+        if not is_public_path(normalized_path):
+            self.send_error(HTTPStatus.NOT_FOUND)
+            return
+
+        self.path = normalized_path
         super().do_GET()
 
     def handle_profile_image_proxy(self, query: str) -> None:
@@ -913,10 +1108,14 @@ class AppHandler(SimpleHTTPRequestHandler):
             self.send_error(HTTPStatus.BAD_REQUEST, "Image source is required.")
             return
 
-        host = (urlparse(src).hostname or "").lower()
-        allowed_hosts = ("cdninstagram.com", "fbcdn.net")
-        if not any(host.endswith(allowed) for allowed in allowed_hosts):
-            self.send_error(HTTPStatus.BAD_REQUEST, "Desteklenmeyen görsel kaynağı.")
+        parsed = urlparse(src)
+        if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
+            self.send_error(HTTPStatus.BAD_REQUEST, "Gecersiz gorsel kaynagi.")
+            return
+
+        host = parsed.hostname.lower()
+        if not is_allowed_image_host(host):
+            self.send_error(HTTPStatus.BAD_REQUEST, "Desteklenmeyen gorsel kaynagi.")
             return
 
         try:
@@ -927,23 +1126,49 @@ class AppHandler(SimpleHTTPRequestHandler):
             self.send_header("Cache-Control", "public, max-age=3600")
             self.end_headers()
             self.wfile.write(body)
+        except AnalyzeError as exc:
+            self.send_error(exc.status, "Image proxy rejected upstream response.")
         except error.HTTPError as exc:
             self.send_error(exc.code, "Upstream image fetch failed.")
         except error.URLError as exc:
-            self.send_error(HTTPStatus.BAD_GATEWAY, f"Image proxy failed: {exc.reason}")
+            self.send_error(HTTPStatus.BAD_GATEWAY, "Image proxy failed.")
 
     def do_POST(self) -> None:
-        if self.path != "/api/analyze-instagram":
+        if normalize_request_path(self.path) != "/api/analyze-instagram":
             self.send_error(HTTPStatus.NOT_FOUND)
             return
 
         try:
-            length = int(self.headers.get("Content-Length", "0"))
+            if not INSTAGRAM_ANALYSIS_ENABLED:
+                raise AnalyzeError(HTTPStatus.SERVICE_UNAVAILABLE, "Instagram analiz araci su an kapali.")
+
+            origin = self.headers.get("Origin")
+            if origin and not is_origin_allowed(origin):
+                raise AnalyzeError(HTTPStatus.FORBIDDEN, "Bu origin icin izin yok.")
+
+            content_type = self.headers.get("Content-Type", "")
+            if "application/json" not in content_type:
+                raise AnalyzeError(HTTPStatus.UNSUPPORTED_MEDIA_TYPE, "Istek JSON olmalidir.")
+
+            length = safe_int(self.headers.get("Content-Length", "0"), default=0)
+            if length > MAX_REQUEST_BODY_BYTES:
+                raise AnalyzeError(HTTPStatus.REQUEST_ENTITY_TOO_LARGE, "Istek govdesi cok buyuk.")
+
+            retry_after = consume_rate_limit(self)
+            if retry_after is not None:
+                json_response(
+                    self,
+                    HTTPStatus.TOO_MANY_REQUESTS,
+                    {"ok": False, "error": "Cok fazla istek gonderildi. Lutfen daha sonra tekrar deneyin."},
+                    extra_headers={"Retry-After": str(retry_after)},
+                )
+                return
+
             payload = json.loads(self.rfile.read(length).decode("utf-8") or "{}")
             username = str(payload.get("username", "")).strip().lstrip("@")
             if not username:
                 raise AnalyzeError(HTTPStatus.BAD_REQUEST, "Instagram kullanici adi gerekli.")
-            if not username.replace(".", "").replace("_", "").isalnum():
+            if len(username) > 30 or not username.replace(".", "").replace("_", "").isalnum():
                 raise AnalyzeError(HTTPStatus.BAD_REQUEST, "Gecersiz Instagram kullanici adi.")
             result = build_analysis(username)
             json_response(self, HTTPStatus.OK, {"ok": True, "data": result})
@@ -952,7 +1177,40 @@ class AppHandler(SimpleHTTPRequestHandler):
         except json.JSONDecodeError:
             json_response(self, HTTPStatus.BAD_REQUEST, {"ok": False, "error": "Geçersiz JSON gönderildi."})
         except Exception as exc:  # noqa: BLE001
-            json_response(self, HTTPStatus.INTERNAL_SERVER_ERROR, {"ok": False, "error": f"Beklenmeyen hata: {exc}"})
+            logger.exception("Unexpected error while handling Instagram analysis")
+            json_response(
+                self,
+                HTTPStatus.INTERNAL_SERVER_ERROR,
+                {"ok": False, "error": "Beklenmeyen bir sunucu hatasi olustu."},
+            )
+
+    def do_HEAD(self) -> None:
+        normalized_path = normalize_request_path(self.path)
+        if normalized_path is None:
+            self.send_error(HTTPStatus.NOT_FOUND)
+            return
+
+        if normalized_path == "/":
+            self.path = "/index.html"
+            super().do_HEAD()
+            return
+
+        if normalized_path in ("/index.html", "/asdfadsf.html", "/veridia-ajans.html"):
+            self.send_response(HTTPStatus.MOVED_PERMANENTLY)
+            self.send_header("Location", "/")
+            self.end_headers()
+            return
+
+        if not is_public_path(normalized_path):
+            self.send_error(HTTPStatus.NOT_FOUND)
+            return
+
+        self.path = normalized_path
+        super().do_HEAD()
+
+    def list_directory(self, path: str) -> Any:
+        self.send_error(HTTPStatus.NOT_FOUND)
+        return None
 
     def log_message(self, format: str, *args: Any) -> None:
         print(f"[{self.log_date_time_string()}] {format % args}")
