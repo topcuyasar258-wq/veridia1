@@ -15,6 +15,8 @@ class SeoSmokeTests(unittest.TestCase):
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("https://veridia.com.tr/", sitemap)
         self.assertIn("https://veridia.com.tr/blog/b2b-pazarlamada-donusum-hunisi.html", sitemap)
+        self.assertIn("https://veridia.com.tr/blog/instagram-algoritmasi-2026.html", sitemap)
+        self.assertIn("https://veridia.com.tr/blog/b2b-donusum-hunisi.html", sitemap)
         self.assertIn("https://veridia.com.tr/gizlilik-politikasi.html", sitemap)
         self.assertIn("https://veridia.com.tr/kvkk-aydinlatma-metni.html", sitemap)
         self.assertNotIn("127.0.0.1", sitemap)
@@ -29,35 +31,38 @@ class SeoSmokeTests(unittest.TestCase):
 
     def test_article_pages_have_canonical_and_schema(self) -> None:
         article_paths = [
-            ROOT / "blog" / "instagram-algoritmasi.html",
-            ROOT / "blog" / "b2b-pazarlamada-donusum-hunisi.html",
+            ROOT / "blog" / "instagram-algoritmasi-2026.html",
+            ROOT / "blog" / "b2b-donusum-hunisi.html",
         ]
         for article_path in article_paths:
             content = article_path.read_text(encoding="utf-8")
             self.assertIn('<link rel="canonical"', content)
-            self.assertIn('"@type": "BlogPosting"', content)
+            self.assertIn('"@type": "Article"', content)
             self.assertIn('meta property="og:type" content="article"', content)
             self.assertIn("veridia-social-cover.png", content)
             self.assertIn('rel="icon"', content)
 
     def test_homepage_has_service_catalog_and_visible_service_copy(self) -> None:
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn('"@type": "OfferCatalog"', homepage)
-        self.assertIn("Marka Stratejisi ve Konumlandırma", homepage)
+        self.assertIn('"@type": "ItemList"', homepage)
+        self.assertIn("Marka Stratejisi", homepage)
         self.assertIn('class="services-detail-grid"', homepage)
-        self.assertIn('href="https://veridia.com.tr/"', homepage)
+        self.assertIn('rel="canonical" href="https://veridia.com.tr"', homepage)
         self.assertIn("veridia-social-cover.png", homepage)
+        self.assertIn("assets/config.js", homepage)
+        self.assertIn("quoteValidationError", homepage)
         self.assertIn('rel="icon"', homepage)
         self.assertNotIn("Marka e-postası bu aşamada doğrulanmadı", homepage)
         self.assertNotIn("APIFY_TOKEN", homepage)
         self.assertNotIn("python3 server.py", homepage)
         self.assertNotIn('href="#contact">Instagram</a>', homepage)
 
-    def test_index_redirect_is_single_path_and_root_canonical(self) -> None:
+    def test_homepage_source_is_canonical_root_document(self) -> None:
         index = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn('http-equiv="refresh"', index)
+        self.assertNotIn('http-equiv="refresh"', index)
         self.assertNotIn("window.location.replace", index)
-        self.assertIn('rel="canonical" href="https://veridia.com.tr/"', index)
+        self.assertIn('rel="canonical" href="https://veridia.com.tr"', index)
+        self.assertIn("<title>Veridia Ajans", index)
 
     def test_legal_pages_exist_and_link_back_to_site(self) -> None:
         for page_name in ("gizlilik-politikasi.html", "kvkk-aydinlatma-metni.html"):

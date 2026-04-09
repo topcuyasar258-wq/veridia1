@@ -4,7 +4,24 @@ import os
 import re
 import sys
 from datetime import datetime
+from pathlib import Path
 
+
+ROOT = Path(__file__).resolve().parent
+
+
+def load_dotenv(path: Path) -> None:
+    if not path.exists():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#") or "=" not in stripped:
+            continue
+        key, value = stripped.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
+load_dotenv(ROOT / ".env")
 
 SITE_URL = (os.environ.get("SITE_URL", "https://veridia.com.tr").strip() or "https://veridia.com.tr").rstrip("/")
 OG_IMAGE_URL = f"{SITE_URL}/assets/veridia-social-cover.png"

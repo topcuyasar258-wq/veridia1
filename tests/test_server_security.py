@@ -30,10 +30,12 @@ class ServerSecurityTests(unittest.TestCase):
         *,
         body: bytes | None = None,
         headers: dict[str, str] | None = None,
+        follow_redirects: bool = True,
     ) -> tuple[int, bytes, dict[str, str]]:
         req = request.Request(f"{self.base_url}{path}", data=body, headers=headers or {}, method=method)
+        opener = request.build_opener() if follow_redirects else request.build_opener(server.NoRedirectHandler())
         try:
-            with request.urlopen(req, timeout=5) as response:
+            with opener.open(req, timeout=5) as response:
                 return response.status, response.read(), dict(response.headers.items())
         except error.HTTPError as exc:
             body = exc.read()
@@ -52,6 +54,13 @@ class ServerSecurityTests(unittest.TestCase):
                 status, body, _ = self.http_request("GET", path)
                 self.assertEqual(status, HTTPStatus.OK)
                 self.assertIn("Veridia", body.decode("utf-8"))
+
+    def test_legacy_homepage_paths_redirect_to_root(self) -> None:
+        for path in ("/index.html", "/asdfadsf.html", "/veridia-ajans.html"):
+            with self.subTest(path=path):
+                status, _, headers = self.http_request("GET", path, follow_redirects=False)
+                self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                self.assertEqual(headers.get("Location"), "/")
 
     def test_sensitive_files_and_internal_paths_are_not_public(self) -> None:
         for path in ("/.env", "/.git/HEAD", "/analysis_snapshots.sqlite3", "/server.py", "/automation/README.md"):
@@ -111,6 +120,36 @@ class ServerSecurityTests(unittest.TestCase):
 
         self.assertEqual(first_status, HTTPStatus.OK)
         self.assertEqual(second_status, HTTPStatus.TOO_MANY_REQUESTS)
+
+    def test_analysis_endpoint_uses_forwarded_client_ip_from_trusted_proxy(self) -> None:
+        with ExitStack() as stack:
+            stack.enter_context(mock.patch.object(server, "INSTAGRAM_ANALYSIS_ENABLED", True, create=True))
+            stack.enter_context(mock.patch.object(server, "RATE_LIMIT_MAX_REQUESTS", 1, create=True))
+            stack.enter_context(mock.patch.object(server, "RATE_LIMIT_WINDOW_SECS", 60, create=True))
+            stack.enter_context(mock.patch.object(server, "TRUSTED_PROXY_IPS", frozenset({"127.0.0.1"}), create=True))
+            stack.enter_context(mock.patch.object(server, "build_analysis", return_value={"ok": True}))
+
+            first_status, _, _ = self.http_request(
+                "POST",
+                "/api/analyze-instagram",
+                body=json.dumps({"username": "veridia"}).encode("utf-8"),
+                headers={
+                    "Content-Type": "application/json",
+                    "X-Forwarded-For": "198.51.100.10",
+                },
+            )
+            second_status, _, _ = self.http_request(
+                "POST",
+                "/api/analyze-instagram",
+                body=json.dumps({"username": "veridia"}).encode("utf-8"),
+                headers={
+                    "Content-Type": "application/json",
+                    "X-Forwarded-For": "203.0.113.77",
+                },
+            )
+
+        self.assertEqual(first_status, HTTPStatus.OK)
+        self.assertEqual(second_status, HTTPStatus.OK)
 
     def test_profile_image_proxy_rejects_lookalike_domains(self) -> None:
         with mock.patch.object(server, "fetch_binary_url", return_value=(b"ok", "image/png")):

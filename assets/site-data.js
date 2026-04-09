@@ -1,0 +1,446 @@
+/* Veridia Site Data - Extracted for modularity and maintainability */
+
+const serviceDetails = {
+  'marka-stratejisi': {
+    number: '01',
+    code: 'STRATA',
+    kicker: 'Sinyal Mimarisi',
+    title: 'Marka Stratejisi',
+    summary: 'Markanın piyasadaki yerini, neden seçileceğini ve tüm temas noktalarında hangi tonda konuşacağını netleştiren stratejik omurgayı kuruyoruz.',
+    story: 'İlk aşamada kategori, rakip ve hedef kitle sinyallerini okuyor; ardından markanın vaadini, ayrışma alanını ve mesaj düzenini tek bir karar çerçevesine bağlıyoruz. Böylece sosyal medya, reklam, web ve satış dili birbirinden kopuk değil, aynı stratejinin devamı oluyor.',
+    pills: ['Konumlandırma', 'Mesaj Omurgası', 'Rakip Haritası', 'Lansman Planı'],
+    stats: [
+      { label: 'Odak', value: 'Net', note: 'Marka ne söylüyor, kime söylüyor ve neden seçiliyor sorularını berraklaştırır.' },
+      { label: 'Çıktı', value: '360°', note: 'Web, reklam, sosyal medya ve ekip içi kullanım için ortak karar sistemi üretir.' },
+      { label: 'Tempo', value: '2-4 Hafta', note: 'Marka derinliğine göre yoğun bir strateji sprinti ile ilerler.' }
+    ],
+    deliverables: [
+      'Konumlandırma ve kategori ayrışma haritası',
+      'Mesaj çerçevesi, slogan yönleri ve ton rehberi',
+      'Hedef kitle segmentleri ve karar tetikleyicileri',
+      'İlk 90 gün için kanal ve içerik öncelik planı'
+    ],
+    gallery: [
+      { title: 'Yeni Marka', copy: 'Piyasaya yeni çıkan markalarda anlatının dağılmasını engeller.' },
+      { title: 'Yenileme', copy: 'Büyümüş ama dili eskimiş markalarda yeniden netlik sağlar.' },
+      { title: 'Kanal Senkronu', copy: 'Reklam, sosyal medya ve web copysinin aynı vaatte buluşmasını sağlar.' }
+    ],
+    next: 'Bu temel kurulduğunda sonraki sosyal medya, reklam ve içerik üretimi işleri çok daha hızlı ve tutarlı ilerler.',
+    gradient: 'linear-gradient(135deg, rgba(96,176,255,0.88), rgba(61,26,74,0.92))'
+  },
+  'sosyal-medya': {
+    number: '02',
+    code: 'SOCIAL OS',
+    kicker: 'İçerik Nabzı',
+    title: 'Sosyal Medya',
+    summary: 'Instagram, TikTok, X ve LinkedIn için tekrar eden, ölçülebilir ve markayı görünür kılan içerik ritmini kuruyoruz.',
+    story: 'Burada amaç sadece paylaşım yapmak değil; markanın akış içinde tanınır hale gelmesini sağlamak. İçerik sütunlarını, haftalık yayın temposunu, topluluk etkileşimini ve performans geri bildirimlerini tek editoryal sistem altında topluyoruz.',
+    pills: ['İçerik Takvimi', 'Topluluk Yönetimi', 'Raporlama', 'Platform Uyumu'],
+    stats: [
+      { label: 'Ritim', value: 'Sürekli Aktif', note: 'Marka belirli kampanya dönemleri dışında da görünür kalır.' },
+      { label: 'Format', value: 'Çoklu', note: 'Reels, carousel, story ve statik içerikler aynı sistemde planlanır.' },
+      { label: 'Takip', value: 'Haftalık', note: 'Neyin çalıştığı düzenli okunur ve içerik omurgası güncellenir.' }
+    ],
+    deliverables: [
+      'Aylık içerik omurgası ve yayın takvimi',
+      'Platform bazlı format önerileri ve içerik brifleri',
+      'Yorum, DM ve topluluk ton rehberi',
+      'Performans raporu ve sonraki ay optimizasyon planı'
+    ],
+    gallery: [
+      { title: 'Lansman Dönemi', copy: 'Yeni ürün veya kampanya haftalarında görünürlüğü ritimli biçimde büyütür.' },
+      { title: 'Topluluk', copy: 'Takipçiyi sadece izleyen değil tepki veren ve geri dönen kitleye dönüştürür.' },
+      { title: 'Marka Hafızası', copy: 'Renk, dil ve içerik yapısını tekrar ederek akılda kalıcılığı artırır.' }
+    ],
+    next: 'Düzenli içerik akışı, reklam kreatiflerinin ve içerik üretici iş birliklerinin de daha verimli çalışmasını sağlar.',
+    gradient: 'linear-gradient(135deg, rgba(92,214,185,0.84), rgba(18,20,24,0.95))'
+  },
+  'reklam-kampanyalari': {
+    number: '03',
+    code: 'PERF GRID',
+    kicker: 'Ücretli Medya Sinyali',
+    title: 'Reklam Kampanyaları',
+    summary: 'Meta, Google ve TikTok üzerinde bütçeyi kontrollü büyüten; kreatif, hedefleme ve açılış sayfası deneyimini birlikte optimize eden kampanya sistemi kuruyoruz.',
+    story: 'Sadece reklam açıp sonucu beklemiyoruz. Kampanya mimarisini hedefe göre ayırıyor, teklif açısını netleştiriyor, kreatif test düzeni kuruyor ve açılış sayfası ile reklam vaadini aynı çizgiye getiriyoruz. Böylece daha temiz veriyle daha hızlı ölçekleme yapılabiliyor.',
+    pills: ['Meta Ads', 'Google Ads', 'Kreatif Testi', 'Açılış Sayfası Uyumu'],
+    stats: [
+      { label: 'Amaç', value: 'Büyüme', note: 'Lead, satış veya trafik hedefi için kampanya yapısı özel tasarlanır.' },
+      { label: 'Test', value: 'Hızlı', note: 'Kanca, format ve teklif varyasyonları kısa döngülerle elenir.' },
+      { label: 'Kontrol', value: 'Canlı', note: 'Bütçe ve performans sinyalleri düzenli okunur, kör harcama engellenir.' }
+    ],
+    deliverables: [
+      'Kampanya mimarisi ve hedef kitle segmentasyonu',
+      'Kreatif açı, copy ve CTA test planı',
+      'Açılış sayfası mesaj uyumu önerileri',
+      'Haftalık optimizasyon, bütçe kaydırma ve raporlama'
+    ],
+    gallery: [
+      { title: 'Lansman Reklamları', copy: 'Yeni ürün veya hizmet çıkışlarında ilk talebi hızlı toplar.' },
+      { title: 'Lead Gen', copy: 'Form, DM veya WhatsApp odaklı dönüşüm akışları için uygundur.' },
+      { title: 'E-Ticaret', copy: 'Katalog, yeniden hedefleme ve ölçekleme senaryolarına rahatça uyarlanır.' }
+    ],
+    next: 'Performans tarafı en iyi sonucu, net mesaj omurgası ve güçlü içerik havuzuyla birlikte çalıştığında verir.',
+    gradient: 'linear-gradient(135deg, rgba(216,171,83,0.88), rgba(28,28,30,0.94))'
+  },
+  'icerik-uretimi': {
+    number: '04',
+    code: 'MOTION LAB',
+    kicker: 'Görsel Akış Hızı',
+    title: 'İçerik Üretimi',
+    summary: 'Fotoğraf, video, reels ve story üretimini yalnızca estetik değil aynı zamanda performans hedeflerine hizmet edecek şekilde planlıyoruz.',
+    story: 'İçerik üretiminde mesele sadece güzel görünmek değil; markanın hangi duyguyu bırakacağına ve hangi aksiyonu tetikleyeceğine karar vermek. Çekim öncesi fikir geliştirme, sahne planı, format kırılımı ve yayın sonrası kullanım mantığını aynı paket içinde ele alıyoruz.',
+    pills: ['Video', 'Fotoğraf', 'Reels', 'Yaratıcı Yön'],
+    stats: [
+      { label: 'Üretim', value: 'Batch', note: 'Bir çekim gününden birden fazla platform için kullanılabilir içerik çıkarılır.' },
+      { label: 'Format', value: 'Short + Still', note: 'Kısa video ile statik içerik aynı görsel dil altında birleşir.' },
+      { label: 'Kullanım', value: 'Çoklu Kanal', note: 'Sosyal medya, reklam ve web için tekrar kullanılabilir materyal üretir.' }
+    ],
+    deliverables: [
+      'Konsept geliştirme, moodboard ve çekim planı',
+      'Reels, kısa video ve statik görsel üretimi',
+      'Hook, kapak ve kapanış varyasyonları',
+      'Yayın sonrası kullanım önerileri ve kreatif paketleme'
+    ],
+    gallery: [
+      { title: 'Ürün Çekimi', copy: 'Ürünü sıradan katalog görüntüsünden çıkarıp arzu nesnesine dönüştürür.' },
+      { title: 'Founder İçeriği', copy: 'Kurucu veya uzman yüzüyle güven ve hikaye katmanı ekler.' },
+      { title: 'Reklam Havuzu', copy: 'Performans ekiplerinin test edebileceği temiz kreatif stoğu oluşturur.' }
+    ],
+    next: 'İçerik üretimi tek seferlik değil, strateji ve medya planıyla bağlı bir yayın motoru olarak kurulduğunda çok daha güçlü sonuç verir.',
+    gradient: 'linear-gradient(135deg, rgba(197,106,132,0.9), rgba(61,26,74,0.92))'
+  },
+  'halkla-iliskiler': {
+    number: '05',
+    code: 'PR LINK',
+    kicker: 'Güven Ağı',
+    title: 'Halkla İlişkiler',
+    summary: 'Basın görünürlüğünü, iş birliklerini ve marka güvenini tek seferlik haberlerden çıkarıp sürdürülebilir bir itibar akışına dönüştürüyoruz.',
+    story: 'PR tarafında hedef sadece görünmek değil, doğru yerde görünmek. Marka hikayesini medyaya uygun hale getiriyor, iş birlikleri için temas alanları açıyor ve görünürlüğün satış ya da yatırım gibi daha büyük hedeflere nasıl bağlanacağını planlıyoruz.',
+    pills: ['Basın İlişkileri', 'İtibar Yönetimi', 'İş Birliği', 'Duyuru Planı'],
+    stats: [
+      { label: 'Etki', value: 'Güven', note: 'Markayı üçüncü taraf doğrulaması ile daha inandırıcı hale getirir.' },
+      { label: 'Zemin', value: 'Stratejik', note: 'Haber değeri olan açılar belirlenmeden görünürlük kovalanmaz.' },
+      { label: 'Alan', value: 'Medya + Event', note: 'Basın, iş birliği ve etkinlik temasları birlikte ele alınabilir.' }
+    ],
+    deliverables: [
+      'Medya anlatısı ve haberleşme açıları',
+      'Basın listesi, outreach planı ve takip akışı',
+      'Duyuru, etkinlik ve iş birliği iletişim kurgusu',
+      'Marka itibarı için temel kriz ve yanıt çerçevesi'
+    ],
+    gallery: [
+      { title: 'Lansman', copy: 'Yeni açılış, yatırım, koleksiyon veya ürün duyurularında ivme yaratır.' },
+      { title: 'Kurucu Profili', copy: 'Kurucuyu veya sözcüyü sektör içinde görünür kılmaya yardımcı olur.' },
+      { title: 'İtibar', copy: 'Görünürlüğün sadece erişim değil güven üretmesi gereken dönemlerde etkilidir.' }
+    ],
+    next: 'PR çalışmaları sosyal medya ve içerik planı ile bağlandığında markanın güven sinyali çok daha hızlı yayılır.',
+    gradient: 'linear-gradient(135deg, rgba(158,132,255,0.88), rgba(28,28,30,0.94))'
+  },
+  'influencer-pazarlama': {
+    number: '06',
+    code: 'CREATOR MESH',
+    kicker: 'İnsan Etkisi',
+    title: 'Influencer Pazarlama',
+    summary: 'Markayı doğru içerik üretici ağlarıyla gerçek topluluklara taşıyan; seçim, brief ve raporlamayı birlikte yöneten influencer sistemi kuruyoruz.',
+    story: 'Burada kritik nokta takipçi sayısı değil, güven transferi. Markaya uygun üretici segmentlerini seçiyor, içerik brieflerini fazla steril olmadan netleştiriyor, yayın takvimini kampanya akışına bağlıyor ve sonuçları görünürlükten satışa kadar birlikte okuyoruz.',
+    pills: ['Nano', 'Mikro', 'Makro', 'Üretici Brifi'],
+    stats: [
+      { label: 'Seçim', value: 'Uyumlu', note: 'Takipçi kitlesi, içerik tonu ve marka güveni birlikte değerlendirilir.' },
+      { label: 'Model', value: 'Katmanlı', note: 'Nano ve mikro üretici ağları çoğu zaman daha sağlıklı tekrar üretir.' },
+      { label: 'Ölçüm', value: 'Net', note: 'Kod, link ve içerik performansı üzerinden somut takip kurulabilir.' }
+    ],
+    deliverables: [
+      'Üretici kısa listesi, eşleştirme ve teklif yönetimi',
+      'Brief, onay ve yayın takvimi kurgusu',
+      'Kullanıcı içeriği ve reklam kullanım hakları planlaması',
+      'Performans özeti ve sonraki iş birliği önerileri'
+    ],
+    gallery: [
+      { title: 'Ürün Lansmanı', copy: 'Yeni çıkan ürünleri gerçek kullanım senaryoları ile yayar.' },
+      { title: 'Kullanıcı İçeriği Havuzu', copy: 'Reklam ve sosyal medya için tekrar kullanılabilecek doğal içerik üretir.' },
+      { title: 'Topluluk Güveni', copy: 'Marka söylemini üçüncü kişi deneyimi ile daha ikna edici hale getirir.' }
+    ],
+    next: 'İçerik üretici iş birlikleri en iyi sonucu, güçlü içerik yönü ve net teklif mesajı olan markalarda verir.',
+    gradient: 'linear-gradient(135deg, rgba(255,134,112,0.9), rgba(107,26,42,0.9))'
+  }
+};
+
+const portfolioProjects = {
+  'luna-cafe': {
+    kicker: 'Web Tasarım', client: 'Örnek Kafe Markası', title: 'Rezervasyon odakli premium web deneyimi',
+    summary: 'Butik bir kafe markasi icin marka tonunu dijitale tasiyan, mobilde hizli calisan ve masa rezervasyonu toplayan bir lansman sitesi kurgulandi.',
+    story: 'Mevcut sayfa yogun menuyu gosteriyor ama rezervasyona ilerlemiyordu. Akisi sadeledik, kahve deneyimini atmosfer odakli bir hikayeye cevirdik ve menuden once guven, mekan hissi ve CTA hiyerarsisini kurduk.',
+    pills: ['UX Audit', 'Mobil Oncelikli', 'Rezervasyon Akisi', 'Menu Sunumu'],
+    stats: [
+      { label: 'Odak', value: 'Rezervasyon', note: 'Web deneyimi kullaniciyi menuden once guven ve aksiyon alanina tasir.' },
+      { label: 'Kanal', value: 'Web + WhatsApp', note: 'Rezervasyon, lokasyon ve hizli iletisim ayni akista bulusturulur.' },
+      { label: 'Süreç', value: 'Tek Sprint', note: 'Strateji, tasarim ve yayina alma kompakt bir baslangic modeliyle ele alinir.' }
+    ],
+    deliverables: [
+      'Ana sayfa, menu, rezervasyon ve lokasyon sayfa kurgusu',
+      'Mobilde tek el kullanimina uygun rezervasyon akisi',
+      'Google Maps, WhatsApp ve sosyal kanal baglantilari',
+      'Acilis sonrasi davranis analizi ve CTA optimizasyonu'
+    ],
+    gallery: [
+      { title: 'Açılış Alanı', copy: 'Mekân atmosferini öne çıkarıp CTA’yı ilk ekranda sabitledik.' },
+      { title: 'Menü Kurgusu', copy: 'Kategori geçişleri ve popüler ürün vurguları sade bir yapıda toplandı.' },
+      { title: 'Rezervasyon', copy: 'Kullanici iki adimda masa talebi birakabilecek bir akis goruyor.' }
+    ],
+    next: 'Ayni model restoran, kafe ve deneyim mekanlari icin rezervasyon ve DM akislarini birlikte calisan bir sisteme donusturulebiliyor.',
+    gradient: 'linear-gradient(135deg, rgba(26,92,58,0.96), rgba(61,26,74,0.92))'
+  },
+  'novus-giyim': {
+    kicker: 'Sosyal Medya', client: 'Örnek D2C Moda Markası', title: 'Instagram icin koleksiyon odakli icerik sistemi',
+    summary: 'D2C bir moda markasi icin urun gostermekten fazlasini yapan, koleksiyon ritmi ve topluluk etkilesimini guclendiren bir Instagram operasyonu tasarlandi.',
+    story: 'Sorun icerigin estetik olmasina ragmen marka hafizasinin olusmamasi ve takipcinin urune neden simdi bakmasi gerektigini hissetmemesiydi. Koleksiyon cikislarini mini hikayelere bolduk, UGC ve backstage icerikleriyle satin alma niyetini besleyen bir tempo kurduk.',
+    pills: ['Feed Sistemi', 'Reels Planlama', 'UGC', 'Lansman Takvimi'],
+    stats: [
+      { label: 'Odak', value: 'Instagram Ritmi', note: 'Icerik akisi urun gostermekten cikarak koleksiyon hikayesine donusturulur.' },
+      { label: 'Model', value: 'UGC + Reels', note: 'Marka hafizasi ile satin alma niyetini ayni sistemde besleyen formatlar kullanilir.' },
+      { label: 'Zemin', value: 'D2C Lansman', note: 'Yeni urun cikislari ve topluluk etkilesimi tek editoryal plan altinda toplanir.' }
+    ],
+    deliverables: [
+      'Aylik icerik omurgasi ve lansman gunu posting planlari',
+      'Reels, carousel and story icin format kutuphanesi',
+      'Yorum and DM ton rehberi',
+      'Influencer and topluluk iceriklerinin editoryal sisteme baglanmasi'
+    ],
+    gallery: [
+      { title: 'Lansman Haftası', copy: 'Koleksiyon çıkış haftaları için geri sayım, açılış ve drop planları.' },
+      { title: 'Stil Kartları', copy: 'Kaydetmeye oynayan kombin önerileri ile akış ritmi kuruldu.' },
+      { title: 'Hikâye Hunisi', copy: 'Ürün merakı story’den ürün sayfasına taşındı.' }
+    ],
+    next: 'Bu yapi, e-ticaret markalarinda reklam kreatifleriyle ayni dilde calisacak sekilde buyutulebilir.',
+    gradient: 'linear-gradient(135deg, rgba(107,26,42,0.96), rgba(28,28,30,0.94))'
+  },
+  'aether-studio': {
+    kicker: 'Marka Kimligi', client: 'Örnek Yaratıcı Stüdyo', title: 'Yeni nesil yaratici studyoya tam kimlik sistemi',
+    summary: 'Yaratici bir studyo icin isimden tipografik dile kadar uzanan, dijital ve basili yuzeylere yayilabilen bir marka kimligi tasarlandi.',
+    story: 'Marka yetenekli gorunuyordu ama ayirt edici degildi. Konumlandirmayi rafine ettik, ses tonunu netlestirdik ve hem premium hem de deneysel okunabilecek moduler bir gorsel sistem kurduk.',
+    pills: ['Logo Sistemi', 'Tipografi', 'Marka Dili', 'Sunum Seti'],
+    stats: [
+      { label: 'Odak', value: 'Kimlik Sistemi', note: 'Markanin nasil gorunecegi ve nasil konusacagi tek bir dille toplanir.' },
+      { label: 'Süreç', value: '3 Asama', note: 'Kesif, yon and uygulama adimlari kontrollu sekilde ilerler.' },
+      { label: 'Çıktı', value: 'Dijital + Basili', note: 'Kimlik sadece logo degil, sunumdan sosyal medyaya uzanan kullanim setleriyle dusunulur.' }
+    ],
+    deliverables: [
+      'Logo ailesi, renk sistemi and tipografi kurallari',
+      'Marka anlatisi and ton of voice dokumani',
+      'Sosyal medya kapaklari and sunum sablonlari',
+      'Kartvizit, teklif dosyasi and landing page gorsel kitleri'
+    ],
+    gallery: [
+      { title: 'Logo Ailesi', copy: 'Ana imza, ikincil logo ve monogram kullanimi tanimlandi.' },
+      { title: 'Brand Deck', copy: 'Musteri sunumlari icin tek dilli bir anlatim sistemi hazirlandi.' },
+      { title: 'Uygulamalar', copy: 'Kimlik dijital ve fiziksel yuzeylerde orneklenerek teslim edildi.' }
+    ],
+    next: 'Bu tur kimlik projeleri sonrasinda web ve sosyal medya varliklari ayni marka ekseninde hizla devreye alinabiliyor.',
+    gradient: 'linear-gradient(135deg, rgba(61,26,74,0.95), rgba(26,92,58,0.88))'
+  },
+  'vetra-tech': {
+    kicker: 'Dijital Reklam', client: 'Örnek B2B SaaS Markası', title: 'Talep odakli Meta Ads sistemi',
+    summary: 'SaaS odakli bir teknoloji markasi icin daha ucuz degil daha nitelikli lead uretecek sekilde funnel ve kreatif yapisi yeniden kuruldu.',
+    story: 'Sorun sadece tiklama maliyeti degildi; demo talebine gelen kullanicilar urune uygun degildi. Mesaji yeniden konumlandirdik, teklif acisini daralttik ve farkli niyet seviyelerine gore ayri kreatif-sermaye dagilimi kurguladik.',
+    pills: ['Meta Ads', 'Lead Kalitesi', 'Funnel', 'Kreatif Test'],
+    stats: [
+      { label: 'Odak', value: 'Lead Kalitesi', note: 'Ucuz tiklama yerine dogru talebi getiren mesaj ve funnel kurgusu onceliklendirilir.' },
+      { label: 'Kanal', value: 'Meta Ads', note: 'Kreatif testleri, teklif acisi and landing uyumu ayni performans cercevesinde okunur.' },
+      { label: 'Yaklaşım', value: 'Funnel Ayrimi', note: 'Farkli niyet seviyeleri icin ayri reklam ve gecis katmanlari tasarlanir.' }
+    ],
+    deliverables: [
+      'Yeni kampanya mimarisi and audience segmentasyonu',
+      'Problem aware, solution aware and retargeting kreatifleri',
+      'Landing mesaj uyumu icin copy yenileme',
+      'Haftalik performans okuma and butce kaydirma modeli'
+    ],
+    gallery: [
+      { title: 'Top Funnel', copy: 'Sorunun acisini net gosteren video ve statik acilar test edildi.' },
+      { title: 'Mid Funnel', copy: 'Urune gecis yapan aciklayici kreatifler ile kalite sinyali toplandi.' },
+      { title: 'Retargeting', copy: 'Demo niyetini isitan net teklif ve referans mesajlari kullanildi.' }
+    ],
+    next: 'Ayni yapi LinkedIn destekli B2B kampanyalara veya Google search ile hibrit modele de genisletilebilir.',
+    gradient: 'linear-gradient(135deg, rgba(28,28,30,0.96), rgba(107,26,42,0.9))'
+  },
+  'mira-guzellik': {
+    kicker: 'Reels Operasyonu', client: 'Örnek Güzellik Markası', title: 'Goruntulenmeyi rezervasyona baglayan reels serisi',
+    summary: 'Bir guzellik merkezi icin viral gorunen ama ayni zamanda DM ve randevu akisi yaratan kisa video sistemi kurgulandi.',
+    story: 'Hedef sadece ulasim degildi; izleyicinin “ben de bunu istiyorum” demesiydi. Donusum anlarini etik bir dille kurguladik, uzmanlik bilgisini onceledik ve reels’leri story ile rezervasyon hunisine bagladik.',
+    pills: ['Reels', 'DM Funnel', 'Beauty Content', 'Story CTA'],
+    stats: [
+      { label: 'Odak', value: 'DM ve Randevu', note: 'Reels ve story akisi goruntulenmeden sonraki aksiyona gore planlanir.' },
+      { label: 'Format', value: 'Reels + Story', note: 'Kisa video serileri ile takipcinin sorulari and karar anlari birbirine baglanir.' },
+      { label: 'Dil', value: 'Uzmanlik + Güven', note: 'Estetik iddia, etik gorsel kullanim and uzman anlatimi ile dengelenir.' }
+    ],
+    deliverables: [
+      'Donusum odakli reels seri fikirleri and cekim senaryolari',
+      'Oncesi-sonrasi, uzman yorumu and bakim rutini formatlari',
+      'Story sticker and DM cevap akisi',
+      'Aylik performans bazli konu optimizasyonu'
+    ],
+    gallery: [
+      { title: 'Hook Yapisi', copy: 'Ilk 2 saniyede sonuc vaadini netlestiren acilis kurgulari.' },
+      { title: 'Uzmanlik', copy: 'Guven olusturan uzman tavsiyeleriyle estetik iddiayi dengeledik.' },
+      { title: 'CTA Kapanis', copy: 'Izleyiciyi DM veya rezervasyon kanalina dogal bicimde yonlendirdik.' }
+    ],
+    next: 'Bu model klinik, guzellik merkezi ve kisisel bakim markalarinda farkli alt hizmetlere gore ozellestirilebilir.',
+    gradient: 'linear-gradient(135deg, rgba(107,26,42,0.94), rgba(61,26,74,0.88))'
+  },
+  'oriel-aksesuar': {
+    kicker: 'E-Ticaret', client: 'Örnek Takı Markası', title: 'Sepete giden yolu kisaltan magazacilik kurgusu',
+    summary: 'Taki ve aksesuar odakli bir marka icin koleksiyon odakli, mobilde hizli ve sepet davranisini guclendiren bir e-ticaret deneyimi hazirlandi.',
+    story: 'Magaza guzel urunler tasiyordu ama karar vermeyi kolaylastirmiyordu. Koleksiyon hiyerarsisi, bundle mantigi and urun detay akisini yeniden ele alarak kullaniciyi daha az eforla sepete yaklastirdik.',
+    pills: ['E-Ticaret UX', 'Koleksiyon Mimarisi', 'Sepet Optimizasyonu', 'Mobil Hiz'],
+    stats: [
+      { label: 'Odak', value: 'Sepet Akisi', note: 'Koleksiyon yapisi and urun sayfasi kullaniciyi daha az eforla sepete yaklastirir.' },
+      { label: 'Zemin', value: 'Mobil Öncelik', note: 'Karar anlari, birlikte al and kampanya alanlari mobil davranisa gore kurgulanir.' },
+      { label: 'Model', value: 'Koleksiyon Tabanli', note: 'Magaza yapisi urun listesinden cikarak daha duzenli bir alisveris akisina doner.' }
+    ],
+    deliverables: [
+      'Ana sayfa, koleksiyon, urun and sepet deneyimi tasarimi',
+      'Upsell and birlikte al bloklari',
+      'Kampanya banner sistemi and indirim alanlari',
+      'Mobil performans and checkout akis iyilestirmeleri'
+    ],
+    gallery: [
+      { title: 'Collection Grid', copy: 'Karar yorgunlugunu azaltan sade koleksiyon yapisi kuruldu.' },
+      { title: 'PDP', copy: 'Urun detayinda guven, materyal ve kombin onerisi one alindi.' },
+      { title: 'Basket Logic', copy: 'Sepetten cikisi azaltan ek oneriler ve net maliyet gorunumu eklendi.' }
+    ],
+    next: 'E-ticaret projelerinde sosyal medya ve reklam kreatifleri ayni teklif acisina baglandiginda etki daha da buyuyor.',
+    gradient: 'linear-gradient(135deg, rgba(61,26,74,0.9), rgba(107,26,42,0.95))'
+  },
+  'solven': {
+    kicker: 'Yeniden Markalama', client: 'Örnek Kurumsal Hizmet Markası', title: 'Daginik algiyi tek sese donusturen yeniden marka',
+    summary: 'Kurumsal bir hizmet markasi icin farkli kanallara dagilmis gorsel dili toparlayan, daha premium ve daha net bir yeniden markalama projesi teslim edildi.',
+    story: 'Marka buyumustu ama gorunus ve ton eski kalmisti. Var olan kitlenin yabancilasmayacagi kadar tanidik, yeni hedef segmentin de ciddiye alacagi kadar rafine bir gecis tasarladik.',
+    pills: ['Yeniden Marka', 'Mesaj Yenileme', 'Görsel Sistem', 'Lansman Kiti'],
+    stats: [
+      { label: 'Odak', value: 'Yeniden Konumlama', note: 'Eski gorunum ve yeni hedef kitle arasindaki kopukluk kontrollu bicimde kapatilir.' },
+      { label: 'Süreç', value: 'Kontrollu Gecis', note: 'Marka degisimi bir anda degil, ana temas noktalarina yayilan planla uygulanir.' },
+      { label: 'Çıktı', value: 'Gecis Seti', note: 'Web, sunum, sosyal medya and temel marka varliklari ayni sistemde yenilenir.' }
+    ],
+    deliverables: [
+      'Yeni logo sistemi and marka kullanimi kurallari',
+      'Mesajlasma cercevesi and temel slogan yonleri',
+      'Web, sunum and sosyal kanal gecis assetleri',
+      'Lansman sonrasi marka tutarlilik kontrol listesi'
+    ],
+    gallery: [
+      { title: 'Eski ve Yeni', copy: 'Eski dil ile yeni sistem arasındaki geçiş mantığı netleştirildi.' },
+      { title: 'Messaging', copy: 'Karmasik anlatim yerine daha net bir deger onermesi olusturuldu.' },
+      { title: 'Rollout', copy: 'Marka degisimi tum temas noktalarinda ayni anda hissedildi.' }
+    ],
+    next: 'Rebrand sonrasinda web, reklam and sosyal iceriklerin yeni tonla hizalanmasi en buyuk carpani yaratiyor.',
+    gradient: 'linear-gradient(135deg, rgba(28,28,30,0.94), rgba(26,92,58,0.86))'
+  },
+  'kova-fintech': {
+    kicker: 'Google Ads', client: 'Örnek Fintech Girişimi', title: 'Arama niyetine odaklanan Google Ads sistemi',
+    summary: 'Fintech odakli bir girisim icin search kampanyalari, anahtar kelime yapisi and acilis sayfasi dili birlikte optimize edilerek daha verimli bir edinim modeli kuruldu.',
+    story: 'Arama kampanyalari hacim aliyordu fakat maliyetler yuksekti. Anahtar kelimeleri niyete gore yeniden katmanladik, acik eslemeleri daralttik and landing copy’yi reklam sozuyle hizalayarak kalite puanini iyilestirdik.',
+    pills: ['Google Ads', 'Arama Niyeti', 'Açılış Sayfası Uyumu', 'CPA Düşürme'],
+    stats: [
+      { label: 'Odak', value: 'Arama Niyeti', note: 'Anahtar kelimeler and mesaj dili, daha net satin alma niyetine gore katmanlandirilir.' },
+      { label: 'Kanal', value: 'Google Ads', note: 'Search kampanyalari and landing sayfasi ayni teklif vaadi etrafinda toplanir.' },
+      { label: 'Yaklaşım', value: 'Landing Uyumu', note: 'Reklam sozu ile sayfa deneyimi arasindaki kopukluk kapatilarak daha temiz bir edinim modeli kurulur.' }
+    ],
+    deliverables: [
+      'Search kampanya yeniden yapilanmasi',
+      'Keyword cluster, negatif liste and teklif stratejisi',
+      'Açılış sayfası metni and CTA uyum revizyonları',
+      'Haftalik sorgu raporu and optimizasyon dongusu'
+    ],
+    gallery: [
+      { title: 'Keyword Map', copy: 'Arama niyeti segmentlere ayrilarak daha temiz bir yapi kuruldu.' },
+      { title: 'Ad Copy', copy: 'Basliklar and aciklamalar teklif vaadini daha net hale getirdi.' },
+      { title: 'Sayfa Uyumu', copy: 'Reklam sözü ile sayfa deneyimi arasındaki kopukluk kapatıldı.' }
+    ],
+    next: 'Bu model B2B lead generation and uygulama indirme kampanyalarina gore de uyarlanabilir.',
+    gradient: 'linear-gradient(135deg, rgba(107,26,42,0.9), rgba(61,26,74,0.92))'
+  }
+};
+
+const defaultPortfolioMetrics = [
+  { value: '+%00', label: 'Takipçi Artışı' },
+  { value: '0x', label: 'ROAS' },
+  { value: '0', label: 'Ay' }
+];
+
+const portfolioProjectMetrics = {
+  'luna-cafe': [{ value: '+42%', label: 'Rezervasyon Artışı' }, { value: '3.1x', label: 'Dönüşüm Oranı' }, { value: '2', label: 'Ay' }],
+  'novus-giyim': [{ value: '+67%', label: 'Takipçi Artışı' }, { value: '4.2x', label: 'Kaydetme Oranı' }, { value: '3', label: 'Ay' }],
+  'aether-studio': [{ value: '+54%', label: 'Inbound Talep' }, { value: '2.4x', label: 'Teklif Dönüşümü' }, { value: '2', label: 'Ay' }],
+  'vetra-tech': [{ value: '+31%', label: 'Lead Artışı' }, { value: '4.8x', label: 'ROAS' }, { value: '3', label: 'Ay' }],
+  'mira-guzellik': [{ value: '+72%', label: 'DM Artışı' }, { value: '5.1x', label: 'ROAS' }, { value: '2', label: 'Ay' }],
+  'oriel-aksesuar': [{ value: '+26%', label: 'Sepet Artışı' }, { value: '3.6x', label: 'ROAS' }, { value: '3', label: 'Ay' }],
+  'solven': [{ value: '+48%', label: 'Talep Artışı' }, { value: '2.1x', label: 'Teklif Oranı' }, { value: '4', label: 'Ay' }],
+  'kova-fintech': [{ value: '+29%', label: 'Lead Artışı' }, { value: '6.3x', label: 'ROAS' }, { value: '3', label: 'Ay' }]
+};
+
+const quoteSteps = [
+  {
+    key: 'service', tag: 'Adım 1 / 6', question: 'Hangi hizmet için teklif oluşturuyoruz?', multiple: true,
+    helper: 'En yakın ihtiyacınızı seçin; sistem kalan detayları buna göre adapte eder.',
+    options: [
+      { value: 'strategy', label: 'Marka Stratejisi', detail: 'Konumlandırma ve mesaj omurgası.' },
+      { value: 'social', label: 'Sosyal Medya', detail: 'Ritimli yayın ve topluluk yönetimi.' },
+      { value: 'performance', label: 'Performans Pazarlama', detail: 'Reklam, bütçe ve ölçekleme.' },
+      { value: 'content', label: 'İçerik Üretimi', detail: 'Reels, video ve görsel materyal.' },
+      { value: 'pr', label: 'Halkla İlişkiler', detail: 'Basın, medya ve güven sinyali.' }
+    ]
+  },
+  {
+    key: 'sector', tag: 'Adım 2 / 6', question: 'Hangi sektördesiniz?',
+    helper: 'Her sektörün rekabet yoğunluğu ve birim edinim maliyeti teklifi etkileyebilir.',
+    options: [
+      { value: 'saas', label: 'Teknoloji / SaaS', detail: 'B2B ve abonelik odaklı modeller.' },
+      { value: 'ecommerce', label: 'E-Ticaret / Perakende', detail: 'Ürün satışı ve koleksiyon odağı.' },
+      { value: 'service', label: 'Hizmet / Kurumsal', detail: 'Danışmanlık, gayrimenkul veya eğitim.' },
+      { value: 'lifestyle', label: 'Lifestyle / Mekan', detail: 'Güzellik, kafe, restoran veya sanat.' }
+    ]
+  },
+  {
+    key: 'scale', tag: 'Adım 3 / 6', question: 'Marka veya bütçe ölçeğiniz nedir?',
+    helper: 'Kapsamın derinliği ve operasyonel yük bu ölçeğe göre değişir.',
+    options: [
+      { value: 'early', label: 'Erken Aşama / Butik', detail: 'Hızlı başlangıç ve temel sistem kurulumu.' },
+      { value: 'growth', label: 'Büyüme Odaklı / Orta', detail: 'Düzenli ölçekleme ve hacim artışı.' },
+      { value: 'enterprise', label: 'Enterprise / Büyük', detail: 'Yoğun yönetim ve derinlemesine strateji.' }
+    ]
+  },
+  {
+    key: 'goal', tag: 'Adım 4 / 6', question: 'Öncelikli hedefiniz ne?',
+    helper: 'Bu alan fiyatı değil, ilk görüşmenin kapsam ve öncelik çerçevesini belirler.',
+    options: [
+      { value: 'lead', label: 'Lead / Başvuru', detail: 'Form, DM, randevu veya satış görüşmesi akışı.' },
+      { value: 'sales', label: 'Direkt Satış', detail: 'E-ticaret, kampanya dönüşümü ve ROAS takibi.' },
+      { value: 'awareness', label: 'Marka Bilinirliği', detail: 'Görünürlük, erişim ve akılda kalıcılık.' },
+      { value: 'launch', label: 'Lansman', detail: 'Yeni marka, ürün veya koleksiyon çıkışı.' }
+    ]
+  },
+  {
+    key: 'urgency', tag: 'Adım 5 / 6', question: 'Ne kadar hızlı başlamak istiyorsunuz?',
+    helper: 'Aciliyet düzeyi, başlangıç sprintinin yoğunluğunu ve teklif katsayısını etkiler.',
+    options: [
+      { value: 'planning', label: 'Planlama Aşaması', detail: 'Henüz karşılaştırma ve bütçe netleştirme safhası.' },
+      { value: 'week', label: 'Bu Hafta İçinde', detail: 'Standart hızlı başlangıç temposu.' },
+      { value: 'immediate', label: '48 Saat İçinde', detail: 'Hızlı onboarding ve öncelikli planlama gerekir.' }
+    ]
+  },
+  {
+    key: 'contactMode', tag: 'Adım 6 / 6', question: 'WhatsApp görüşmesinde bizi nasıl konumlayalım?',
+    helper: 'Bu seçim fiyatı değiştirmez; ilk mesaj özetinin tonunu düzenler.',
+    options: [
+      { value: 'decision', label: 'Karar Verici', detail: 'Teklif ve başlangıç takvimiyle direkt ilerleyelim.' },
+      { value: 'team', label: 'Takımla Değerlendiriyorum', detail: 'Karşılaştırmalı ve daha açıklayıcı özet verelim.' },
+      { value: 'collecting', label: 'Fiyat Topluyorum', detail: 'Kısa, net ve paket odaklı ilerleyelim.' },
+      { value: 'custom', label: 'Özel Senaryo', detail: 'Daha esnek kapsam ve özel çözüm vurgusu yapalım.' }
+    ]
+  }
+];
+
+const teamData = [
+  { name: 'Caner Yılmaz', role: 'Marka Stratejisti', bio: 'Pazar analizi and konumlandırma tarafında markanın büyüme omurgasını kurgular.' },
+  { name: 'Zeynep Kaçar', role: 'Performans Pazarlama', bio: 'Reklam bütçesini verimli büyüme sinyallerine dönüştüren optimizasyonları yönetir.' },
+  { name: 'Deniz Ak', role: 'Kreatif Direktör', bio: 'Marka dilini and görsel ritmi tüm kanallarda tutarlı bir estetikle birleştirir.' }
+];

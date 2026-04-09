@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /assets/config.js
+Disallow: /*.py$
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
 
 Sitemap: https://veridia.com.tr/sitemap.xml

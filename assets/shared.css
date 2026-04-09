@@ -59,6 +59,17 @@
     outline: 2px solid var(--gold);
     outline-offset: 3px;
   }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 
   /* ── SCROLL PROGRESS ── */
   .scroll-bar {
@@ -308,6 +319,34 @@
   .about-values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; margin-top: 3rem; }
   .value-item { display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--off-white); }
   .value-dot { width: 32px; height: 1px; background: var(--gold); display: block; margin-bottom: 0.3rem; }
+  .about-founder-note {
+    margin-top: 2.4rem;
+    padding: 1.8rem;
+    border: 1px solid rgba(201,168,76,0.12);
+    background:
+      radial-gradient(circle at top right, rgba(61,26,74,0.14), transparent 36%),
+      linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));
+  }
+  .about-founder-kicker {
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.9rem;
+  }
+  .about-founder-note h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 3.4vw, 2.45rem);
+    line-height: 1.15;
+    color: var(--off-white);
+    margin-bottom: 1rem;
+  }
+  .about-founder-note p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .about-founder-note p:last-child { margin-bottom: 0; }
 
   @media (max-width: 1100px) {
     #about { grid-template-columns: 1fr; }
@@ -317,6 +356,71 @@
     .about-deck:hover .card-2 { transform: rotate(-5deg) translateX(-60px) translateY(-30px); }
     .about-deck:hover .card-3 { transform: rotate(5deg) translateX(60px) translateY(-30px); }
     .about-deck:hover .card-4 { transform: rotate(10deg) translateX(120px) translateY(-10px); }
+  }
+
+  /* ── TEAM ── */
+  .team-section {
+    background:
+      radial-gradient(circle at top right, rgba(61,26,74,0.14), transparent 28%),
+      linear-gradient(180deg, var(--charcoal-mid) 0%, var(--charcoal) 100%);
+  }
+  .team-section-head {
+    max-width: 760px;
+    margin-bottom: 2.5rem;
+  }
+  .team-section-copy {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.12rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 2rem 1.7rem;
+    border: 1px solid var(--line-soft);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08)),
+      var(--surface-1);
+    box-shadow: var(--shadow-soft);
+  }
+  .team-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+  }
+  .placeholder-avatar {
+    border: 1px solid var(--line-strong);
+    background:
+      radial-gradient(circle at 30% 30%, var(--surface-strong), transparent 42%),
+      var(--surface-2);
+  }
+  .team-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    line-height: 1.05;
+    color: var(--off-white);
+    margin: 0;
+  }
+  .team-role {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0;
+  }
+  .team-bio {
+    font-size: 0.94rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin: 0;
   }
 
   /* ── SERVICES ── */
@@ -673,6 +777,38 @@
     flex-wrap: wrap;
     gap: 1rem;
   }
+  .services-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .services-trust-card {
+    padding: 1.3rem 1.35rem;
+    border: 1px solid rgba(201,168,76,0.12);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08)),
+      rgba(16,19,24,0.72);
+  }
+  .services-trust-kicker {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.7rem;
+  }
+  .services-trust-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    line-height: 1.1;
+    color: var(--off-white);
+    margin-bottom: 0.7rem;
+  }
+  .services-trust-card p {
+    font-size: 0.84rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
   .services-detail-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -943,6 +1079,14 @@
   .quote-step-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 0.9rem; }
   .quote-step-actions .btn-gold, .quote-step-actions .btn-outline { border: none; }
   .quote-selection-note { font-size: 0.76rem; line-height: 1.6; color: var(--text-muted); flex: 1 1 220px; }
+  .quote-validation-error {
+    display: none;
+    margin-top: 0.85rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #ef4444;
+  }
+  .quote-validation-error.active { display: block; }
 
   .quote-summary {
     margin-top: 1rem; display: none; grid-template-columns: 1.1fr 0.9fr; gap: 1px;
@@ -1531,6 +1675,32 @@
     text-transform: uppercase;
     color: var(--gold-light);
   }
+  .case-metrics {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 1px;
+    background: rgba(201,168,76,0.08);
+  }
+  .case-metrics .metric {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.2rem 1.3rem;
+    background: var(--charcoal);
+  }
+  .case-metrics .metric-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 0.95;
+    color: var(--gold);
+  }
+  .case-metrics .metric-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
   .portfolio-side-panel {
     padding: 1.5rem;
     display: grid;
@@ -1720,10 +1890,73 @@
   }
   .contact-cta .btn-gold,
   .contact-cta .btn-outline { min-width: 220px; text-align: center; }
+  .contact-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0 1.2rem;
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .contact-divider::before,
+  .contact-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(201,168,76,0.12);
+  }
+  .contact-form-shell {
+    padding: 1.35rem;
+    border: 1px solid rgba(201,168,76,0.12);
+    background: rgba(255,255,255,0.02);
+  }
+  .contact-form-shell .form-textarea { min-height: 150px; }
+  .contact-form-shell .form-submit {
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .contact-form-shell .btn-submit { min-width: 220px; }
+  .contact-form-shell .form-note { margin: 0; }
   .contact-faq {
     margin-top: clamp(2.5rem, 5vw, 4rem);
     display: grid;
     gap: 1rem;
+  }
+  .contact-fit {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    display: grid;
+    gap: 1rem;
+  }
+  .contact-fit .analysis-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid rgba(201,168,76,0.08);
+  }
+  .fit-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .fit-list {
+    list-style: none;
+    display: grid;
+    gap: 0.7rem;
+  }
+  .fit-list li {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    font-size: 0.8rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+  .fit-list li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 0.48rem;
+    margin-top: 0.42rem;
+    flex-shrink: 0;
   }
   .contact-faq .analysis-detail-grid {
     border-top: 1px solid rgba(201,168,76,0.08);
@@ -1737,6 +1970,13 @@
     }
     .services-intro { position: static; }
     .contact-info { gap: 2.25rem; }
+    .services-trust-grid,
+    .contact-fit .analysis-detail-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .team-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
   .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
