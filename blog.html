@@ -60,9 +60,30 @@
         body { padding-top: 8rem; }
         main { padding-bottom: 6rem; }
         .blog-header {
-            margin-bottom: 3rem;
-            padding: 0 4rem;
-            max-width: 980px;
+            margin: 2rem auto 4rem;
+            padding: 5rem 4rem;
+            max-width: 1100px;
+            background: linear-gradient(180deg, rgba(20, 30, 25, 0.6) 0%, rgba(15, 23, 20, 0) 100%);
+            border: 1px solid rgba(201,168,76,0.1);
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+        .blog-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(201,168,76,0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .blog-header-content {
+            position: relative;
+            z-index: 2;
         }
         .blog-title {
             font-family: 'Cormorant Garamond', serif;
@@ -70,7 +91,7 @@
             color: var(--off-white);
             margin-bottom: 1rem;
             line-height: 1.05;
-            max-width: 11ch;
+            max-width: 16ch;
         }
         .blog-subtitle {
             color: var(--text-muted);
@@ -247,15 +268,17 @@
 
 <main>
     <header class="blog-header">
-        <p class="section-label" style="text-transform:uppercase; letter-spacing:0.3em; color:var(--gold); font-size:0.68rem; margin-bottom:1rem;">Veridia Blog</p>
-        <h1 class="blog-title">Dijital Büyüme ve Pazarlama İçgörüleri</h1>
-        <p class="blog-subtitle">Instagram büyümesi, B2B talep yaratma, içerik sistemleri ve performans pazarlamasına dair uygulanabilir çerçeveler. Her yazı, ekiplerin daha net karar alması için kısa değil işlevli olacak şekilde hazırlanır.</p>
-        <p class="blog-subtitle" style="font-size:0.92rem; max-width:52ch; margin-bottom:1.25rem;">Editoryal not: Yeni rehberler düzenli takvimle yayımlanır ve her içerik Veridia Strateji Ekibi imzasıyla güncellenir.</p>
-        <div class="topic-strip" aria-label="Öne çıkan konular">
-            <a href="./#quote" class="topic-pill">Hızlı Teklif</a>
-            <a href="./#services" class="topic-pill">Performans Pazarlama</a>
-            <a href="./#contact" class="topic-pill">Manuel Ön Değerlendirme</a>
-            <a href="./#portfolio" class="topic-pill">Vaka İncelemeleri</a>
+        <div class="blog-header-content">
+            <p class="section-label" style="text-transform:uppercase; letter-spacing:0.3em; color:var(--gold); font-size:0.68rem; margin-bottom:1rem;">Veridia Blog</p>
+            <h1 class="blog-title" style="margin:0 auto 1.5rem; text-align:center;">Dijital Büyüme ve <br>Pazarlama İçgörüleri</h1>
+            <p class="blog-subtitle" style="margin:0 auto 1.25rem; text-align:center; max-width:65ch;">Instagram büyümesi, B2B talep yaratma, içerik sistemleri ve performans pazarlamasına dair uygulanabilir çerçeveler. Her yazı, ekiplerin daha net karar alması için kısa değil işlevli olacak şekilde hazırlanır.</p>
+            <p class="blog-subtitle" style="margin:0 auto 2rem; text-align:center; font-size:0.85rem; max-width:52ch; opacity:0.7;">Editoryal not: Yeni rehberler düzenli takvimle yayımlanır ve her içerik Veridia Strateji Ekibi imzasıyla güncellenir.</p>
+            <div class="topic-strip" aria-label="Öne çıkan konular" style="justify-content: center;">
+                <a href="./#quote" class="topic-pill">Hızlı Teklif</a>
+                <a href="./#services" class="topic-pill">Performans Pazarlama</a>
+                <a href="./#contact" class="topic-pill">Manuel Ön Değerlendirme</a>
+                <a href="./#portfolio" class="topic-pill">Vaka İncelemeleri</a>
+            </div>
         </div>
     </header>
 
