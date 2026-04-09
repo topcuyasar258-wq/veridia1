@@ -28,7 +28,7 @@ jobs:
       - name: Prepare static artifact
         run: |
           mkdir -p site
-          cp index.html veridia-ajans.html blog.html robots.txt sitemap.xml site/
+          cp *.html robots.txt sitemap.xml site/
           cp -R assets blog site/
           if [ -f CNAME ]; then cp CNAME site/CNAME; fi
           touch site/.nojekyll
