@@ -142,7 +142,7 @@
   /* ── HERO ── */
   #hero {
     min-height: 100vh; display: flex; align-items: center;
-    position: relative; overflow: hidden; padding: 0 4rem;
+    position: relative; overflow: hidden; padding: 7rem 4rem 0;
   }
   .hero-bg {
     position: absolute; inset: 0;
