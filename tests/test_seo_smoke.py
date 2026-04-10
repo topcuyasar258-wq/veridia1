@@ -64,6 +64,22 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn('rel="canonical" href="https://veridia.com.tr"', index)
         self.assertIn("<title>Veridia Ajans", index)
 
+    def test_body_internal_links_do_not_hardcode_production_domain(self) -> None:
+        paths = [
+            ROOT / "index.html",
+            ROOT / "blog.html",
+            ROOT / "404.html",
+            ROOT / "gizlilik-politikasi.html",
+            ROOT / "kvkk-aydinlatma-metni.html",
+            ROOT / "blog" / "instagram-algoritmasi-2026.html",
+            ROOT / "blog" / "b2b-donusum-hunisi.html",
+        ]
+        for path in paths:
+            with self.subTest(path=path.name):
+                content = path.read_text(encoding="utf-8")
+                body = content.split("<body", 1)[1]
+                self.assertNotIn('href="https://veridia.com.tr', body)
+
     def test_legal_pages_exist_and_link_back_to_site(self) -> None:
         for page_name in ("gizlilik-politikasi.html", "kvkk-aydinlatma-metni.html"):
             with self.subTest(page_name=page_name):

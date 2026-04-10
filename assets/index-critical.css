@@ -124,7 +124,7 @@ nav.scrolled {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 99;
+  z-index: 101;
   background: rgba(28,28,30,0.97);
   backdrop-filter: blur(16px);
   flex-direction: column;

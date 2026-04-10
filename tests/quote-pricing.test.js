@@ -62,3 +62,22 @@ test('rounds smaller quotes up to the next clean 500 TL step', () => {
 test('formats Turkish lira values without decimals', () => {
   assert.equal(formatTryCurrency(34500), '₺34.500');
 });
+
+test('accepts the homepage quote flow values without throwing', () => {
+  const quote = calculateQuickQuote({
+    services: ['strategy', 'social', 'pr'],
+    sector: 'saas',
+    scale: 'growth',
+    urgency: 'week',
+  });
+
+  assert.equal(quote.serviceCount, 3);
+  assert.deepEqual(quote.serviceLabels, [
+    'Marka Stratejisi',
+    'Sosyal Medya Yönetimi',
+    'Halkla İlişkiler',
+  ]);
+  assert.equal(quote.sectorLabel, 'Teknoloji / SaaS');
+  assert.equal(quote.scaleLabel, 'Büyüme Odaklı / Orta');
+  assert.equal(quote.finalPrice > 0, true);
+});

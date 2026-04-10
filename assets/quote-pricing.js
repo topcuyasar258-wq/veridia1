@@ -11,20 +11,28 @@
     minimumPrice: 15000,
     serviceBasePoints: Object.freeze({
       branding: 25,
+      strategy: 25,
       social: 30,
       performance: 25,
       content: 40,
+      pr: 20,
       influencer: 20,
     }),
     sectorMultipliers: Object.freeze({
       standard: 1.0,
+      service: 1.0,
       creative: 1.2,
+      ecommerce: 1.2,
+      lifestyle: 1.2,
       tech: 1.3,
+      saas: 1.3,
       beauty: 1.4,
     }),
     scaleMultipliers: Object.freeze({
       small: 0.8,
+      early: 0.8,
       medium: 1.0,
+      growth: 1.0,
       enterprise: 1.4,
     }),
     urgencyMultipliers: Object.freeze({
@@ -44,20 +52,28 @@
     labels: Object.freeze({
       services: Object.freeze({
         branding: 'Marka Stratejisi',
+        strategy: 'Marka Stratejisi',
         social: 'Sosyal Medya Yönetimi',
         performance: 'Reklam Kampanyaları',
         content: 'İçerik Üretimi',
+        pr: 'Halkla İlişkiler',
         influencer: 'Influencer Pazarlama',
       }),
       sectors: Object.freeze({
         standard: 'Standart Sektörler',
+        service: 'Hizmet / Kurumsal',
         creative: 'Kreatif / Moda',
+        ecommerce: 'E-Ticaret / Perakende',
+        lifestyle: 'Lifestyle / Mekan',
         tech: 'Teknoloji / SaaS',
+        saas: 'Teknoloji / SaaS',
         beauty: 'Sağlık / Güzellik',
       }),
       scales: Object.freeze({
         small: 'Küçük Ölçekli',
+        early: 'Erken Aşama / Butik',
         medium: 'Orta Ölçekli',
+        growth: 'Büyüme Odaklı / Orta',
         enterprise: 'Büyük / Kurumsal',
       }),
       urgencies: Object.freeze({

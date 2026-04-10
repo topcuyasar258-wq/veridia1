@@ -46,6 +46,24 @@ BENCHMARK_ERS = {
     "media": {"nano": 4.8, "micro": 3.7, "mid": 2.8, "macro": 2.0, "mega": 1.4},
 }
 
+PROFILE_TYPE_LABELS = {
+    "brand": "Marka Profili",
+    "creator": "İçerik Üreticisi",
+    "media": "Medya Profili",
+}
+ARCHETYPE_LABELS = {
+    "brand": "Marka",
+    "creator": "Creator",
+    "media": "Medya",
+}
+ACCOUNT_TIER_LABELS = {
+    "nano": "Nano",
+    "micro": "Micro",
+    "mid": "Mid",
+    "macro": "Macro",
+    "mega": "Mega",
+}
+
 EXPECTED_COMMENT_RATES = {"brand": 0.9, "creator": 1.2, "media": 1.0}
 TARGET_WEEKLY_POSTS = {"brand": 3.5, "creator": 4.5, "media": 5.5}
 
@@ -196,11 +214,11 @@ def compute_metrics(profile: dict[str, Any], history_depth: int) -> Metrics:
         avg_views=avg_views,
         benchmark_er=benchmark_er,
         benchmark_ratio=benchmark_ratio,
-        profile_type="", # Will be set in server.py
+        profile_type=PROFILE_TYPE_LABELS[archetype],
         profile_archetype=archetype,
-        profile_archetype_label="", # Will be set in server.py
+        profile_archetype_label=ARCHETYPE_LABELS[archetype],
         account_tier=account_tier,
-        account_tier_label="", # Will be set in server.py
+        account_tier_label=ACCOUNT_TIER_LABELS[account_tier],
         reels_share=round((content_counts["reel"] / tp) * 100),
         carousel_share=round((content_counts["carousel"] / tp) * 100),
         image_share=round((content_counts["image"] / tp) * 100),
