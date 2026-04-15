@@ -33,6 +33,10 @@
   --line-strong: rgba(45,106,79,0.28);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  margin: 0;
+  padding: 0;
+}
 html { scroll-behavior: smooth; }
 body {
   background: var(--charcoal);
