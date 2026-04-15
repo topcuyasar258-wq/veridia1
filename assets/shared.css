@@ -50,7 +50,10 @@
     margin: 0;
     padding: 0;
   }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    background: var(--charcoal);
+  }
   body {
     background: var(--charcoal);
     color: var(--off-white);
@@ -58,6 +61,13 @@
     overflow-x: hidden;
     cursor: none;
     transition: background 0.4s, color 0.4s;
+  }
+  [data-theme="light"] html {
+    background:
+      radial-gradient(circle at top left, rgba(154,122,32,0.16), transparent 24%),
+      radial-gradient(circle at 82% 12%, rgba(107,26,42,0.08), transparent 20%),
+      radial-gradient(circle at 72% 72%, rgba(26,92,58,0.08), transparent 22%),
+      linear-gradient(180deg, #f8f2ea 0%, #f1e9de 56%, #ebe0d1 100%);
   }
   a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
     outline: 2px solid var(--gold);
