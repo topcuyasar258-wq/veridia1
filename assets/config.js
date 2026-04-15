@@ -1,7 +1,8 @@
 const VERIDIA_CONFIG = Object.freeze({
   whatsapp: "905055174654",
   email: "hello@veridia.com.tr",
-  siteUrl: "https://veridia.com.tr"
+  siteUrl: "https://veridia.com.tr",
+  gaMeasurementId: "G-XXXXXXXXXX"
 });
 const WHATSAPP_NUMBER = VERIDIA_CONFIG.whatsapp;
 

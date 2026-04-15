@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>İstanbul Dijital Pazarlama Ajansı | Veridia</title>
+<title>Veridia Ajans | İstanbul Dijital Pazarlama Ajansı</title>
 <meta name="description" content="İstanbul'da marka stratejisi, sosyal medya ve reklam yönetimi için Veridia ile net süreç ve uygulanabilir büyüme planı alın.">
 <meta name="theme-color" content="#0a0a0f">
 <meta name="format-detection" content="telephone=no">
@@ -13,7 +13,7 @@
 <meta property="og:title" content="İstanbul Dijital Pazarlama Ajansı | Veridia">
 <meta property="og:description" content="İstanbul'da marka stratejisi, sosyal medya ve reklam yönetimi için Veridia ile net süreç ve uygulanabilir büyüme planı alın.">
 <meta property="og:image" content="https://veridia.com.tr/assets/veridia-social-cover.png">
-<meta property="og:url" content="https://veridia.com.tr/">
+<meta property="og:url" content="https://veridia.com.tr">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="Veridia">
@@ -25,23 +25,13 @@
 <meta name="twitter:description" content="İstanbul'da marka stratejisi, sosyal medya ve reklam yönetimi için Veridia ile net süreç ve uygulanabilir büyüme planı alın.">
 <meta name="twitter:image" content="https://veridia.com.tr/assets/veridia-social-cover.png">
 <meta name="twitter:site" content="@veridia">
-<link rel="canonical" href="https://veridia.com.tr/">
-<!-- SEO: Faster third-party connection setup for analytics -->
-<link rel="dns-prefetch" href="https://www.google-analytics.com">
-<link rel="dns-prefetch" href="https://www.googletagmanager.com">
-<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<link rel="canonical" href="https://veridia.com.tr">
 <!-- SEO: Preload homepage-critical assets -->
 <link rel="preload" href="./assets/veridia-social-cover.png" as="image">
-<link rel="preload" href="./assets/shared.css" as="style">
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  // TODO: Gerçek GA4 ölçüm ID'sini buraya gir
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
+<link rel="preload" href="./assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./assets/fonts.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -53,7 +43,7 @@
       "description": "İstanbul'da marka stratejisi, sosyal medya ve reklam yönetimi için net süreç ve uygulanabilir büyüme planı sunan dijital ajans.",
       "telephone": "+90-505-517-4654",
       "email": "hello@veridia.com.tr",
-      "url": "https://veridia.com.tr/",
+      "url": "https://veridia.com.tr",
       "priceRange": "₺₺",
       "address": {
         "@type": "PostalAddress",
@@ -144,7 +134,7 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Ana Sayfa",
-          "item": "https://veridia.com.tr/"
+            "item": "https://veridia.com.tr"
         }
       ]
     },
@@ -235,16 +225,19 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="preload" href="./assets/index-critical.css" as="style">
 <!-- SEO: Homepage critical CSS moved out of the document to reduce inline render-blocking -->
 <link rel="stylesheet" href="./assets/index-critical.css">
-<!-- SEO: Shared CSS is preloaded, then applied without lazy blocking on the homepage -->
-<link rel="stylesheet" href="./assets/shared.css">
-<script src="./assets/config.js"></script>
-<script src="./assets/site-data.js"></script>
+<!-- SEO: Shared homepage CSS is deferred because above-the-fold rules live in index-critical.css -->
+<link rel="preload" href="./assets/shared.css" as="style" data-deferred-style>
+<noscript><link rel="stylesheet" href="./assets/shared.css"></noscript>
+<script defer src="./assets/config.js"></script>
+<script defer src="./assets/analytics.js"></script>
+<script defer src="./assets/style-loader.js"></script>
+<script defer src="./assets/page-shell.js"></script>
+<script defer src="./assets/site-data.js"></script>
+<script defer src="./assets/quote-pricing.js"></script>
+<script defer src="./assets/home.js"></script>
 </head>
 <body>
 
@@ -254,29 +247,29 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <button class="menu-close" type="button" onclick="closeMobileMenu()" aria-label="Menuyu kapat">✕</button>
-  <a href="./blog.html">Blog</a>
-  <a href="./#about" onclick="closeMobileMenu()">Hakkımızda</a>
-  <a href="./#services" onclick="closeMobileMenu()">Hizmetler</a>
-  <a href="./#quote" onclick="closeMobileMenu()">Hızlı Teklif</a>
-  <a href="./#sectors" onclick="closeMobileMenu()">Sektörler</a>
-  <a href="./#portfolio" onclick="closeMobileMenu()">Portfolyo</a>
-  <a href="./#contact" onclick="closeMobileMenu()">İletişim</a>
+  <button class="menu-close" type="button" data-mobile-close aria-label="Menuyu kapat">✕</button>
+  <a href="/blog.html">Blog</a>
+  <a href="/#about" data-mobile-close>Hakkımızda</a>
+  <a href="/#services" data-mobile-close>Hizmetler</a>
+  <a href="/#quote" data-mobile-close>Hızlı Teklif</a>
+  <a href="/#sectors" data-mobile-close>Sektörler</a>
+  <a href="/#portfolio" data-mobile-close>Portfolyo</a>
+  <a href="/#contact" data-mobile-close>İletişim</a>
 </div>
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="./#hero" class="nav-logo">Veridia</a>
+  <a href="/#hero" class="nav-logo">Veridia</a>
   <ul class="nav-links">
-    <li><a href="./blog.html">Blog</a></li>
-    <li><a href="./#about">Hakkımızda</a></li>
-    <li><a href="./#services">Hizmetler</a></li>
-    <li><a href="./#quote">Hızlı Teklif</a></li>
-    <li><a href="./#sectors">Sektörler</a></li>
-    <li><a href="./#portfolio">Portfolyo</a></li>
-    <li><a href="./#contact">İletişim</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/#about">Hakkımızda</a></li>
+    <li><a href="/#services">Hizmetler</a></li>
+    <li><a href="/#quote">Hızlı Teklif</a></li>
+    <li><a href="/#sectors">Sektörler</a></li>
+    <li><a href="/#portfolio">Portfolyo</a></li>
+    <li><a href="/#contact">İletişim</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Menü" aria-controls="mobileMenu" aria-expanded="false">
+  <button class="hamburger" id="hamburger" type="button" data-mobile-toggle aria-label="Menü" aria-controls="mobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -290,7 +283,7 @@
     <h1 class="hero-title">Marka Stratejisi,<br><span>Sosyal Medya ve Performans Pazarlama</span></h1>
     <p class="hero-sub">Veridia; marka stratejisi, sosyal medya yönetimi, içerik üretimi ve performans pazarlamayı tek bir büyüme planında toplar. Amaç daha çok iş üretmek değil, ilk günden neyin nasıl ilerleyeceğini markayla birlikte netleştirmektir.</p>
     <div class="hero-cta">
-      <a href="./#quote" class="btn-gold">Hızlı Teklif Ön Brifi</a>
+      <a href="/#quote" class="btn-gold">Hızlı Teklif Ön Brifi</a>
       <a href="#" class="btn-outline" data-whatsapp-message="Merhaba Veridia, 15 dakikalık keşif görüşmesi için yazıyorum." target="_blank" rel="noopener">15 Dakikalık Keşif İçin Yaz</a>
     </div>
     <ul class="hero-proof-list" aria-label="İlk temas bilgileri">
@@ -594,8 +587,8 @@
       <div>
         <p class="services-detail-copy">Hizmetlerimiz tek tek yürüyen işler değil; marka stratejisi, sosyal medya yönetimi, performans pazarlama, içerik üretimi, halkla ilişkiler ve influencer pazarlama taraflarını aynı büyüme planına bağlayan modüller. Yeni bir ajans olarak bunu özellikle şeffaf tutuyoruz: hangi işin ne kapsadığı, ilk teslimin ne olduğu ve hangi noktada birlikte karar vereceğimiz daha görüşme aşamasında netleşir.</p>
         <div class="services-detail-actions">
-          <a href="./#quote" class="btn-gold">Hızlı Teklif Ön Brifi</a>
-          <a href="./blog.html" class="btn-outline">Blog Rehberlerini İncele</a>
+          <a href="/#quote" class="btn-gold">Hızlı Teklif Ön Brifi</a>
+          <a href="/blog.html" class="btn-outline">Blog Rehberlerini İncele</a>
         </div>
       </div>
     </div>
@@ -633,9 +626,9 @@
         <p>Marka stratejisi hizmetimiz; konumlandırma, mesaj omurgası, hedef kitle kırılımı ve rekabet ayrışmasını tek çerçevede toplar. Yeni marka çıkışlarında da yeniden konumlanma süreçlerinde de “neden biz” sorusuna net cevap üretir.</p>
         <p>Bu çalışma sonrası sosyal medya yönetimi, reklam kampanyaları ve web dili aynı stratejik karar sistemine bağlanır; marka her kanalda daha tutarlı ve daha güven verici görünür.</p>
         <div class="service-detail-links">
-          <button type="button" class="service-inline-action" onclick="openServiceDialog('marka-stratejisi', this)">Detayı Aç</button>
-          <a href="./#quote" class="service-inline-link">Teklif Al</a>
-          <a href="./blog/b2b-donusum-hunisi.html" class="service-inline-link">B2B Funnel Yazısı</a>
+          <button type="button" class="service-inline-action" data-service-trigger="marka-stratejisi">Detayı Aç</button>
+          <a href="/#quote" class="service-inline-link">Teklif Al</a>
+          <a href="/blog/b2b-donusum-hunisi.html" class="service-inline-link">B2B Funnel Yazısı</a>
         </div>
       </article>
 
@@ -648,8 +641,8 @@
         <p>Sosyal medya yönetimi tarafında yalnızca gönderi paylaşmıyor; Instagram, TikTok, LinkedIn ve X üzerinde ritimli bir içerik sistemi kuruyoruz. İçerik sütunları, yayın takvimi, topluluk tonu ve aylık performans okumaları birlikte ilerliyor.</p>
         <p>Özellikle görünürlük ile marka algısını birlikte büyütmek isteyen markalar için bu hizmet, içerik akışını kampanya takvimi ve büyüme hedefleriyle hizalayan operasyonel omurgayı oluşturur.</p>
         <div class="service-detail-links">
-          <button type="button" class="service-inline-action" onclick="openServiceDialog('sosyal-medya', this)">Detayı Aç</button>
-          <a href="./blog/instagram-algoritmasi-2026.html" class="service-inline-link">Instagram Rehberi</a>
+          <button type="button" class="service-inline-action" data-service-trigger="sosyal-medya">Detayı Aç</button>
+          <a href="/blog/instagram-algoritmasi-2026.html" class="service-inline-link">Instagram Rehberi</a>
         </div>
       </article>
 
@@ -662,9 +655,9 @@
         <p>Meta Ads, Google Ads ve TikTok Ads kampanyalarını; teklif açısı, kreatif test, hedefleme ve açılış sayfası deneyimiyle birlikte ele alıyoruz. Böylece reklam bütçesi yalnızca trafik değil, ölçülebilir büyüme sinyali üretir.</p>
         <p>Lead toplama, WhatsApp yönlendirme, satış odaklı kampanya kurguları veya e-ticaret büyümesi için performans pazarlama hizmetini içerik ve marka diliyle uyumlu şekilde yönetiyoruz.</p>
         <div class="service-detail-links">
-          <button type="button" class="service-inline-action" onclick="openServiceDialog('reklam-kampanyalari', this)">Detayı Aç</button>
-          <a href="./#quote" class="service-inline-link">Bütçe Planla</a>
-          <a href="./blog/b2b-donusum-hunisi.html" class="service-inline-link">B2B Funnel Yazısı</a>
+          <button type="button" class="service-inline-action" data-service-trigger="reklam-kampanyalari">Detayı Aç</button>
+          <a href="/#quote" class="service-inline-link">Bütçe Planla</a>
+          <a href="/blog/b2b-donusum-hunisi.html" class="service-inline-link">B2B Funnel Yazısı</a>
         </div>
       </article>
 
@@ -677,9 +670,9 @@
         <p>İçerik üretimi hizmetimiz; reels, kısa video, fotoğraf ve story üretimini yalnızca estetik bir süreç olarak değil, performans ve marka hafızası üreten yaratıcı bir sistem olarak kurgular. Çekim öncesi fikir geliştirme ile yayın sonrası kullanım mantığı birlikte planlanır.</p>
         <p>Ürün çekimleri, founder içerikleri, reklam kreatifleri ve sosyal medya formatları aynı görsel dil altında toplanır. Bu sayede içerik stoğu tekrar kullanılabilir hale gelir ve ekipler her hafta sıfırdan başlamaz.</p>
         <div class="service-detail-links">
-          <button type="button" class="service-inline-action" onclick="openServiceDialog('icerik-uretimi', this)">Detayı Aç</button>
-          <a href="./#contact" class="service-inline-link">Proje Konuşalım</a>
-          <a href="./blog/instagram-algoritmasi-2026.html" class="service-inline-link">Instagram Rehberi</a>
+          <button type="button" class="service-inline-action" data-service-trigger="icerik-uretimi">Detayı Aç</button>
+          <a href="/#contact" class="service-inline-link">Proje Konuşalım</a>
+          <a href="/blog/instagram-algoritmasi-2026.html" class="service-inline-link">Instagram Rehberi</a>
         </div>
       </article>
 
@@ -692,8 +685,8 @@
         <p>Halkla ilişkiler hizmeti; basın görünürlüğü, medya ilişkileri, duyuru planları ve iş birliği temaslarını markanın büyüme hikâyesine bağlar. Amaç yalnızca haber çıkarmak değil, üçüncü taraf güven sinyali üretmektir.</p>
         <p>Yeni ürün lansmanları, kurucu görünürlüğü, etkinlik iletişimi ve itibar yönetimi gibi alanlarda doğru hikâyeyi doğru bağlamda konumlandırarak markanın algısını güçlendiriyoruz.</p>
         <div class="service-detail-links">
-          <button type="button" class="service-inline-action" onclick="openServiceDialog('halkla-iliskiler', this)">Detayı Aç</button>
-          <a href="./#contact" class="service-inline-link">Görüşme Planla</a>
+          <button type="button" class="service-inline-action" data-service-trigger="halkla-iliskiler">Detayı Aç</button>
+          <a href="/#contact" class="service-inline-link">Görüşme Planla</a>
         </div>
       </article>
 
@@ -706,8 +699,8 @@
         <p>Influencer pazarlama çalışmalarında sadece takipçi büyüklüğüne değil, marka uyumu, içerik tonu, topluluk güveni ve gerçek performans potansiyeline bakıyoruz. Nano, mikro ve makro üretici katmanlarını kampanya amacına göre birlikte tasarlıyoruz.</p>
         <p>Brief hazırlığı, yayın planı, kullanım hakları ve performans okuması tek yerden ilerlediği için creator iş birlikleri kısa süreli görünürlükten çıkıp tekrar üretilebilir bir büyüme kanalına dönüşüyor.</p>
         <div class="service-detail-links">
-          <button type="button" class="service-inline-action" onclick="openServiceDialog('influencer-pazarlama', this)">Detayı Aç</button>
-          <a href="./#quote" class="service-inline-link">Kapsam Çıkar</a>
+          <button type="button" class="service-inline-action" data-service-trigger="influencer-pazarlama">Detayı Aç</button>
+          <a href="/#quote" class="service-inline-link">Kapsam Çıkar</a>
         </div>
       </article>
     </div>
@@ -755,7 +748,7 @@
 
       <div class="portfolio-next-card">
         <p id="serviceDialogNext"></p>
-        <a href="./#quote" class="btn-gold" id="serviceDialogCta">Bu Hizmet İçin Teklif Al</a>
+        <a href="/#quote" class="btn-gold" id="serviceDialogCta">Bu Hizmet İçin Teklif Al</a>
       </div>
     </div>
   </div>
@@ -829,8 +822,8 @@
         <div class="quote-approval" id="quoteApprovalBox">
           <p class="quote-helper">Kapsam uygunsa özeti doğrudan WhatsApp'ta açabilirsiniz. Nihai kapsam ve kreatif adetleri ilk görüşmede birlikte netleştirilir.</p>
           <div class="quote-actions">
-            <button type="button" class="btn-gold" id="quoteApproveBtn" onclick="approveQuote()">Görüşme Özetini WhatsApp'ta Aç</button>
-            <button type="button" class="btn-outline" onclick="restartQuoteFlow()">Baştan Hesapla</button>
+            <button type="button" class="btn-gold" id="quoteApproveBtn" data-quote-approve>Görüşme Özetini WhatsApp'ta Aç</button>
+            <button type="button" class="btn-outline" data-quote-restart>Baştan Hesapla</button>
           </div>
           <div class="quote-ref" id="quoteReference"></div>
         </div>
@@ -875,7 +868,7 @@
       </div>
     </div>
     <div class="quote-actions" style="margin-top:1.5rem;">
-      <a href="./#quote" class="btn-gold">Teklif Akışını Başlat</a>
+      <a href="/#quote" class="btn-gold">Teklif Akışını Başlat</a>
       <a href="#" class="btn-outline" data-whatsapp-message="Merhaba Veridia, manuel ön değerlendirme için yazıyorum." target="_blank" rel="noopener">WhatsApp'tan Ön Değerlendirme İste</a>
     </div>
   </div>
@@ -893,27 +886,27 @@
 
   <div class="sectors-interface">
     <div class="sectors-icons reveal">
-      <button class="sector-btn active" type="button" onclick="selectSector(this,'kafe')" aria-pressed="true" style="--sector-accent: 96,176,255;">
+      <button class="sector-btn active" type="button" data-sector="kafe" aria-pressed="true" style="--sector-accent: 96,176,255;">
         <span class="sector-code">F&B / 01</span>
         <span class="sector-name-lbl">Kafe & F&B</span>
         <span class="sector-meta">Mahalle enerjisini tekrar ziyarete çeviren sıcak akış.</span>
       </button>
-      <button class="sector-btn" type="button" onclick="selectSector(this,'moda')" aria-pressed="false" style="--sector-accent: 235,128,175;">
+      <button class="sector-btn" type="button" data-sector="moda" aria-pressed="false" style="--sector-accent: 235,128,175;">
         <span class="sector-code">MODE / 02</span>
         <span class="sector-name-lbl">Moda</span>
         <span class="sector-meta">Arzu, drop kültürü ve kaydetme davranışı üzerinden büyüme.</span>
       </button>
-      <button class="sector-btn" type="button" onclick="selectSector(this,'guzellik')" aria-pressed="false" style="--sector-accent: 255,167,92;">
+      <button class="sector-btn" type="button" data-sector="guzellik" aria-pressed="false" style="--sector-accent: 255,167,92;">
         <span class="sector-code">CARE / 03</span>
         <span class="sector-name-lbl">Güzellik</span>
         <span class="sector-meta">Güven oluşturan uzmanlık dili ve randevuya giden net akış.</span>
       </button>
-      <button class="sector-btn" type="button" onclick="selectSector(this,'teknoloji')" aria-pressed="false" style="--sector-accent: 108,229,210;">
+      <button class="sector-btn" type="button" data-sector="teknoloji" aria-pressed="false" style="--sector-accent: 108,229,210;">
         <span class="sector-code">TECH / 04</span>
         <span class="sector-name-lbl">Teknoloji</span>
         <span class="sector-meta">Karmaşık ürünü sadeleştirip demo talebine bağlayan net sinyal.</span>
       </button>
-      <button class="sector-btn" type="button" onclick="selectSector(this,'yasam')" aria-pressed="false" style="--sector-accent: 158,132,255;">
+      <button class="sector-btn" type="button" data-sector="yasam" aria-pressed="false" style="--sector-accent: 158,132,255;">
         <span class="sector-code">LIVING / 05</span>
         <span class="sector-name-lbl">Yaşam</span>
         <span class="sector-meta">Atmosfer satan, kaydetme ve sepet sinyalini besleyen editoryal akış.</span>
@@ -1110,7 +1103,7 @@
   </div>
   <div class="portfolio-cta reveal">
     <p>Markanız için hazır şablon değil, ihtiyacınıza göre çalışan bir plan çıkaralım.</p>
-    <a href="./#contact" class="portfolio-cta-title">
+    <a href="/#contact" class="portfolio-cta-title">
       <span>Keşif</span>
       <span>Görüşmesini Başlat</span>
     </a>
@@ -1173,7 +1166,7 @@
 
       <div class="portfolio-next-card">
         <p id="portfolioDialogNext"></p>
-        <a href="./#contact" class="btn-gold" id="portfolioDialogCta">Benzer Proje İstiyorum</a>
+        <a href="/#contact" class="btn-gold" id="portfolioDialogCta">Benzer Proje İstiyorum</a>
       </div>
     </div>
   </div>
@@ -1204,7 +1197,7 @@
         <a href="mailto:hello@veridia.com.tr" class="btn-outline">E-posta ile Ulaş</a>
       </div>
       <div class="contact-divider reveal"><span>veya mesaj bırakın</span></div>
-      <form class="contact-form contact-form-shell reveal" id="contactForm" action="https://formspree.io/f/xvzvqnwn" method="POST" accept-charset="UTF-8">
+      <form class="contact-form contact-form-shell reveal" id="contactForm" action="https://formspree.io/f/FORM_ID_BURAYA" method="POST" accept-charset="UTF-8">
         <div class="form-group">
           <label class="form-label" for="contactName">Ad Soyad</label>
           <input class="form-input" id="contactName" name="isim" type="text" autocomplete="name" required>
@@ -1305,892 +1298,18 @@
     <div class="footer-socials">
       <a href="#" data-whatsapp-message="Merhaba Veridia, site üzerinden ulaşıyorum." target="_blank" rel="noopener">WhatsApp</a>
       <a href="mailto:hello@veridia.com.tr">E-posta</a>
-      <a href="./blog.html">Blog</a>
+      <a href="/blog.html">Blog</a>
     </div>
     <div class="footer-socials footer-legal-links">
-      <a href="./gizlilik-politikasi.html">Gizlilik Politikası</a>
-      <a href="./kvkk-aydinlatma-metni.html">KVKK</a>
+      <a href="/gizlilik-politikasi.html">Gizlilik Politikası</a>
+      <a href="/kvkk-aydinlatma-metni.html">KVKK</a>
     </div>
     <!-- DARK/LIGHT MODE — FOOTER'DA -->
-    <button class="theme-toggle-btn" onclick="toggleTheme()">
+    <button class="theme-toggle-btn" type="button" data-theme-toggle>
       <span class="theme-toggle-icon" id="themeIcon">🌙</span>
       <span id="themeLabel">Koyu</span>
     </button>
   </div>
 </footer>
-
-<script src="./assets/quote-pricing.js"></script>
-<script>
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-window.applyVeridiaConfigLinks?.(document);
-
-/* ── CURSOR ── */
-const $cursor = document.getElementById('cursor');
-const $ring   = document.getElementById('cursorRing');
-if (!prefersReducedMotion) {
-  document.addEventListener('mousemove', e => {
-    $cursor.style.left = e.clientX + 'px'; $cursor.style.top = e.clientY + 'px';
-    setTimeout(() => { $ring.style.left = e.clientX + 'px'; $ring.style.top = e.clientY + 'px'; }, 60);
-  });
-  document.querySelectorAll('a,button,.service-card,.portfolio-card,.sector-btn,.filter-btn,.ba-container').forEach(el => {
-    el.addEventListener('mouseenter', () => { $ring.style.width='58px'; $ring.style.height='58px'; $ring.style.opacity='1'; });
-    el.addEventListener('mouseleave', () => { $ring.style.width='36px'; $ring.style.height='36px'; $ring.style.opacity='0.6'; });
-  });
-}
-
-/* ── SCROLL PROGRESS ── */
-window.addEventListener('scroll', () => {
-  document.getElementById('scrollBar').style.width =
-    (scrollY / (document.body.scrollHeight - innerHeight) * 100) + '%';
-});
-
-/* ── NAV SCROLLED ── */
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', scrollY > 50);
-});
-
-/* ── MOBILE MENU ── */
-function toggleMobileMenu() {
-  const m = document.getElementById('mobileMenu');
-  const h = document.getElementById('hamburger');
-  const open = m.classList.toggle('open');
-  h.classList.toggle('open', open);
-  h.setAttribute('aria-expanded', String(open));
-  m.setAttribute('aria-hidden', String(!open));
-  document.body.style.overflow = open ? 'hidden' : '';
-}
-function closeMobileMenu() {
-  document.getElementById('mobileMenu').classList.remove('open');
-  document.getElementById('mobileMenu').setAttribute('aria-hidden', 'true');
-  document.getElementById('hamburger').classList.remove('open');
-  document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-/* ── THEME ── */
-function applyTheme(theme) {
-  const isLight = theme === 'light';
-  document.documentElement.dataset.theme = isLight ? 'light' : '';
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isLight ? '#edf1eb' : '#0a0a0f');
-  document.getElementById('themeIcon').textContent = isLight ? '☀️' : '🌙';
-  document.getElementById('themeLabel').textContent = isLight ? 'Açık' : 'Koyu';
-}
-function toggleTheme() {
-  const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-  applyTheme(nextTheme);
-  localStorage.setItem('veridia-theme', nextTheme);
-}
-applyTheme(localStorage.getItem('veridia-theme') || 'dark');
-
-/* ── REVEAL ── */
-if (!prefersReducedMotion) {
-  const revObs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
-} else {
-  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-}
-
-/* ── STATS COUNTER ── */
-function runCounter(el) {
-  const target = +el.dataset.target;
-  const divide = el.dataset.divide ? +el.dataset.divide : 1;
-  const suffix = el.dataset.suffix || '';
-  let start = null;
-  const step = ts => {
-    if (!start) start = ts;
-    const p = Math.min((ts - start) / 1800, 1);
-    const ease = 1 - Math.pow(1 - p, 3);
-    const v = target * ease / divide;
-    el.textContent = divide > 1 ? v.toFixed(1) + suffix : Math.floor(v) + suffix;
-    if (p < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-if (!prefersReducedMotion) {
-  const tickObs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-      document.querySelectorAll('.ticker-number').forEach(runCounter);
-      tickObs.disconnect();
-    }
-  }, { threshold: 0.5 });
-  tickObs.observe(document.querySelector('.stats-ticker'));
-} else {
-  document.querySelectorAll('.ticker-number').forEach(el => {
-    const target = +el.dataset.target;
-    const divide = el.dataset.divide ? +el.dataset.divide : 1;
-    const suffix = el.dataset.suffix || '';
-    const value = divide > 1 ? (target / divide).toFixed(1) : target;
-    el.textContent = value + suffix;
-  });
-}
-
-/* ── AI TEKLIF ── */
-const siteConfig = window.VERIDIA_CONFIG;
-const quotePricingApi = window.VeridiaQuotePricing;
-
-if (!siteConfig) {
-  throw new Error('Site config module failed to load.');
-}
-
-if (!quotePricingApi) {
-  throw new Error('Quote pricing module failed to load.');
-}
-
-const {
-  PRICING_CONFIG,
-  calculateQuickQuote,
-  buildWhyThisPriceText,
-  formatMultiplier,
-  formatTryCurrency
-} = quotePricingApi;
-
-const WHATSAPP_PHONE = siteConfig.whatsapp || '';
-const quoteServiceDeliverables = {
-  branding: 'Marka konumlandırması, mesaj mimarisi ve stratejik yön çerçevesi',
-  strategy: 'Marka konumlandırması, mesaj mimarisi ve stratejik yön çerçevesi',
-  social: 'Sosyal medya planı, yayın ritmi ve topluluk yönetimi sistemi',
-  performance: 'Reklam kampanyası kurulumu, optimizasyonu ve performans takibi',
-  content: 'İçerik üretimi, kreatif adaptasyon ve format planlaması',
-  pr: 'Basın görünürlüğü, duyuru planı ve marka güveni oluşturan iletişim yönetimi',
-  influencer: 'Influencer eşleşmesi, brief süreci ve yayın koordinasyonu'
-};
-const quoteState = {
-  stepIndex: 0,
-  answers: {
-    service: []
-  },
-  result: null,
-  approved: false
-};
-
-// quoteSteps moved to site-data.js
-
-function formatCurrency(value) {
-  return formatTryCurrency(value);
-}
-
-function createQuoteProgress() {
-  const wrap = document.getElementById('quoteProgress');
-  wrap.innerHTML = '';
-  quoteSteps.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.className = 'quote-progress-dot';
-    if (index < quoteState.stepIndex) dot.classList.add('done');
-    if (index === quoteState.stepIndex) dot.classList.add('active');
-    dot.innerHTML = '<span></span>';
-    wrap.appendChild(dot);
-  });
-}
-
-function pushQuoteMessage(role, text) {
-  const chat = document.getElementById('quoteChat');
-  const bubble = document.createElement('div');
-  bubble.className = `chat-bubble ${role}`;
-  bubble.textContent = text;
-  chat.appendChild(bubble);
-  chat.scrollTop = chat.scrollHeight;
-}
-
-function getOptionText(step, value) {
-  const found = step.options.find((option) => option.value === value);
-  return found ? found.label : value;
-}
-
-function getOptionTexts(step, values) {
-  const normalizedValues = Array.isArray(values) ? [...new Set(values)] : [];
-  return normalizedValues.map((value) => getOptionText(step, value)).filter(Boolean);
-}
-
-function getSelectedQuoteValues(step) {
-  if (step.multiple) {
-    return Array.isArray(quoteState.answers[step.key]) ? [...new Set(quoteState.answers[step.key])] : [];
-  }
-
-  return quoteState.answers[step.key] ? [quoteState.answers[step.key]] : [];
-}
-
-function hasQuoteSelection(step) {
-  return getSelectedQuoteValues(step).length > 0;
-}
-
-function setQuoteValidationError(message = '') {
-  const errorNode = document.getElementById('quoteValidationError');
-
-  if (!errorNode) {
-    return;
-  }
-
-  errorNode.textContent = message;
-  errorNode.classList.toggle('active', Boolean(message));
-}
-
-function renderQuoteStepActions(step) {
-  const actionsWrap = document.getElementById('quoteStepActions');
-  actionsWrap.innerHTML = '';
-  const selectedValues = getSelectedQuoteValues(step);
-
-  if (step.multiple) {
-    const selectionNote = document.createElement('div');
-    selectionNote.className = 'quote-selection-note';
-
-    if (selectedValues.length === 0) {
-      selectionNote.textContent = 'Bir veya birden fazla hizmet seçebilirsiniz.';
-    } else if (selectedValues.length >= PRICING_CONFIG.bundleDiscount.minServices) {
-      selectionNote.textContent = `${selectedValues.length} hizmet seçildi. %${Math.round(PRICING_CONFIG.bundleDiscount.rate * 100)} paket indirimi aktif.`;
-    } else {
-      selectionNote.textContent = `${selectedValues.length} hizmet seçildi. ${PRICING_CONFIG.bundleDiscount.minServices}+ hizmette otomatik %${Math.round(PRICING_CONFIG.bundleDiscount.rate * 100)} indirim devreye girer.`;
-    }
-
-    actionsWrap.appendChild(selectionNote);
-  }
-
-  const continueButton = document.createElement('button');
-  continueButton.type = 'button';
-  continueButton.className = 'btn-gold';
-  continueButton.textContent = quoteState.stepIndex === quoteSteps.length - 1 ? 'Teklifi Oluştur' : 'İleri';
-  continueButton.addEventListener('click', () => confirmQuoteStep());
-  actionsWrap.appendChild(continueButton);
-
-  if (step.multiple && selectedValues.length > 0) {
-    const clearButton = document.createElement('button');
-    clearButton.type = 'button';
-    clearButton.className = 'btn-outline';
-    clearButton.textContent = 'Temizle';
-    clearButton.addEventListener('click', () => {
-      quoteState.answers = {
-        ...quoteState.answers,
-        [step.key]: []
-      };
-      renderQuoteStep();
-    });
-    actionsWrap.appendChild(clearButton);
-  }
-}
-
-function renderQuoteStep() {
-  createQuoteProgress();
-  const summary = document.getElementById('quoteSummaryCard');
-  const approval = document.getElementById('quoteApprovalBox');
-  summary.classList.remove('active');
-  approval.classList.remove('active');
-  setQuoteValidationError('');
-
-  const step = quoteSteps[quoteState.stepIndex];
-  document.getElementById('quoteStepTag').textContent = step.tag;
-  document.getElementById('quoteQuestion').textContent = step.question;
-  document.getElementById('quoteHelper').textContent = step.helper;
-
-  const optionsWrap = document.getElementById('quoteOptions');
-  optionsWrap.innerHTML = '';
-  const selectedValues = getSelectedQuoteValues(step);
-
-  step.options.forEach((option) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'quote-option';
-    if (selectedValues.includes(option.value)) {
-      button.classList.add('is-selected');
-    }
-    button.innerHTML = `<strong>${option.label}</strong><span>${option.detail}</span>`;
-    button.addEventListener('click', () => {
-      if (step.multiple) {
-        toggleQuoteService(option.value);
-        return;
-      }
-
-      selectQuoteOption(option);
-    });
-    optionsWrap.appendChild(button);
-  });
-
-  renderQuoteStepActions(step);
-}
-
-function toggleQuoteService(serviceValue) {
-  const step = quoteSteps[quoteState.stepIndex];
-  const currentValues = Array.isArray(quoteState.answers[step.key]) ? quoteState.answers[step.key] : [];
-  const nextValues = currentValues.includes(serviceValue)
-    ? currentValues.filter((value) => value !== serviceValue)
-    : [...currentValues, serviceValue];
-
-  quoteState.answers = {
-    ...quoteState.answers,
-    [step.key]: nextValues
-  };
-
-  if (nextValues.length > 0) {
-    setQuoteValidationError('');
-  }
-
-  renderQuoteStep();
-}
-
-function advanceQuoteFlow(userMessage) {
-  if (userMessage) {
-    pushQuoteMessage('user', userMessage);
-  }
-
-  if (quoteState.stepIndex < quoteSteps.length - 1) {
-    quoteState.stepIndex += 1;
-    const nextStep = quoteSteps[quoteState.stepIndex];
-    pushQuoteMessage('bot', nextStep.question);
-    renderQuoteStep();
-    return;
-  }
-
-  quoteState.result = buildQuoteResult(quoteState.answers);
-  renderQuoteResult();
-}
-
-function confirmQuoteStep() {
-  const step = quoteSteps[quoteState.stepIndex];
-  const selectedValues = getSelectedQuoteValues(step);
-  const selectedLabels = step.multiple
-    ? getOptionTexts(step, selectedValues)
-    : selectedValues.map((value) => getOptionText(step, value));
-
-  if (selectedLabels.length === 0) {
-    setQuoteValidationError('Devam etmek için en az bir seçenek işaretleyin.');
-    return;
-  }
-
-  setQuoteValidationError('');
-  advanceQuoteFlow(step.multiple ? `Seçilen hizmetler: ${selectedLabels.join(', ')}` : selectedLabels[0]);
-}
-
-function selectQuoteOption(option) {
-  const step = quoteSteps[quoteState.stepIndex];
-  quoteState.answers = {
-    ...quoteState.answers,
-    [step.key]: option.value
-  };
-
-  setQuoteValidationError('');
-  renderQuoteStep();
-}
-
-function buildQuotePricingNote(pricing) {
-  const noteParts = [
-    `Hizmet toplamı: ${pricing.basePoints} puan`,
-    `Sektör etkisi: ${formatMultiplier(pricing.sectorMultiplier)}`,
-    `İş büyüklüğü: ${formatMultiplier(pricing.scaleMultiplier)}`,
-    `Başlangıç hızı: ${formatMultiplier(pricing.urgencyMultiplier)}`,
-    `Puan başı bedel: ${formatCurrency(pricing.unitPrice)}`
-  ];
-
-  let note = `${noteParts.join(' • ')}. Ara hesap ${formatCurrency(pricing.subtotalBeforeDiscount)} oldu.`;
-
-  if (pricing.discountAmount > 0) {
-    note += ` Paket indirimi olarak ${formatCurrency(pricing.discountAmount)} düşüldü.`;
-  }
-
-  if (pricing.minimumApplied) {
-    note += ` Minimum başlangıç bedeli olarak ${formatCurrency(pricing.minimumPrice)} baz alındı.`;
-  }
-
-  note += ` Son fiyat ${formatCurrency(pricing.finalPrice)} olarak belirlendi.`;
-
-  return note;
-}
-
-function buildQuoteResult(answers) {
-  const pricing = calculateQuickQuote({
-    services: answers.service,
-    sector: answers.sector,
-    scale: answers.scale,
-    urgency: answers.urgency
-  });
-
-  const serviceLabels = getOptionTexts(quoteSteps[0], answers.service);
-  const sectorLabel = getOptionText(quoteSteps[1], answers.sector);
-  const scaleLabel = getOptionText(quoteSteps[2], answers.scale);
-  const goalLabel = getOptionText(quoteSteps[3], answers.goal);
-  const urgencyLabel = getOptionText(quoteSteps[4], answers.urgency);
-  const selectedServices = Array.isArray(answers.service) ? answers.service : [];
-  const deliverables = selectedServices.map((serviceKey) => quoteServiceDeliverables[serviceKey]).filter(Boolean);
-
-  if (selectedServices.length >= PRICING_CONFIG.bundleDiscount.minServices) {
-    deliverables.push('Tek ekip gibi çalışan koordinasyon ve tek raporlama katmanı');
-  }
-
-  const whyThisPrice = buildWhyThisPriceText(pricing);
-  const pricingNote = buildQuotePricingNote(pricing);
-  const reference = `VER-${new Date().toISOString().slice(2, 10).replace(/-/g, '')}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
-  const rangeText = pricing.discountRate > 0
-    ? `%${Math.round(pricing.discountRate * 100)} paket indirimi dahil aylık başlangıç hizmet bedeli.`
-    : 'Seçilen kapsam için aylık başlangıç hizmet bedeli.';
-
-  return {
-    packageName: pricing.packageName,
-    monthly: pricing.finalPrice,
-    reference,
-    rangeText: pricing.minimumApplied ? `${rangeText} Minimum teklif koruması uygulandı.` : rangeText,
-    whyThisPrice,
-    pricingNote,
-    serviceLabels,
-    sectorLabel,
-    scaleLabel,
-    goalLabel,
-    urgencyLabel,
-    contactLabel: getOptionText(quoteSteps[5], answers.contactMode),
-    contactMode: answers.contactMode,
-    deliverables,
-    breakdown: [
-      { label: 'Hizmet toplamı', value: `${pricing.basePoints} puan` },
-      { label: 'Sektör etkisi', value: formatMultiplier(pricing.sectorMultiplier) },
-      { label: 'İş büyüklüğü etkisi', value: formatMultiplier(pricing.scaleMultiplier) },
-      { label: 'Başlangıç hızı etkisi', value: formatMultiplier(pricing.urgencyMultiplier) },
-      { label: 'Puan başı bedel', value: formatCurrency(pricing.unitPrice) },
-      { label: 'Ara hesap', value: formatCurrency(pricing.subtotalBeforeDiscount) },
-      ...(pricing.discountAmount > 0 ? [{
-        label: `Paket indirimi (%${Math.round(pricing.discountRate * 100)})`,
-        value: `-${formatCurrency(pricing.discountAmount)}`
-      }] : []),
-      ...(pricing.minimumApplied ? [{
-        label: 'Minimum başlangıç bedeli',
-        value: formatCurrency(pricing.minimumPrice)
-      }] : []),
-      { label: 'Son aylık teklif', value: formatCurrency(pricing.finalPrice) }
-    ]
-  };
-}
-
-function renderQuoteResult() {
-  createQuoteProgress();
-  document.querySelectorAll('.quote-progress-dot').forEach((dot) => dot.classList.add('done'));
-  document.getElementById('quoteStepTag').textContent = 'Teklif Hazır';
-  document.getElementById('quoteQuestion').textContent = 'Ön teklifiniz oluşturuldu.';
-  document.getElementById('quoteHelper').textContent = 'Kapsam özetini inceleyin, uygunsa ön onay verip görüşme özetini açın.';
-  document.getElementById('quoteOptions').innerHTML = '';
-  document.getElementById('quoteStepActions').innerHTML = '';
-
-  const result = quoteState.result;
-  document.getElementById('quotePackageName').textContent = result.packageName;
-  document.getElementById('quotePrice').innerHTML = `${formatCurrency(result.monthly)} <small>/ aylık</small>`;
-  document.getElementById('quoteRange').textContent = result.rangeText;
-
-  const breakdown = document.getElementById('quoteBreakdown');
-  breakdown.innerHTML = '';
-  result.breakdown.forEach((item) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<span>${item.label}</span><strong>${item.value}</strong>`;
-    breakdown.appendChild(li);
-  });
-
-  const deliverables = document.getElementById('quoteDeliverables');
-  deliverables.innerHTML = '';
-  result.deliverables.forEach((item) => {
-    const li = document.createElement('li');
-    li.textContent = item;
-    deliverables.appendChild(li);
-  });
-
-  document.getElementById('quoteReadiness').textContent = result.whyThisPrice;
-  document.getElementById('quoteAiNote').textContent = result.pricingNote;
-  document.getElementById('quoteReference').textContent = `Referans kodu: ${result.reference}`;
-  document.getElementById('quoteSummaryCard').classList.add('active');
-  document.getElementById('quoteApprovalBox').classList.add('active');
-
-  pushQuoteMessage('bot', `${result.packageName} hazır. Tahmini aylık başlangıç fiyatı ${formatCurrency(result.monthly)} seviyesinde. Hazırsanız görüşme özetini WhatsApp'ta açabilirsiniz.`);
-  localStorage.setItem('veridia-latest-quote', JSON.stringify({ answers: quoteState.answers, result }));
-}
-
-function restartQuoteFlow() {
-  quoteState.stepIndex = 0;
-  quoteState.answers = {
-    service: []
-  };
-  quoteState.result = null;
-  quoteState.approved = false;
-  document.getElementById('quoteChat').innerHTML = '<div class="chat-bubble bot">Ön brief yeniden hazır. Yeni kombinasyonu seçin, kapsamı ve tahmini hizmet bedelini tekrar netleştireyim.</div>';
-  renderQuoteStep();
-}
-
-function buildWhatsAppUrl(text) {
-  if (typeof window.buildVeridiaWhatsAppUrl === 'function') {
-    return window.buildVeridiaWhatsAppUrl(text);
-  }
-
-  const cleanPhone = WHATSAPP_PHONE.replace(/\D/g, '');
-  if (/^\d{10,15}$/.test(cleanPhone)) {
-    return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
-  }
-
-  return `https://wa.me/?text=${encodeURIComponent(text)}`;
-}
-
-function approveQuote() {
-  if (!quoteState.result) return;
-  quoteState.approved = true;
-  const result = quoteState.result;
-  const text = [
-    'Merhaba Veridia, site uzerinden on teklifimi onayladim.',
-    `Referans: ${result.reference}`,
-    `Hizmetler: ${result.serviceLabels.join(', ')}`,
-    `Sektor: ${result.sectorLabel}`,
-    `Isletme olcegi: ${result.scaleLabel}`,
-    `Hedef: ${result.goalLabel}`,
-    `Baslangic zamani: ${result.urgencyLabel}`,
-    `Karar modu: ${result.contactLabel}`,
-    `Onerilen paket: ${result.packageName}`,
-    `Aylik teklif: ${formatCurrency(result.monthly)}`,
-    'Devam etmek ve başlangıç planını oluşturmak istiyorum.'
-  ].join('\n');
-
-  pushQuoteMessage('user', 'Teklifi ön onayladım, ekip görüşmesi için hazırım.');
-  pushQuoteMessage('bot', `Harika. ${result.reference} referans koduyla görüşme özeti hazırlandı.`);
-
-  window.open(buildWhatsAppUrl(text), '_blank', 'noopener');
-}
-
-renderQuoteStep();
-pushQuoteMessage('bot', quoteSteps[0].question);
-
-/* ── SEKTÖRLER ── */
-function selectSector(btn, id) {
-  document.querySelectorAll('.sector-btn').forEach(b => {
-    b.classList.remove('active');
-    b.setAttribute('aria-pressed', 'false');
-  });
-  document.querySelectorAll('.sector-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  btn.setAttribute('aria-pressed', 'true');
-  document.getElementById('sector-'+id).classList.add('active');
-}
-
-/* ── PORTFOLIO FİLTRE ── */
-// Data moved to assets/site-data.js
-
-const serviceDialog = document.getElementById('serviceDialog');
-const serviceDialogClose = document.getElementById('serviceDialogClose');
-const serviceDialogCta = document.getElementById('serviceDialogCta');
-let lastServiceTrigger = null;
-
-function renderServiceDetail(serviceId) {
-  const service = serviceDetails[serviceId];
-  if (!service) return false;
-
-  document.getElementById('serviceDialogKicker').textContent = service.kicker;
-  document.getElementById('serviceDialogClient').textContent = `${service.number} / ${service.code}`;
-  document.getElementById('serviceDialogTitle').textContent = service.title;
-  document.getElementById('serviceDialogSummary').textContent = service.summary;
-  document.getElementById('serviceDialogStory').textContent = service.story;
-  document.getElementById('serviceDialogNext').textContent = service.next;
-  document.getElementById('serviceDialogGradient').style.background = service.gradient;
-  serviceDialogCta.textContent = `${service.title} İçin Teklif Al`;
-
-  const pills = document.getElementById('serviceDialogPills');
-  pills.innerHTML = '';
-  service.pills.forEach(item => {
-    const span = document.createElement('span');
-    span.className = 'portfolio-pill';
-    span.textContent = item;
-    pills.appendChild(span);
-  });
-
-  const stats = document.getElementById('serviceDialogStats');
-  stats.innerHTML = '';
-  service.stats.forEach(item => {
-    const block = document.createElement('div');
-    block.className = 'portfolio-side-stat';
-    block.innerHTML = `<div class="portfolio-side-label">${item.label}</div><div class="portfolio-side-value">${item.value}</div><div class="portfolio-side-note">${item.note}</div>`;
-    stats.appendChild(block);
-  });
-
-  const deliverables = document.getElementById('serviceDialogDeliverables');
-  deliverables.innerHTML = '';
-  service.deliverables.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = item;
-    deliverables.appendChild(li);
-  });
-
-  const gallery = document.getElementById('serviceDialogGallery');
-  gallery.innerHTML = '';
-  service.gallery.forEach(item => {
-    const cell = document.createElement('div');
-    cell.className = 'portfolio-gallery-cell';
-    cell.innerHTML = `<strong>${item.title}</strong><span>${item.copy}</span>`;
-    gallery.appendChild(cell);
-  });
-
-  return true;
-}
-
-function openServiceDialog(serviceId, trigger) {
-  if (!renderServiceDetail(serviceId)) return;
-  lastServiceTrigger = trigger || document.querySelector(`.service-card[data-service="${serviceId}"]`);
-  if (typeof serviceDialog.showModal === 'function') {
-    if (!serviceDialog.open) serviceDialog.showModal();
-  } else {
-    serviceDialog.setAttribute('open', '');
-  }
-  document.body.style.overflow = 'hidden';
-  serviceDialogClose.focus();
-}
-
-function closeServiceDialog() {
-  if (typeof serviceDialog.close === 'function' && serviceDialog.open) {
-    serviceDialog.close();
-  } else {
-    serviceDialog.removeAttribute('open');
-  }
-  document.body.style.overflow = '';
-  if (lastServiceTrigger) lastServiceTrigger.focus();
-}
-
-document.querySelectorAll('.service-card[data-service]').forEach(card => {
-  card.addEventListener('click', () => openServiceDialog(card.dataset.service, card));
-  card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      openServiceDialog(card.dataset.service, card);
-    }
-  });
-});
-
-serviceDialogClose.addEventListener('click', closeServiceDialog);
-serviceDialog.addEventListener('click', e => {
-  const shell = serviceDialog.querySelector('.service-dialog-shell');
-  if (!shell.contains(e.target)) closeServiceDialog();
-});
-serviceDialog.addEventListener('cancel', e => {
-  e.preventDefault();
-  closeServiceDialog();
-});
-serviceDialogCta.addEventListener('click', () => {
-  closeServiceDialog();
-});
-
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.filter;
-    document.querySelectorAll('.portfolio-card').forEach(c => {
-      c.classList.toggle('hidden', f !== 'all' && c.dataset.category !== f);
-    });
-  });
-});
-
-const portfolioDialog = document.getElementById('portfolioDialog');
-const portfolioDialogClose = document.getElementById('portfolioDialogClose');
-const portfolioDialogCta = document.getElementById('portfolioDialogCta');
-let lastPortfolioTrigger = null;
-
-function renderPortfolioProject(projectId) {
-  const project = portfolioProjects[projectId];
-  if (!project) return false;
-
-  document.getElementById('portfolioDialogKicker').textContent = project.kicker;
-  document.getElementById('portfolioDialogClient').textContent = project.client;
-  document.getElementById('portfolioDialogTitle').textContent = project.title;
-  document.getElementById('portfolioDialogSummary').textContent = project.summary;
-  document.getElementById('portfolioDialogStory').textContent = project.story;
-  document.getElementById('portfolioDialogNext').textContent = project.next;
-  document.getElementById('portfolioDialogGradient').style.background = project.gradient;
-
-  const pills = document.getElementById('portfolioDialogPills');
-  pills.innerHTML = '';
-  project.pills.forEach(item => {
-    const span = document.createElement('span');
-    span.className = 'portfolio-pill';
-    span.textContent = item;
-    pills.appendChild(span);
-  });
-
-  const stats = document.getElementById('portfolioDialogStats');
-  stats.innerHTML = '';
-  project.stats.forEach(item => {
-    const block = document.createElement('div');
-    block.className = 'portfolio-side-stat';
-    block.innerHTML = `<div class="portfolio-side-label">${item.label}</div><div class="portfolio-side-value">${item.value}</div><div class="portfolio-side-note">${item.note}</div>`;
-    stats.appendChild(block);
-  });
-
-  const metrics = document.getElementById('portfolioDialogMetrics');
-  metrics.innerHTML = '';
-  (portfolioProjectMetrics[projectId] || defaultPortfolioMetrics).forEach(item => {
-    const block = document.createElement('div');
-    block.className = 'metric';
-    block.innerHTML = `<span class="metric-value">${item.value}</span><span class="metric-label">${item.label}</span>`;
-    metrics.appendChild(block);
-  });
-
-  const deliverables = document.getElementById('portfolioDialogDeliverables');
-  deliverables.innerHTML = '';
-  project.deliverables.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = item;
-    deliverables.appendChild(li);
-  });
-
-  const gallery = document.getElementById('portfolioDialogGallery');
-  gallery.innerHTML = '';
-  project.gallery.forEach(item => {
-    const cell = document.createElement('div');
-    cell.className = 'portfolio-gallery-cell';
-    cell.innerHTML = `<strong>${item.title}</strong><span>${item.copy}</span>`;
-    gallery.appendChild(cell);
-  });
-
-  return true;
-}
-
-function openPortfolioDialog(projectId, trigger) {
-  if (!renderPortfolioProject(projectId)) return;
-  lastPortfolioTrigger = trigger || document.querySelector(`.portfolio-card[data-project="${projectId}"]`);
-  if (typeof portfolioDialog.showModal === 'function') {
-    if (!portfolioDialog.open) portfolioDialog.showModal();
-  } else {
-    portfolioDialog.setAttribute('open', '');
-  }
-  document.body.style.overflow = 'hidden';
-  portfolioDialogClose.focus();
-}
-
-function closePortfolioDialog() {
-  if (typeof portfolioDialog.close === 'function' && portfolioDialog.open) {
-    portfolioDialog.close();
-  } else {
-    portfolioDialog.removeAttribute('open');
-  }
-  document.body.style.overflow = '';
-  if (lastPortfolioTrigger) lastPortfolioTrigger.focus();
-}
-
-document.querySelectorAll('.portfolio-card[data-project]').forEach(card => {
-  card.addEventListener('click', () => openPortfolioDialog(card.dataset.project, card));
-  card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      openPortfolioDialog(card.dataset.project, card);
-    }
-  });
-});
-
-portfolioDialogClose.addEventListener('click', closePortfolioDialog);
-portfolioDialog.addEventListener('click', e => {
-  const shell = portfolioDialog.querySelector('.portfolio-dialog-shell');
-  if (!shell.contains(e.target)) closePortfolioDialog();
-});
-portfolioDialog.addEventListener('cancel', e => {
-  e.preventDefault();
-  closePortfolioDialog();
-});
-portfolioDialogCta.addEventListener('click', () => {
-  closePortfolioDialog();
-});
-
-/* ── BEFORE/AFTER ── */
-const baBox   = document.getElementById('baBox');
-const baAfter = document.getElementById('baAfter');
-const baLine  = document.getElementById('baLine');
-let dragging  = false;
-
-function setBAPos(clientX) {
-  const rect = baBox.getBoundingClientRect();
-  let pct = Math.max(4, Math.min(96, ((clientX - rect.left) / rect.width) * 100));
-  baLine.style.left  = pct + '%';
-  baAfter.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-}
-baBox.addEventListener('mousedown', e => { dragging = true; setBAPos(e.clientX); });
-baBox.addEventListener('touchstart', e => { dragging = true; setBAPos(e.touches[0].clientX); }, { passive: true });
-document.addEventListener('mouseup', () => dragging = false);
-document.addEventListener('touchend', () => dragging = false);
-document.addEventListener('mousemove', e => { if (dragging) setBAPos(e.clientX); });
-document.addEventListener('touchmove', e => { if (dragging) setBAPos(e.touches[0].clientX); }, { passive: true });
-
-// Auto demo
-let demoDone = false;
-if (!prefersReducedMotion) {
-  const baObs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting && !demoDone) {
-      demoDone = true; let t = 0;
-      const iv = setInterval(() => {
-        t++;
-        const pct = 50 + Math.sin(t * 0.075) * 40;
-        const r = baBox.getBoundingClientRect();
-        setBAPos(r.left + r.width * pct / 100);
-        if (t > 84) clearInterval(iv);
-      }, 30);
-    }
-  }, { threshold: 0.6 });
-  baObs.observe(baBox);
-}
-
-/* ── ABOUT DECK ROTATION ── */
-const aboutDeck = document.getElementById('aboutDeck');
-const aboutCards = aboutDeck.querySelectorAll('.about-card');
-let totalCards = aboutCards.length;
-
-aboutDeck.addEventListener('click', () => {
-  const topCard = aboutDeck.querySelector('.about-card[data-index="0"]');
-  topCard.classList.add('exit');
-  
-  setTimeout(() => {
-    topCard.classList.remove('exit');
-    aboutCards.forEach(card => {
-      let idx = parseInt(card.getAttribute('data-index'));
-      let newIdx = (idx - 1 + totalCards) % totalCards;
-      card.setAttribute('data-index', newIdx);
-    });
-  }, 400);
-});
-
-/* ── CONTACT FORM ── */
-const contactForm = document.getElementById('contactForm');
-const contactFormMessage = document.getElementById('contactFormMessage');
-
-function setContactFormMessage(type, text) {
-  if (!contactFormMessage) return;
-  contactFormMessage.className = 'form-message';
-  contactFormMessage.textContent = text;
-  if (type) {
-    contactFormMessage.classList.add(type);
-  }
-}
-
-if (contactForm) {
-  contactForm.addEventListener('submit', async event => {
-    event.preventDefault();
-
-    const submitButton = contactForm.querySelector('.btn-submit');
-    const action = contactForm.getAttribute('action') || '';
-
-    if (action.includes('FORM_ID_BURAYA')) {
-      setContactFormMessage('error', "Form kurulumu henüz tamamlanmadı. Lütfen Formspree form ID'sini ekleyin.");
-      return;
-    }
-
-    submitButton?.setAttribute('disabled', 'disabled');
-    setContactFormMessage('', '');
-
-    try {
-      const response = await fetch(action, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json'
-        },
-        body: new FormData(contactForm)
-      });
-
-      if (!response.ok) {
-        throw new Error('Formspree request failed');
-      }
-
-      contactForm.reset();
-      setContactFormMessage('success', 'Teşekkürler. Mesajınız bize ulaştı, en kısa sürede size dönüş yapacağız.');
-    } catch (error) {
-      setContactFormMessage('error', 'Mesaj gönderilirken bir sorun oluştu. Lütfen tekrar deneyin veya WhatsApp üzerinden bize ulaşın.');
-    } finally {
-      submitButton?.removeAttribute('disabled');
-    }
-  });
-}
-
-</script>
 </body>
 </html>

@@ -29,6 +29,9 @@ main { padding-bottom: 6rem; }
     position: relative;
     z-index: 2;
 }
+.blog-heading-kicker {
+    margin-bottom: 1rem;
+}
 .blog-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3rem, 8vw, 5rem);
@@ -36,6 +39,10 @@ main { padding-bottom: 6rem; }
     margin-bottom: 1rem;
     line-height: 1.05;
     max-width: 16ch;
+}
+.blog-header-heading {
+    margin: 0 auto 1.5rem;
+    text-align: center;
 }
 .blog-subtitle {
     color: var(--text-muted);
@@ -45,10 +52,25 @@ main { padding-bottom: 6rem; }
     max-width: 60ch;
     margin-bottom: 1.75rem;
 }
+.blog-header-copy {
+    margin: 0 auto 1.25rem;
+    text-align: center;
+    max-width: 65ch;
+}
+.blog-header-note {
+    margin: 0 auto 2rem;
+    text-align: center;
+    max-width: 52ch;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
 .topic-strip {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+}
+.topic-strip--center {
+    justify-content: center;
 }
 .topic-pill {
     display: inline-flex;

@@ -79,23 +79,36 @@ PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/")
 IMAGE_PROXY_ALLOWED_HOSTS = ("cdninstagram.com", "fbcdn.net")
 SECURITY_HEADERS = {
     "X-Content-Type-Options": "nosniff",
-    "X-Frame-Options": "DENY",
+    "X-Frame-Options": "SAMEORIGIN",
     "Referrer-Policy": "strict-origin-when-cross-origin",
     "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
     "Cross-Origin-Opener-Policy": "same-origin",
+    "Cross-Origin-Resource-Policy": "same-origin",
+    "X-Permitted-Cross-Domain-Policies": "none",
     "Content-Security-Policy": (
         "default-src 'self'; "
-        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; "
-        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
-        "img-src 'self' data: https:; "
-        "font-src 'self' https://fonts.gstatic.com data:; "
-        "connect-src 'self' https://formspree.io https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net; "
-        "object-src 'none'; "
         "base-uri 'self'; "
-        "frame-ancestors 'none'; "
-        "form-action 'self' https://wa.me https://formspree.io"
+        "object-src 'none'; "
+        "frame-ancestors 'self'; "
+        "script-src 'self' https://www.googletagmanager.com; "
+        "style-src 'self' 'unsafe-inline'; "
+        "img-src 'self' data: https:; "
+        "font-src 'self' data:; "
+        "connect-src 'self' https://formspree.io https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net; "
+        "form-action 'self' https://wa.me https://formspree.io; "
+        "upgrade-insecure-requests"
     ),
 }
+ALLOWED_ORIGINS = frozenset(
+    origin.strip()
+    for origin in os.environ.get("ALLOWED_ORIGINS", ",".join(DEFAULT_ALLOWED_ORIGINS)).split(",")
+    if origin.strip()
+)
+TRUSTED_PROXY_IPS = frozenset(
+    origin.strip()
+    for origin in os.environ.get("TRUSTED_PROXY_IPS", "").split(",")
+    if origin.strip()
+)
 
 logger = logging.getLogger("veridia.server")
 _rate_limit_lock = threading.Lock()
@@ -112,6 +125,28 @@ class AnalyzeError(Exception):
 
 
 # Utility functions moved to instagram_utils.py
+
+
+class NoRedirectHandler(request.HTTPRedirectHandler):
+    def redirect_request(self, req: request.Request, fp: Any, code: int, msg: str, headers: Any, newurl: str) -> None:
+        return None
+
+
+def parse_ip_literal(value: str) -> str | None:
+    raw = value.strip().strip('"').strip("'")
+    if not raw or raw.lower() == "unknown":
+        return None
+
+    if raw.startswith("[") and "]" in raw:
+        candidate = raw[1:].split("]", 1)[0]
+    else:
+        parts = raw.rsplit(":", 1)
+        candidate = parts[0] if len(parts) == 2 and raw.count(":") == 1 else raw
+
+    try:
+        return str(ipaddress.ip_address(candidate))
+    except ValueError:
+        return None
 
 
 def detect_input_field() -> str:
@@ -746,14 +781,30 @@ class AppHandler(SimpleHTTPRequestHandler):
 
     def end_headers(self) -> None:
         path = urlparse(self.path).path
-        if not path.startswith("/api/profile-image"):
+        if path.startswith("/api/") and not path.startswith("/api/profile-image"):
             self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
             self.send_header("Pragma", "no-cache")
             self.send_header("Expires", "0")
+        elif path.startswith("/assets/"):
+            self.send_header("Cache-Control", "public, max-age=31536000, immutable")
+        elif path in ("/robots.txt", "/sitemap.xml"):
+            self.send_header("Cache-Control", "public, max-age=3600")
+        elif path.endswith(".html") or path == "/" or not path:
+            self.send_header("Cache-Control", "no-cache, must-revalidate")
+
         self.send_header("Vary", "Accept-Encoding")
         for header, value in SECURITY_HEADERS.items():
             self.send_header(header, value)
+        if self.is_secure_request():
+            self.send_header("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload")
         super().end_headers()
+
+    def is_secure_request(self) -> bool:
+        forwarded_proto = self.headers.get("X-Forwarded-Proto", "").split(",", 1)[0].strip().lower()
+        if forwarded_proto == "https":
+            return True
+
+        return getattr(self.connection, "cipher", None) is not None
 
     def send_error(
         self,

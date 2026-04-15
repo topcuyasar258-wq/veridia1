@@ -137,10 +137,8 @@ def build_article_template(title: str, summary: str, url_name: str, date_iso: st
       ]
     }}
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/shared.css">
+    <link rel="stylesheet" href="/assets/fonts.css">
+    <link rel="stylesheet" href="/assets/page-shell.css">
     <style>
         body {{ padding-top: 8rem; }}
         .article-container {{

@@ -88,6 +88,38 @@ class SeoSmokeTests(unittest.TestCase):
                 self.assertIn('rel="canonical"', page)
                 self.assertIn("veridia-social-cover.png", page)
 
+    def test_pages_use_local_font_manifest_and_no_google_fonts(self) -> None:
+        paths = [
+            ROOT / "index.html",
+            ROOT / "blog.html",
+            ROOT / "404.html",
+            ROOT / "gizlilik-politikasi.html",
+            ROOT / "kvkk-aydinlatma-metni.html",
+            ROOT / "blog" / "instagram-algoritmasi-2026.html",
+            ROOT / "blog" / "b2b-donusum-hunisi.html",
+        ]
+        for path in paths:
+            with self.subTest(path=path.name):
+                content = path.read_text(encoding="utf-8")
+                self.assertIn("assets/fonts.css", content)
+                self.assertNotIn("fonts.googleapis.com", content)
+                self.assertNotIn("fonts.gstatic.com", content)
+
+    def test_pages_do_not_use_inline_script_handlers(self) -> None:
+        paths = [
+            ROOT / "index.html",
+            ROOT / "blog.html",
+            ROOT / "404.html",
+            ROOT / "blog" / "instagram-algoritmasi-2026.html",
+            ROOT / "blog" / "b2b-donusum-hunisi.html",
+        ]
+        for path in paths:
+            with self.subTest(path=path.name):
+                content = path.read_text(encoding="utf-8")
+                self.assertNotIn("onclick=", content)
+                self.assertNotIn("onload=", content)
+                self.assertNotIn("window.dataLayer", content)
+
 
 if __name__ == "__main__":
     unittest.main()

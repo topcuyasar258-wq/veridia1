@@ -48,6 +48,30 @@ class ServerSecurityTests(unittest.TestCase):
         self.assertEqual(status, HTTPStatus.OK)
         self.assertIn("Veridia", body.decode("utf-8"))
 
+    def test_public_pages_send_hardened_security_headers(self) -> None:
+        status, _, headers = self.http_request("GET", "/")
+
+        self.assertEqual(status, HTTPStatus.OK)
+        self.assertEqual(headers.get("X-Frame-Options"), "SAMEORIGIN")
+        self.assertEqual(headers.get("X-Content-Type-Options"), "nosniff")
+        csp = headers.get("Content-Security-Policy", "")
+        script_policy = next((part.strip() for part in csp.split(";") if part.strip().startswith("script-src")), "")
+        self.assertIn("frame-ancestors 'self'", csp)
+        self.assertNotIn("fonts.googleapis.com", csp)
+        self.assertNotIn("'unsafe-inline'", script_policy)
+
+    def test_static_assets_are_cacheable(self) -> None:
+        status, _, headers = self.http_request("GET", "/assets/config.js")
+
+        self.assertEqual(status, HTTPStatus.OK)
+        self.assertEqual(headers.get("Cache-Control"), "public, max-age=31536000, immutable")
+
+    def test_html_pages_require_revalidation(self) -> None:
+        status, _, headers = self.http_request("GET", "/blog.html")
+
+        self.assertEqual(status, HTTPStatus.OK)
+        self.assertEqual(headers.get("Cache-Control"), "no-cache, must-revalidate")
+
     def test_legal_pages_are_served(self) -> None:
         for path in ("/gizlilik-politikasi.html", "/kvkk-aydinlatma-metni.html"):
             with self.subTest(path=path):
