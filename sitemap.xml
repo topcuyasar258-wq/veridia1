@@ -26,6 +26,26 @@
     </image:image>
   </url>
   <url>
+    <loc>https://veridia.com.tr/neler-yapiyoruz.html</loc>
+    <lastmod>2026-04-16T16:15:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:title>Veridia Neler Yapıyoruz</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://veridia.com.tr/calismalarimiz.html</loc>
+    <lastmod>2026-04-16T16:15:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:title>Veridia Çalışmalarımız</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://veridia.com.tr/blog/instagram-algoritmasi-2026.html</loc>
     <lastmod>2026-04-09T16:28:12+03:00</lastmod>
     <changefreq>monthly</changefreq>

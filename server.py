@@ -69,6 +69,8 @@ PUBLIC_FILE_PATHS = frozenset(
     {
         "/index.html",
         "/blog.html",
+        "/neler-yapiyoruz.html",
+        "/calismalarimiz.html",
         "/gizlilik-politikasi.html",
         "/kvkk-aydinlatma-metni.html",
         "/robots.txt",

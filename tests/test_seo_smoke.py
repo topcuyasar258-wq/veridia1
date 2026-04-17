@@ -14,6 +14,8 @@ class SeoSmokeTests(unittest.TestCase):
     def test_sitemap_uses_production_urls(self) -> None:
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("https://veridia.com.tr/", sitemap)
+        self.assertIn("https://veridia.com.tr/neler-yapiyoruz.html", sitemap)
+        self.assertIn("https://veridia.com.tr/calismalarimiz.html", sitemap)
         self.assertIn("https://veridia.com.tr/blog/b2b-pazarlamada-donusum-hunisi.html", sitemap)
         self.assertIn("https://veridia.com.tr/blog/instagram-algoritmasi-2026.html", sitemap)
         self.assertIn("https://veridia.com.tr/blog/b2b-donusum-hunisi.html", sitemap)
@@ -50,12 +52,22 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn('rel="canonical" href="https://veridia.com.tr"', homepage)
         self.assertIn("veridia-social-cover.png", homepage)
         self.assertIn("assets/config.js", homepage)
+        self.assertIn("assets/home-loader.js", homepage)
         self.assertIn("quoteValidationError", homepage)
+        self.assertIn("/neler-yapiyoruz.html", homepage)
+        self.assertIn("/calismalarimiz.html", homepage)
         self.assertIn('rel="icon"', homepage)
         self.assertNotIn("Marka e-postası bu aşamada doğrulanmadı", homepage)
         self.assertNotIn("APIFY_TOKEN", homepage)
         self.assertNotIn("python3 server.py", homepage)
         self.assertNotIn('href="#contact">Instagram</a>', homepage)
+
+    def test_homepage_does_not_preload_non_critical_social_cover_or_eager_home_scripts(self) -> None:
+        homepage = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertNotIn('<link rel="preload" href="./assets/veridia-social-cover.png" as="image">', homepage)
+        self.assertNotIn('<script defer src="./assets/home.js"></script>', homepage)
+        self.assertNotIn('<script defer src="./assets/site-data.js"></script>', homepage)
+        self.assertNotIn('<script defer src="./assets/quote-pricing.js"></script>', homepage)
 
     def test_homepage_source_is_canonical_root_document(self) -> None:
         index = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -67,6 +79,8 @@ class SeoSmokeTests(unittest.TestCase):
     def test_body_internal_links_do_not_hardcode_production_domain(self) -> None:
         paths = [
             ROOT / "index.html",
+            ROOT / "neler-yapiyoruz.html",
+            ROOT / "calismalarimiz.html",
             ROOT / "blog.html",
             ROOT / "404.html",
             ROOT / "gizlilik-politikasi.html",
@@ -91,6 +105,8 @@ class SeoSmokeTests(unittest.TestCase):
     def test_pages_use_local_font_manifest_and_no_google_fonts(self) -> None:
         paths = [
             ROOT / "index.html",
+            ROOT / "neler-yapiyoruz.html",
+            ROOT / "calismalarimiz.html",
             ROOT / "blog.html",
             ROOT / "404.html",
             ROOT / "gizlilik-politikasi.html",
@@ -108,6 +124,8 @@ class SeoSmokeTests(unittest.TestCase):
     def test_pages_do_not_use_inline_script_handlers(self) -> None:
         paths = [
             ROOT / "index.html",
+            ROOT / "neler-yapiyoruz.html",
+            ROOT / "calismalarimiz.html",
             ROOT / "blog.html",
             ROOT / "404.html",
             ROOT / "blog" / "instagram-algoritmasi-2026.html",
@@ -120,6 +138,21 @@ class SeoSmokeTests(unittest.TestCase):
                 self.assertNotIn("onload=", content)
                 self.assertNotIn("window.dataLayer", content)
 
+    def test_work_pages_have_canonical_schema_and_local_assets(self) -> None:
+        work_pages = [
+            ROOT / "neler-yapiyoruz.html",
+            ROOT / "calismalarimiz.html",
+        ]
+        for page_path in work_pages:
+            with self.subTest(page=page_path.name):
+                content = page_path.read_text(encoding="utf-8")
+                self.assertIn('<link rel="canonical"', content)
+                self.assertIn('"@type": "CollectionPage"', content)
+                self.assertIn("assets/work-pages.css", content)
+                self.assertIn("assets/work-pages.js", content)
+                self.assertIn("data-whatsapp-message", content)
+                self.assertIn("veridia-social-cover.png", content)
+                self.assertNotIn('href="#"', content)
 
 if __name__ == "__main__":
     unittest.main()

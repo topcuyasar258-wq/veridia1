@@ -825,7 +825,6 @@
       beforeAfterObserver.observe(baBox);
     }
   }
-
   const aboutDeck = doc.getElementById('aboutDeck');
   const aboutCards = aboutDeck ? aboutDeck.querySelectorAll('.about-card') : [];
 

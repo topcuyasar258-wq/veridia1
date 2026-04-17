@@ -7,6 +7,7 @@
   const hamburger = doc.getElementById('hamburger');
   const cursor = doc.getElementById('cursor');
   const cursorRing = doc.getElementById('cursorRing');
+  const hasFinePointer = root.matchMedia('(hover: hover) and (pointer: fine)').matches;
   let scrollTicking = false;
   let ringTimer = null;
 
@@ -82,7 +83,7 @@
     root.requestAnimationFrame(updateScrollUi);
   }
 
-  if (!prefersReducedMotion && cursor && cursorRing) {
+  if (!prefersReducedMotion && hasFinePointer && cursor && cursorRing) {
     doc.addEventListener('mousemove', (event) => {
       cursor.style.left = `${event.clientX}px`;
       cursor.style.top = `${event.clientY}px`;

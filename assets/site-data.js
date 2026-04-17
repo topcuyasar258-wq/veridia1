@@ -444,3 +444,12 @@ const teamData = [
   { name: 'Zeynep Kaçar', role: 'Performans Pazarlama', bio: 'Reklam bütçesini verimli büyüme sinyallerine dönüştüren optimizasyonları yönetir.' },
   { name: 'Deniz Ak', role: 'Kreatif Direktör', bio: 'Marka dilini and görsel ritmi tüm kanallarda tutarlı bir estetikle birleştirir.' }
 ];
+
+if (typeof window !== 'undefined') {
+  window.serviceDetails = serviceDetails;
+  window.portfolioProjects = portfolioProjects;
+  window.defaultPortfolioMetrics = defaultPortfolioMetrics;
+  window.portfolioProjectMetrics = portfolioProjectMetrics;
+  window.quoteSteps = quoteSteps;
+  window.teamData = teamData;
+}

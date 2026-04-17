@@ -427,6 +427,13 @@ nav.scrolled {
     min-height: 100svh;
     align-items: flex-end;
   }
+  .hero-label,
+  .hero-title,
+  .hero-sub,
+  .hero-cta {
+    opacity: 1;
+    animation: none;
+  }
   .hero-label { font-size: 0.65rem; margin-bottom: 1.2rem; }
   .hero-title { font-size: clamp(3.5rem, 16vw, 5rem); }
   .hero-sub { font-size: 1rem; margin-top: 1rem; }
