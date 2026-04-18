@@ -285,7 +285,9 @@ nav.scrolled {
   display: grid;
   align-content: center;
   max-width: 980px;
+  min-height: 600px;
   min-height: calc(100svh - 12rem);
+  contain: layout;
 }
 .hero-label {
   display: inline-flex;

@@ -27,9 +27,13 @@
 <meta name="twitter:site" content="@veridia">
 <link rel="canonical" href="https://veridiareklam.com.tr">
 <!-- SEO: Preload homepage-critical font assets -->
+<link rel="preload" href="./assets/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
 <link rel="preload" href="./assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="./assets/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="./assets/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/cormorant-garamond-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/cormorant-garamond-normal-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/bebas-neue-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/dm-sans-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="./assets/fonts.css?v=3">
 <script type="application/ld+json">
 {
@@ -242,11 +246,6 @@
 <!-- SEO: Shared homepage CSS is deferred because above-the-fold rules live in index-critical.css -->
 <link rel="preload" href="./assets/shared.css?v=6" as="style" data-deferred-style>
 <noscript><link rel="stylesheet" href="./assets/shared.css?v=6"></noscript>
-<script defer src="./assets/config.js?v=4"></script>
-<script defer src="./assets/analytics.js?v=4"></script>
-<script defer src="./assets/style-loader.js?v=4"></script>
-<script defer src="./assets/page-shell.js?v=4"></script>
-<script defer src="./assets/home-loader.js?v=4"></script>
 </head>
 <body>
 
@@ -326,19 +325,11 @@
     <span>Şişirilmiş vaat yerine uygulanabilir büyüme planı sunuyoruz</span><span class="dot">◆</span>
     <span>İlk temas kısa, net ve düşük riskli ilerler</span><span class="dot">◆</span>
     <span>Veridia ile süreç baştan şeffaf kurulur</span><span class="dot">◆</span>
-    <!-- Duplicate for loop -->
-    <span>Marka stratejisi olmadan içerik tek başına yetmez</span><span class="dot">◆</span>
-    <span>Sosyal medya yönetimi, içerik üretimi ve reklam aynı planda çalışmalı</span><span class="dot">◆</span>
-    <span>İlk görüşmede hedefi, kapsamı ve sonraki adımı netleştiriyoruz</span><span class="dot">◆</span>
-    <span>Hizmet bedeli ile medya bütçesini ayrı planlıyoruz</span><span class="dot">◆</span>
-    <span>Küçük başlayıp sağlam bir sistem kurmak daha değerlidir</span><span class="dot">◆</span>
-    <span>Performans pazarlama doğru teklif ve doğru sayfayla çalışır</span><span class="dot">◆</span>
-    <span>İçerik ritmi, marka dili ve reklam mesajı aynı omurgada ilerlemeli</span><span class="dot">◆</span>
-    <span>Şişirilmiş vaat yerine uygulanabilir büyüme planı sunuyoruz</span><span class="dot">◆</span>
-    <span>İlk temas kısa, net ve düşük riskli ilerler</span><span class="dot">◆</span>
-    <span>Veridia ile süreç baştan şeffaf kurulur</span><span class="dot">◆</span>
   </div>
 </div>
+<script>
+(function(){var t=document.querySelector('.marquee-track');if(t){var f=document.createDocumentFragment();Array.from(t.children).forEach(function(n){f.appendChild(n.cloneNode(true));});t.appendChild(f);}})();
+</script>
 
 <!-- ══ ABOUT ══ -->
 <section id="about">
@@ -1833,5 +1824,9 @@
     </button>
   </div>
 </footer>
+<script defer src="./assets/config.js?v=4"></script>
+<script defer src="./assets/style-loader.js?v=4"></script>
+<script defer src="./assets/page-shell.js?v=4"></script>
+<script defer src="./assets/home-loader.js?v=4"></script>
 </body>
 </html>
