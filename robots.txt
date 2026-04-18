@@ -7,4 +7,4 @@ User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
 
-Sitemap: https://veridia.com.tr/sitemap.xml
+Sitemap: https://veridiareklam.com.tr/sitemap.xml

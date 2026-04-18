@@ -2,87 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://veridia.com.tr/</loc>
-    <lastmod>2026-04-09T16:25:00+03:00</lastmod>
+    <loc>https://veridiareklam.com.tr/</loc>
+    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://veridia.com.tr/assets/about-visual.png</image:loc>
+      <image:loc>https://veridiareklam.com.tr/assets/about-visual.png</image:loc>
       <image:title>Veridia Ana Sayfa Marka Görseli</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:loc>https://veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
       <image:title>Veridia Sosyal Kapak Görseli</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://veridia.com.tr/blog.html</loc>
-    <lastmod>2026-04-09T16:26:36+03:00</lastmod>
+    <loc>https://veridiareklam.com.tr/blog.html</loc>
+    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:loc>https://veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
       <image:title>Veridia Blog Kapak Görseli</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://veridia.com.tr/neler-yapiyoruz.html</loc>
-    <lastmod>2026-04-16T16:15:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
-      <image:title>Veridia Neler Yapıyoruz</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://veridia.com.tr/calismalarimiz.html</loc>
+    <loc>https://veridiareklam.com.tr/neler-yapiyoruz.html</loc>
     <lastmod>2026-04-18T18:05:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:loc>https://veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:title>Veridia Neler Yapıyoruz</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/calismalarimiz.html</loc>
+    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
       <image:title>Veridia Örnek Çalışma Senaryoları</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://veridia.com.tr/blog/instagram-algoritmasi-2026.html</loc>
-    <lastmod>2026-04-09T16:28:12+03:00</lastmod>
+    <loc>https://veridiareklam.com.tr/blog/instagram-algoritmasi-2026.html</loc>
+    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:loc>https://veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
       <image:title>Instagram Algoritması 2026 Rehberi</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://veridia.com.tr/blog/b2b-donusum-hunisi.html</loc>
-    <lastmod>2026-04-09T16:29:38+03:00</lastmod>
+    <loc>https://veridiareklam.com.tr/blog/b2b-donusum-hunisi.html</loc>
+    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:loc>https://veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
       <image:title>B2B Dönüşüm Hunisi Rehberi</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://veridia.com.tr/gizlilik-politikasi.html</loc>
-    <lastmod>2026-04-09T16:30:15+03:00</lastmod>
+    <loc>https://veridiareklam.com.tr/gizlilik-politikasi.html</loc>
+    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <image:image>
-      <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
-      <image:title>Veridia Gizlilik Politikası</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://veridia.com.tr/kvkk-aydinlatma-metni.html</loc>
-    <lastmod>2026-04-09T16:30:49+03:00</lastmod>
+    <loc>https://veridiareklam.com.tr/kvkk-aydinlatma-metni.html</loc>
+    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <image:image>
-      <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
-      <image:title>Veridia KVKK Aydınlatma Metni</image:title>
-    </image:image>
   </url>
 </urlset>
