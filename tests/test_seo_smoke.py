@@ -16,11 +16,11 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("https://veridia.com.tr/", sitemap)
         self.assertIn("https://veridia.com.tr/neler-yapiyoruz.html", sitemap)
         self.assertIn("https://veridia.com.tr/calismalarimiz.html", sitemap)
-        self.assertIn("https://veridia.com.tr/blog/b2b-pazarlamada-donusum-hunisi.html", sitemap)
         self.assertIn("https://veridia.com.tr/blog/instagram-algoritmasi-2026.html", sitemap)
         self.assertIn("https://veridia.com.tr/blog/b2b-donusum-hunisi.html", sitemap)
         self.assertIn("https://veridia.com.tr/gizlilik-politikasi.html", sitemap)
         self.assertIn("https://veridia.com.tr/kvkk-aydinlatma-metni.html", sitemap)
+        self.assertNotIn("https://veridia.com.tr/blog/b2b-pazarlamada-donusum-hunisi.html", sitemap)
         self.assertNotIn("127.0.0.1", sitemap)
 
     def test_blog_index_has_no_dead_placeholder_links(self) -> None:
@@ -153,6 +153,13 @@ class SeoSmokeTests(unittest.TestCase):
                 self.assertIn("data-whatsapp-message", content)
                 self.assertIn("veridia-social-cover.png", content)
                 self.assertNotIn('href="#"', content)
+
+    def test_case_studies_page_positions_scenarios_transparently(self) -> None:
+        content = (ROOT / "calismalarimiz.html").read_text(encoding="utf-8")
+        self.assertIn("<title>Örnek Çalışma Senaryoları | Veridia</title>", content)
+        self.assertIn("örnek çalışma senaryoları", content)
+        self.assertIn("anonimleştirilmiş vaka notları", content)
+        self.assertIn("müşteri yorumu değil", content)
 
 if __name__ == "__main__":
     unittest.main()

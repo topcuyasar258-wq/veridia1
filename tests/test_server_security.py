@@ -86,6 +86,16 @@ class ServerSecurityTests(unittest.TestCase):
                 self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
                 self.assertEqual(headers.get("Location"), "/")
 
+    def test_legacy_blog_slug_redirects_to_current_article(self) -> None:
+        status, _, headers = self.http_request(
+            "GET",
+            "/blog/b2b-pazarlamada-donusum-hunisi.html",
+            follow_redirects=False,
+        )
+
+        self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+        self.assertEqual(headers.get("Location"), "/blog/b2b-donusum-hunisi.html")
+
     def test_sensitive_files_and_internal_paths_are_not_public(self) -> None:
         for path in ("/.env", "/.git/HEAD", "/analysis_snapshots.sqlite3", "/server.py", "/automation/README.md"):
             with self.subTest(path=path):

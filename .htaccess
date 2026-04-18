@@ -1,3 +1,7 @@
+<IfModule mod_alias.c>
+  Redirect 301 /blog/b2b-pazarlamada-donusum-hunisi.html /blog/b2b-donusum-hunisi.html
+</IfModule>
+
 <IfModule mod_headers.c>
   # Security headers.
   Header always set X-Frame-Options "SAMEORIGIN"

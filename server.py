@@ -78,6 +78,12 @@ PUBLIC_FILE_PATHS = frozenset(
     }
 )
 PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/")
+LEGACY_REDIRECTS = {
+    "/index.html": "/",
+    "/asdfadsf.html": "/",
+    "/veridia-ajans.html": "/",
+    "/blog/b2b-pazarlamada-donusum-hunisi.html": "/blog/b2b-donusum-hunisi.html",
+}
 IMAGE_PROXY_ALLOWED_HOSTS = ("cdninstagram.com", "fbcdn.net")
 SECURITY_HEADERS = {
     "X-Content-Type-Options": "nosniff",
@@ -870,9 +876,9 @@ class AppHandler(SimpleHTTPRequestHandler):
             super().do_GET()
             return
 
-        if normalized_path in ("/index.html", "/asdfadsf.html", "/veridia-ajans.html"):
+        if normalized_path in LEGACY_REDIRECTS:
             self.send_response(HTTPStatus.MOVED_PERMANENTLY)
-            self.send_header("Location", "/")
+            self.send_header("Location", LEGACY_REDIRECTS[normalized_path])
             self.end_headers()
             return
 
@@ -977,9 +983,9 @@ class AppHandler(SimpleHTTPRequestHandler):
             super().do_HEAD()
             return
 
-        if normalized_path in ("/index.html", "/asdfadsf.html", "/veridia-ajans.html"):
+        if normalized_path in LEGACY_REDIRECTS:
             self.send_response(HTTPStatus.MOVED_PERMANENTLY)
-            self.send_header("Location", "/")
+            self.send_header("Location", LEGACY_REDIRECTS[normalized_path])
             self.end_headers()
             return
 

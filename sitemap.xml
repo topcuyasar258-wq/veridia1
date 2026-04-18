@@ -37,12 +37,12 @@
   </url>
   <url>
     <loc>https://veridia.com.tr/calismalarimiz.html</loc>
-    <lastmod>2026-04-16T16:15:00+03:00</lastmod>
+    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
-      <image:title>Veridia Çalışmalarımız</image:title>
+      <image:title>Veridia Örnek Çalışma Senaryoları</image:title>
     </image:image>
   </url>
   <url>
@@ -64,12 +64,6 @@
       <image:loc>https://veridia.com.tr/assets/veridia-social-cover.png</image:loc>
       <image:title>B2B Dönüşüm Hunisi Rehberi</image:title>
     </image:image>
-  </url>
-  <url>
-    <loc>https://veridia.com.tr/blog/b2b-pazarlamada-donusum-hunisi.html</loc>
-    <lastmod>2026-04-09T16:29:38+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://veridia.com.tr/gizlilik-politikasi.html</loc>
