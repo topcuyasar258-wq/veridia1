@@ -6,7 +6,6 @@
     './assets/home.js?v=4',
   ];
   let homepageBootPromise = null;
-  let analyticsScheduled = false;
 
   function loadScript(src) {
     return new Promise((resolve, reject) => {
@@ -82,24 +81,6 @@
     targets.forEach((target) => sectionObserver.observe(target));
   }
 
-  function scheduleAnalytics() {
-    if (analyticsScheduled) {
-      return;
-    }
-
-    analyticsScheduled = true;
-    const loadAnalytics = () => {
-      loadScript('./assets/analytics.js').catch(() => {});
-    };
-
-    if ('requestIdleCallback' in root) {
-      root.requestIdleCallback(loadAnalytics, { timeout: 2000 });
-      return;
-    }
-
-    root.setTimeout(loadAnalytics, 1400);
-  }
-
   watchSections();
 
   root.addEventListener('scroll', scheduleHomepageBoot, { passive: true, once: true });
@@ -110,11 +91,5 @@
     root.requestIdleCallback(() => ensureHomepageScripts(), { timeout: 1800 });
   } else {
     root.setTimeout(() => ensureHomepageScripts(), 1200);
-  }
-
-  if (doc.readyState === 'complete') {
-    scheduleAnalytics();
-  } else {
-    root.addEventListener('load', scheduleAnalytics, { once: true });
   }
 })(typeof window !== 'undefined' ? window : globalThis);
