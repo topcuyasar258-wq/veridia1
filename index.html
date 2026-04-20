@@ -26,11 +26,10 @@
 <meta name="twitter:image" content="https://veridiareklam.com.tr/assets/veridia-social-cover.png">
 <meta name="twitter:site" content="@veridia">
 <link rel="canonical" href="https://veridiareklam.com.tr">
-<!-- SEO: Preload homepage-critical font assets -->
-<link rel="preload" href="./assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="./assets/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="./assets/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="./assets/fonts.css?v=3">
+<script>(function(){try{if(localStorage.getItem('veridia-theme')==='light'){document.documentElement.dataset.theme='light';}}catch(_){}})();</script>
+<link rel="preload" href="./assets/fonts.css?v=4" as="style">
+<link rel="stylesheet" href="./assets/fonts.css?v=4" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="./assets/fonts.css?v=4"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -240,11 +239,10 @@
 <!-- SEO: Homepage critical CSS moved out of the document to reduce inline render-blocking -->
 <link rel="stylesheet" href="./assets/index-critical.css">
 <!-- SEO: Shared homepage CSS is deferred because above-the-fold rules live in index-critical.css -->
-<link rel="preload" href="./assets/shared.css?v=6" as="style" data-deferred-style>
-<noscript><link rel="stylesheet" href="./assets/shared.css?v=6"></noscript>
+<link data-deferred-style data-href="./assets/shared.css?v=7" data-style-media="all">
+<noscript><link rel="stylesheet" href="./assets/shared.css?v=7"></noscript>
 <script defer src="./assets/config.js?v=4"></script>
-<script defer src="./assets/analytics.js?v=4"></script>
-<script defer src="./assets/style-loader.js?v=4"></script>
+<script defer src="./assets/style-loader.js?v=5"></script>
 <script defer src="./assets/page-shell.js?v=4"></script>
 <script defer src="./assets/home-loader.js?v=4"></script>
 </head>
