@@ -8,19 +8,20 @@ ROOT = Path(__file__).resolve().parent.parent
 class SeoSmokeTests(unittest.TestCase):
     def test_robots_points_to_production_sitemap(self) -> None:
         robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
-        self.assertIn("Sitemap: https://veridia.com.tr/sitemap.xml", robots)
+        self.assertIn("Sitemap: https://veridiareklam.com.tr/sitemap.xml", robots)
         self.assertNotIn("127.0.0.1", robots)
 
     def test_sitemap_uses_production_urls(self) -> None:
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
-        self.assertIn("https://veridia.com.tr/", sitemap)
-        self.assertIn("https://veridia.com.tr/neler-yapiyoruz.html", sitemap)
-        self.assertIn("https://veridia.com.tr/calismalarimiz.html", sitemap)
-        self.assertIn("https://veridia.com.tr/blog/instagram-algoritmasi-2026.html", sitemap)
-        self.assertIn("https://veridia.com.tr/blog/b2b-donusum-hunisi.html", sitemap)
-        self.assertIn("https://veridia.com.tr/gizlilik-politikasi.html", sitemap)
-        self.assertIn("https://veridia.com.tr/kvkk-aydinlatma-metni.html", sitemap)
-        self.assertNotIn("https://veridia.com.tr/blog/b2b-pazarlamada-donusum-hunisi.html", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/neler-yapiyoruz.html", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/calismalarimiz.html", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/blog/instagram-algoritmasi-2026.html", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/blog/b2b-donusum-hunisi.html", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi.html", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/gizlilik-politikasi.html", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/kvkk-aydinlatma-metni.html", sitemap)
+        self.assertNotIn("https://veridiareklam.com.tr/blog/b2b-pazarlamada-donusum-hunisi.html", sitemap)
         self.assertNotIn("127.0.0.1", sitemap)
 
     def test_blog_index_has_no_dead_placeholder_links(self) -> None:
@@ -35,6 +36,7 @@ class SeoSmokeTests(unittest.TestCase):
         article_paths = [
             ROOT / "blog" / "instagram-algoritmasi-2026.html",
             ROOT / "blog" / "b2b-donusum-hunisi.html",
+            ROOT / "blog" / "teknik-seo-ve-web-performansi.html",
         ]
         for article_path in article_paths:
             content = article_path.read_text(encoding="utf-8")
@@ -49,7 +51,7 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn('"@type": "ItemList"', homepage)
         self.assertIn("Marka Stratejisi", homepage)
         self.assertIn('class="services-detail-grid"', homepage)
-        self.assertIn('rel="canonical" href="https://veridia.com.tr"', homepage)
+        self.assertIn('rel="canonical" href="https://veridiareklam.com.tr"', homepage)
         self.assertIn("veridia-social-cover.png", homepage)
         self.assertIn("assets/config.js", homepage)
         self.assertIn("assets/home-loader.js", homepage)
@@ -73,7 +75,7 @@ class SeoSmokeTests(unittest.TestCase):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertNotIn('http-equiv="refresh"', index)
         self.assertNotIn("window.location.replace", index)
-        self.assertIn('rel="canonical" href="https://veridia.com.tr"', index)
+        self.assertIn('rel="canonical" href="https://veridiareklam.com.tr"', index)
         self.assertIn("<title>Veridia Ajans", index)
 
     def test_body_internal_links_do_not_hardcode_production_domain(self) -> None:
@@ -87,12 +89,13 @@ class SeoSmokeTests(unittest.TestCase):
             ROOT / "kvkk-aydinlatma-metni.html",
             ROOT / "blog" / "instagram-algoritmasi-2026.html",
             ROOT / "blog" / "b2b-donusum-hunisi.html",
+            ROOT / "blog" / "teknik-seo-ve-web-performansi.html",
         ]
         for path in paths:
             with self.subTest(path=path.name):
                 content = path.read_text(encoding="utf-8")
                 body = content.split("<body", 1)[1]
-                self.assertNotIn('href="https://veridia.com.tr', body)
+                self.assertNotIn('href="https://veridiareklam.com.tr', body)
 
     def test_legal_pages_exist_and_link_back_to_site(self) -> None:
         for page_name in ("gizlilik-politikasi.html", "kvkk-aydinlatma-metni.html"):
@@ -113,6 +116,7 @@ class SeoSmokeTests(unittest.TestCase):
             ROOT / "kvkk-aydinlatma-metni.html",
             ROOT / "blog" / "instagram-algoritmasi-2026.html",
             ROOT / "blog" / "b2b-donusum-hunisi.html",
+            ROOT / "blog" / "teknik-seo-ve-web-performansi.html",
         ]
         for path in paths:
             with self.subTest(path=path.name):
@@ -130,6 +134,7 @@ class SeoSmokeTests(unittest.TestCase):
             ROOT / "404.html",
             ROOT / "blog" / "instagram-algoritmasi-2026.html",
             ROOT / "blog" / "b2b-donusum-hunisi.html",
+            ROOT / "blog" / "teknik-seo-ve-web-performansi.html",
         ]
         for path in paths:
             with self.subTest(path=path.name):

@@ -51,11 +51,11 @@ MAX_REQUEST_BODY_BYTES=4096
 RATE_LIMIT_WINDOW_SECS=300
 RATE_LIMIT_MAX_REQUESTS=5
 MAX_PROXY_IMAGE_BYTES=5242880
-ALLOWED_ORIGINS=http://127.0.0.1:8000,http://localhost:8000,https://veridia.com.tr,https://www.veridia.com.tr
+ALLOWED_ORIGINS=http://127.0.0.1:8000,http://localhost:8000,https://veridiareklam.com.tr,https://www.veridiareklam.com.tr
 TRUSTED_PROXY_IPS=
 PORT=8000
 HOST=127.0.0.1
-SITE_URL=https://veridia.com.tr
+SITE_URL=https://veridiareklam.com.tr
 ```
 
 `SITE_URL`, blog yazisi olusturma aracinin canonical, Open Graph ve sitemap adreslerini dogru domain ile uretmesi icin kullanilir.

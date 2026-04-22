@@ -23,7 +23,7 @@ def load_dotenv(path: Path) -> None:
 
 load_dotenv(ROOT / ".env")
 
-SITE_URL = (os.environ.get("SITE_URL", "https://veridia.com.tr").strip() or "https://veridia.com.tr").rstrip("/")
+SITE_URL = (os.environ.get("SITE_URL", "https://veridiareklam.com.tr").strip() or "https://veridiareklam.com.tr").rstrip("/")
 OG_IMAGE_URL = f"{SITE_URL}/assets/veridia-social-cover.png"
 BRAND_LOGO_URL = f"{SITE_URL}/assets/veridia-icon.png"
 

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teknik SEO ve Web Performansı Rehberi | Veridia Blog</title>
+    <meta name="description" content="Teknik SEO, Core Web Vitals, TTFB, schema markup ve crawl budget başlıklarının organik görünürlükle dönüşümü nasıl birlikte etkilediğini örneklerle öğrenin.">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="author" content="Yaşar İshak Topçu">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+    <link rel="canonical" href="https://veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi.html">
+    <meta property="og:title" content="Teknik SEO ve Web Performansı Rehberi | Veridia Blog">
+    <meta property="og:description" content="Core Web Vitals, TTFB, EEAT, schema markup ve crawl budget katmanlarının görünürlük ile dönüşümü nasıl birlikte büyüttüğünü detaylı biçimde inceleyin.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi.html">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="Veridia">
+    <meta property="og:image" content="https://veridiareklam.com.tr/assets/veridia-social-cover.png">
+    <meta property="og:image:alt" content="Teknik SEO ve web performansı rehberi için Veridia kapak görseli">
+    <meta property="article:published_time" content="2026-04-22T00:00:00+03:00">
+    <meta property="article:modified_time" content="2026-04-22T00:00:00+03:00">
+    <meta property="article:author" content="Yaşar İshak Topçu">
+    <meta property="article:section" content="Teknik SEO">
+    <meta property="article:tag" content="teknik seo">
+    <meta property="article:tag" content="web performansı">
+    <meta property="article:tag" content="core web vitals">
+    <meta property="article:tag" content="schema markup">
+    <meta property="article:tag" content="crawl budget">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Teknik SEO ve Web Performansı Rehberi | Veridia Blog">
+    <meta name="twitter:description" content="Teknik SEO, performans darboğazları ve indeksleme kalitesinin organik görünürlükle form dönüşümünü nasıl birlikte etkilediğini okuyun.">
+    <meta name="twitter:image" content="https://veridiareklam.com.tr/assets/veridia-social-cover.png">
+    <meta name="twitter:site" content="@veridia">
+    <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../assets/fonts.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Teknik SEO ve Web Performansı: Dönüşüm Getiren Web Sitelerinin Perde Arkası",
+          "description": "Core Web Vitals, TTFB, EEAT, schema markup, crawl budget ve otomasyon katmanlarının görünürlük ile dönüşümü nasıl birlikte etkilediğini öğrenin.",
+          "image": "https://veridiareklam.com.tr/assets/veridia-social-cover.png",
+          "datePublished": "2026-04-22T00:00:00+03:00",
+          "dateModified": "2026-04-22T00:00:00+03:00",
+          "inLanguage": "tr",
+          "mainEntityOfPage": "https://veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi.html",
+          "keywords": [
+            "teknik seo",
+            "web performansı",
+            "core web vitals",
+            "schema markup",
+            "crawl budget"
+          ],
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", ".article-intro"]
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Yaşar İshak Topçu",
+            "jobTitle": "SEO ve Dijital Büyüme Danışmanı"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Veridia Ajans",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://veridiareklam.com.tr/assets/veridia-icon.png"
+            }
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Yaşar İshak Topçu",
+          "jobTitle": "SEO ve Dijital Büyüme Danışmanı"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Teknik SEO ile web performansı neden birlikte ele alınmalı?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Çünkü arama motorları içeriğin kalitesi kadar nasıl sunulduğunu da değerlendirir. Hız, indeksleme kalitesi, taranabilirlik ve etkileşim deneyimi birlikte organik görünürlüğü ve dönüşümü etkiler."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Her sayfanın indekslenmesi iyi midir?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Hayır. Stratejik ve değerli URL'lerin indekslenmesi daha iyi sonuç verir. Parametreli, kopya veya düşük değerli sayfalar kontrolsüz biçimde indekslenirse crawl budget ve kalite sinyalleri zayıflayabilir."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Core Web Vitals dönüşümü gerçekten etkiler mi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evet. LCP, INP ve CLS gibi metrikler ilk algıyı, etkileşim rahatlığını ve kullanıcı güvenini doğrudan etkilediği için bounce rate, form doldurma ve sepete ekleme gibi aksiyonlar üzerinde somut sonuç üretir."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://veridiareklam.com.tr/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://veridiareklam.com.tr/blog.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Teknik SEO ve Web Performansı: Dönüşüm Getiren Web Sitelerinin Perde Arkası",
+              "item": "https://veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="../assets/page-shell.css">
+    <link rel="stylesheet" href="../assets/blog-technical-seo-article.css">
+    <script defer src="../assets/config.js"></script>
+    <script defer src="../assets/analytics.js"></script>
+    <script defer src="../assets/page-shell.js"></script>
+</head>
+<body data-custom-cursor="true">
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="scroll-bar" id="scrollBar"></div>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="menu-close" type="button" data-mobile-close aria-label="Menuyu kapat">✕</button>
+  <a href="/blog.html">Blog</a>
+  <a href="/#about" data-mobile-close>Hakkımızda</a>
+  <a href="/#services" data-mobile-close>Hizmetler</a>
+  <a href="/#quote" data-mobile-close>Hızlı Teklif</a>
+  <a href="/#sectors" data-mobile-close>Sektörler</a>
+  <a href="/#portfolio" data-mobile-close>Portfolyo</a>
+  <a href="/#contact" data-mobile-close>İletişim</a>
+</div>
+
+<nav id="navbar">
+  <a href="/" class="nav-logo">Veridia</a>
+  <ul class="nav-links">
+    <li><a href="/blog.html" aria-current="page">Blog</a></li>
+    <li><a href="/#about">Hakkımızda</a></li>
+    <li><a href="/#services">Hizmetler</a></li>
+    <li><a href="/#quote">Hızlı Teklif</a></li>
+    <li><a href="/#sectors">Sektörler</a></li>
+    <li><a href="/#portfolio">Portfolyo</a></li>
+    <li><a href="/#contact">İletişim</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" type="button" data-mobile-toggle aria-label="Menü" aria-controls="mobileMenu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main class="article-shell">
+    <article class="article-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Ana Sayfa</a>
+            <span aria-hidden="true">→</span>
+            <a href="/blog.html">Blog</a>
+            <span aria-hidden="true">→</span>
+            <span aria-current="page">Teknik SEO ve Web Performansı</span>
+        </nav>
+        <h1>Teknik SEO ve Web Performansı: Dönüşüm Getiren Web Sitelerinin Perde Arkası</h1>
+        <p class="article-intro">Teknik SEO bugün sadece arama motorlarına görünmek için değil, kullanıcı sayfaya geldikten sonra güven, akış ve dönüşüm üretmek için de kritik. Core Web Vitals, TTFB, schema markup, indeksleme kalitesi ve otomasyon katmanları birlikte yönetilmediğinde iyi görünen siteler sessizce görünürlük ve gelir kaybı yaşayabiliyor.</p>
+
+        <div class="meta-info">
+            <span>Yazar: Yaşar İshak Topçu</span>
+            <time datetime="2026-04-22T00:00:00+03:00">22 Nisan 2026</time>
+            <span>Teknik SEO</span>
+            <span>12 dk okuma</span>
+        </div>
+
+        <section class="summary-grid" aria-label="Yazı özeti">
+            <div class="summary-card">
+                <span class="eyebrow">Kritik Katman</span>
+                <h2>Core Web Vitals</h2>
+                <p>LCP, INP ve CLS skorları kullanıcı algısının ilk saniyelerini ve reklam trafiğinin verimini belirler.</p>
+            </div>
+            <div class="summary-card">
+                <span class="eyebrow">SEO Omurgası</span>
+                <h2>İndeksleme Kalitesi</h2>
+                <p>Canonical, sitemap ve crawl budget kurgusu iyi içerikle zayıf URL kalabalığını birbirinden ayırır.</p>
+            </div>
+            <div class="summary-card">
+                <span class="eyebrow">Sürdürülebilirlik</span>
+                <h2>Otomasyon ve Denetim</h2>
+                <p>n8n benzeri akışlar 404, performans eşiği ve teknik regresyonları büyümeden görünür hale getirir.</p>
+            </div>
+        </section>
+
+        <section class="info-panel" aria-label="İçindekiler">
+            <h2>Bu rehberde neler var?</h2>
+            <ul class="toc-list">
+                <li><a href="#neden-siralama-yok">Neden iyi görünen siteler sıralama alamıyor?</a></li>
+                <li><a href="#core-web-vitals">Core Web Vitals ve dönüşüm ilişkisi</a></li>
+                <li><a href="#ttfb-ve-gorseller">TTFB, sunucu yapısı ve görsel stratejisi</a></li>
+                <li><a href="#eeat-ve-author">EEAT, yazar sinyalleri ve güven katmanı</a></li>
+                <li><a href="#schema-markup">Schema markup ve bağlam aktarımı</a></li>
+                <li><a href="#crawl-budget">Crawl budget ve indeksleme kalitesi</a></li>
+                <li><a href="#otomasyon">Teknik SEO operasyonunda otomasyon</a></li>
+                <li><a href="#sonuc">Sonuç ve denetim çağrısı</a></li>
+            </ul>
+        </section>
+
+        <figure class="visual-panel">
+            <h2>Teknik katmanlar birlikte çalıştığında büyüme görünür hale gelir</h2>
+            <div class="visual-surface system-map" role="img" aria-label="Teknik SEO, performans, indeksleme ve otomasyon katmanlarının görünürlük ile dönüşüme bağlandığını gösteren şema">
+                <div class="system-grid">
+                    <article class="map-node">
+                        <span class="eyebrow">Performans</span>
+                        <h3>Core Web Vitals</h3>
+                        <p>LCP, INP, CLS ve TTFB ilk algıyı belirler; reklam trafiğinin verimi de burada başlar.</p>
+                    </article>
+                    <article class="map-node">
+                        <span class="eyebrow">Anlamlandırma</span>
+                        <h3>Schema ve EEAT</h3>
+                        <p>Yazar, yayıncı ve içerik bağlamı temiz işaretlendiğinde Google sayfanın niyetini daha net okur.</p>
+                    </article>
+                    <article class="map-node">
+                        <span class="eyebrow">İndeksleme</span>
+                        <h3>Crawl budget</h3>
+                        <p>Canonical, sitemap ve robots kurgusu değerli URL'leri öne çıkarır, dağınıklığı azaltır.</p>
+                    </article>
+                </div>
+                <div class="map-core">
+                    <span class="eyebrow">Büyüme Motoru</span>
+                    <h3>Teknik SEO + Web Performansı</h3>
+                    <p>Aynı trafikle daha fazla görünürlük, daha temiz tarama, daha yüksek güven ve daha güçlü dönüşüm elde edilir.</p>
+                </div>
+                <div class="system-grid">
+                    <article class="map-node">
+                        <span class="eyebrow">Otomasyon</span>
+                        <h3>Denetim akışları</h3>
+                        <p>404, performans eşiği ve indeksleme sorunları büyümeden görünür hale gelir.</p>
+                    </article>
+                    <article class="map-node">
+                        <span class="eyebrow">İç linkleme</span>
+                        <h3>Topik küme mantığı</h3>
+                        <p>Blog, hizmet ve vaka sayfaları aynı otorite ağında çalıştığında konu sinyali netleşir.</p>
+                    </article>
+                    <article class="map-node">
+                        <span class="eyebrow">Ticari etki</span>
+                        <h3>Daha fazla dönüşüm</h3>
+                        <p>Düşük bounce rate, daha iyi form oranı ve daha verimli reklam bütçesi birlikte güçlenir.</p>
+                    </article>
+                </div>
+            </div>
+            <figcaption>Teknik SEO ile performansı ayrı ekip gündemleri gibi değil, aynı büyüme sisteminin birbirini besleyen katmanları gibi okumak gerekir. Bu yaklaşımı <a href="/neler-yapiyoruz.html#web">web yüzeyleri çalışma modelimizde</a> de aynı mantıkla ele alıyoruz.</figcaption>
+        </figure>
+
+        <h2 id="neden-siralama-yok">Neden bazı siteler kusursuz görünmesine rağmen sıralama alamaz?</h2>
+        <p>Geçtiğimiz dönemde incelediğimiz birçok web sitesinde aynı tabloyla karşılaştık: tasarım güçlüydü, içerikler özenle hazırlanmıştı, reklam trafiği de geliyordu; ancak site organik aramada beklenen görünürlüğü alamıyor, kullanıcılar sayfaya geldikten sonra yeterince dönüşüm üretmiyordu. Sorun çoğu zaman içerikte ya da tasarımda değildi. Sorun, ilk bakışta görünmeyen teknik darboğazlardaydı.</p>
+        <p>Yüksek TTFB, zayıf Core Web Vitals skorları, yanlış yapılandırılmış schema markup, kontrolsüz indekslenen URL yapıları ve gereksiz kaynak yükleri iyi görünen siteleri görünmez biçimde aşağı çekebiliyor. Google artık yalnızca sayfanın ne söylediğine değil, o içeriği nasıl sunduğunuza da bakıyor: sayfa hızlı mı açılıyor, kullanıcı ilk etkileşimde gecikme yaşıyor mu, mobil deneyim gerçekten sorunsuz mu, site mimarisi botların işini kolaylaştırıyor mu?</p>
+        <p>Birçok markanın düştüğü ilk hata, SEO'yu sadece içerik stratejisi zannetmesi. Oysa teknik temel zayıfsa iyi içerik bile beklenen etkiyi göstermez. Sayfa geç yükleniyorsa, Google botları gereksiz URL'lerde zaman kaybediyorsa veya mobilde büyük medya dosyaları sunuluyorsa içerik ne kadar iyi olursa olsun performans sınırlanır. Bu yüzden teknik SEO bir ekstra değil, büyümenin temel altyapısıdır.</p>
+
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kritik hata</th>
+                        <th>Doğru uygulama</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tasarımı SEO başarısı sanmak</td>
+                        <td>Tasarım, performans ve taranabilirliği birlikte değerlendirmek</td>
+                    </tr>
+                    <tr>
+                        <td>İçeriği yayınlayıp teknik tarafı göz ardı etmek</td>
+                        <td>Her yeni sayfayı indeksleme ve performans açısından denetlemek</td>
+                    </tr>
+                    <tr>
+                        <td>Tüm script'leri aynı önemde görmek</td>
+                        <td>Kritik ve kritik olmayan kaynakları ayırmak</td>
+                    </tr>
+                    <tr>
+                        <td>Masaüstü görünümüne göre karar vermek</td>
+                        <td>Mobile-first yaklaşımı merkeze almak</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout">
+            Güçlü tasarım tek başına yetmiyor. Arama görünürlüğü ile form dönüşümünün aynı anda artması için performans, indeksleme ve sayfa mimarisinin de aynı kalite çizgisinde olması gerekiyor.
+        </div>
+
+        <h2 id="core-web-vitals">Core Web Vitals: Kullanıcı deneyiminin sayısal karşılığı</h2>
+        <p>Google'ın kullanıcı deneyimini ölçmek için kullandığı en görünür sinyal seti Core Web Vitals metrikleridir. LCP, kullanıcının ekranda gördüğü ana içeriğin ne kadar sürede yüklendiğini; INP, kullanıcının yaptığı etkileşime sitenin ne kadar hızlı tepki verdiğini; CLS ise yükleme sırasında sayfa elemanlarının ne kadar kaydığını gösterir.</p>
+        <p>Bu metrikleri sadece teknik ekibin skor tablosu gibi okumak büyük hata. Yüksek LCP açılış sayfalarında terk oranını yükseltir, kötü INP form doldurma ve sepete ekleme davranışını yavaşlatır, yüksek CLS ise mobil kullanıcıda güven kaybı yaratır. Sayfanın rahat kullanılıyor hissi çoğu zaman bu metriklerin iyi yönetilmesinden gelir.</p>
+        <p>İyileştirme tarafında sadece görsel boyutu küçültmek yetmez. Next-gen formatlar, doğru <code>fetchpriority</code>, ekran dışı medya için lazy loading, kritik CSS önceliklendirmesi ve gereksiz third-party script yükünün azaltılması birlikte ele alınmalıdır. Özellikle yoğun entegrasyon kullanan sitelerde asıl sorun çoğu zaman gereksiz JavaScript ağırlığıdır.</p>
+
+        <figure class="visual-panel">
+            <h2>Mini vaka: performans iyileşince dönüşüm de toparlanıyor</h2>
+            <div class="visual-surface metrics-board" role="img" aria-label="Landing page optimizasyonu öncesi ve sonrası performans ile dönüşüm metriklerini karşılaştıran grafik">
+                <div>
+                    <div class="metrics-header">
+                        <div>
+                            <h3>Optimizasyon öncesi ve sonrası</h3>
+                            <p class="metrics-kicker">Landing page performans ve dönüşüm etkisi</p>
+                        </div>
+                        <div class="metric-legend" aria-label="Grafik açıklaması">
+                            <span class="metric-legend-item"><span class="metric-dot metric-dot--before" aria-hidden="true"></span>Önce</span>
+                            <span class="metric-legend-item"><span class="metric-dot metric-dot--after" aria-hidden="true"></span>Sonra</span>
+                        </div>
+                    </div>
+                    <div class="metrics-list">
+                        <div class="metric-row">
+                            <div class="metric-copy">
+                                <strong>LCP</strong>
+                                <span>4.8 sn → 2.1 sn</span>
+                            </div>
+                            <div class="metric-bars">
+                                <div class="metric-track"><span class="metric-fill metric-fill--before" style="--bar-size: 78%"></span></div>
+                                <div class="metric-track"><span class="metric-fill metric-fill--after" style="--bar-size: 34%"></span></div>
+                            </div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-copy">
+                                <strong>CLS</strong>
+                                <span>0.24 → 0.03</span>
+                            </div>
+                            <div class="metric-bars">
+                                <div class="metric-track"><span class="metric-fill metric-fill--before" style="--bar-size: 81%"></span></div>
+                                <div class="metric-track"><span class="metric-fill metric-fill--after" style="--bar-size: 10%"></span></div>
+                            </div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-copy">
+                                <strong>INP</strong>
+                                <span>320 ms → 145 ms</span>
+                            </div>
+                            <div class="metric-bars">
+                                <div class="metric-track"><span class="metric-fill metric-fill--before" style="--bar-size: 76%"></span></div>
+                                <div class="metric-track"><span class="metric-fill metric-fill--after" style="--bar-size: 31%"></span></div>
+                            </div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-copy">
+                                <strong>Bounce rate</strong>
+                                <span>%61 → %38</span>
+                            </div>
+                            <div class="metric-bars">
+                                <div class="metric-track"><span class="metric-fill metric-fill--before" style="--bar-size: 62%"></span></div>
+                                <div class="metric-track"><span class="metric-fill metric-fill--after" style="--bar-size: 39%"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="metrics-result">
+                    <span class="eyebrow">Ticari sonuç</span>
+                    <strong>%57</strong>
+                    <p>Form dönüşüm artışı. Tasarım değişmeden yapılan teknik iyileştirme, gerçek kullanıcı aksiyonunu doğrudan güçlendirdi.</p>
+                </aside>
+            </div>
+            <figcaption>Bu mini vaka aynı tasarımı koruyup yalnızca teknik katmanı optimize ettiğinizde organik ve ücretli trafiğin veriminin birlikte yükseldiğini gösteriyor. Benzer sayfa mantığını <a href="/calismalarimiz.html">örnek çalışma senaryolarımızda</a> da farklı bağlamlarda görebilirsiniz.</figcaption>
+        </figure>
+
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metrik</th>
+                        <th>İlk durum</th>
+                        <th>Optimizasyon sonrası</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LCP</td>
+                        <td>4.8 sn</td>
+                        <td>2.1 sn</td>
+                    </tr>
+                    <tr>
+                        <td>CLS</td>
+                        <td>0.24</td>
+                        <td>0.03</td>
+                    </tr>
+                    <tr>
+                        <td>INP</td>
+                        <td>320 ms</td>
+                        <td>145 ms</td>
+                    </tr>
+                    <tr>
+                        <td>Bounce rate</td>
+                        <td>%61</td>
+                        <td>%38</td>
+                    </tr>
+                    <tr>
+                        <td>Form dönüşüm oranı</td>
+                        <td>%1.4</td>
+                        <td>%2.2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="ttfb-ve-gorseller">Web performansının görünmeyen matematiği: TTFB, sunucu yapısı ve görsel stratejisi</h2>
+        <p>Bir web sitesinin hızlı algılanması sadece tarayıcı tarafındaki işlemlerle ilgili değildir. İşin önemli bir kısmı daha kullanıcı hiçbir şey görmeden önce başlar. Buradaki en kritik metriklerden biri TTFB yani sunucudan ilk byte'ın gelme süresidir. TTFB yüksek olduğunda sorun çoğu zaman front-end değil, back-end katmanındadır.</p>
+        <p>Barındırma altyapısı, uygulama sunucusunun verimliliği, veritabanı sorguları, object caching, CDN yapılandırması ve hatta DNS çözümleme süreçleri birlikte sonucu belirler. Özellikle CMS tabanlı yapılarda performans problemi çoğu zaman tasarım dosyasında değil, kontrolsüz eklenti mimarisinde ve sorgu karmaşasında ortaya çıkar.</p>
+        <p>Görsel optimizasyonunda da yalnızca WebP'ye geçmek yeterli değildir. Profesyonel yaklaşım; format seçimi, kalite dengesi, responsive image yapısı, <code>srcset</code> ve <code>sizes</code> kullanımı, lazy loading stratejisi ve kritik görsellerin doğru önceliklendirilmesini birlikte düşünür. Mobil kullanıcıya masaüstü için hazırlanmış büyük bir hero görsel göndermek gereksiz veri tüketimi ve zayıf LCP demektir.</p>
+
+        <section class="process-grid" aria-label="Veridia yaklaşımı">
+            <div class="process-card">
+                <span class="eyebrow">1. Adım</span>
+                <h2>Darboğaz tespiti</h2>
+                <p>PageSpeed Insights, Lighthouse, Chrome DevTools Coverage ve sunucu yanıt verileriyle kök problem bulunur.</p>
+            </div>
+            <div class="process-card">
+                <span class="eyebrow">2. Adım</span>
+                <h2>Kaynak optimizasyonu</h2>
+                <p>Görsel pipeline, kritik CSS, defer/delay stratejisi ve kullanılmayan JS temizliği birlikte değerlendirilir.</p>
+            </div>
+            <div class="process-card">
+                <span class="eyebrow">3. Adım</span>
+                <h2>Sunucu ve edge</h2>
+                <p>Cache davranışı, sıkıştırma, header yapısı ve CDN teslimi ticari etkiye göre yeniden kurgulanır.</p>
+            </div>
+        </section>
+
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Görsel hatası</th>
+                        <th>Doğru strateji</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tüm cihazlara aynı görsel boyutunu göndermek</td>
+                        <td><code>srcset</code> ile cihaza uygun görsel sunmak</td>
+                    </tr>
+                    <tr>
+                        <td>Sadece JPEG veya PNG kullanmak</td>
+                        <td>Uygun yerlerde WebP veya AVIF tercih etmek</td>
+                    </tr>
+                    <tr>
+                        <td>Tüm görselleri lazy load etmek</td>
+                        <td>Sadece ekran dışı öğeleri lazy load etmek</td>
+                    </tr>
+                    <tr>
+                        <td>Büyük hero görseli optimize etmeden kullanmak</td>
+                        <td>Kritik görseli sıkıştırmak, preload etmek ve önceliklendirmek</td>
+                    </tr>
+                    <tr>
+                        <td>CDN kurup bırakmak</td>
+                        <td>Cache kurallarını ve header yapısını doğru yönetmek</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="eeat-ve-author">EEAT: Google neden bazı markalara daha fazla güvenir?</h2>
+        <p>İyi içerik üretmek artık tek başına yeterli değil; içeriğin arkasında güvenilir bir uzmanlık yapısı olması gerekiyor. Google'ın EEAT yaklaşımı bunu açık biçimde ortaya koyuyor: Experience, Expertise, Authoritativeness, Trustworthiness. Özellikle hizmet ve danışmanlık sektörlerinde içerik, markanın otoritesini inşa eden ana alanlardan biri haline geldi.</p>
+        <p>Bir blog yazısında teknik bilgi vermek mümkündür; ancak bu bilginin kim tarafından verildiği, hangi deneyime dayandığı ve ne kadar güvenilir olduğu ayrı bir konudur. Yazar biyografisi, vaka analizi, daha önceki işler ve temiz bir Author Schema birlikte kullanıldığında içerik arama motoruna daha net bağlamla sunulur.</p>
+        <p>Bu yüzden kurumsal blogu yalnızca trafik sayfası gibi değil, güven inşa eden bir uzmanlık yüzeyi gibi kurguluyoruz. Talep yaratma ve satış hizası tarafında bunu nasıl kullandığımızı görmek isterseniz <a href="/blog/b2b-donusum-hunisi.html">B2B dönüşüm hunisi rehberine</a> de geçebilirsiniz.</p>
+
+        <div class="author-card">
+            <span class="eyebrow">Yazar sinyali</span>
+            <h2>Bu yazı nasıl işaretlendi?</h2>
+            <strong>Yaşar İshak Topçu</strong>
+            <p>SEO ve dijital büyüme danışmanı olarak yazar, yayıncı ve tarih alanlarını yapılandırılmış veriyle açık biçimde eşledik. Amaç yalnızca JSON-LD eklemek değil; sayfadaki gerçek uzmanlık sinyalini arama motoruna temiz bir bağlamla taşımak.</p>
+            <p class="code-note">Aşağıda üretimde kullandığımız yapının kısa ve okunur örneğini bırakıyoruz; sayfa içinde bunun daha detaylı Article, FAQ ve breadcrumb sürümü yer alıyor.</p>
+            <div class="code-panel">
+                <pre><code class="language-json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Teknik SEO ve Web Performansı",
+  "author": {
+    "@type": "Person",
+    "name": "Yaşar İshak Topçu"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Veridia",
+    "url": "https://veridiareklam.com.tr"
+  },
+  "datePublished": "2026-04-22"
+}</code></pre>
+            </div>
+        </div>
+
+        <h2 id="schema-markup">Schema markup: Arama motorlarına içeriğinizi anlatmanın en kısa yolu</h2>
+        <p>Schema markup teknik SEO'nun en fazla konuşulan ama en sık yanlış uygulanan alanlarından biridir. Basit anlatımla schema, sayfadaki içeriğin ne olduğunu arama motoruna standart bir dilde anlatır. Blog yazısı mı, ürün mü, SSS alanı mı, hizmet sayfası mı? Bu bağlamı doğru vermek arama motorlarının sayfayı daha iyi anlamasına yardımcı olur.</p>
+        <p>Ancak burada yapılan en büyük hata schema'yı rastgele eklemektir. Gerçekte olmayan kullanıcı puanları, alakasız şema türleri veya farklı sayfa tiplerinde aynı JSON-LD bloğunu tekrar etmek kalite yerine güvensizlik üretir. Yapısal veri sayfanın gerçek amacıyla uyumlu ve sürdürülebilir şekilde kullanılmalıdır.</p>
+
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sayfa türü</th>
+                        <th>Uygun schema</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Blog yazısı</td>
+                        <td>Article, BlogPosting, Person, Organization</td>
+                    </tr>
+                    <tr>
+                        <td>Hizmet sayfası</td>
+                        <td>Service, Organization, LocalBusiness</td>
+                    </tr>
+                    <tr>
+                        <td>Ürün sayfası</td>
+                        <td>Product, Offer, AggregateRating</td>
+                    </tr>
+                    <tr>
+                        <td>Sık sorulan sorular</td>
+                        <td>FAQPage</td>
+                    </tr>
+                    <tr>
+                        <td>İletişim ve lokasyon sayfası</td>
+                        <td>LocalBusiness, PostalAddress, ContactPoint</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="crawl-budget">Crawl budget ve indeksleme kalitesi: Her sayfanın indekslenmesi gerekmez</h2>
+        <p>Teknik SEO'nun en kritik ama en yanlış anlaşılan başlıklarından biri crawl budget ve indeksleme kalitesidir. Birçok marka mümkün olduğunca fazla sayfanın Google'da görünmesini ister. Oysa gerçek başarı daha fazla URL indeksletmek değil, doğru URL'leri indeksletmek ile gelir.</p>
+        <p>Eğer değersiz filtre sayfaları, parametreli URL'ler, kopya içerik kümeleri, zayıf etiket sayfaları veya gereksiz arşiv alanları açıksa tarama bütçesi boşa harcanır. Bu da gerçekten görünmesi gereken landing page'lerin ve stratejik içeriklerin geri planda kalmasına neden olabilir. Sitemap, robots, canonical ve iç linkleme mantığı birlikte çalışmalıdır.</p>
+
+        <div class="comparison-grid" aria-label="İndeksleme örnekleri">
+            <div class="comparison-card">
+                <span class="eyebrow">Vaka</span>
+                <h2>Hizmet sitesinde indeksleme temizliği</h2>
+                <ul>
+                    <li>Parametreli URL'ler indeksleniyordu.</li>
+                    <li>Eski kampanya sayfaları sitemap içinde kalmıştı.</li>
+                    <li>Benzer niyete hitap eden sayfalar birbirini zayıflatıyordu.</li>
+                    <li>İç linkler stratejik sayfalara yeterli otorite taşımıyordu.</li>
+                </ul>
+            </div>
+            <div class="comparison-card">
+                <span class="eyebrow">Yaklaşım</span>
+                <h2>Düzenleme sonrası yapı</h2>
+                <ul>
+                    <li>XML sitemap sadeleştirildi.</li>
+                    <li>Düşük değerli URL'ler noindex ve canonical ile yönetildi.</li>
+                    <li>Benzer sayfalar birleştirildi ve yönlendirmeler temizlendi.</li>
+                    <li>İç linkleme hiyerarşisi netleştirildi.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Yanlış yaklaşım</th>
+                        <th>Doğru yaklaşım</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Her URL indeks alsın mantığı</td>
+                        <td>Sadece stratejik ve değerli URL'leri indeksletmek</td>
+                    </tr>
+                    <tr>
+                        <td>Sitemap'e tüm sayfaları eklemek</td>
+                        <td>Yalnızca indekslenmesini istediğiniz temiz URL'leri eklemek</td>
+                    </tr>
+                    <tr>
+                        <td>Parametreli yapıları kontrolsüz bırakmak</td>
+                        <td>Parametre yönetimi ve canonical stratejisi uygulamak</td>
+                    </tr>
+                    <tr>
+                        <td>Benzer sayfaları ayrı ayrı yaşatmak</td>
+                        <td>Gerekirse birleştirme ve yeniden yönlendirme yapmak</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="otomasyon">Teknik SEO operasyonunda otomasyonun rolü: n8n ve akış tabanlı denetim</h2>
+        <p>Teknik SEO büyüdükçe manuel takip yöntemi zayıflar. Onlarca sayfa, yüzlerce içerik, çoklu landing page ve sürekli değişen site yapısı içinde her hatayı insan eliyle yakalamak sürdürülebilir değildir. Bu yüzden modern SEO operasyonlarında otomasyon çok önemli hale geldi.</p>
+        <p>n8n gibi araçlar teknik SEO'yu ayda bir yapılan raporlama işi olmaktan çıkarıp sürekli izlenen bir operasyon sistemine dönüştürür. 404 log'ları çekmek, Search Console üzerinden kritik URL hatalarında ekip uyarısı üretmek, performans eşiği altına düşen sayfalarda bildirim oluşturmak ve redirect kararlarını ayrı akışlara bağlamak bu yapının parçasıdır.</p>
+        <p>Otomasyonun en büyük avantajı sadece hız değil, standardizasyondur. Aynı anda birden fazla projede teknik tutarlılığı korumak manuel yöntemlerle zordur. İçerik ritmi tarafında nasıl sistematik olmak gerekiyorsa, teknik yüzeyde de aynı disiplin gerekir; bu nedenle sosyal ve içerik katmanını konuştuğumuz <a href="/blog/instagram-algoritmasi-2026.html">Instagram algoritması rehberi</a> ile teknik denetim katmanı aslında aynı operasyonun iki farklı yüzüdür.</p>
+
+        <h2>En sık yapılan teknik SEO hataları ve neden sessizce kayıp yaratırlar</h2>
+        <p>Teknik SEO hatalarının çoğu gösterişli değildir. Site açılıyor olabilir, kullanıcı gezinebiliyor olabilir; fakat arka planda biriken küçük problemler görünürlük ve dönüşüm üzerinde ciddi baskı yaratır. Redirect zincirleri, broken linkler, duplicate içerik kümeleri, aşırı JavaScript bağımlılığı, yanlış canonical kullanımı ve eski sitemap yapıları bu sessiz kayıpların en yaygın nedenleridir.</p>
+        <p>Asıl değer sorunları saymakta değil, hangisinin gerçekten iş sonucunu etkilediğini belirlemektedir. Teknik SEO denetimi rapor çöplüğü üretmek için değil, önceliklendirilmiş iyileştirme planı çıkarmak için yapılmalıdır.</p>
+
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Oluşturduğu risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Redirect zincirleri</td>
+                        <td>Yavaşlık, tarama verimsizliği, kullanıcı kaybı</td>
+                    </tr>
+                    <tr>
+                        <td>Broken linkler</td>
+                        <td>Kötü deneyim, boşa giden link equity</td>
+                    </tr>
+                    <tr>
+                        <td>Duplicate içerik kümeleri</td>
+                        <td>Arama niyetinin dağılması, sıralama zayıflığı</td>
+                    </tr>
+                    <tr>
+                        <td>Aşırı JS bağımlılığı</td>
+                        <td>Kötü INP, zayıf render deneyimi</td>
+                    </tr>
+                    <tr>
+                        <td>Yanlış canonical</td>
+                        <td>Güçlü sayfanın görünürlüğünü bastırma</td>
+                    </tr>
+                    <tr>
+                        <td>Eski sitemap yapısı</td>
+                        <td>Tarama ve keşif verimsizliği</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="sonuc">Sonuç: Teknik SEO bir kontrol listesi değil, büyüme altyapısıdır</h2>
+        <p>Teknik SEO ve web performansı çoğu zaman markaların geç ciddiye aldığı alanlardır. Çünkü görünürde etkileri hemen fark edilmez. Ama işin aslı şudur: teknik yapı güçlü değilse içerik yatırımı da reklam yatırımı da potansiyelinin altında kalır. Trafik gelir ama sayfa geç açılır, kullanıcı gelir ama mobilde rahat ilerleyemez, Google sayfayı görür ama gereksiz URL kalabalığı yüzünden asıl değeri doğru okuyamaz.</p>
+        <p>Doğru kurulan teknik yapı ise aynı trafikle daha fazla sonuç üretir. Daha hızlı açılan sayfa daha az terk edilir, daha iyi kullanıcı deneyimi daha yüksek güven yaratır, daha temiz indeksleme daha net görünürlük sağlar ve daha güçlü schema yapısı içeriği daha anlaşılır hale getirir. Teknik SEO bu yüzden bir kere yapılıp unutulacak checklist değil; yaşayan bir izleme ve müdahale sistemidir.</p>
+
+        <div class="faq-panel">
+            <h2>Sık sorulan sorular</h2>
+            <div class="faq-item">
+                <p><strong>Teknik SEO ile web performansı neden birlikte ele alınmalı?</strong></p>
+                <p>Çünkü arama motorları içeriğin kalitesi kadar nasıl sunulduğunu da değerlendirir. Hız, taranabilirlik, etkileşim deneyimi ve indeksleme kalitesi birlikte organik görünürlüğü ve dönüşümü etkiler.</p>
+            </div>
+            <div class="faq-item">
+                <p><strong>Her sayfanın indekslenmesi iyi midir?</strong></p>
+                <p>Hayır. Stratejik ve değerli URL'lerin indekslenmesi daha iyi sonuç verir. Parametreli, kopya veya düşük değerli sayfalar kontrolsüz biçimde indekslenirse crawl budget ve kalite sinyalleri zayıflayabilir.</p>
+            </div>
+            <div class="faq-item">
+                <p><strong>Core Web Vitals dönüşümü gerçekten etkiler mi?</strong></p>
+                <p>Evet. LCP, INP ve CLS gibi metrikler ilk algıyı, etkileşim rahatlığını ve kullanıcı güvenini doğrudan etkilediği için bounce rate, form doldurma ve sepete ekleme gibi aksiyonlar üzerinde somut sonuç üretir.</p>
+            </div>
+        </div>
+
+        <div class="cta-panel">
+            <h2>Siteniz teknik olarak gerçekten sağlıklı mı?</h2>
+            <p>Core Web Vitals, TTFB, kaynak yükü, görsel optimizasyonu, schema markup, sitemap yapısı ve iç linkleme mimarisinin birlikte nasıl çalıştığını görmek için en doğru başlangıç tahmin değil, denetimdir. Veridia olarak teknik darboğazı görünür hale getirip hangi müdahalenin iş sonucunu en hızlı etkileyeceğini netleştiriyoruz.</p>
+            <div class="cta-actions">
+                <a href="/#quote" class="primary-link">Teknik Denetim İçin Yaz</a>
+                <a href="/#contact" class="secondary-link">WhatsApp'tan Başlayalım</a>
+                <a href="/neler-yapiyoruz.html#web" class="secondary-link">Web Yüzeylerini İncele</a>
+            </div>
+        </div>
+
+        <div class="related-panel">
+            <h2>İlgili yazılar</h2>
+            <p>Teknik altyapıyı içerik ve talep yaratma yüzeyiyle birlikte düşünmek için aşağıdaki rehberlerle devam edebilirsiniz.</p>
+            <div class="related-links">
+                <a href="/blog/b2b-donusum-hunisi.html" class="secondary-link">B2B Funnel Rehberi</a>
+                <a href="/blog/instagram-algoritmasi-2026.html" class="secondary-link">Instagram Algoritması 2026</a>
+                <a href="/blog.html" class="secondary-link">Tüm Yazılar</a>
+            </div>
+        </div>
+    </article>
+
+    <aside class="sidebar" aria-label="Yan panel">
+        <section class="sidebar-panel">
+            <h2>Hızlı özet</h2>
+            <p>Teknik SEO, performans, schema, indeksleme ve iç linkleme birlikte çalıştığında aynı trafik daha fazla görünürlük ve dönüşüm üretir.</p>
+        </section>
+        <section class="sidebar-panel">
+            <h2>Denetimde baktıklarımız</h2>
+            <ul class="quick-list">
+                <li>Core Web Vitals ve TTFB dağılımı</li>
+                <li>İndekslenmesi gereken ve gerekmeyen URL ayrımı</li>
+                <li>Schema, author ve publisher sinyalleri</li>
+                <li>İç linkleme ve sayfa hiyerarşisi</li>
+                <li>404, redirect ve otomasyon fırsatları</li>
+            </ul>
+        </section>
+        <section class="sidebar-panel">
+            <h2>Hızlı geçiş</h2>
+            <div class="quick-links">
+                <a href="/calismalarimiz.html" class="secondary-link">Vaka Senaryoları</a>
+                <a href="/neler-yapiyoruz.html#web" class="secondary-link">Web Yüzeyleri</a>
+                <a href="/#quote" class="secondary-link">Teklif Akışı</a>
+            </div>
+        </section>
+    </aside>
+</main>
+
+</body>
+</html>

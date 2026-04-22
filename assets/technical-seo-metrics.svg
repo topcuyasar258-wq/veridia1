@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Landing page optimizasyonu metrik karşılaştırması</title>
+  <desc id="desc">Optimizasyon öncesi ve sonrası LCP, CLS, INP, bounce rate ve form dönüşüm oranı farklarını gösteren vektörel grafik.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b1210"/>
+      <stop offset="100%" stop-color="#121b17"/>
+    </linearGradient>
+    <linearGradient id="bad" x1="0" x2="1">
+      <stop offset="0%" stop-color="#7d3f36"/>
+      <stop offset="100%" stop-color="#bc6557"/>
+    </linearGradient>
+    <linearGradient id="good" x1="0" x2="1">
+      <stop offset="0%" stop-color="#2a7d5f"/>
+      <stop offset="100%" stop-color="#56b28a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="url(#bg)"/>
+  <text x="84" y="96" fill="#f8f6ef" font-family="Arial, sans-serif" font-size="42" font-weight="700">Optimizasyon öncesi ve sonrası</text>
+  <text x="84" y="136" fill="#c9a84c" font-family="Arial, sans-serif" font-size="22" letter-spacing="2.8">LANDING PAGE PERFORMANS VE DÖNÜŞÜM ETKİSİ</text>
+  <g font-family="Arial, sans-serif" fill="#f6f2e8" font-size="22">
+    <text x="84" y="200">Önce</text>
+    <rect x="154" y="184" width="36" height="18" rx="9" fill="url(#bad)"/>
+    <text x="236" y="200">Sonra</text>
+    <rect x="314" y="184" width="36" height="18" rx="9" fill="url(#good)"/>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <text x="84" y="276" fill="#f8f6ef" font-size="28" font-weight="700">LCP</text>
+    <text x="84" y="312" fill="#b7c2bc" font-size="20">4.8 sn → 2.1 sn</text>
+    <rect x="250" y="252" width="560" height="28" rx="14" fill="#25322d"/>
+    <rect x="250" y="252" width="432" height="28" rx="14" fill="url(#bad)"/>
+    <rect x="250" y="294" width="560" height="28" rx="14" fill="#25322d"/>
+    <rect x="250" y="294" width="189" height="28" rx="14" fill="url(#good)"/>
+    <text x="84" y="384" fill="#f8f6ef" font-size="28" font-weight="700">CLS</text>
+    <text x="84" y="420" fill="#b7c2bc" font-size="20">0.24 → 0.03</text>
+    <rect x="250" y="360" width="560" height="28" rx="14" fill="#25322d"/>
+    <rect x="250" y="360" width="448" height="28" rx="14" fill="url(#bad)"/>
+    <rect x="250" y="402" width="560" height="28" rx="14" fill="#25322d"/>
+    <rect x="250" y="402" width="56" height="28" rx="14" fill="url(#good)"/>
+    <text x="84" y="492" fill="#f8f6ef" font-size="28" font-weight="700">INP</text>
+    <text x="84" y="528" fill="#b7c2bc" font-size="20">320 ms → 145 ms</text>
+    <rect x="250" y="468" width="560" height="28" rx="14" fill="#25322d"/>
+    <rect x="250" y="468" width="420" height="28" rx="14" fill="url(#bad)"/>
+    <rect x="250" y="510" width="560" height="28" rx="14" fill="#25322d"/>
+    <rect x="250" y="510" width="190" height="28" rx="14" fill="url(#good)"/>
+    <text x="84" y="600" fill="#f8f6ef" font-size="28" font-weight="700">Bounce rate</text>
+    <text x="84" y="636" fill="#b7c2bc" font-size="20">%61 → %38</text>
+    <rect x="250" y="576" width="560" height="28" rx="14" fill="#25322d"/>
+    <rect x="250" y="576" width="342" height="28" rx="14" fill="url(#bad)"/>
+    <rect x="250" y="618" width="560" height="28" rx="14" fill="#25322d"/>
+    <rect x="250" y="618" width="213" height="28" rx="14" fill="url(#good)"/>
+  </g>
+  <g transform="translate(860 248)">
+    <rect width="256" height="308" rx="28" fill="#111d18" stroke="#c9a84c" stroke-opacity="0.24"/>
+    <text x="28" y="54" fill="#c9a84c" font-family="Arial, sans-serif" font-size="20" letter-spacing="2.6">TİCARİ SONUÇ</text>
+    <text x="28" y="106" fill="#f8f6ef" font-family="Arial, sans-serif" font-size="58" font-weight="700">%57</text>
+    <text x="28" y="140" fill="#f8f6ef" font-family="Arial, sans-serif" font-size="24">form dönüşüm artışı</text>
+    <text x="28" y="194" fill="#b7c2bc" font-family="Arial, sans-serif" font-size="22">Performans iyileştirmesi</text>
+    <text x="28" y="226" fill="#b7c2bc" font-family="Arial, sans-serif" font-size="22">tasarım değişmeden</text>
+    <text x="28" y="258" fill="#b7c2bc" font-family="Arial, sans-serif" font-size="22">gerçek kullanıcı aksiyonunu</text>
+    <text x="28" y="290" fill="#b7c2bc" font-family="Arial, sans-serif" font-size="22">güçlendirir.</text>
+  </g>
+</svg>

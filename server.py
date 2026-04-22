@@ -62,8 +62,8 @@ MAX_PROXY_IMAGE_BYTES = int(os.environ.get("MAX_PROXY_IMAGE_BYTES", "5242880"))
 DEFAULT_ALLOWED_ORIGINS = (
     f"http://127.0.0.1:{PORT}",
     f"http://localhost:{PORT}",
-    "https://veridia.com.tr",
-    "https://www.veridia.com.tr",
+    "https://veridiareklam.com.tr",
+    "https://www.veridiareklam.com.tr",
 )
 PUBLIC_FILE_PATHS = frozenset(
     {
