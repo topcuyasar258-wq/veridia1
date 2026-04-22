@@ -136,79 +136,87 @@
   </button>
 </nav>
 
-<main>
+<main class="blog-page">
     <header class="blog-header">
         <div class="blog-header-content">
-            <p class="section-label blog-heading-kicker">Veridia Blog</p>
-            <h1 class="blog-title blog-header-heading">Dijital Büyüme ve <br>Pazarlama İçgörüleri</h1>
-            <p class="blog-subtitle blog-header-copy">Instagram büyümesi, teknik SEO, B2B talep yaratma, içerik sistemleri ve performans pazarlamasına dair uygulanabilir çerçeveler. Her yazı, ekiplerin daha net karar alması için kısa değil işlevli olacak şekilde hazırlanır.</p>
-            <p class="blog-subtitle blog-header-note">Editoryal not: Yeni rehberler düzenli takvimle yayımlanır ve tüm içerikler Veridia editoryal sürecinden geçerek güncellenir.</p>
-            <div class="topic-strip topic-strip--center" aria-label="Öne çıkan konular">
-                <button type="button" class="topic-pill is-active" data-category="all">Tümü</button>
-                <button type="button" class="topic-pill" data-category="seo">Teknik SEO</button>
-                <button type="button" class="topic-pill" data-category="instagram">Instagram</button>
-                <button type="button" class="topic-pill" data-category="b2b">B2B</button>
-            </div>
+            <p class="blog-heading-kicker">Blog</p>
+            <h1 class="blog-title blog-header-heading">Dijital Büyüme ve<br>Pazarlama İçgörüleri</h1>
+            <p class="blog-subtitle blog-header-copy">Kısa değil, işlevli. Her yazı karar almak için hazırlandı.</p>
+        </div>
+<div class="topic-strip" aria-label="Öne çıkan konular">
+            <button type="button" class="topic-pill is-active" data-category="all">Tümü</button>
+            <button type="button" class="topic-pill" data-category="seo">Teknik SEO</button>
+            <button type="button" class="topic-pill" data-category="instagram">Instagram</button>
+            <button type="button" class="topic-pill" data-category="b2b">B2B</button>
+            <button type="button" class="topic-pill" data-category="icerik">İçerik</button>
         </div>
     </header>
 
-    <section class="blog-grid" aria-label="Blog yazıları">
+    <section class="blog-feed" aria-label="Blog yazıları">
         <!-- BLOG_CARDS -->
-        <article class="blog-card" data-category="seo">
-            <div class="blog-meta">
-                <span>Teknik SEO</span>
-                <time datetime="2026-04-22T00:00:00+03:00">22 Nisan 2026</time>
-                <span>12 dk okuma</span>
-                <span>Yazar: Yaşar İshak Topçu</span>
+        <article class="blog-card blog-card--feature" data-category="seo">
+            <div class="blog-card-body">
+                <div class="blog-meta">
+                    <span class="blog-meta-category">Teknik SEO</span>
+                    <span class="blog-meta-dot" aria-hidden="true"></span>
+                    <time datetime="2026-04-22T00:00:00+03:00">22 Nisan 2026</time>
+                    <span class="blog-meta-dot" aria-hidden="true"></span>
+                    <span>12 dk</span>
+                </div>
+                <h2><a href="/blog/teknik-seo-ve-web-performansi.html">Teknik SEO ve Web Performansı: Dönüşüm Getiren Web Sitelerinin Perde Arkası</a></h2>
+                <p>Core Web Vitals, TTFB, schema markup, EEAT, crawl budget ve gerçek müşteri davranışı arasındaki bağlantılar.</p>
+                <div class="blog-card-footer">
+                    <span class="blog-author">Yaşar İshak Topçu</span>
+                    <a href="/blog/teknik-seo-ve-web-performansi.html" class="blog-arrow" aria-label="Makaleyi oku"><span aria-hidden="true">→</span></a>
+                </div>
             </div>
-            <h2><a href="/blog/teknik-seo-ve-web-performansi.html">Teknik SEO ve Web Performansı: Dönüşüm Getiren Web Sitelerinin Perde Arkası</a></h2>
-            <p>Core Web Vitals, TTFB, schema markup, EEAT, crawl budget ve otomasyon katmanlarının görünürlük ile dönüşümü nasıl birlikte büyüttüğünü örneklerle anlatıyoruz.</p>
-            <div class="blog-card-footer">
-                <a href="/blog/teknik-seo-ve-web-performansi.html" class="read-more">Makaleyi Oku</a>
-                <a href="/#quote" class="secondary-link">Teknik Denetim İste</a>
-            </div>
+            <a href="/blog/teknik-seo-ve-web-performansi.html" class="blog-card-visual" aria-hidden="true" tabindex="-1">
+                <span class="blog-card-visual-dot"></span>
+            </a>
         </article>
 
         <article class="blog-card" data-category="instagram">
-            <div class="blog-meta">
-                <span>Instagram Büyümesi</span>
-                <time datetime="2026-04-09T00:00:00+03:00">9 Nisan 2026</time>
-                <span>7 dk okuma</span>
-                <span>Yazar: Veridia Strateji Ekibi</span>
-            </div>
-            <h2><a href="/blog/instagram-algoritmasi-2026.html">Instagram Algoritması 2026: Erişim ve Etkileşim İçin Uygulamalı Rehber</a></h2>
-            <p>Hangi sinyallerin görünürlüğü gerçekten yukarı çektiğini, reels-carousels dengesiyle paylaşım ritminin neden birlikte çalışması gerektiğini ve 30 günlük optimizasyon planını adım adım anlatıyoruz.</p>
-            <div class="blog-card-footer">
-                <a href="/blog/instagram-algoritmasi-2026.html" class="read-more">Makaleyi Oku</a>
-                <a href="/#contact" class="secondary-link">Ön Değerlendirme İste</a>
+            <div class="blog-card-body">
+                <div class="blog-meta">
+                    <span class="blog-meta-category">Instagram</span>
+                    <span class="blog-meta-dot" aria-hidden="true"></span>
+                    <time datetime="2026-04-09T00:00:00+03:00">9 Nisan 2026</time>
+                    <span class="blog-meta-dot" aria-hidden="true"></span>
+                    <span>7 dk</span>
+                </div>
+                <h2><a href="/blog/instagram-algoritmasi-2026.html">Instagram Algoritması 2026: Erişim ve Etkileşim İçin Uygulamalı Rehber</a></h2>
+                <p>Hangi sinyallerin görünürlüğü gerçekten yukarı çektiğini, reels–carousels dengesiyle paylaşım ritminin neden birlikte çalışması gerektiğini ele alıyoruz.</p>
+                <div class="blog-card-footer">
+                    <span class="blog-author">Betül Berfin Akyüz · İçerik Stratejisti</span>
+                    <a href="/blog/instagram-algoritmasi-2026.html" class="blog-arrow" aria-label="Makaleyi oku"><span aria-hidden="true">→</span></a>
+                </div>
             </div>
         </article>
 
         <article class="blog-card" data-category="b2b">
-            <div class="blog-meta">
-                <span>B2B Talep Yaratma</span>
-                <time datetime="2026-04-09T00:00:00+03:00">9 Nisan 2026</time>
-                <span>6 dk okuma</span>
-                <span>Yazar: Veridia Strateji Ekibi</span>
-            </div>
-            <h2><a href="/blog/b2b-donusum-hunisi.html">B2B Pazarlamada Dönüşüm Hunisi: Lead'den Satışa Net Sistem</a></h2>
-            <p>Lead toplama ile satış ekibine hazır fırsat üretme arasındaki boşlukları kapatmak için içerik, skorlamа, nurture akışı ve satış-CRM hizasını birlikte ele alıyoruz.</p>
-            <div class="blog-card-footer">
-                <a href="/blog/b2b-donusum-hunisi.html" class="read-more">Makaleyi Oku</a>
-                <a href="/#quote" class="secondary-link">Plan Çıkaralım</a>
+            <div class="blog-card-body">
+                <div class="blog-meta">
+                    <span class="blog-meta-category">B2B</span>
+                    <span class="blog-meta-dot" aria-hidden="true"></span>
+                    <time datetime="2026-04-09T00:00:00+03:00">9 Nisan 2026</time>
+                    <span class="blog-meta-dot" aria-hidden="true"></span>
+                    <span>6 dk</span>
+                </div>
+                <h2><a href="/blog/b2b-donusum-hunisi.html">B2B Pazarlamada Dönüşüm Hunisi: Lead'den Satışa Net Sistem</a></h2>
+                <p>Lead toplama ile satış ekibine hazır fırsat üretme arasındaki boşlukları kapatmak için içerik, skorlama ve nurture akışı.</p>
+                <div class="blog-card-footer">
+                    <span class="blog-author">Veridia Strateji Ekibi</span>
+                    <a href="/blog/b2b-donusum-hunisi.html" class="blog-arrow" aria-label="Makaleyi oku"><span aria-hidden="true">→</span></a>
+                </div>
             </div>
         </article>
         <!-- /BLOG_CARDS -->
     </section>
 
-    <section class="blog-cta" aria-label="Veridia ile çalış">
-        <h2>İçeriği Plana, planı büyümeye çevirelim.</h2>
-        <p>Yazılar size yön verir; ama asıl fark, markanızın verisi ve operasyon ritmiyle hazırlanmış net bir büyüme planında ortaya çıkar. Veridia ekibiyle kısa bir çerçeve çıkarmak isterseniz teklif akışı ve manuel ön değerlendirme kanalları hazır.</p>
-        <div class="blog-cta-actions">
-            <a href="/#quote" class="read-more">30 Saniyede Teklif Al</a>
-            <a href="/#contact" class="secondary-link">WhatsApp'ta Başlayalım</a>
-        </div>
-    </section>
+    <footer class="blog-footer">
+        <p class="blog-footer-note">Yeni rehberler düzenli takvimle yayımlanır.</p>
+        <a href="/#quote" class="blog-footer-cta">30 Saniyede Teklif Al</a>
+    </footer>
 </main>
 </body>
 </html>
