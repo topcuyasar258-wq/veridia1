@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 import unittest
 
@@ -165,6 +166,18 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("örnek çalışma senaryoları", content)
         self.assertIn("anonimleştirilmiş vaka notları", content)
         self.assertIn("müşteri yorumu değil", content)
+
+    def test_vercel_config_has_no_site_host_redirect_rules(self) -> None:
+        config = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
+        redirects = config.get("redirects", [])
+        blocked_hosts = {"veridiareklam.com.tr", "www.veridiareklam.com.tr"}
+        for redirect in redirects:
+            host_values = {
+                condition.get("value")
+                for condition in redirect.get("has", [])
+                if condition.get("type") == "host"
+            }
+            self.assertFalse(blocked_hosts & host_values)
 
 if __name__ == "__main__":
     unittest.main()
