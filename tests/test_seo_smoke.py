@@ -17,6 +17,13 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("https://veridiareklam.com.tr/", sitemap)
         self.assertIn("https://veridiareklam.com.tr/neler-yapiyoruz.html", sitemap)
         self.assertIn("https://veridiareklam.com.tr/calismalarimiz.html", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/seo/", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/reklam/", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/yazilim/", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/seo/teknik-seo-denetimi/", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/reklam/google-ads-yonetimi/", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/", sitemap)
         self.assertIn("https://veridiareklam.com.tr/blog/instagram-algoritmasi-2026.html", sitemap)
         self.assertIn("https://veridiareklam.com.tr/blog/b2b-donusum-hunisi.html", sitemap)
         self.assertIn("https://veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi.html", sitemap)
@@ -158,6 +165,27 @@ class SeoSmokeTests(unittest.TestCase):
                 self.assertIn("assets/work-pages.js", content)
                 self.assertIn("data-whatsapp-message", content)
                 self.assertIn("veridia-social-cover.png", content)
+                self.assertNotIn('href="#"', content)
+
+    def test_silo_hub_pages_exist_with_canonical_schema_and_local_assets(self) -> None:
+        hub_pages = [
+            ROOT / "seo" / "index.html",
+            ROOT / "seo" / "teknik-seo-denetimi" / "index.html",
+            ROOT / "seo" / "google-gorunurlugu" / "index.html",
+            ROOT / "reklam" / "index.html",
+            ROOT / "reklam" / "sosyal-medya-yonetimi" / "index.html",
+            ROOT / "reklam" / "google-ads-yonetimi" / "index.html",
+            ROOT / "reklam" / "meta-reklam-yonetimi" / "index.html",
+            ROOT / "yazilim" / "index.html",
+            ROOT / "yazilim" / "web-sitesi-ve-donusum-yuzeyleri" / "index.html",
+        ]
+        for page_path in hub_pages:
+            with self.subTest(page=page_path.name):
+                content = page_path.read_text(encoding="utf-8")
+                self.assertIn('<link rel="canonical"', content)
+                self.assertIn('"@type": "CollectionPage"', content)
+                self.assertIn("/assets/silo-pages.css", content)
+                self.assertTrue('href="/#contact"' in content or 'href="/#quote"' in content)
                 self.assertNotIn('href="#"', content)
 
     def test_case_studies_page_positions_scenarios_transparently(self) -> None:

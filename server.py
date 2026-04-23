@@ -77,7 +77,7 @@ PUBLIC_FILE_PATHS = frozenset(
         "/sitemap.xml",
     }
 )
-PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/")
+PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/", "/seo/", "/reklam/", "/yazilim/")
 LEGACY_REDIRECTS = {
     "/index.html": "/",
     "/asdfadsf.html": "/",

@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://veridiareklam.com.tr/</loc>
-    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
+    <loc>https://veridiareklam.com.tr</loc>
+    <lastmod>2026-04-22T22:01:43+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -17,7 +17,7 @@
   </url>
   <url>
     <loc>https://veridiareklam.com.tr/blog.html</loc>
-    <lastmod>2026-04-22T00:00:00+03:00</lastmod>
+    <lastmod>2026-04-23T03:02:14+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://veridiareklam.com.tr/neler-yapiyoruz.html</loc>
-    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
+    <lastmod>2026-04-23T03:02:45+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -37,7 +37,7 @@
   </url>
   <url>
     <loc>https://veridiareklam.com.tr/calismalarimiz.html</loc>
-    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
+    <lastmod>2026-04-23T03:02:45+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -46,45 +46,87 @@
     </image:image>
   </url>
   <url>
-    <loc>https://veridiareklam.com.tr/blog/instagram-algoritmasi-2026.html</loc>
-    <lastmod>2026-04-22T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
-      <image:title>Instagram Algoritması 2026 Rehberi</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://veridiareklam.com.tr/blog/b2b-donusum-hunisi.html</loc>
-    <lastmod>2026-04-22T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
-      <image:title>B2B Dönüşüm Hunisi Rehberi</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi.html</loc>
-    <lastmod>2026-04-22T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
-      <image:title>Teknik SEO ve Web Performansı Rehberi</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://veridiareklam.com.tr/gizlilik-politikasi.html</loc>
-    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
+    <lastmod>2026-04-22T22:01:43+03:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://veridiareklam.com.tr/kvkk-aydinlatma-metni.html</loc>
-    <lastmod>2026-04-18T18:05:00+03:00</lastmod>
+    <lastmod>2026-04-22T22:01:43+03:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/seo/</loc>
+    <lastmod>2026-04-23T03:03:43+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/reklam/</loc>
+    <lastmod>2026-04-23T03:03:43+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/yazilim/</loc>
+    <lastmod>2026-04-23T03:03:43+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/seo/teknik-seo-denetimi/</loc>
+    <lastmod>2026-04-23T03:03:43+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/seo/google-gorunurlugu/</loc>
+    <lastmod>2026-04-23T03:03:43+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/</loc>
+    <lastmod>2026-04-23T03:03:43+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/reklam/google-ads-yonetimi/</loc>
+    <lastmod>2026-04-23T03:03:43+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/reklam/meta-reklam-yonetimi/</loc>
+    <lastmod>2026-04-23T03:03:43+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/</loc>
+    <lastmod>2026-04-23T03:03:43+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi.html</loc>
+    <lastmod>2026-04-23T03:01:57+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/blog/instagram-algoritmasi-2026.html</loc>
+    <lastmod>2026-04-23T03:01:57+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://veridiareklam.com.tr/blog/b2b-donusum-hunisi.html</loc>
+    <lastmod>2026-04-23T03:01:57+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

@@ -1,0 +1,423 @@
+{
+  "site": {
+    "name": "Veridia",
+    "base_url": "https://veridiareklam.com.tr",
+    "default_image": "/assets/veridia-social-cover.png"
+  },
+  "static_pages": [
+    {
+      "url": "/",
+      "file": "index.html",
+      "title": "Ana Sayfa",
+      "changefreq": "weekly",
+      "priority": "1.0",
+      "images": [
+        {
+          "path": "/assets/about-visual.png",
+          "title": "Veridia Ana Sayfa Marka Görseli"
+        },
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Veridia Sosyal Kapak Görseli"
+        }
+      ]
+    },
+    {
+      "url": "/blog.html",
+      "file": "blog.html",
+      "title": "Veridia Blog",
+      "changefreq": "weekly",
+      "priority": "0.7",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Veridia Blog Kapak Görseli"
+        }
+      ]
+    },
+    {
+      "url": "/neler-yapiyoruz.html",
+      "file": "neler-yapiyoruz.html",
+      "title": "Veridia Neler Yapıyoruz",
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Veridia Neler Yapıyoruz"
+        }
+      ]
+    },
+    {
+      "url": "/calismalarimiz.html",
+      "file": "calismalarimiz.html",
+      "title": "Veridia Örnek Çalışma Senaryoları",
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Veridia Örnek Çalışma Senaryoları"
+        }
+      ]
+    },
+    {
+      "url": "/gizlilik-politikasi.html",
+      "file": "gizlilik-politikasi.html",
+      "title": "Gizlilik Politikası",
+      "changefreq": "yearly",
+      "priority": "0.3"
+    },
+    {
+      "url": "/kvkk-aydinlatma-metni.html",
+      "file": "kvkk-aydinlatma-metni.html",
+      "title": "KVKK Aydınlatma Metni",
+      "changefreq": "yearly",
+      "priority": "0.3"
+    }
+  ],
+  "hubs": [
+    {
+      "slug": "seo",
+      "url": "/seo/",
+      "file": "seo/index.html",
+      "title": "SEO Hizmetleri",
+      "meta_title": "SEO Hizmetleri | Veridia",
+      "description": "Teknik SEO denetimi, Google görünürlüğü ve site mimarisi ile Veridia'nın arama görünürlüğü yüzeyini keşfedin.",
+      "eyebrow": "SEO Silo",
+      "hero_title": "Arama görünürlüğünü şansa değil, mimariye bağlarız.",
+      "hero_body": "SEO tarafında sadece anahtar kelime değil; teknik altyapı, tarama bütçesi, sayfa hiyerarşisi ve dönüşüm yüzeyi birlikte çalışmalı. Veridia bu alanları aynı karar sistemi içinde kurgular.",
+      "primary_cta_label": "SEO İhtiyacını Konuşalım",
+      "primary_cta_href": "/#contact",
+      "secondary_cta_label": "Mevcut arama yüzeylerini gör",
+      "secondary_cta_href": "/neler-yapiyoruz.html#search",
+      "children": [
+        "teknik-seo-denetimi",
+        "google-gorunurlugu"
+      ],
+      "featured_posts": [
+        "teknik-seo-ve-web-performansi"
+      ]
+    },
+    {
+      "slug": "reklam",
+      "url": "/reklam/",
+      "file": "reklam/index.html",
+      "title": "Reklam Hizmetleri",
+      "meta_title": "Reklam Hizmetleri | Veridia",
+      "description": "Meta reklam yönetimi, Google Ads ve sosyal medya yönetimi ile Veridia'nın reklam silosunu inceleyin.",
+      "eyebrow": "Reklam Silo",
+      "hero_title": "Talep yaratmayı kampanya paneliyle sınırlamıyoruz.",
+      "hero_body": "Reklam tarafında medya satın alma, kreatif, landing page ve satışa giden akış aynı omurgada kurulmalı. Veridia reklam silosu bu bağlantıları görünür hale getirir.",
+      "primary_cta_label": "Reklam Stratejisini Konuşalım",
+      "primary_cta_href": "/#quote",
+      "secondary_cta_label": "Mevcut reklam yüzeylerini gör",
+      "secondary_cta_href": "/neler-yapiyoruz.html#meta",
+      "children": [
+        "sosyal-medya-yonetimi",
+        "google-ads-yonetimi",
+        "meta-reklam-yonetimi"
+      ],
+      "featured_posts": [
+        "instagram-algoritmasi-2026",
+        "b2b-donusum-hunisi"
+      ]
+    },
+    {
+      "slug": "yazilim",
+      "url": "/yazilim/",
+      "file": "yazilim/index.html",
+      "title": "Yazılım ve Dönüşüm Yüzeyleri",
+      "meta_title": "Yazılım ve Dönüşüm Yüzeyleri | Veridia",
+      "description": "Web sitesi, landing page ve dönüşüm yüzeyleri için Veridia'nın yazılım silosunu keşfedin.",
+      "eyebrow": "Yazılım Silo",
+      "hero_title": "Web yüzeyini vitrin değil, dönüşüm sistemi gibi kurarız.",
+      "hero_body": "Yazılım tarafında mesele sadece güzel görünen sayfalar değil; mesaj hiyerarşisi, hız, mobil akış ve dönüşüm davranışının birlikte çalışmasıdır. Bu silo, o yapıyı kurmak için tasarlandı.",
+      "primary_cta_label": "Web Projesini Konuşalım",
+      "primary_cta_href": "/#contact",
+      "secondary_cta_label": "Mevcut web yüzeyini gör",
+      "secondary_cta_href": "/neler-yapiyoruz.html#web",
+      "children": [
+        "web-sitesi-ve-donusum-yuzeyleri"
+      ],
+      "featured_posts": [
+        "teknik-seo-ve-web-performansi"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "slug": "teknik-seo-denetimi",
+      "parent": "seo",
+      "url": "/seo/teknik-seo-denetimi/",
+      "file": "seo/teknik-seo-denetimi/index.html",
+      "title": "Teknik SEO Denetimi",
+      "meta_title": "Teknik SEO Denetimi | Veridia",
+      "description": "Core Web Vitals, crawl budget, schema ve iç linkleme mimarisi ile sitenin teknik darboğazlarını görünür hale getiren denetim yüzeyi.",
+      "eyebrow": "SEO Alt Hizmeti",
+      "hero_title": "Teknik kayıpları görünür hale getiren denetim yüzeyi.",
+      "hero_body": "Core Web Vitals, taranabilirlik, indeksleme kalitesi, schema ve iç linkleme birlikte okunmadığında görünürlük sessizce aşınır. Teknik SEO Denetimi bu kırılmaları büyümeden yakalar.",
+      "primary_cta_label": "Teknik Denetim İste",
+      "primary_cta_href": "/#quote",
+      "secondary_cta_label": "Arama görünürlüğü yüzeyine dön",
+      "secondary_cta_href": "/neler-yapiyoruz.html#search",
+      "legacy_href": "/blog/teknik-seo-ve-web-performansi.html",
+      "legacy_label": "Teknik SEO rehberini oku",
+      "blog_category": "seo",
+      "blog_label": "Teknik SEO",
+      "blog_cta_label": "Teknik SEO Denetimi",
+      "highlights": [
+        {
+          "title": "Denetim katmanı",
+          "copy": "Core Web Vitals, TTFB, indeksleme, canonical ve iç link akışını aynı çerçevede okur."
+        },
+        {
+          "title": "İş etkisi",
+          "copy": "Yalnızca hata listesi üretmez; hangi problemin görünürlük ve dönüşümü önce etkilediğini sıralar."
+        },
+        {
+          "title": "Doğru bağlantı",
+          "copy": "Blog, hizmet ve vaka sayfalarını aynı sinyal haritasında birleştirerek otoriteyi dağılmadan taşır."
+        }
+      ],
+      "related_services": [
+        "google-gorunurlugu"
+      ]
+    },
+    {
+      "slug": "google-gorunurlugu",
+      "parent": "seo",
+      "url": "/seo/google-gorunurlugu/",
+      "file": "seo/google-gorunurlugu/index.html",
+      "title": "Google Görünürlüğü",
+      "meta_title": "Google Görünürlüğü | Veridia",
+      "description": "Arama niyeti, sayfa dili ve ticari teklif uyumunu güçlendirerek markanın doğru sorgularda görünmesini sağlayan SEO yüzeyi.",
+      "eyebrow": "SEO Alt Hizmeti",
+      "hero_title": "Doğru sorguda görünmek için sayfa vaadini netleştiririz.",
+      "hero_body": "Google görünürlüğü; anahtar kelime, landing page, CTA ve içerik yapısının aynı niyeti taşımasıyla güçlenir. Bu yüzey, organik trafiği daha okunabilir bir gelir kanalı haline getirir.",
+      "primary_cta_label": "Google Görünürlüğünü Konuşalım",
+      "primary_cta_href": "/#contact",
+      "secondary_cta_label": "Arama yüzeyine dön",
+      "secondary_cta_href": "/neler-yapiyoruz.html#search",
+      "legacy_href": "/seo/teknik-seo-denetimi/",
+      "legacy_label": "Teknik SEO Denetimi'ne geç",
+      "blog_category": "seo",
+      "blog_label": "Google Görünürlüğü",
+      "blog_cta_label": "Google Görünürlüğü",
+      "highlights": [
+        {
+          "title": "Arama niyeti",
+          "copy": "Sorgu kümelerini ticari niyete göre ayırır, gereksiz içerik yoğunluğunu azaltır."
+        },
+        {
+          "title": "Sayfa uyumu",
+          "copy": "Başlık, açıklama ve açılış alanı aynı vaat etrafında hizalanır."
+        },
+        {
+          "title": "Silo bağlantısı",
+          "copy": "Teknik SEO, içerik ve hizmet sayfaları aynı otorite akışında çalışır."
+        }
+      ],
+      "related_services": [
+        "teknik-seo-denetimi"
+      ]
+    },
+    {
+      "slug": "sosyal-medya-yonetimi",
+      "parent": "reklam",
+      "url": "/reklam/sosyal-medya-yonetimi/",
+      "file": "reklam/sosyal-medya-yonetimi/index.html",
+      "title": "Sosyal Medya Yönetimi",
+      "meta_title": "Sosyal Medya Yönetimi | Veridia",
+      "description": "Instagram başta olmak üzere sosyal medya içerik sistemi, yayın ritmi ve topluluk yönetimini tek omurgada toplayan hizmet yüzeyi.",
+      "eyebrow": "Reklam Alt Hizmeti",
+      "hero_title": "Akışın amacı sadece görünmek değil, hafıza üretmektir.",
+      "hero_body": "Sosyal medya yönetiminde markanın vaadi, içerik ritmi ve topluluk davranışı birbirini taşımalı. Bu yüzey, içerik sistemini sürdürülebilir ve ölçülebilir hale getirir.",
+      "primary_cta_label": "Sosyal Medya Planı Çıkar",
+      "primary_cta_href": "/#quote",
+      "secondary_cta_label": "Sosyal medya yüzeyine dön",
+      "secondary_cta_href": "/neler-yapiyoruz.html#social",
+      "legacy_href": "/blog/instagram-algoritmasi-2026.html",
+      "legacy_label": "Instagram rehberini oku",
+      "blog_category": "social",
+      "blog_label": "Sosyal Medya",
+      "blog_cta_label": "Sosyal Medya Yönetimi",
+      "highlights": [
+        {
+          "title": "İçerik omurgası",
+          "copy": "Reels, carousel ve story'yi ayrı görevlerle konumlandırır."
+        },
+        {
+          "title": "Topluluk akışı",
+          "copy": "Yorum, DM ve geri dönüşleri marka tonuna bağlayarak tekrar eden ilişki kurar."
+        },
+        {
+          "title": "Cluster yapısı",
+          "copy": "Instagram ve sosyal medya yazıları bu hizmet sayfasına otorite taşır."
+        }
+      ],
+      "related_services": [
+        "meta-reklam-yonetimi"
+      ]
+    },
+    {
+      "slug": "google-ads-yonetimi",
+      "parent": "reklam",
+      "url": "/reklam/google-ads-yonetimi/",
+      "file": "reklam/google-ads-yonetimi/index.html",
+      "title": "Google Ads Yönetimi",
+      "meta_title": "Google Ads Yönetimi | Veridia",
+      "description": "Yüksek niyetli sorguları landing page ve teklif mimarisiyle birlikte yöneten Google Ads yüzeyi.",
+      "eyebrow": "Reklam Alt Hizmeti",
+      "hero_title": "Tıklamayı değil, doğru talebi büyüten kampanya yapısı.",
+      "hero_body": "Google Ads tarafında kampanya başarısı yalnızca anahtar kelimeye değil; landing page, form ve satış hizasına da bağlıdır. Bu yüzey, niyet ile dönüşüm arasındaki kopukluğu kapatır.",
+      "primary_cta_label": "Google Ads Planı Oluştur",
+      "primary_cta_href": "/#quote",
+      "secondary_cta_label": "Reklam yüzeyine dön",
+      "secondary_cta_href": "/neler-yapiyoruz.html#search",
+      "legacy_href": "/blog/b2b-donusum-hunisi.html",
+      "legacy_label": "B2B dönüşüm rehberini oku",
+      "blog_category": "ads",
+      "blog_label": "Google Ads",
+      "blog_cta_label": "Google Ads Yönetimi",
+      "highlights": [
+        {
+          "title": "Niyet odaklı yapı",
+          "copy": "Yüksek niyetli sorguları düşük değerli tıklamalardan ayırır."
+        },
+        {
+          "title": "Lead kalitesi",
+          "copy": "Form hacmi yerine satış ekibine giden fırsat kalitesini merkeze alır."
+        },
+        {
+          "title": "B2B cluster",
+          "copy": "Talep yaratma ve huni yazıları bu hizmet yüzeyine bağlanır."
+        }
+      ],
+      "related_services": [
+        "meta-reklam-yonetimi"
+      ]
+    },
+    {
+      "slug": "meta-reklam-yonetimi",
+      "parent": "reklam",
+      "url": "/reklam/meta-reklam-yonetimi/",
+      "file": "reklam/meta-reklam-yonetimi/index.html",
+      "title": "Meta Reklam Yönetimi",
+      "meta_title": "Meta Reklam Yönetimi | Veridia",
+      "description": "Meta reklam kampanyalarında kreatif test, hedefleme ve teklif vaadini aynı sistemde birleştiren performans yüzeyi.",
+      "eyebrow": "Reklam Alt Hizmeti",
+      "hero_title": "Bütçe değil, sinyal kalitesi yönetiyoruz.",
+      "hero_body": "Meta reklam tarafında kampanya paneli tek başına çözüm değildir. Kreatif açı, hook, teklif cümlesi ve açılış yüzeyi aynı doğrultuda ilerlemelidir.",
+      "primary_cta_label": "Meta Reklam Kurgusunu Konuşalım",
+      "primary_cta_href": "/#contact",
+      "secondary_cta_label": "Meta yüzeyine dön",
+      "secondary_cta_href": "/neler-yapiyoruz.html#meta",
+      "legacy_href": "/calismalarimiz.html#zeyra",
+      "legacy_label": "Meta vaka senaryosunu gör",
+      "blog_category": "ads",
+      "blog_label": "Meta Reklam",
+      "blog_cta_label": "Meta Reklam Yönetimi",
+      "highlights": [
+        {
+          "title": "Hook ve kreatif",
+          "copy": "Mesaj açısını kreatif test planıyla birlikte kurgular."
+        },
+        {
+          "title": "Funnel hizası",
+          "copy": "İlgi, ısıtma ve dönüşüm katmanlarını aynı rapor içinde okur."
+        },
+        {
+          "title": "Destek yüzeyi",
+          "copy": "Sosyal medya ve Google Ads cluster'ları ile aynı reklam silosunda çalışır."
+        }
+      ],
+      "related_services": [
+        "sosyal-medya-yonetimi",
+        "google-ads-yonetimi"
+      ]
+    },
+    {
+      "slug": "web-sitesi-ve-donusum-yuzeyleri",
+      "parent": "yazilim",
+      "url": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "file": "yazilim/web-sitesi-ve-donusum-yuzeyleri/index.html",
+      "title": "Web Sitesi ve Dönüşüm Yüzeyleri",
+      "meta_title": "Web Sitesi ve Dönüşüm Yüzeyleri | Veridia",
+      "description": "Web sitesi, landing page ve dönüşüm akışlarını mesaj hiyerarşisi ile performans mantığında birleştiren yazılım yüzeyi.",
+      "eyebrow": "Yazılım Alt Hizmeti",
+      "hero_title": "İlk ekranın bir işi olmalı.",
+      "hero_body": "Web sitesi ancak mesajı netleştirip doğru aksiyonu görünür kıldığında dönüşüm yüzeyine dönüşür. Bu hizmet, teknik performansla kullanıcı karar akışını aynı anda güçlendirir.",
+      "primary_cta_label": "Web Yüzeyini Planla",
+      "primary_cta_href": "/#contact",
+      "secondary_cta_label": "Web hizmet yüzeyine dön",
+      "secondary_cta_href": "/neler-yapiyoruz.html#web",
+      "legacy_href": "/calismalarimiz.html#maison",
+      "legacy_label": "Web vaka senaryosunu gör",
+      "blog_category": "web",
+      "blog_label": "Web ve CRO",
+      "blog_cta_label": "Web Yüzeyleri",
+      "highlights": [
+        {
+          "title": "Mesaj hiyerarşisi",
+          "copy": "Hero, proof ve CTA akışını karar verme mantığına göre düzenler."
+        },
+        {
+          "title": "Mobil davranış",
+          "copy": "Scroll derinliği, terk alanları ve form başlatma gibi davranışları iyileştirir."
+        },
+        {
+          "title": "Teknik bağ",
+          "copy": "Teknik SEO ve performans yazıları bu hizmet sayfasına doğal şekilde bağlanır."
+        }
+      ],
+      "related_services": [
+        "teknik-seo-denetimi"
+      ]
+    }
+  ],
+  "blog_posts": [
+    {
+      "slug": "teknik-seo-ve-web-performansi",
+      "url": "/blog/teknik-seo-ve-web-performansi.html",
+      "file": "blog/teknik-seo-ve-web-performansi.html",
+      "title": "Teknik SEO ve Web Performansı: Dönüşüm Getiren Web Sitelerinin Perde Arkası",
+      "summary": "Core Web Vitals, TTFB, schema markup, EEAT, crawl budget ve otomasyon katmanlarının görünürlük ile dönüşümü nasıl birlikte büyüttüğünü örneklerle anlatıyoruz.",
+      "description": "Teknik SEO, performans darboğazları ve indeksleme kalitesinin organik görünürlükle form dönüşümünü nasıl birlikte etkilediğini okuyun.",
+      "published_at": "2026-04-22T00:00:00+03:00",
+      "modified_at": "2026-04-22T00:00:00+03:00",
+      "date_label": "22 Nisan 2026",
+      "reading_time": "12 dk okuma",
+      "author": "Yaşar İshak Topçu",
+      "service_slug": "teknik-seo-denetimi"
+    },
+    {
+      "slug": "instagram-algoritmasi-2026",
+      "url": "/blog/instagram-algoritmasi-2026.html",
+      "file": "blog/instagram-algoritmasi-2026.html",
+      "title": "Instagram Algoritması 2026: Erişim ve Etkileşim İçin Uygulamalı Rehber",
+      "summary": "Hangi sinyallerin görünürlüğü gerçekten yukarı çektiğini, reels-carousels dengesiyle paylaşım ritminin neden birlikte çalışması gerektiğini ve 30 günlük optimizasyon planını adım adım anlatıyoruz.",
+      "description": "Instagram erişim ve etkileşimini artıran 2026 sinyallerini öğrenin; reels, carousel ve yayın ritmini markanız için netleştirin.",
+      "published_at": "2026-04-09T00:00:00+03:00",
+      "modified_at": "2026-04-09T00:00:00+03:00",
+      "date_label": "9 Nisan 2026",
+      "reading_time": "7 dk okuma",
+      "author": "Veridia Strateji Ekibi",
+      "service_slug": "sosyal-medya-yonetimi"
+    },
+    {
+      "slug": "b2b-donusum-hunisi",
+      "url": "/blog/b2b-donusum-hunisi.html",
+      "file": "blog/b2b-donusum-hunisi.html",
+      "title": "B2B Pazarlamada Dönüşüm Hunisi: Lead'den Satışa Net Sistem",
+      "summary": "Lead toplama ile satış ekibine hazır fırsat üretme arasındaki boşlukları kapatmak için içerik, skorlamа, nurture akışı ve satış-CRM hizasını birlikte ele alıyoruz.",
+      "description": "Lead'den satışa giden B2B huniyi netleştirin; skorlamа, nurture ve satış hizasını tek sistemde planlamak için rehberi okuyun.",
+      "published_at": "2026-04-09T00:00:00+03:00",
+      "modified_at": "2026-04-09T00:00:00+03:00",
+      "date_label": "9 Nisan 2026",
+      "reading_time": "6 dk okuma",
+      "author": "Veridia Strateji Ekibi",
+      "service_slug": "google-ads-yonetimi"
+    }
+  ]
+}
