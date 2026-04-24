@@ -1,0 +1,33 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="funnelTitle funnelDesc">
+  <title id="funnelTitle">Dönüşüm hunisi diyagramı</title>
+  <desc id="funnelDesc">Trafikten talebe giden web sitesi dönüşüm hunisini ve izlenecek metrikleri gösteren diyagram.</desc>
+  <rect width="1600" height="900" rx="36" fill="#0D1014"/>
+  <rect x="40" y="40" width="1520" height="820" rx="30" fill="url(#bg)"/>
+  <text x="150" y="132" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="46" font-weight="700">Talep kaybını ancak huni boyunca ölçerseniz görürsünüz</text>
+  <path d="M350 220H1250L1088 700H512L350 220Z" fill="#151A21" stroke="#C9A84C" stroke-opacity="0.28" stroke-width="3"/>
+  <path d="M430 320H1170" stroke="#C9A84C" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M486 430H1114" stroke="#C9A84C" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M544 540H1056" stroke="#C9A84C" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M590 628H1010" stroke="#C9A84C" stroke-opacity="0.22" stroke-width="2"/>
+  <text x="708" y="286" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="32" font-weight="700">Trafik</text>
+  <text x="648" y="397" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="30" font-weight="700">İlk ekran</text>
+  <text x="602" y="507" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="30" font-weight="700">Hizmet sayfası</text>
+  <text x="598" y="596" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="30" font-weight="700">CTA tıklaması</text>
+  <text x="642" y="682" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="30" font-weight="700">Form / arama</text>
+  <rect x="1220" y="258" width="238" height="50" rx="16" fill="#11151A" stroke="#C9A84C" stroke-opacity="0.28"/>
+  <text x="1250" y="290" fill="#E7E2D5" font-family="'DM Sans', Arial, sans-serif" font-size="22">Oturum ve kaynak</text>
+  <rect x="1220" y="366" width="238" height="50" rx="16" fill="#11151A" stroke="#C9A84C" stroke-opacity="0.28"/>
+  <text x="1250" y="398" fill="#E7E2D5" font-family="'DM Sans', Arial, sans-serif" font-size="22">Scroll ve çıkış</text>
+  <rect x="1220" y="475" width="238" height="50" rx="16" fill="#11151A" stroke="#C9A84C" stroke-opacity="0.28"/>
+  <text x="1260" y="507" fill="#E7E2D5" font-family="'DM Sans', Arial, sans-serif" font-size="22">Sayfa etkileşimi</text>
+  <rect x="1220" y="584" width="238" height="50" rx="16" fill="#11151A" stroke="#C9A84C" stroke-opacity="0.28"/>
+  <text x="1272" y="616" fill="#E7E2D5" font-family="'DM Sans', Arial, sans-serif" font-size="22">Tıklama oranı</text>
+  <rect x="1220" y="692" width="238" height="50" rx="16" fill="#11151A" stroke="#C9A84C" stroke-opacity="0.28"/>
+  <text x="1258" y="724" fill="#E7E2D5" font-family="'DM Sans', Arial, sans-serif" font-size="22">Gönderim / arama</text>
+  <defs>
+    <linearGradient id="bg" x1="100" y1="80" x2="1490" y2="840" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151A21"/>
+      <stop offset="1" stop-color="#0D1014"/>
+    </linearGradient>
+  </defs>
+</svg>

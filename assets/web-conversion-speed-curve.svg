@@ -1,0 +1,33 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="speedTitle speedDesc">
+  <title id="speedTitle">Web sitesi hız grafiği</title>
+  <desc id="speedDesc">Yüklenme süresi uzadıkça hemen çıkma riskinin arttığını gösteren dekoratif bilgi grafiği.</desc>
+  <rect width="1600" height="900" rx="36" fill="#0D1014"/>
+  <rect x="40" y="40" width="1520" height="820" rx="30" fill="url(#bg)"/>
+  <path d="M188 690H1390" stroke="#D7C28A" stroke-opacity="0.28" stroke-width="2"/>
+  <path d="M188 204V690" stroke="#D7C28A" stroke-opacity="0.28" stroke-width="2"/>
+  <path d="M220 635C380 615 478 592 603 522C721 456 770 382 902 313C1021 250 1135 218 1360 188" stroke="#C9A84C" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="252" cy="631" r="14" fill="#F4E7BF"/>
+  <circle cx="604" cy="522" r="14" fill="#F4E7BF"/>
+  <circle cx="936" cy="295" r="14" fill="#F4E7BF"/>
+  <circle cx="1360" cy="188" r="14" fill="#F4E7BF"/>
+  <text x="188" y="150" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="42" font-weight="700">Yüklenme süresi uzadıkça kayıp hızlanır</text>
+  <text x="188" y="742" fill="#E7E2D5" font-family="'DM Sans', Arial, sans-serif" font-size="28">1 sn</text>
+  <text x="566" y="742" fill="#E7E2D5" font-family="'DM Sans', Arial, sans-serif" font-size="28">3 sn</text>
+  <text x="900" y="742" fill="#E7E2D5" font-family="'DM Sans', Arial, sans-serif" font-size="28">5 sn</text>
+  <text x="1318" y="742" fill="#E7E2D5" font-family="'DM Sans', Arial, sans-serif" font-size="28">9 sn</text>
+  <text x="90" y="660" fill="#E7E2D5" font-family="'DM Sans', Arial, sans-serif" font-size="22" transform="rotate(-90 90 660)">Hemen çıkma riski</text>
+  <rect x="220" y="562" width="184" height="56" rx="18" fill="#11151A" stroke="#C9A84C" stroke-opacity="0.32"/>
+  <text x="248" y="597" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="24" font-weight="700">Kontrol edilebilir</text>
+  <rect x="510" y="448" width="208" height="56" rx="18" fill="#11151A" stroke="#C9A84C" stroke-opacity="0.32"/>
+  <text x="548" y="483" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="24" font-weight="700">Sessiz kayıp başlar</text>
+  <rect x="843" y="220" width="208" height="56" rx="18" fill="#11151A" stroke="#C9A84C" stroke-opacity="0.32"/>
+  <text x="881" y="255" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="24" font-weight="700">Sabır düşer</text>
+  <rect x="1172" y="108" width="232" height="56" rx="18" fill="#11151A" stroke="#C9A84C" stroke-opacity="0.32"/>
+  <text x="1208" y="143" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="24" font-weight="700">Talep riske girer</text>
+  <defs>
+    <linearGradient id="bg" x1="120" y1="108" x2="1498" y2="824" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151A21"/>
+      <stop offset="1" stop-color="#0D1014"/>
+    </linearGradient>
+  </defs>
+</svg>

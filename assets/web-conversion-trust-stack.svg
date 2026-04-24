@@ -1,0 +1,24 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="trustTitle trustDesc">
+  <title id="trustTitle">Güven katmanı diyagramı</title>
+  <desc id="trustDesc">Web sitesinde güven üretmek için gereken tasarım, bilgi, sosyal kanıt, süreç ve CTA katmanlarını gösteren diyagram.</desc>
+  <rect width="1600" height="900" rx="36" fill="#0D1014"/>
+  <rect x="40" y="40" width="1520" height="820" rx="30" fill="url(#bg)"/>
+  <text x="160" y="144" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="46" font-weight="700">Güven tek blokla değil, katmanla oluşur</text>
+  <rect x="330" y="612" width="940" height="116" rx="34" fill="#151A21" stroke="#C9A84C" stroke-opacity="0.25" stroke-width="2"/>
+  <rect x="402" y="500" width="796" height="102" rx="30" fill="#181E26" stroke="#C9A84C" stroke-opacity="0.28" stroke-width="2"/>
+  <rect x="482" y="396" width="636" height="92" rx="28" fill="#1B222B" stroke="#C9A84C" stroke-opacity="0.3" stroke-width="2"/>
+  <rect x="564" y="300" width="472" height="82" rx="26" fill="#1F2731" stroke="#C9A84C" stroke-opacity="0.34" stroke-width="2"/>
+  <rect x="640" y="214" width="320" height="72" rx="22" fill="#232D38" stroke="#C9A84C" stroke-opacity="0.38" stroke-width="2"/>
+  <text x="695" y="258" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="26" font-weight="700">Tasarım kalitesi</text>
+  <text x="699" y="349" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="28" font-weight="700">Açık bilgi</text>
+  <text x="683" y="451" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="28" font-weight="700">Sosyal kanıt</text>
+  <text x="645" y="562" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="30" font-weight="700">Süreç netliği</text>
+  <text x="601" y="681" fill="#F7F2E4" font-family="'DM Sans', Arial, sans-serif" font-size="32" font-weight="700">İletişim ve CTA görünürlüğü</text>
+  <text x="160" y="788" fill="#E7E2D5" font-family="'DM Sans', Arial, sans-serif" font-size="26">Kullanıcı en alta geldiğinde sizinle iletişime geçmek daha az riskli görünür.</text>
+  <defs>
+    <linearGradient id="bg" x1="108" y1="88" x2="1490" y2="838" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151A21"/>
+      <stop offset="1" stop-color="#0D1014"/>
+    </linearGradient>
+  </defs>
+</svg>
