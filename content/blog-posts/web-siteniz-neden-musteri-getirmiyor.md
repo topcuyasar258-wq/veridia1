@@ -7,8 +7,6 @@ service_slug: web-sitesi-ve-donusum-yuzeyleri
 author: Veridia Strateji Ekibi
 reading_time: 10 dk okuma
 published_at: 2026-04-24T00:00:00+03:00
-hero_image: /assets/veridia-social-cover.png
-hero_image_alt: Dönüşüm odaklı web sitesi analizi için Veridia kapak görseli
 intro: Trafik geliyor ama telefon çalmıyor, form gelmiyor ve teklif talebi zayıf kalıyorsa sorun çoğu zaman görünürlükte değil; [web sitesi](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) yapısının ziyaretçiyi ikna edemeyen kurgusundadır. Bu rehber, [Web Sitesi ve Dönüşüm Yüzeyleri](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) yaklaşımı içinde en sık gördüğümüz yedi kırılmayı birlikte ele alır.
 card_summary: Trafik alıp talep üretemeyen [web sitesi](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) örneklerinde sorun çoğu zaman reklamda değil; mesaj, hız, mobil akış ve dönüşüm kurgusundadır.
 toc: true
