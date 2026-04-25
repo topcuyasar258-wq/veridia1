@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sosyal Medya Yönetimi | Küçük İşletmeler İçin İçerik Yönetimi</title>
-  <meta name="description" content="Veridia Reklam, küçük işletmeler için sosyal medya içerik planı, marka dili, reels fikirleri, tasarım ve web sitesine yönlendirme odaklı sosyal medya yönetimi sunar.">
+  <meta name="description" content="Veridia Reklam, küçük işletmeler için sosyal medya içerik planı, marka dili, reels fikirleri ve web sitesine yönlendirme odaklı sosyal medya yönetimi sunar.">
   <meta name="theme-color" content="#0a0a0f">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
@@ -27,10 +27,18 @@
     .content-container p a, .content-container li a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201, 168, 76, 0.4); text-underline-offset: 4px; transition: color 0.3s; }
     .content-container p a:hover, .content-container li a:hover { color: var(--gold-light); text-decoration-color: var(--gold-light); }
     
-    .cta-box { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.2)); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 3rem 0; }
-    .cta-box h3 { margin-top: 0; margin-bottom: 1rem; color: var(--off-white); }
-    .cta-box p { margin-bottom: 2rem; }
+    .cta-box { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.2)); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 3rem 2.5rem; text-align: center; margin: 4rem 0; box-shadow: 0 14px 34px rgba(0,0,0,0.2); }
+    .cta-box h3 { font-family: 'DM Sans', sans-serif; font-size: 1.6rem; margin-top: 0; margin-bottom: 1rem; color: var(--off-white); }
+    .cta-box p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; }
     .cta-box .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+    .info-box { background: rgba(201, 168, 76, 0.05); border-left: 4px solid var(--gold); padding: 1.5rem; border-radius: 0 8px 8px 0; margin: 2rem 0; }
+    .info-box p { margin: 0; color: var(--off-white); font-style: italic; }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .feature-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; }
+    .feature-card h3 { margin-top: 0; margin-bottom: 0.8rem; font-size: 1.3rem; }
+    .feature-card p { margin-bottom: 0; font-size: 0.95rem; }
 
     /* Related Services Grid */
     .related-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem; }
@@ -69,12 +77,14 @@
       <div class="work-hero-inner" style="max-width: 900px; margin: 0 auto; text-align: center;">
         <span class="work-tag" style="margin-bottom: 1rem; display: inline-block;">Hizmet</span>
         <h1 class="work-title" style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem; line-height: 1.1;">Küçük İşletmeler İçin Sosyal Medya Yönetimi</h1>
-        <p class="work-lead" style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 1.5rem;">Sosyal medya yönetimi, yalnızca haftada birkaç post paylaşmak değildir. Küçük işletmeler için sosyal medya; markanın güvenilir görünmesini, hizmetlerin daha anlaşılır anlatılmasını ve potansiyel müşterinin web sitesi, WhatsApp ya da teklif formu gibi doğru kanallara yönlendirilmesini sağlar.</p>
-        <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 2.5rem;">Veridia Reklam olarak sosyal medya yönetiminde sadece paylaşım takvimi oluşturmaya değil; marka dili, içerik stratejisi, görsel düzen, kısa video fikirleri ve dijital pazarlama bütünlüğüne odaklanıyoruz. Amaç sadece görünmek değil, doğru kişide güven ve aksiyon isteği oluşturmaktır.</p>
+        <p class="work-lead" style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 1.5rem;">Sosyal medya yönetimi, yalnızca haftada birkaç post paylaşmak değildir. Küçük işletmeler için sosyal medya; markanın güvenilir görünmesini, hizmetlerin daha net anlatılmasını ve potansiyel müşterinin web sitesi, WhatsApp ya da teklif formu gibi doğru kanallara yönlendirilmesini sağlar.</p>
+        <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 2.5rem;">Veridia Reklam olarak sosyal medya yönetiminde sadece paylaşım takvimi oluşturmaya değil; marka dili, içerik stratejisi, görsel düzen, kısa video fikirleri ve dijital pazarlama bütünlüğüne odaklanıyoruz. Amaç sadece görünmek değil; doğru kişide güven oluşturmak ve kullanıcıyı bir sonraki adıma taşımaktır.</p>
+        
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-          <a href="/#contact" class="btn-gold">Sosyal Medya Planı İste</a>
+          <a href="/iletisim.html" class="btn-gold">Sosyal Medya Planı İste</a>
           <a href="/web-tasarim.html" class="btn-outline">Web Sitesi Hizmetini İncele</a>
         </div>
+        
         <p style="font-size: 0.9rem; color: var(--gold); letter-spacing: 0.05em; opacity: 0.8;">Takipçi garantisi değil; düzenli, güven veren ve işletmenizin dijital yapısını destekleyen sosyal medya yönetimi.</p>
       </div>
     </section>
@@ -82,156 +92,188 @@
     <section class="service-content-section">
       <div class="content-container">
         
-        <h2 id="neden-yeterli-degil">Sosyal Medyada Paylaşım Yapmak Neden Tek Başına Yeterli Değil?</h2>
-        <p>Birçok küçük işletme sosyal medya hesabında sık sık paylaşım yapar; fakat bu paylaşımlar çoğu zaman net bir stratejiye veya pazarlama hunisine bağlı değildir. İçerikler tamamen rastgele hazırlanır, görsel kalite ve marka dili günden güne değişir, profil açıklaması ziyaretçiyi iletişime yönlendirmez ve sosyal medya hesabı web sitesiyle bağlantılı çalışmaz. Bu durumda hesap dışarıdan aktif görünse bile müşteri talebi üretmekte çok zorlanır.</p>
-        <p>Eğer sosyal medyanız satış veya müşteri üretmiyorsa, muhtemelen şu problemleri yaşıyorsunuzdur:</p>
-        <ul>
-          <li>Paylaşımlarınız düzenli ama arkasında hiçbir strateji veya kampanya kurgusu olmayabilir.</li>
-          <li>Profil açıklamanız (biyografiniz) ilk defa giren birine ne yaptığınızı net bir şekilde anlatmıyor olabilir.</li>
-          <li>Görsel dil, renkler ve genel marka kimliği profilinizde çok tutarsız olabilir.</li>
-          <li>Reels, post ve hikaye içerikleri farklı kitlelere ulaşıyor ama aynı satış hedefine hizmet etmiyor olabilir.</li>
-          <li>İçerikler okuyucuyu nihai hedef olan web sitesine, WhatsApp’a veya teklif formuna açıkça yönlendirmiyor olabilir.</li>
-          <li>Sadece "beğeni sayısına" odaklanılıp işletmeye gelen gerçek müşteri talebi ölçülmüyor olabilir.</li>
-          <li>Sosyal medya hesabı Google Ads kampanyaları ve SEO çalışmalarıyla entegre kullanılmıyor olabilir.</li>
-          <li>Marka güveni oluşturacak müşteri yorumları, kamera arkası veya eğitici içerik kategorileri eksik olabilir.</li>
-        </ul>
-        <p>Sosyal medyadan gelen kullanıcıların güven duyacağı güçlü bir web sitesi yoksa dönüşüm zorlaşır. Bu nedenle <a href="/web-tasarim.html">müşteri getiren web tasarım</a> hizmetiyle birlikte düşünülmelidir. Web siteniz veya sosyal medya hesabınız ziyaretçiyi aksiyona taşıyamıyorsa, <a href="/blog/web-siteniz-neden-musteri-getirmiyor.html">Web Siteniz Neden Müşteri Getirmiyor?</a> rehberimiz bu problemi daha geniş şekilde ele alır.</p>
+        <h2>Sosyal Medyada Paylaşım Yapmak Neden Tek Başına Yeterli Değil?</h2>
+        <p>Birçok küçük işletme sosyal medya hesabında paylaşım yapar; fakat bu paylaşımlar çoğu zaman net bir stratejiye bağlı değildir. İçerikler rastgele hazırlanır, marka dili tutarsız kalır, profil ziyaretçiyi iletişime yönlendirmez ve sosyal medya hesabı web sitesiyle bağlantılı çalışmaz. Bu durumda hesap aktif görünse bile müşteri talebi oluşturmakta zorlanır.</p>
+
+        <div class="info-box" style="margin-top: 2rem;">
+          <h3 style="margin-top: 0; margin-bottom: 1rem; color: var(--off-white); font-family: 'DM Sans', sans-serif; font-size: 1.1rem;">Sosyal medya hesaplarında sık görülen problemler şunlardır:</h3>
+          <ul style="margin-bottom: 0;">
+            <li>Paylaşımların düzenli ama stratejisiz olması</li>
+            <li>Profil açıklamasının ne yaptığınızı net anlatmaması</li>
+            <li>Görsel dil ve marka kimliğinin tutarsız görünmesi</li>
+            <li>Reels, post ve hikaye içeriklerinin aynı hedefe hizmet etmemesi</li>
+            <li>İçeriklerin web sitesine, WhatsApp’a veya teklif formuna yönlendirmemesi</li>
+            <li>Sadece beğeniye odaklanılıp gerçek müşteri talebinin ölçülmemesi</li>
+            <li>Sosyal medya hesabının Google Ads ve SEO çalışmalarıyla bağlantılı kullanılmaması</li>
+            <li>Marka güveni oluşturacak içerik kategorilerinin eksik olması</li>
+          </ul>
+        </div>
+
+        <p>Sosyal medyadan gelen kullanıcıların güven duyacağı güçlü bir web sitesi yoksa dönüşüm zorlaşır. Bu nedenle sosyal medya çalışmaları <a href="/web-tasarim.html">müşteri getiren web tasarım</a> yapısıyla birlikte düşünülmelidir.</p>
+        
+        <div class="info-box">
+          <p>Web siteniz veya sosyal medya hesabınız ziyaretçiyi aksiyona taşıyamıyorsa, <a href="/blog/web-siteniz-neden-musteri-getirmiyor.html">Web Siteniz Neden Müşteri Getirmiyor?</a> rehberimiz bu problemi daha geniş şekilde ele alır.</p>
+        </div>
 
         <div class="cta-box">
           <h3>Sosyal medya hesabınız sadece paylaşım mı yapıyor, yoksa müşteri yolculuğunu destekliyor mu?</h3>
-          <p>Profil yapınızı, içerik düzeninizi, yönlendirme bağlantılarınızı ve marka görünümünüzü uzman bir gözle birlikte değerlendirebiliriz.</p>
           <div class="btn-row">
-            <a href="/#contact" class="btn-gold">Sosyal Medya Planı İste</a>
+            <a href="/iletisim.html" class="btn-gold">Sosyal Medya Planı İste</a>
           </div>
         </div>
 
-        <h2 id="veridia-neye-odaklanir">Veridia Sosyal Medya Yönetiminde Neye Odaklanır?</h2>
-        <p>Veridia’da sosyal medya yönetimi; sadece tasarımları üretip paylaşım yapmaktan ibaret bir süreç değildir. Marka dili, içerik kategorileri, görsel bütünlük, kısa video (Reels) fikirleri, profil optimizasyonu ve en önemlisi web sitesine yönlendirme yapısı en baştan itibaren birlikte düşünülerek ilerler. Amacımız, hesabınızın yalnızca aktif görünmesi değil, potansiyel müşteriye işletmeniz hakkında "bunlar işinin ehli" dedirtecek net ve güvenilir bir izlenim vermesidir.</p>
+        <h2>Veridia Sosyal Medya Yönetiminde Neye Odaklanır?</h2>
+        <p>Sosyal medya yönetimi yalnızca içerik paylaşmak değildir. Doğru sosyal medya yapısı; markanın daha profesyonel görünmesini, hizmetlerin daha anlaşılır anlatılmasını ve kullanıcıların doğru iletişim kanalına yönlendirilmesini sağlar.</p>
+        <p>Veridia Reklam olarak sosyal medya yönetiminde şu alanlara odaklanıyoruz:</p>
 
-        <h3>Marka Dili ve Profil Düzeni</h3>
-        <p>Profil açıklaması, öne çıkan hikayeler, biyografi linkleri, iletişim bilgileri ve marka dili kullanıcıya o çok değerli ilk izlenimi verir. Bu alanlar net ve profesyonel değilse, kullanıcı içeriği incelese bile ne yaptığınızı veya sizinle nasıl iletişime geçeceğini tam olarak anlamayabilir.</p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>Marka Dili ve Profil Düzeni</h3>
+            <p>Profil açıklaması, öne çıkanlar, biyografi linki, iletişim bilgileri ve marka dili kullanıcıya ilk izlenimi verir. Bu alanlar net değilse kullanıcı hesabınızı incelese bile ne yaptığınızı veya nasıl iletişime geçeceğini anlayamayabilir.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Aylık İçerik Planı</h3>
+            <p>İçerikler rastgele değil, belirli kategorilere göre planlanmalıdır. Hizmet anlatan, güven oluşturan, SSS, eğitici bilgiler ve kampanya içerikleri gibi yapılandırmalar sosyal medya hesabını daha bilinçli ve tutarlı gösterir.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Reels ve Kısa Video Fikirleri</h3>
+            <p>Kısa video içerikleri, markanın daha hızlı görünürlük kazanmasına yardımcı olabilir. Ancak her reels yalnızca trend ses veya rastgele fikirle üretilmemelidir. İyi bir kısa video içeriği; markanın hizmetini veya güven veren mesajını desteklemelidir.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Görsel Tasarım Düzeni</h3>
+            <p>Renk, tipografi, kapak görselleri, gönderi düzeni ve hikaye tasarımları markanın daha profesyonel algılanmasını destekler. Görsel düzen, özellikle küçük işletmeler için dijital güvenin önemli parçalarından biridir.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Web ve WhatsApp Yönlendirmesi</h3>
+            <p>Sosyal medya içerikleri sadece beğeni almak için değil, kullanıcıyı doğru aksiyona taşımak için de kullanılmalıdır. Web sitesi, WhatsApp, teklif formu veya hizmet sayfalarına yönlendirme bu yüzden önemlidir.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Reklam ve SEO ile Uyum</h3>
+            <p>Sosyal medya hesabı, markanın diğer dijital kanallarıyla aynı dili konuşmalıdır. Kullanıcı reklamdan sitenize geldikten sonra sosyal medya hesabınızı kontrol edebilir. Bu yüzden iletişim dili ve strateji birbiriyle entegre olmalıdır.</p>
+          </div>
+        </div>
 
-        <h3>Aylık İçerik Planı</h3>
-        <p>İçerikler ilham geldikçe rastgele değil; hizmet anlatımı, güven oluşturma, sık sorulan sorulara cevap verme, müşteri problemlerine dokunma, örnek senaryolar ve web sitesine yönlendirme içerikleri gibi belirli bir amaca hizmet eden kategorilere göre önceden planlanmalıdır.</p>
-
-        <h3>Reels ve Kısa Video Fikirleri</h3>
-        <p>Kısa video içerikleri, markanızın organik olarak çok daha hızlı görünürlük kazanmasına yardımcı olabilir. Ancak her reels sadece geçici bir trend ses veya rastgele komik fikirle yapılmamalı; markanın asıl hizmetini, sektörel uzmanlığını veya kullanıcının problemine verdiği spesifik cevabı desteklemelidir.</p>
-
-        <h3>Görsel Tasarım Düzeni</h3>
-        <p>Sosyal medya hesabı ilk bakışta amatör veya dağınık görünmemelidir. Kurumsal renkler, tipografi uyumu, uyumlu kapak görselleri, gönderi şablonları ve estetik hikaye tasarımları markanın çok daha kurumsal ve güvenilir algılanmasını sağlar.</p>
-
-        <h3>Web Sitesine ve WhatsApp’a Yönlendirme</h3>
-        <p>Sosyal medya içerikleri sadece çok beğeni veya yorum almak için değil, okuyucuyu asıl işletme hedefi olan aksiyona taşımak için de kurgulanmalıdır. Kullanıcıyı doğruca web sitesi, WhatsApp satış hattı, teklif formu veya spesifik hizmet sayfalarına yönlendirme bu yüzden çok önemlidir. Elbette sosyal medyadan gelen kullanıcıların karar verebilmesi için web sitesinin de <a href="/web-tasarim.html">dönüşüm odaklı web sitesi</a> olarak hazırlanması gerekir.</p>
-
-        <h3>Reklam ve SEO ile Uyumlu İçerik Yapısı</h3>
-        <p>Sosyal medya, dijital pazarlama planında Google Ads ve SEO’dan bağımsız, ayrı bir gezegenmiş gibi düşünülmemelidir. Kullanıcı markayı sosyal medyada görüp aklına yazarak daha sonra Google’da arayabilir ya da Google'da reklamdan geldikten sonra kim olduğunuza bakmak için sosyal medya hesabınızı kontrol edebilir.</p>
-
-        <h2 id="surec-nasil-ilerler">Sosyal Medya Yönetimi Sürecimiz Nasıl İlerler?</h2>
-        <p>Hesabınızın yönetimini şeffaf, raporlanabilir ve belli bir rutine bağlı olarak yürütüyoruz:</p>
+        <h2>Sosyal Medya Yönetimi Sürecimiz Nasıl İlerler?</h2>
+        <p>Sosyal medya yönetiminde plansız paylaşım yapmak yerine, hesabı markanın dijital vitrini gibi ele almak gerekir. Bu yüzden süreci analiz, planlama, üretim ve değerlendirme adımlarıyla yürütüyoruz.</p>
 
         <h3>1. Marka ve Hedef Kitle Analizi</h3>
-        <p>İşletmenizin ne sunduğu, tam olarak hangi kitleye ulaşmak istediği, sosyal medyadan asıl beklentisi ve mevcut hesap yapısındaki sorunlar detaylıca değerlendirilir.</p>
+        <p>İşletmenizin ne sunduğu, hangi kitleye ulaşmak istediği, sosyal medyadan ne beklediği ve mevcut hesap yapısı değerlendirilir.</p>
 
         <h3>2. Profil ve Rakip İncelemesi</h3>
-        <p>Profilin açıklaması, öne çıkanlar, görsel düzen, içerik dili ve sektörünüzdeki rakiplerin sosyal medyayı nasıl kullandığı incelenir.</p>
+        <p>Profil açıklaması, öne çıkanlar, görsel düzen, içerik dili ve rakiplerin sosyal medya kullanımı incelenir. Bu aşama, hesabın ilk bakışta nasıl algılandığını anlamak için önemlidir.</p>
 
         <h3>3. İçerik Kategorilerinin Belirlenmesi</h3>
-        <p>Hizmet anlatımı, sektörde güven oluşturma, sık sorulan sorular, eğitici/öğretici içerikler, kampanya duyuruları, reels fikirleri ve doğrudan web sitesine yönlendirme içerikleri planlanır.</p>
+        <p>Hizmet anlatımı, güven oluşturma, sık sorulan sorular, eğitici içerikler, kampanya duyuruları, reels fikirleri ve web sitesine yönlendirme içerikleri planlanır.</p>
 
         <h3>4. Aylık Paylaşım Planı</h3>
-        <p>Hangi kategorideki içeriklerin haftanın hangi günleri paylaşılacağı, hangi formatta (post/video/carosel) üretileceği ve kullanıcıyı hangi aksiyona (link, mesaj, form) yönlendireceği belirlenir.</p>
+        <p>Hangi içeriklerin ne zaman paylaşılacağı, hangi formatta üretileceği ve hangi aksiyona yönlendireceği belirlenir. Amaç sadece paylaşım yapmak değil, hesabı daha düzenli ve stratejik hale getirmektir.</p>
 
         <h3>5. Görsel Tasarım ve Metin Hazırlığı</h3>
-        <p>Gönderi tasarımları, dikkat çekici açıklama metinleri, CTA (harekete geçirici) cümleleri ve hikaye yönlendirmeleri marka kimliğiyle uyumlu şekilde hazırlanır ve onayınıza sunulur.</p>
+        <p>Gönderi tasarımları, açıklama metinleri, CTA cümleleri ve hikaye yönlendirmeleri marka diliyle uyumlu şekilde hazırlanır.</p>
 
-        <h3>6. Reels ve Kısa Video Fikirleri</h3>
-        <p>Markanın ana hizmetlerini ve müşteri problemlerini çözen spesifik kısa video fikirleri (senaryoları) üretilir. İçeriklerde yalnızca eğlenceli trendler değil, doğrudan stratejik ürün/hizmet anlatımı hedeflenir.</p>
+        <h3>6. Reels ve Kısa Video Planı</h3>
+        <p>Markanın hizmetlerini, kullanıcı problemlerini veya güven veren mesajlarını anlatan kısa video fikirleri üretilir. Burada yalnızca trend içerik değil, markaya hizmet eden içerik mantığı hedeflenir.</p>
 
         <h3>7. Profil Optimizasyonu</h3>
-        <p>Hesabın biyografisi, link yönlendirme sistemi (Linktree vs.), görünür iletişim butonları, öne çıkan hikaye kapakları ve temel hizmet anlatımı düzenlenir.</p>
+        <p>Biyografi, link yönlendirmesi, iletişim butonları, öne çıkan kapakları ve hizmet anlatımı düzenlenir. Kullanıcı hesabınıza girdiğinde ne yaptığınızı ve nasıl iletişime geçeceğini hızlıca anlayabilmelidir.</p>
 
         <h3>8. Performans Değerlendirme</h3>
-        <p>İçeriklerin performansı sadece beğeni sayısı ile değil; hesabın erişimi, profil ziyaret sayısı, profildeki web sitesi link tıklaması, direkt mesaj (DM) talebi ve dış bağlantılara yönlendirme etkisi ile ölçülür ve değerlendirilir.</p>
+        <p>İçeriklerin sadece beğeni sayısı değil; erişim, profil ziyareti, web sitesi tıklaması, mesaj talebi ve yönlendirme etkisi değerlendirilir. Hangi alanların geliştirilmesi gerektiği anlaşılır.</p>
 
-        <h2 id="neler-teslim-edilir">Sosyal Medya Yönetimi Hizmetinde Neler Var?</h2>
-        <p>Çalışma kapsamında markanıza sağladığımız stratejik ve operasyonel teslimatlar şunlardır:</p>
-        <ul>
-          <li>Mevcut sosyal medya hesabı profesyonel analizi</li>
-          <li>Profil biyografi ve çoklu link düzeni (Link ağacı) önerileri</li>
-          <li>Marka dili (Tone of voice) ve içerik tonu planı</li>
-          <li>Aylık içerik takvimi planlaması</li>
-          <li>Statik post, carousel ve hikaye içerik tasarımları</li>
-          <li>Reels ve kısa video konsept/senaryo fikirleri</li>
-          <li>Kurumsal görsel tasarım kiti ve renk düzeni oluşturma</li>
-          <li>Açıklama metni (Copywriting) ve CTA yönlendirme kurguları</li>
-          <li>Web sitesi ve WhatsApp iletişim yönlendirme planı</li>
-          <li>Etkili içerik kategorilerinin oluşturulması</li>
-          <li>Detaylı rakip hesap incelemesi ve fark yaratma kurgusu</li>
-          <li>Gelecekteki sosyal medya reklamlarına (Meta Ads) hazırlık önerileri</li>
-          <li>Aylık performans değerlendirmesi ve strateji toplantısı</li>
-        </ul>
+        <h2>Sosyal Medya Yönetimi Hizmetinde Neler Var?</h2>
+        <p>Sosyal medya yönetimi kapsamında hesabınızın daha düzenli, güven veren ve yönlendirme odaklı bir yapıya kavuşması hedeflenir.</p>
+        <p>Bu hizmet kapsamında şunlar yer alabilir:</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+          <ul style="margin: 0;">
+            <li>Mevcut sosyal medya hesabı analizi</li>
+            <li>Profil biyografi ve link düzeni önerileri</li>
+            <li>Marka dili ve içerik tonu planı</li>
+            <li>Aylık içerik planı</li>
+            <li>Post ve hikaye içerik önerileri</li>
+            <li>Reels ve kısa video fikirleri</li>
+            <li>Görsel tasarım düzeni</li>
+          </ul>
+          <ul style="margin: 0;">
+            <li>Açıklama metni ve CTA önerileri</li>
+            <li>Web sitesi / WhatsApp yönlendirme planı</li>
+            <li>İçerik kategorileri</li>
+            <li>Rakip hesap incelemesi</li>
+            <li>Sosyal medya reklamlarına hazırlık önerileri</li>
+            <li>Aylık performans değerlendirmesi</li>
+          </ul>
+        </div>
+        <p>Her işletmenin sosyal medya ihtiyacı aynı değildir. Bu nedenle içerik planı; sektörünüze, hedef kitlenize, hizmetlerinize ve mevcut dijital yapınıza göre hazırlanmalıdır.</p>
 
         <div class="cta-box">
           <h3>Sosyal medya hesabınız için daha net bir içerik planı oluşturalım.</h3>
-          <p>Markanızın vizyonunu doğru yansıtacak, müşteriye güven verecek ve mesaj kutunuzu hareketlendirecek planı birlikte kuralım.</p>
           <div class="btn-row">
-            <a href="/#contact" class="btn-gold">Sosyal Medya Planı İste</a>
+            <a href="/iletisim.html" class="btn-gold">Sosyal Medya Planı İste</a>
           </div>
         </div>
 
-        <h2 id="web-sitesi-baglantisi">Sosyal Medya Hesabınız Web Sitenizle Birlikte Çalışmalı</h2>
-        <p>Sosyal medya, bir kullanıcının markayla ilk tanıştığı, ilk temas kurduğu yer olabilir; ancak nihai karar verme süreci çoğu zaman profesyonel web sitesi, alt hizmet sayfaları, işletmeyle ilgili Google aramaları ve doğrudan iletişim kanallarıyla devam eder. Bu nedenle sosyal medya hesabı ile web sitesi birbirinden kopuk adalar gibi işlememelidir.</p>
-        <p>Doğru bir huni (funnel) yapısında şunlara dikkat edilmelidir:</p>
-        <ul>
-          <li>Profildeki ana link, rastgele bir yere değil en doğru dönüşüm sayfasına yönlendirmeli.</li>
-          <li>Paylaşılan hizmet içerikleri, web sitesindeki o ilgili detaylı hizmet sayfalarına bağlanmalı.</li>
-          <li>Aynı şekilde web sitesinin görünür yerlerinde sosyal medya hesaplarına güven bağlantıları olmalı.</li>
-          <li>Sosyal medyadan siteye mobilden gelen kullanıcı, site içinde çok kolay bir şekilde WhatsApp ile iletişim kurabilmeli.</li>
-          <li>İndirim veya hizmet kampanya içerikleri doğrudan bir teklif formuna yönlendirebilmeli.</li>
-          <li>Özetle; sosyal medya markaya "güven" oluşturur, güçlü bir web sitesi ise "satış/dönüşümü" tamamlar.</li>
-        </ul>
-        <p>Sosyal medyadan gelen kullanıcıların iletişime geçebilmesi için web sitesinin hızlı, mobil uyumlu ve dönüşüm odaklı olması gerekir. Bu nedenle <a href="/web-tasarim.html">güçlü web sitesi altyapısı</a>, sosyal medyanın en büyük destekçisidir.</p>
+        <h2>Sosyal Medya Hesabınız Web Sitenizle Birlikte Çalışmalı</h2>
+        <p>Sosyal medya kullanıcının markayla ilk tanıştığı yer olabilir. Ancak karar verme süreci çoğu zaman web sitesi, hizmet sayfaları, Google aramaları ve iletişim kanallarıyla devam eder. Bu nedenle sosyal medya hesabı ile web sitesi birbirinden kopuk olmamalıdır.</p>
+        
+        <div class="info-box">
+          <h3 style="margin-top: 0; margin-bottom: 1rem; color: var(--off-white); font-family: 'DM Sans', sans-serif; font-size: 1.1rem;">İyi bir sosyal medya ve web sitesi bağlantısında şunlar önemlidir:</h3>
+          <ul style="margin-bottom: 0;">
+            <li>Profil linki doğru sayfaya yönlendirmelidir.</li>
+            <li>Hizmet içerikleri ilgili web sayfalarıyla desteklenmelidir.</li>
+            <li>Web sitesinde sosyal medya hesapları görünür olmalıdır.</li>
+            <li>Sosyal medyadan gelen kullanıcı mobilde kolay iletişim kurabilmelidir.</li>
+            <li>Kampanya veya hizmet içerikleri teklif formuna yönlendirebilmelidir.</li>
+            <li>Sosyal medya güven oluşturmalı, web sitesi dönüşümü tamamlamalıdır.</li>
+          </ul>
+        </div>
 
-        <h2 id="dijital-butunluk">Sosyal Medya, SEO ve Google Ads Birlikte Nasıl Çalışır?</h2>
-        <p>Sosyal medya, SEO ve Google Ads aynı dijital müşteri yolculuğunun farklı durakları, farklı temas noktalarıdır. Bir kullanıcı markanızı tesadüfen Instagram’da görebilir, aklında tutar, sonra ihtiyaç anında Google’da arayabilir, ardından web sitenizi ziyaret edip fiyat teklif formunu doldurabilir. Bu yüzden sosyal medya yalnız başına değil, şirketinizin tüm dijital pazarlama yapısıyla birlikte uyum içinde düşünülmelidir.</p>
-        <p>Örneğin: Bir kullanıcı sosyal medyada markanızı gördüğünde o an hizmet almaya hazır olmayabilir ve hemen mesaj atmayabilir. Ancak hesabınız çok düzenli, web siteniz güvenilir ve Google’da arandığınızda görünürlüğünüz güçlüyse, o kullanıcı hazır olduğunda ve size tekrar rastladığında satın alma kararı verme ihtimali büyük ölçüde artar.</p>
-        <p>Sosyal medya yönetimi marka güvenini desteklerken, <a href="/seo-danismanligi.html">SEO danışmanlığı</a> organik görünürlüğü güçlendirir; <a href="/google-ads-yonetimi.html">reklam kampanyaları</a> ise daha kısa vadeli, anlık müşteri talebi oluşturabilir.</p>
+        <p>Sosyal medyadan gelen kullanıcıların iletişime geçebilmesi için web sitesinin hızlı, mobil uyumlu ve dönüşüm odaklı olması gerekir. Bu nedenle <a href="/web-tasarim.html">müşteri getiren web sitesi</a> sosyal medya performansını doğrudan etkileyebilir.</p>
 
-        <h2 id="yerel-sosyal-medya">Yerel İşletmeler İçin Sosyal Medya Neden Önemlidir?</h2>
-        <p>Özellikle sadece belli bir lokasyonda yerel hizmet veren işletmeler (güzellik salonu, klinik, kafe, teknik servis vb.) için sosyal medya, sadece takipçi kazanıp "fenomen" olma alanı değil; tam aksine çevredeki potansiyel müşterilere güven verme ve karar anında hatırlanabilir olma aracıdır. Bir kullanıcı yakınındaki bir hizmeti (örneğin saç kesimi) araştırırken önce o işletmenin Instagram hesabına, sonra önceki müşteri yorumlarına, portfolyosuna ve en son web sitesine bakabilir. Bu nedenle yerel işletmeler için sosyal medya, dijital güven kurgusunun en önemli parçasıdır.</p>
-        <p>Yerel hesap yönetiminde şunlar kritik öneme sahiptir:</p>
-        <ul>
-          <li>İşletmenin hizmet bölgesini ilk saniyede net olarak anlatmak.</li>
-          <li>Tamamen yerel müşteri problemlerine ve taleplerine yönelik eğitici/öncesi-sonrası içerikler üretmek.</li>
-          <li>Google Business profili ve web sitesiyle görsel olarak tamamen tutarlı görünmek.</li>
-          <li>Müşteri yorumları, ekran görüntüleri, referanslar ve örnek çalışmalarla sosyal kanıt (güven) sağlamak.</li>
-          <li>Konum, ilçe ve bölge etiketlerini içeriklerde düzenli ve doğal kullanmak.</li>
-          <li>Kullanıcılar için WhatsApp veya direkt mesaj yönlendirmelerini son derece görünür tutmak.</li>
-        </ul>
-        <p>Yerel görünürlüğünüzü sosyal medyanın yanında Google aramalarında da kalıcı olarak güçlendirmek için <a href="/seo-danismanligi.html">Google’da görünürlük</a> odaklı SEO hizmetimizi inceleyebilirsiniz.</p>
-        <p style="margin-top: 2rem;"><strong>Yerel sosyal medya görünürlüğünüzü birlikte değerlendirelim →</strong> <a href="/#contact">İletişime Geçin</a></p>
+        <h2>Sosyal Medya, SEO ve Google Ads Birlikte Nasıl Çalışır?</h2>
+        <p>Sosyal medya, SEO ve Google Ads aynı müşteri yolculuğunun farklı temas noktalarıdır. Bir kullanıcı markanızı Instagram’da görebilir, sonra Google’da arayabilir, ardından web sitenizi ziyaret edip teklif formunu doldurabilir. Bu yüzden sosyal medya tek başına değil, tüm dijital pazarlama yapısıyla birlikte düşünülmelidir.</p>
+        <p>Sosyal medya yönetimi marka güvenini desteklerken, <a href="/seo-danismanligi.html">SEO danışmanlığı</a> organik görünürlüğü güçlendirir. <a href="/google-ads-yonetimi.html">Google Ads yönetimi</a> ise daha kısa vadeli müşteri talebi oluşturabilir.</p>
+        <p>Blog içerikleri de sosyal medya için güçlü bir kaynak olabilir. Bir blog yazısı, birden fazla sosyal medya gönderisine veya kısa video fikrine dönüştürülebilir. Bu nedenle <a href="/blog.html">blog içerikleri</a> sosyal medya planıyla birlikte değerlendirilebilir.</p>
 
-        <h2 id="kimler-icin-uygun">Sosyal Medya Yönetimi Kimler İçin Uygun?</h2>
+        <h2>Yerel İşletmeler İçin Sosyal Medya Neden Önemlidir?</h2>
+        <p>Yerel işletmeler için sosyal medya, sadece takipçi kazanma alanı değildir. Aynı zamanda çevredeki potansiyel müşterilere güven verme ve hatırlanabilir olma aracıdır. Bir kullanıcı yakınındaki bir hizmeti araştırırken önce Instagram hesabına, sonra yorumlara, sonra web sitesine bakabilir. Bu yüzden sosyal medya yerel işletmeler için dijital güvenin önemli bir parçasıdır.</p>
+        
+        <div class="info-box">
+          <h3 style="margin-top: 0; margin-bottom: 1rem; color: var(--off-white); font-family: 'DM Sans', sans-serif; font-size: 1.1rem;">Yerel işletmeler için sosyal medyada şu noktalar önemlidir:</h3>
+          <ul style="margin-bottom: 0;">
+            <li>Hizmet bölgesini net anlatmak</li>
+            <li>Yerel müşteri problemlerine yönelik içerikler üretmek</li>
+            <li>Google Business ve web sitesiyle tutarlı görünmek</li>
+            <li>Yorumlar, referanslar ve örnek çalışmalarla güven sağlamak</li>
+            <li>Konum ve bölge bilgilerini içeriklerde doğal kullanmak</li>
+            <li>WhatsApp ve telefon yönlendirmelerini görünür tutmak</li>
+          </ul>
+        </div>
+
+        <p>Yerel görünürlüğünüzü sosyal medyanın yanında Google aramalarında da güçlendirmek için <a href="/seo-danismanligi.html">SEO danışmanlığı</a> hizmetimizi inceleyebilirsiniz.</p>
+
+        <h2>Sosyal Medya Yönetimi Kimler İçin Uygun?</h2>
+        <p>Sosyal medya yönetimi, hesabını daha düzenli, güvenilir ve stratejik hale getirmek isteyen işletmeler için uygundur.</p>
         <ul>
-          <li>Instagram’da ve diğer mecralarda daha düzenli, kurumsal ve profesyonel görünmek isteyen küçük işletmeler</li>
-          <li>Sürekli "Bugün ne paylaşsam?" stresi yaşayan ve düzenli içerik fikri üretmekte zorlanan markalar</li>
-          <li>Ziyaretçilerinde güçlü bir ilk izlenim ve yüksek marka güveni oluşturmak isteyen işletmeler</li>
-          <li>Web sitesine, hizmet sayfalarına veya WhatsApp’a sosyal medya trafiğini kanalize etmek isteyen firmalar</li>
-          <li>Sadece yerel bölgesindeki potansiyel müşterilerinde daha fazla akılda kalmak ve görünür olmak isteyen işletmeler</li>
-          <li>Hali hazırda devam eden Google Ads ve SEO çalışmalarını güçlü bir marka kimliği ile desteklemek isteyen markalar</li>
-          <li>Karmaşık hizmetlerini daha sade, anlaşılır ve eğitici videolarla son kullanıcıya anlatmak isteyen firmalar</li>
-          <li>Profilini artık rastgele bir albüm gibi değil, 7/24 açık şık bir "dijital vitrin" gibi kullanmak isteyen işletmeler</li>
+          <li>Instagram’da daha düzenli ve profesyonel görünmek isteyen küçük işletmeler</li>
+          <li>İçerik fikri üretmekte zorlanan markalar</li>
+          <li>Marka güvenini artırmak isteyen işletmeler</li>
+          <li>Web sitesine veya WhatsApp’a sosyal medyadan trafik çekmek isteyen firmalar</li>
+          <li>Yerel bölgede daha görünür olmak isteyen işletmeler</li>
+          <li>Google Ads ve SEO çalışmalarını sosyal medya ile desteklemek isteyen markalar</li>
+          <li>Hizmetlerini daha sade ve anlaşılır anlatmak isteyen firmalar</li>
+          <li>Profilini dijital vitrin gibi kullanmak isteyen işletmeler</li>
         </ul>
 
-        <h2 id="kimler-icin-uygun-degil">Sosyal Medya Yönetimi Kimler İçin Uygun Olmayabilir?</h2>
+        <h2>Sosyal Medya Yönetimi Kimler İçin Uygun Olmayabilir?</h2>
+        <p>Sosyal medya güçlü bir kanal olabilir; ancak her beklenti için doğru çözüm değildir.</p>
         <ul>
-          <li>Marka değeri yaratmaktan ziyade, satın alma botlarıyla sadece yapay "takipçi sayısına" odaklananlar</li>
-          <li>Küçük bir bütçe veya sıradan içeriklerle hemen haftaya bir "viral olma garantisi" bekleyenler</li>
-          <li>Marka dili oluşturma, kurumsal renkler ve düzenli içerik planı gibi uzun soluklu çalışmalara sıcak bakmayanlar</li>
-          <li>Sosyal medya hesabını web sitesinden ve reklam kampanyalarından tamamen bağımsız, ayrı bir dünya olarak görenler</li>
-          <li>İçerik üretimini bir pazarlama süreci olarak değil, sadece ayda bir kere "tek seferlik post atma işi" sananlar</li>
-          <li>Hesabın dijital ölçümü, yönlendirme tıklamaları, performans yorumlaması ve gelişim sürecine hiç önem vermeyenler</li>
+          <li>Sadece takipçi sayısına odaklananlar</li>
+          <li>Kısa sürede viral olma garantisi bekleyenler</li>
+          <li>Marka dili ve düzenli içerik planı istemeyenler</li>
+          <li>Sosyal medyayı web sitesi ve reklamdan tamamen bağımsız görenler</li>
+          <li>İçerik üretimini tek seferlik paylaşım işi olarak görenler</li>
+          <li>Ölçüm, yorumlama ve gelişim sürecine önem vermeyenler</li>
         </ul>
+        <p>Veridia Reklam olarak sosyal medya yönetimini “post paylaşma hizmeti” gibi değil; marka güvenini, görünürlüğü ve dijital yönlendirmeyi destekleyen bir süreç olarak ele alıyoruz.</p>
 
       </div>
     </section>
@@ -243,44 +285,36 @@
         
         <div class="blog-faq-layout">
           <article class="blog-faq-card">
-            <h3 class="blog-faq-title">1. Sosyal medya yönetimi neleri kapsar?</h3>
-            <p class="blog-faq-copy">Sosyal medya yönetimi; hesabın profil düzeni, aylık stratejik içerik planı, kurumsal görsel tasarım, vurucu açıklama metinleri, etkileşim getiren reels fikirleri, hikaye önerileri, web sitesine yönlendirme yapısı ve ay sonu performans değerlendirmesi gibi alanları uçtan uca kapsar.</p>
+            <h3 class="blog-faq-title">Sosyal medya yönetimi neleri kapsar?</h3>
+            <p class="blog-faq-copy">Sosyal medya yönetimi; profil düzeni, içerik planı, görsel tasarım, açıklama metinleri, reels fikirleri, hikaye önerileri, yönlendirme yapısı ve performans değerlendirmesi gibi alanları kapsar.</p>
           </article>
           <article class="blog-faq-card">
-            <h3 class="blog-faq-title">2. Aylık kaç paylaşım yapılmalı?</h3>
-            <p class="blog-faq-copy">İdeal paylaşım sayısı markanızın bulunduğu sektöre, hedef kitlenizin aktifliğine ve kaliteli içerik üretme kapasitesine göre değişir. Önemli olan günde 3 kez çok kalitesiz paylaşım yapmak değil, hesabı aktif tutacak düzenli, kaliteli ve amaca yönelik stratejik içerik üretmektir.</p>
+            <h3 class="blog-faq-title">Aylık kaç paylaşım yapılmalı?</h3>
+            <p class="blog-faq-copy">Paylaşım sayısı sektör, hedef kitle ve içerik kapasitesine göre değişir. Önemli olan çok paylaşım yapmak değil, düzenli ve stratejik içerik üretmektir.</p>
           </article>
           <article class="blog-faq-card">
-            <h3 class="blog-faq-title">3. Reels içerikleri gerekli mi?</h3>
-            <p class="blog-faq-copy">Özellikle Instagram'ın mevcut yapısında Reels ve kısa videolar organik görünürlük, keşfete düşme ve yeni kitlelere ulaşma açısından çok faydalıdır. Ancak her markanın içerik yapısına uygun şekilde planlanmalı, alakasız komik trendlerle değil doğrudan işletmenin hizmetini ve uzmanlığını gösteren güven odağıyla üretilmelidir.</p>
+            <h3 class="blog-faq-title">Reels içerikleri gerekli mi?</h3>
+            <p class="blog-faq-copy">Reels ve kısa videolar görünürlük açısından faydalı olabilir. Ancak her markanın içerik yapısına uygun şekilde planlanmalı, rastgele trendlerle değil hizmet ve güven odağıyla üretilmelidir.</p>
           </article>
           <article class="blog-faq-card">
-            <h3 class="blog-faq-title">4. Sosyal medya satış getirir mi?</h3>
-            <p class="blog-faq-copy">Evet, sosyal medya e-ticaret siteleri için doğrudan satış getirebilir; ancak hizmet işletmeleri için çoğu zaman asıl satış; marka güvenini oluşturma, firmayı akılda tutma ve kullanıcıyı ikna edip nihai kararı vereceği web sitesine ya da iletişim (WhatsApp) kanalına yönlendirme rolü oynadığında daha güçlüdür.</p>
+            <h3 class="blog-faq-title">Sosyal medya satış getirir mi?</h3>
+            <p class="blog-faq-copy">Sosyal medya doğrudan satış getirebilir; ancak çoğu zaman güven oluşturma, marka hatırlatma ve kullanıcıyı web sitesi ya da iletişim kanalına yönlendirme rolü daha güçlüdür.</p>
           </article>
           <article class="blog-faq-card">
-            <h3 class="blog-faq-title">5. Instagram yönetimi web sitesine nasıl katkı sağlar?</h3>
-            <p class="blog-faq-copy">Kurumsal bir Instagram hesabı, merak uyandıran içerikleriyle kullanıcıyı web sitesindeki detaylı hizmet sayfalarına, eğitici <a href="/blog.html">dijital pazarlama rehberleri</a> içeren blog kısmına veya indirim teklif formuna direkt yönlendirebilir. Bu sayede aktif bir sosyal medya, web sitesinin organik dönüşüm sürecini destekler.</p>
+            <h3 class="blog-faq-title">Instagram yönetimi web sitesine nasıl katkı sağlar?</h3>
+            <p class="blog-faq-copy">Instagram hesabı, kullanıcıyı web sitesindeki hizmet sayfalarına, blog içeriklerine veya teklif formuna yönlendirebilir. Bu sayede sosyal medya, web sitesinin dönüşüm sürecini destekler.</p>
           </article>
           <article class="blog-faq-card">
-            <h3 class="blog-faq-title">6. Sosyal medya reklamları da yönetiliyor mu?</h3>
-            <p class="blog-faq-copy">Organik sosyal medya hesap yönetimi ayrı, sponsorlu sosyal medya reklamları (Meta Ads) ayrı bir bütçe ve planlama uzmanlığı gerektirebilir. Veridia olarak öncelikle organik içerik düzeni ve profil güvenini kuruyoruz, ardından bu güçlü altyapı üzerine reklam kampanyalarını daha sağlıklı bir şekilde değerlendirebiliyoruz.</p>
+            <h3 class="blog-faq-title">Sosyal medya reklamları da yönetiliyor mu?</h3>
+            <p class="blog-faq-copy">Sosyal medya reklamları ayrı bir planlama gerektirebilir. Organik içerik düzeni kurulduktan sonra reklam kampanyaları daha sağlıklı değerlendirilebilir.</p>
           </article>
           <article class="blog-faq-card">
-            <h3 class="blog-faq-title">7. Küçük işletmeler için sosyal medya neden önemlidir?</h3>
-            <p class="blog-faq-copy">Küçük işletmeler için profesyonel sosyal medya, her şeyden önce büyük markalar karşısında "güven" oluşturma, sunulan hizmetleri rakiplerden farklı kılma, lokasyon bazlı yerel müşterilere çok daha sıcak ulaşma ve markayı bulunduğu sokaktaki sıradan bir işletmeden daha "kurumsal" gösterme açısından kritik derecede önemlidir.</p>
+            <h3 class="blog-faq-title">Küçük işletmeler için sosyal medya neden önemlidir?</h3>
+            <p class="blog-faq-copy">Küçük işletmeler için sosyal medya, güven oluşturma, hizmetleri görünür kılma, yerel müşterilere ulaşma ve markayı daha profesyonel gösterme açısından önemlidir.</p>
           </article>
           <article class="blog-faq-card">
-            <h3 class="blog-faq-title">8. Sosyal medya yönetimi SEO’ya katkı sağlar mı?</h3>
-            <p class="blog-faq-copy">Sosyal medya sinyalleri doğrudan klasik bir Google SEO "sıralama (ranking) faktörü" gibi düşünülmemelidir. Ancak güçlü bir sosyal medya profili marka bilinirliğini (branded search) artırır, web sitesine düzenli yönlendirme (trafik) sağlar ve işletmenin dijital ayak izini genişleterek SEO çalışmalarını dolaylı yoldan çok güçlü şekilde destekler.</p>
-          </article>
-          <article class="blog-faq-card">
-            <h3 class="blog-faq-title">9. Her işletme her gün paylaşım yapmalı mı?</h3>
-            <p class="blog-faq-copy">Hayır. Her gün paylaşım yapmak her işletme için mecburi veya gerekli değildir. İçerik sıklığı markanın prodüksiyon kapasitesine, kullanıcının beklentisine ve üretilecek bilginin değerine göre belirlenmelidir. Bazen haftada 3 çok kaliteli post, haftanın her günü atılan 7 işe yaramaz posttan çok daha fazla etkileşim getirir.</p>
-          </article>
-          <article class="blog-faq-card">
-            <h3 class="blog-faq-title">10. Sosyal medya yönetimi fiyatı neye göre değişir?</h3>
-            <p class="blog-faq-copy">Ajans tarafında üretilecek aylık gönderi sayısı, yönetilecek platform sayısı (Instagram, LinkedIn vb.), senaryolu reels/kısa video ihtiyacı, kreatif görsel tasarım kapsamı, metin yazarlığı desteği ve eğer yapılacaksa sosyal medya reklam kurguları ile raporlama yoğunluğu, hizmet fiyatını belirleyen başlıca kalemlerdir.</p>
+            <h3 class="blog-faq-title">Sosyal medya yönetimi SEO’ya katkı sağlar mı?</h3>
+            <p class="blog-faq-copy">Sosyal medya doğrudan klasik SEO sıralama faktörü gibi düşünülmemelidir; ancak marka aramalarını, web sitesine yönlendirmeleri ve içerik görünürlüğünü destekleyebilir.</p>
           </article>
         </div>
       </div>
@@ -290,9 +324,9 @@
     <section class="service-content-section" style="padding-bottom: 6rem;">
       <div class="content-container" style="text-align: center;">
         <h2 style="margin-top: 0; font-size: clamp(2.4rem, 5vw, 3.2rem);">Sosyal Medyada Daha Güvenilir ve Düzenli Bir Marka Görünümü Oluşturalım</h2>
-        <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem;">Sosyal medya hesaplarınızın sadece rastgele paylaşım yapılan bir alan değil, markanızı ve vizyonunuzu doğru anlatan, güven oluşturan ve potansiyel müşteriyi web sitenize ya da doğrudan iletişim kanallarınıza yönlendiren güçlü bir yapıya dönüşmesi için birlikte profesyonel bir içerik planı oluşturabiliriz.</p>
+        <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem;">Sosyal medya hesaplarınızın sadece paylaşım yapılan bir alan değil; markanızı doğru anlatan, güven oluşturan ve potansiyel müşteriyi web sitenize ya da iletişim kanallarınıza yönlendiren bir yapıya dönüşmesi için birlikte bir içerik planı oluşturabiliriz. İlk adım olarak mevcut hesabınızı, profil yapınızı, içerik düzeninizi ve yönlendirme alanlarınızı değerlendirebiliriz.</p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="/#contact" class="btn-gold">Sosyal Medya Planı İste</a>
+          <a href="/iletisim.html" class="btn-gold">Sosyal Medya Planı İste</a>
           <a href="/web-tasarim.html" class="btn-outline">Web Tasarım Hizmetini İncele</a>
           <a href="/google-ads-yonetimi.html" class="btn-outline">Google Ads Yönetimini İncele</a>
         </div>
@@ -306,22 +340,22 @@
         <div class="related-services-grid">
           <div class="related-card">
             <h3>SEO Uyumlu Web Tasarım</h3>
-            <p>Sosyal medyadan gelen kullanıcıların güvenle iletişime geçmesi için web sitesinin hızlı, mobil uyumlu ve dönüşüm odaklı olması gerekir.</p>
+            <p>Sosyal medyadan gelen kullanıcıların iletişime geçmesi için web sitesinin hızlı, mobil uyumlu ve dönüşüm odaklı olması gerekir.</p>
             <a href="/web-tasarim.html">İncele →</a>
           </div>
           <div class="related-card">
             <h3>SEO Danışmanlığı</h3>
-            <p>Sosyal medya potansiyel marka güvenini desteklerken, SEO danışmanlığı arama motorlarında güçlü bir organik görünürlüğü güçlendirir.</p>
+            <p>Sosyal medya marka güvenini desteklerken, SEO danışmanlığı Google’da organik görünürlüğü güçlendirir.</p>
             <a href="/seo-danismanligi.html">İncele →</a>
           </div>
           <div class="related-card">
             <h3>Google Ads Yönetimi</h3>
-            <p>Sosyal medya profiliniz marka değeri ve güven oluştururken, Google Ads daha kısa vadeli hedefli müşteri talebi oluşturmak için kullanılabilir.</p>
+            <p>Sosyal medya güven oluştururken, Google Ads daha kısa vadeli müşteri talebi oluşturmak için kullanılabilir.</p>
             <a href="/google-ads-yonetimi.html">İncele →</a>
           </div>
           <div class="related-card">
             <h3>Blog İçerikleri</h3>
-            <p>Sektörel detaylı blog içerikleri sosyal medya gönderilerine dönüştürülebilir ve sosyal medyadan detaylı hizmet sayfalarına kaliteli trafik sağlayabilir.</p>
+            <p>Blog içerikleri sosyal medya gönderilerine dönüştürülebilir ve hizmet sayfalarına trafik sağlayabilir.</p>
             <a href="/blog.html">İncele →</a>
           </div>
         </div>
