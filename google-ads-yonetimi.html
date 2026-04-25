@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Ads Yönetimi | Reklam Bütçenizi Daha Verimli Kullanın</title>
-  <meta name="description" content="Google Ads kampanyalarınızı müşteri adayı, WhatsApp mesajı ve teklif talebi odaklı planlamak için reklam yönetimi hizmeti.">
+  <title>Google Ads Yönetimi | Küçük İşletmeler İçin Reklam Yönetimi</title>
+  <meta name="description" content="Veridia Reklam, küçük işletmeler için Google Ads kampanya kurulumu, anahtar kelime planı, reklam metni, landing page ve dönüşüm takibi desteği sunar.">
   <meta name="theme-color" content="#0a0a0f">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
@@ -13,40 +13,36 @@
   <link rel="stylesheet" href="./assets/work-pages.css">
   <script defer src="./assets/config.js?v=6"></script>
   <script defer src="./assets/page-shell.js?v=6"></script>
+  <script defer src="./assets/work-pages.js?v=6"></script>
   <style>
-    .service-detail-section { margin-top: 4rem; }
-    .service-detail-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold); margin-bottom: 1.5rem; }
-    .service-detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .service-detail-card { border: 1px solid var(--line-soft); background: rgba(255, 255, 255, 0.02); padding: 1.5rem; border-radius: 8px; }
-    .service-detail-card h3 { font-size: 1.1rem; color: var(--off-white); margin-bottom: 0.5rem; }
-    .service-detail-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
-    .faq-item { border-bottom: 1px solid var(--line-soft); padding: 1rem 0; }
-    .faq-item h3 { font-size: 1.1rem; color: var(--off-white); margin-bottom: 0.5rem; }
-    .faq-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+    /* Content styling for long text pages */
+    .service-content-section { padding: 5rem 1.25rem; }
+    .content-container { max-width: 800px; margin: 0 auto; }
+    .content-container h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--off-white); margin-bottom: 1.5rem; margin-top: 4rem; line-height: 1.2; }
+    .content-container h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--gold-light); margin-bottom: 1rem; margin-top: 2rem; }
+    .content-container p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .content-container ul, .content-container ol { margin-bottom: 2rem; padding: 0; list-style: none; }
+    .content-container ul li { position: relative; padding-left: 1.5rem; margin-bottom: 0.8rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
+    .content-container ul li::before { content: '◆'; color: var(--gold); font-size: 0.8rem; position: absolute; left: 0; top: 0.3rem; }
+    .content-container p a, .content-container li a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201, 168, 76, 0.4); text-underline-offset: 4px; transition: color 0.3s; }
+    .content-container p a:hover, .content-container li a:hover { color: var(--gold-light); text-decoration-color: var(--gold-light); }
     
-    .service-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; padding: 2rem 0; }
-    @media (max-width: 900px) { .service-hero-grid { grid-template-columns: 1fr; gap: 2rem; padding: 1rem 0; } }
-    .hero-label { display: inline-block; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-size: 0.75rem; margin-bottom: 1rem; border: 1px solid rgba(201, 168, 76, 0.3); padding: 0.3rem 0.8rem; border-radius: 20px; }
-    .hero-buttons { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-    .hero-buttons .btn-gold, .hero-buttons .btn-outline { text-align: center; justify-content: center; }
-    @media (max-width: 600px) { .hero-buttons .btn-gold, .hero-buttons .btn-outline { width: 100%; } }
-    .hero-trust-line { margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-    .hero-card { background: rgba(255,255,255,0.03); border: 1px solid var(--line-soft); border-radius: 12px; padding: 2rem; }
-    .hero-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 1.2rem; }
-    .hero-card ul { list-style: none; padding: 0; margin: 0 0 1.5rem 0; }
-    .hero-card li { color: var(--off-white); padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
-    .hero-card li::before { content: "•"; color: var(--gold); font-size: 1.2rem; }
-    .hero-card li:last-child { border-bottom: none; }
-    .hero-card .card-note { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; padding-top: 1rem; border-top: 1px dashed rgba(255,255,255,0.1); }
-    
-    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-    .benefit-card { background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2)); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; }
-    .benefit-card h4 { color: var(--off-white); font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .benefit-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+    .cta-box { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.2)); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 3rem 0; }
+    .cta-box h3 { margin-top: 0; margin-bottom: 1rem; color: var(--off-white); }
+    .cta-box p { margin-bottom: 2rem; }
+    .cta-box .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+    /* Related Services Grid */
+    .related-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .related-card { border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; transition: background 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
+    .related-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+    .related-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--off-white); margin-top: 0; margin-bottom: 0.5rem; }
+    .related-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
+    .related-card a { color: var(--gold); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; text-decoration: none !important; font-weight: bold; }
+    .related-card a:hover { color: var(--gold-light); }
   </style>
 </head>
 <body data-custom-cursor="true">
-  <a class="skip-link" href="#main-content">Ana içeriğe geç</a>
   <nav aria-label="Ana Menü">
     <a href="/" class="nav-logo" aria-label="Veridia Ana Sayfa">Veridia</a>
     <div class="nav-links">
@@ -67,177 +63,273 @@
   </nav>
 
   <main id="main-content" class="work-shell">
+    <section class="work-hero" style="padding-top: 8rem; padding-bottom: 4rem;">
+      <div class="work-hero-inner" style="max-width: 900px; margin: 0 auto; text-align: center;">
+        <span class="work-tag" style="margin-bottom: 1rem; display: inline-block;">Hizmet</span>
+        <h1 class="work-title" style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem; line-height: 1.1;">Küçük İşletmeler İçin Google Ads Yönetimi</h1>
+        <p class="work-lead" style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 1.5rem;">Google Ads, doğru kurulduğunda küçük işletmelerin potansiyel müşterilere daha hızlı ulaşmasını sağlayabilir. Ancak yanlış anahtar kelime seçimi, zayıf reklam metinleri, dönüşüm takibi eksikliği veya yetersiz açılış sayfaları reklam bütçesinin kısa sürede boşa harcanmasına neden olabilir.</p>
+        <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 2.5rem;">Veridia Reklam olarak Google Ads yönetiminde sadece reklam açmaya değil; doğru hedefleme, dönüşüm odaklı kampanya yapısı, web sitesi uyumu ve ölçülebilir sonuçlara odaklanıyoruz. Amaç daha fazla tıklama almak değil, doğru kişiden gerçek müşteri talebi oluşturmaktır.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+          <a href="/#contact" class="btn-gold">Google Ads Ön Analizi İste</a>
+          <a href="/web-tasarim.html" class="btn-outline">Web Siteni Reklama Hazır Hale Getir</a>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--gold); letter-spacing: 0.05em; opacity: 0.8;">Daha fazla tıklama değil; daha doğru trafik, daha net ölçüm ve daha kontrollü reklam bütçesi.</p>
+      </div>
+    </section>
 
-      <section class="work-hero reveal visible" style="padding-bottom: 2rem; min-height: auto;">
-        <div class="service-hero-grid">
-          <div class="work-hero-content">
-            <span class="hero-label">Hizmet</span>
-            <h1 class="work-title" style="font-size: max(2.5rem, min(7vw, 3.5rem)); margin-bottom: 1.2rem; line-height: 1.1;">Google Ads Yönetimi ile Reklam Bütçenizi Daha Verimli Kullanın</h1>
-            <p class="work-intro" style="font-size: 1.05rem;">Google Ads, doğru kurulduğunda işletmenize hızlı müşteri adayı kazandırabilir. Ancak kampanya yapısı, anahtar kelime seçimi, landing page, dönüşüm takibi ve bütçe yönetimi doğru planlanmadığında reklam bütçesi tıklamaya gider ama müşteri talebine dönüşmez.</p>
-            
-            <div class="hero-buttons">
-              <a href="/hizli-teklif.html" class="btn-gold">Ücretsiz Mini Analiz İste</a>
-              <a href="/#contact" class="btn-outline" data-whatsapp-message="Merhaba, Google Ads Yönetimi ile Reklam Bütçenizi Daha Verimli Kullanın hizmeti hakkında bilgi almak istiyorum.">WhatsApp’tan Yaz</a>
-            </div>
-            
-            <div class="hero-trust-line">
-              <span>Dönüşüm odaklı yapı</span> &middot; <span>SEO uyumlu kurulum</span> &middot; <span>Ölçülebilir süreç</span>
-            </div>
-          </div>
-          
-          <div class="hero-card-container">
-            <div class="hero-card">
-              <h3>Bu hizmette neler var?</h3>
-              <ul>
-                <li>Kampanya kurulum planı</li>
-                <li>Anahtar kelime araştırması</li>
-                <li>Landing page kontrolü</li>
-                <li>Dönüşüm takibi önerisi</li>
-              </ul>
-              <div class="card-note">Amaç reklam bütçesini tıklamaya değil, müşteri adayına çevirmektir.</div>
-            </div>
+    <section class="service-content-section">
+      <div class="content-container">
+        
+        <h2 id="donusum-alamiyorum">Reklam Veriyorum Ama Dönüşüm Alamıyorum Diyorsanız Sorun Nerede Olabilir?</h2>
+        <p>Birçok işletme dijital pazarlama bütçesinin büyük bir kısmını Google Ads’e ayırır; fakat gelen yüzlerce tıklama beklenen oranda telefona, WhatsApp mesajına, form talebine veya satış fırsatına dönüşmez. Bunun nedeni çoğu zaman reklam platformunun çalışmaması değil, arka plandaki kampanya yapısının, anahtar kelimelerin, açılış sayfasının (landing page) veya dönüşüm takibinin eksik kurulmasıdır.</p>
+        <p>Eğer reklam bütçeniz eriyor ancak müşteri gelmiyorsa, muhtemelen şu problemleri yaşıyorsunuzdur:</p>
+        <ul>
+          <li>Çok geniş ve alakasız aranma hacmine sahip anahtar kelimelere reklam veriliyor olabilir.</li>
+          <li>Yanlış eşleme türleri kullanımı, bütçeyi alakasız müşteri aramalarına harcatıyor olabilir.</li>
+          <li>Negatif anahtar kelime listesi yetersiz olduğu için gereksiz tıklamalara para ödeniyor olabilir.</li>
+          <li>Reklam metniniz, kullanıcının aradığı probleme veya ihtiyaca net bir cevap vermiyor olabilir.</li>
+          <li>Kullanıcı reklama tıkladıktan sonra, satın almaya ikna etmeyen zayıf bir web sayfasına gidiyor olabilir.</li>
+          <li>Mobilde site yavaş açılıyor ve iletişim butonları görünmez halde kalıyor olabilir.</li>
+          <li>WhatsApp aramaları, telefon tıklamaları ve form gönderimleri teknik olarak ölçülmüyor olabilir.</li>
+          <li>Dönüşüm takibi kurulu olmadığı için günün sonunda hangi reklamın işe yaradığı bilinmiyor olabilir.</li>
+          <li>Kampanya yayında kendi haline bırakılmış ve düzenli optimizasyon yapılmıyor olabilir.</li>
+        </ul>
+        <p>Reklamdan verim almak için web sitenizin kullanıcıyı karşılamaya ve dönüşüme hazır olması şarttır. Bu konuda doğrudan dönüşüme odaklanan <a href="/web-tasarim.html">SEO uyumlu web tasarım</a> hizmetimizi inceleyebilirsiniz.</p>
+        <p>Eğer web siteniz trafik alıyor ama hiçbir şekilde müşteri talebi üretmiyorsa, temel sorunu anlamak için <a href="/blog/web-siteniz-neden-musteri-getirmiyor.html">Web Siteniz Neden Müşteri Getirmiyor?</a> rehberimiz bu sorunu daha geniş bir perspektifte ele alır.</p>
+
+        <div class="cta-box">
+          <h3>Reklam bütçeniz nereye gidiyor, birlikte kontrol edelim.</h3>
+          <p>Google Ads hesabınızda tam olarak hangi kelimelerin bütçe harcadığını, hangi sayfalarınızın dönüşüm üretebildiğini ve hangi ölçüm ayarlarının eksik olduğunu bir ön analizle değerlendirebiliriz.</p>
+          <div class="btn-row">
+            <a href="/#contact" class="btn-gold">Google Ads Ön Analizi İste</a>
           </div>
         </div>
-      </section>
 
-      <section class="reveal">
-        <div class="benefits-grid">
+        <h2 id="veridia-neye-odaklanir">Veridia Google Ads Yönetiminde Neye Odaklanır?</h2>
+        <p>Veridia’da Google Ads yönetimi; sadece "kampanya açıp kapatmak" değil, ölçülebilir ve sürdürülebilir bir talep toplama sistemi kurmaktır. Kampanya yapısı, doğru kelime seçimi, reklam metni, açılış sayfası uyumu, dönüşüm takibi ve bütçe kontrolü birbirine sıkı sıkıya bağlı olarak ilerler. Amacımız yalnızca gösterim sayılarını şişirmek veya rastgele tıklama almak değil, işletmenize ulaşma ihtimali en yüksek hedef kitleyi doğru satış sayfasına yönlendirmektir.</p>
 
-          <div class="benefit-card">
-            <h4>Doğru hedefleme</h4>
-            <p>Reklamlar hizmetinizi gerçekten arayan kullanıcılara yöneltilir.</p>
-          </div>
+        <h3>Doğru Anahtar Kelime Seçimi</h3>
+        <p>Google Ads’te bütçe verimliliğini belirleyen en kritik adım, kullanıcının o an hangi niyetle arama yaptığını anlamaktır. Her arama kelimesi reklam vermek için uygun değildir. "Fiyat araştıran", sadece "bilgi arayan" ve "hemen hizmet almak isteyen" kullanıcılar ayrı ayrı sınıflandırılmalı ve bütçe satın alma niyetine ayrılmalıdır.</p>
 
-          <div class="benefit-card">
-            <h4>Dönüşüm kontrolü</h4>
-            <p>Form, WhatsApp ve landing page akışı reklamla birlikte değerlendirilir.</p>
-          </div>
+        <h3>Negatif Anahtar Kelime Planı</h3>
+        <p>Bütçenin sizinle alakasız, işinize yaramayacak aramalara (örneğin "ücretsiz", "ikinci el", "pdf" gibi) gitmesini önlemek için negatif anahtar kelimeler kampanyaya baştan eklenir ve düzenli olarak kontrol edilir. Bu yapı, özellikle küçük reklam bütçelerinin israf olmasını engeller.</p>
 
-          <div class="benefit-card">
-            <h4>Bütçe verimliliği</h4>
-            <p>Amaç sadece tıklama değil, ölçülebilir müşteri adayı üretmektir.</p>
-          </div>
+        <h3>Dönüşüm Odaklı Reklam Metinleri</h3>
+        <p>Reklam metinleri sadece renkli ve dikkat çekici olmak için değil, kullanıcının o an aradığı hizmete tam ve net cevap vermek için hazırlanmalıdır. Etkili bir başlık, açıklayıcı metinler, işletme uzantıları ve güçlü çağrı metinleri doğrudan dönüşüm hedefiyle yazılır.</p>
 
-        </div>
-      </section>
+        <h3>Landing Page ve Web Sitesi Uyumu</h3>
+        <p>Bir kullanıcı reklamınıza tıkladığında asla karmaşık bir ana sayfaya düşmemelidir. Aradığı hizmetle doğrudan ilgili, net, hızlı açılan, mobil uyumlu ve anında iletişime yönlendiren bir açılış sayfasına gitmelidir. Web siteniz reklama hazır değilse önce <a href="/web-tasarim.html">müşteri getiren web sitesi</a> yapısının güçlendirilmesi gerekebilir.</p>
 
-      <section class="service-detail-section reveal">
-        <h2>Kimler İçin Uygun?</h2>
-        <div class="service-detail-grid">
+        <h3>WhatsApp, Telefon ve Form Dönüşüm Takibi</h3>
+        <p>Google Ads yönetiminde raporlanan sadece "tıklama sayısı" yeterli bir başarı ölçütü olamaz. Kullanıcıların yaptığı telefon tıklamaları, WhatsApp buton yönlendirmeleri, iletişim formu gönderimleri ve teklif talepleri teknik kodlarla sisteme bağlanarak mümkün olduğunca ölçülebilir hale getirilmelidir.</p>
 
-          <div class="service-detail-card">
-            <h3>Hızlı Sonuç İsteyenler</h3>
-            <p>Hemen müşteri trafiği ve telefon araması almak isteyen işletmeler.</p>
-          </div>
+        <h3>Bütçe Kontrolü ve Düzenli Optimizasyon</h3>
+        <p>Bir reklam kampanyası bir kez kurulduktan sonra asla kendi haline bırakılmamalıdır. Hangi arama terimlerinin tetiklendiği, tıklama başı maliyetlerin durumu, dönüşüm oranları ve bütçe israfına neden olan düşük performanslı kelimeler düzenli olarak denetlenmeli ve optimize edilmelidir.</p>
 
-          <div class="service-detail-card">
-            <h3>Bütçesi Boşa Gidenler</h3>
-            <p>Reklam verip çok tıklama alan ama form veya satış elde edemeyenler.</p>
-          </div>
+        <h2 id="surec-nasil-ilerler">Google Ads Yönetimi Sürecimiz Nasıl İlerler?</h2>
+        <p>Kampanyalarınızı tesadüflere bırakmadan, şeffaf adımlarla yönetiyoruz:</p>
 
-          <div class="service-detail-card">
-            <h3>Dönüşüm Odaklılar</h3>
-            <p>Reklam harcamasını (ROAS/CPA) ölçerek akıllıca büyümek isteyenler.</p>
-          </div>
+        <h3>1. İşletme ve Hedef Analizi</h3>
+        <p>İşletmenizin öncelikli olarak hangi hizmetleri öne çıkarmak istediği, hangi hedef bölgelerde müşteri aradığı ve aylık reklam bütçesinden temel olarak ne beklediği netleştirilir.</p>
 
-        </div>
-      </section>
+        <h3>2. Web Sitesi ve Açılış Sayfası Kontrolü</h3>
+        <p>Reklam ile kullanıcı göndereceğimiz sayfaların mobil uyumu, açılış hızı, iletişim butonlarının görünürlüğü, form yapısı ve sayfadaki mesajın netliği detaylıca incelenir. Reklamdan verim almak için web sitesinin teknik ve dönüşüm altyapısı güçlü olmalıdır. Bu noktada sürecimiz, <a href="/web-tasarim.html">web tasarım hizmeti</a> ile birlikte değerlendirme yapılarak ilerletilebilir.</p>
 
-      <section class="service-detail-section reveal">
-        <h2>Hangi Sorunları Çözer?</h2>
-        <div class="service-detail-grid">
+        <h3>3. Anahtar Kelime Araştırması</h3>
+        <p>Hizmet almak isteyen gerçek kullanıcıların arama niyetleri belirlenir. Geniş ve tamamen alakasız trafiğe neden olan kelimeler yerine, dönüşüm (iletişim/satış) ihtimali çok daha yüksek olan "niyet odaklı" aramalara öncelik verilir.</p>
 
-          <div class="service-detail-card">
-            <h3>Yüksek Maliyetler</h3>
-            <p>Yanlış eşleme türleri yüzünden alakasız tıklamalara para ödenmesi.</p>
-          </div>
+        <h3>4. Kampanya Yapısının Kurulması</h3>
+        <p>Tüm hizmetlerinizi tek bir sepete koymak yerine; hizmetlere, bölgelere veya kampanya hedeflerine göre ayrı ayrı kampanya ve reklam grubu yapıları oluşturulur. Böylece reklam bütçeniz çok daha kontrollü ve esnek yönetilir.</p>
 
-          <div class="service-detail-card">
-            <h3>Dönüşüm Takipsizliği</h3>
-            <p>Hangi kelimenin veya reklamın satış getirdiğinin bilinememesi.</p>
-          </div>
+        <h3>5. Reklam Metinlerinin Hazırlanması</h3>
+        <p>Google Ads başlıkları, açıklamaları ve reklam site bağlantı uzantıları kullanıcı niyetine en uygun şekilde yazılır. Gereksiz abartı veya sahte vaatler yerine işletmenizin sunduğu net fayda ve doğru yönlendirme kullanılır.</p>
 
-          <div class="service-detail-card">
-            <h3>Düşük Kalite Puanı</h3>
-            <p>Reklam ile açılış sayfasının alakasız olması sebebiyle daha pahalıya reklam yayını.</p>
-          </div>
+        <h3>6. Dönüşüm Takibi Kontrolü</h3>
+        <p>Müşterilerinizin sitede yaptığı form gönderimi, telefon tıklaması, WhatsApp sekmesi açılışı veya e-posta kopyalaması gibi değerli aksiyonların teknik olarak ölçülmesi hedeflenir ve dönüşüm kodları kurulur.</p>
 
-        </div>
-      </section>
+        <h3>7. Yayın, Test ve Optimizasyon</h3>
+        <p>Kampanya yayına alındıktan sonraki kritik ilk günlerde arama terimleri, tıklama maliyetleri, gösterim oranları ve dönüşüm verileri çok yakından incelenir. Gereksiz harcamalar anında kesilir, çalışan alanlar güçlendirilir.</p>
 
-      <section class="service-detail-section reveal">
-        <h2>Neler Teslim Edilir?</h2>
-        <div class="service-detail-grid">
+        <h3>8. Raporlama ve Yol Haritası</h3>
+        <p>Müşterimize sunulan reklam raporu sadece "şu kadar tıklama aldık" şeklinde olmaz; hangi hizmete daha çok ilgi geldiği, hangi kelimelerin bütçeyi en verimli kullandığı ve web tarafında hangi sayfaların hala iyileştirilmesi gerektiği şeffaf bir şekilde değerlendirilir.</p>
 
-          <div class="service-detail-card">
-            <h3 style="color: var(--gold);">Kampanya Kurulumu</h3>
-            <p>Arama ağı, görüntülü veya Performance Max kampanya inşası.</p>
-          </div>
+        <h2 id="neler-teslim-edilir">Google Ads Yönetimi Hizmetinde Neler Var?</h2>
+        <p>Veridia olarak şeffaf bir kampanya yönetimi için şu teslimat ve hizmetleri sunuyoruz:</p>
+        <ul>
+          <li>Mevcut Google Ads hesap ve kampanya kontrolü</li>
+          <li>İşletmeye özel aylık reklam hedefi belirleme</li>
+          <li>Niyet odaklı anahtar kelime araştırması</li>
+          <li>Bütçe koruyan negatif anahtar kelime planı</li>
+          <li>Hiyerarşik kampanya ve reklam grubu yapısı kurgusu</li>
+          <li>Arama niyetine uygun reklam metinlerinin hazırlanması</li>
+          <li>Telefon ve site bağlantısı reklam uzantılarının düzenlenmesi</li>
+          <li>Detaylı bölge, saat ve hedef kitle ayarlamaları</li>
+          <li>Verimli bütçe dağılımı ve harcama önerileri</li>
+          <li>Reklamın yönleneceği Landing page (Açılış Sayfası) kontrolü</li>
+          <li>Telefon, WhatsApp ve form dönüşüm takibi sisteminin kurulumu</li>
+          <li>Haftalık ve aylık bazda arama terimleri analizi</li>
+          <li>Düzenli optimizasyon ve maliyet düşürme önerileri</li>
+          <li>Aylık anlaşılır performans değerlendirmesi ve strateji toplantısı</li>
+        </ul>
 
-          <div class="service-detail-card">
-            <h3 style="color: var(--gold);">Negatif Kelime Listesi</h3>
-            <p>Bütçenizi koruyacak detaylı negatif anahtar kelime planı.</p>
-          </div>
-
-          <div class="service-detail-card">
-            <h3 style="color: var(--gold);">Dönüşüm Kurulumu</h3>
-            <p>Form dolumu ve WhatsApp tıklamaları gibi metriklerin Google Analytics entegrasyonu.</p>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="service-detail-section reveal">
-        <h2>Süreç Nasıl İlerler?</h2>
-        <div class="service-detail-grid">
-
-          <div class="service-detail-card">
-            <h3>1. Pazar ve Rakip Analizi</h3>
-            <p>Hedef kelimeler ve TBM (Tıklama Başına Maliyet) öngörüleri çıkarılır.</p>
-          </div>
-
-          <div class="service-detail-card">
-            <h3>2. Kurulum ve Yayına Alma</h3>
-            <p>Reklam metinleri yazılır, uzantılar eklenir ve kampanya başlatılır.</p>
-          </div>
-
-          <div class="service-detail-card">
-            <h3>3. Optimizasyon</h3>
-            <p>Haftalık takiplerle maliyetler düşürülür, dönüşüm oranları artırılır.</p>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="service-detail-section reveal" style="margin-bottom: 5rem;">
-        <h2>Sık Sorulan Sorular</h2>
-        <div style="max-width: 800px;">
-
-          <div class="faq-item">
-            <h3>Minimum ne kadar bütçe ayırmalıyım?</h3>
-            <p>Sektöre göre değişmekle birlikte, anlamlı veri toplayabilmek için mantıklı bir günlük bütçe öneriyoruz.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Reklamlar hemen yayınlanır mı?</h3>
-            <p>Kurulum ve onay süreci tamamlandıktan sonra (genellikle 24-48 saat) reklamlarınız yayınlanmaya başlar.</p>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="final-cta reveal" style="padding-top: 0;">
-        <div class="final-cta-card">
-          <h2 class="work-title" style="font-size: 2.2rem; margin-bottom: 1rem;">Bu hizmetin işletmeniz için uygun olup olmadığını birlikte kontrol edelim</h2>
-          <p>Web siteniz, SEO’nuz, reklamlarınız veya sosyal medya yapınızın nerede müşteri kaybettiğini görmek için kısa bir mini analiz talep edebilirsiniz.</p>
-          <div class="final-cta-actions">
-            <a href="/hizli-teklif.html" class="btn-gold">Ücretsiz Mini Analiz İste</a>
-            <a href="/#contact" class="btn-outline" data-whatsapp-message="Merhaba, hizmetleriniz hakkında bilgi almak ve mini analiz talep etmek istiyorum.">WhatsApp’tan Yaz</a>
+        <div class="cta-box">
+          <h3>Reklam hesabınızda neyin bütçe harcadığını görmek ister misiniz?</h3>
+          <p>Eski kampanyalarınızın neden çalışmadığını ve boşa giden bütçenin nerede kaybolduğunu analiz ederek size profesyonel bir durum raporu sunabiliriz.</p>
+          <div class="btn-row">
+            <a href="/#contact" class="btn-gold">Google Ads Ön Analizi İste</a>
           </div>
         </div>
-      </section>
 
-    <footer class="work-footer">
+        <h2 id="landing-page-onemi">Google Ads Başarısı Sadece Reklam Ayarlarına Bağlı Değildir</h2>
+        <p>Google Ads kampanyası panel üzerinde ne kadar kusursuz, hatasız ve doğru kurgulanırsa kurgulansın, kullanıcı reklama tıkladıktan sonra karmaşık, yavaş ve ikna edicilikten uzak zayıf bir sayfaya gidiyorsa o dönüşüm düşük kalmaya mahkumdur. Bir açılış sayfası kullanıcının aradığı hizmeti saniyeler içinde net anlatmalı, güven vermeli, mobilde anında açılmalı ve iletişime geçmeyi tek bir dokunuşla kolaylaştırmalıdır.</p>
+        <p>Güçlü bir reklam döngüsü için şunlara dikkat edilmelidir:</p>
+        <ul>
+          <li>Reklam metnindeki vaat ile açılış sayfasındaki içerik birebir uyumlu olmalıdır.</li>
+          <li>Her farklı hizmet için, kullanıcıyı direkt hedefe götüren ayrı bir açılış sayfası daha sağlıklı olabilir.</li>
+          <li>WhatsApp, telefon ve teklif butonları sayfanın hem başında hem sonunda görünür olmalıdır.</li>
+          <li>Müşterinin dolduracağı iletişim formu kısa ve kullanımı kolay olmalıdır.</li>
+          <li>Özellikle mobil cihazlarda site hızı ve kullanıcı deneyimi mükemmel olmalıdır.</li>
+          <li>Sayfa yalnızca pasif bir şekilde bilgi vermemeli, aynı zamanda aktif bir aksiyon aldırmalıdır.</li>
+        </ul>
+        <p>Bu nedenle Google Ads çalışmaları çoğu zaman yalnızca reklam panelinden ibaret değil, aynı zamanda sağlam bir <a href="/web-tasarim.html">SEO uyumlu web tasarım</a> yapısıyla birlikte düşünülmelidir.</p>
+        <p>Unutmayın, web sitenizin teknik altyapısı ve sunucu performansı doğrudan reklam maliyetlerinizi ve dönüşüm sonuçlarını da etkileyebilir. <a href="/blog/teknik-seo-ve-web-performansi.html">Teknik SEO ve Web Performansı</a> rehberimizde bu bağlantıyı çok daha detaylı bir şekilde anlattık.</p>
+
+        <h2 id="seo-ve-reklam">Google Ads, SEO ve Sosyal Medya Birlikte Nasıl Çalışır?</h2>
+        <p>Google Ads, pazarınızdaki mevcut ve kısa vadeli talebi hızlıca toplamak için elinizdeki en güçlü dijital kanaldır. Ancak yalnız başına işletmenizin tüm dijital büyüme yükünü taşıması beklenmemelidir. Doğru bir dijital stratejide SEO, uzun vadeli ve ücretsiz organik görünürlük sağlar. Sosyal medya ise hedef kitlenizde marka güvenini, profesyonelliği ve akılda kalıcılığı destekler.</p>
+        <p>Örneğin sıradan bir satın alma yolculuğu şöyle gerçekleşir: Bir kullanıcı Google’da spesifik bir arama yapar ve reklamınızı görüp sitenize girer. Ancak hemen o an hizmet almaya hazır değildir. Siteyi kapatır, markanızı aratıp Instagram hesabınızı kontrol eder. Sosyal medyanızın profesyonel olduğunu görünce size güvenir ve birkaç gün sonra tekrar Google’da sizi organik yollardan arayarak teklif ister. Bu yüzden reklam, SEO, sosyal medya ve mevcut web sitesi birbirinden kopuk adalar değil, birbirini besleyen ve birlikte çalışan dişliler olarak düşünülmelidir.</p>
+        <p><a href="/google-ads-yonetimi.html">Google Ads yönetimi</a> kısa vadeli ve acil talep toplarken, <a href="/seo-danismanligi.html">SEO danışmanlığı</a> organik görünürlüğü yıllar içine yayarak güçlendirir; <a href="/sosyal-medya-yonetimi.html">sosyal medya yönetimi</a> ise arka planda markaya duyulan güveni ve kalite algısını destekler.</p>
+
+        <h2 id="yerel-ads">Yerel İşletmeler İçin Google Ads Neden Önemlidir?</h2>
+        <p>Sadece belirli bir şehir, ilçe veya lokasyonda yerel hizmet veren (diş kliniği, teknik servis, güzellik salonu vb.) işletmeler için Google Ads, doğru bölgede ve en sıcak arama niyetinde anında görünürlük kazanmanın en kestirme ve hızlı yoludur. Kullanıcılar çoğu zaman acil bir ihtiyaç anında doğrudan arama yapar: "yakınımdaki web tasarım ajansı", "İstanbul Google reklam yönetimi", "diş kliniği reklam danışmanlığı" veya doğrudan "Hizmet + Konum" şeklinde son derece değerli sorgular kullanabilir.</p>
+        <p>Bu yerel talebi yakalamak için kampanyalarda şu adımlar izlenmelidir:</p>
+        <ul>
+          <li>Çok dar ve spesifik lokasyon / bölge hedefleme ayarları</li>
+          <li>Kullanıcının lokasyonuna özel yazılmış hizmet bazlı kampanya yapısı</li>
+          <li>Kullanıcının tek dokunuşla arayabileceği telefon araması ve WhatsApp yönlendirme reklamları</li>
+          <li>Google Harita ve yerel görünürlük uzantılarının birbirine bağlanması</li>
+          <li>Özellikle küçük bütçelerde israfı önleyen son derece kontrollü hedefleme</li>
+          <li>Bu harcamayı uzun vadede azaltacak olan <a href="/seo-danismanligi.html">yerel SEO çalışması</a> ile birlikte eşgüdümlü kullanım</li>
+        </ul>
+        <p style="margin-top: 2rem;"><strong>Yerel reklam yapınızı birlikte değerlendirelim →</strong> <a href="/#contact">İletişime Geçin</a></p>
+
+        <h2 id="kimler-icin-uygun">Google Ads Yönetimi Kimler İçin Uygun?</h2>
+        <ul>
+          <li>Zaman kaybetmeden, hızlı ve ölçülebilir bir müşteri talebi almak isteyen küçük işletmeler</li>
+          <li>Geleneksel pazarlamadan çıkıp, dijitalde Google reklamlarına profesyonel bir başlangıç yapmayı düşünen firmalar</li>
+          <li>Daha önce kendisi veya başka bir ajansla reklam verip bütçe harcamasına rağmen hiçbir sonuç ve dönüşüm alamayan işletmeler</li>
+          <li>Web sitesine çok daha kaliteli, doğru hedeflenmiş ve satın almaya hazır trafik çekmek isteyen markalar</li>
+          <li>Sadece kendi yerel bölgesinde ve hizmet arayan kullanıcılara hızla ulaşmak isteyen firmalar</li>
+          <li>SEO çalışması devam ederken ilk aylarda yaşanacak sessizliği bozup kısa vadeli nakit akışı ve talep oluşturmak isteyen işletmeler</li>
+          <li>Aylık reklam bütçesini "acaba nereye gidiyor?" demeden daha kontrollü ve şeffaf kullanmak isteyen işletmeler</li>
+          <li>Günlük olarak işletmesine gelen WhatsApp mesajlarını, telefon çağrılarını ve form taleplerini artırmak isteyen tüm hizmet firmaları</li>
+        </ul>
+
+        <h2 id="kimler-icin-uygun-degil">Google Ads Yönetimi Kimler İçin Uygun Olmayabilir?</h2>
+        <ul>
+          <li>Çok düşük ve gerçekçi olmayan bir test bütçesi ayırıp, bununla sektörde devasa büyük sonuçlar ve satış patlaması bekleyenler</li>
+          <li>Trafik çekilecek olan web sitesini, iletişim kanallarını veya açılış sayfasını kullanıcı deneyimine göre iyileştirmeyi kesinlikle reddedenler</li>
+          <li>Sayfada ne olup bittiğini ölçecek "Dönüşüm takibi" kodlarını kurdurmadan, tamamen kör uçuşuyla reklam vermek isteyenler</li>
+          <li>Google Ads sistemini uzun soluklu bir büyüme aracı olarak değil, sadece 1-2 haftalık tek seferlik bir "deneme yanılma" olarak görenler</li>
+          <li>Tam olarak hangi hizmeti satacağına ve hangi hedef kitleye ulaşacağına karar vermeden, kafa karışıklığıyla kampanya açmak isteyenler</li>
+          <li>Reklamdan gelen gerçek telefon çağrısı, form veya mesaj (talep) sayısına değil, sadece hesabın "kaç tıklama" aldığı gibi işe yaramayan metriklerine takılanlar</li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="service-content-section" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
+      <div class="content-container">
+        <h2 style="text-align: center; margin-top: 0; margin-bottom: 3rem;">Google Ads Yönetimi Hakkında Sık Sorulan Sorular</h2>
+        
+        <div class="blog-faq-layout">
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">1. Google Ads ne kadar bütçe ister?</h3>
+            <p class="blog-faq-copy">Reklam bütçesi içinde bulunduğunuz sektöre, bölgesel rekabete, hizmetin türüne ve aylık kampanya hedeflerinize göre değişir. Küçük işletmeler için önemli olan en yüksek ve pahalı bütçeyle agresif bir şekilde başlamak değil, eldeki bütçeyi ilk günden itibaren kontrollü, israfsız ve ölçülebilir şekilde kullanmaktır.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">2. Google Ads hemen müşteri getirir mi?</h3>
+            <p class="blog-faq-copy">Google Ads altyapısı ve kampanya kurgusu doğru kurulduğunda sitenize çok hızlı bir trafik ve talep akışı oluşturabilir. Ancak bu trafiğin "müşteriye" dönüşmesi; tamamen reklam metninizin kalitesine, anahtar kelime seçiminize, tıkladıkları açılış sayfasının kalitesine ve dönüşüm takibine göre değişir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">3. Google Ads ile SEO arasındaki fark nedir?</h3>
+            <p class="blog-faq-copy">Google Ads, her tıklama için para ödediğiniz reklam bütçesiyle anında görünürlük sağlar ve daha kısa vadeli, hızlı sonuçlar üretebilir. SEO ise sayfanızın kalitesiyle organik ve ücretsiz görünürlük oluşturur ancak sonuç vermesi aylar sürer. İkisi birbirine zıt değil, birlikte kullanıldığında çok daha dengeli bir dijital büyüme sağlayan kanallardır.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">4. Reklam bütçem boşa gider mi?</h3>
+            <p class="blog-faq-copy">Eğer profesyonel yönetilmezse evet. Çok geniş ve yanlış anahtar kelimeler, negatif kelimelerin eksikliği, kötü kurgulanmış zayıf açılış sayfaları ve en önemlisi "dönüşüm takibi eksikliği" mevcut bütçenin verimsizce tükenmesine neden olabilir. Bu yüzden her kampanya kurulduktan sonra düzenli takip edilmeli ve optimize edilmelidir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">5. Dönüşüm takibi nedir?</h3>
+            <p class="blog-faq-copy">Dönüşüm takibi; sitenizi ziyaret eden kullanıcının yaptığı form gönderimi, telefon numarası tıklaması, WhatsApp sekmesi açılışı veya teklif maili göndermesi gibi işletmeniz için değerli aksiyonların sisteme kodlarla tanıtılarak ölçülmesidir. Reklamın gerçekten işe yarayıp yaramadığını anlamak için kurduğumuz en hayati sistemdir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">6. Web sitesi olmadan Google Ads yapılır mı?</h3>
+            <p class="blog-faq-copy">Sadece telefon araması üreten bazı basit harita/reklam türleri web sitesi olmadan da sınırlı şekilde kullanılabilir; ancak hizmet satışı, markaya güven oluşturma ve performansı doğru ölçebilme açısından arkasında güçlü, dönüşüm odaklı bir web sitesi veya açılış sayfası olmayan reklam kampanyaları performans ve maliyet açısından ciddi dezavantaj yaşar.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">7. Google Ads yönetim ücreti neye göre değişir?</h3>
+            <p class="blog-faq-copy">Yöneteceğimiz kampanya sayısı, hedeflenen bölgenin genişliği, kullanılacak aylık reklam bütçesi, hizmetlerin kapsamı, teknik taraftaki dönüşüm takibi kurgu ihtiyacı ve hesabın gerektirdiği günlük/haftalık optimizasyon yoğunluğu, profesyonel yönetim ücretini etkileyen temel faktörlerdir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">8. Küçük işletmeler için Google Ads mantıklı mı?</h3>
+            <p class="blog-faq-copy">Kesinlikle evet. Özellikle kısıtlı bir bölgede, doğru hizmet grubuna ve doğru "satın alma niyeti" içeren aramalara hedeflendiğinde, küçük işletmeler için Google Ads çok verimli bir müşteri kazanım aracı olabilir. Ancak bunun tek şartı, bütçenin çok sıkı ve kontrollü kullanılması ve web sitesinin gelen bu kullanıcıyı anında dönüşüme ikna etmeye hazır olmasıdır.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">9. Reklam yayına alındıktan sonra ne yapılır?</h3>
+            <p class="blog-faq-copy">Kurulum işin sadece başlangıcıdır. Reklam yayına alındıktan sonra ziyaretçilerin kullandığı gerçek arama terimleri, tıklama başı maliyetler, dönüşüm verileri, bütçeyi israf eden düşük performanslı kelimeler ve açılış sayfasının davranış sonuçları sürekli olarak uzmanlarımız tarafından incelenir ve hesabınız iyileştirilir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">10. Her hizmet için ayrı reklam kampanyası gerekir mi?</h3>
+            <p class="blog-faq-copy">Çoğu profesyonel kurguda evet. Farklı hizmetlerinizin farklı müşteri kitleleri, farklı arama niyetleri ve farklı açılış sayfaları olabilir. Örneğin "kombi bakımı" arayan ile "klima montajı" arayan kişiye aynı reklam gösterilemez. Bu nedenle kampanyaların hizmet bazlı ayrılması hem bütçe kontrolünü hem de performans analizini son derece kolaylaştırır.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="service-content-section" style="padding-bottom: 6rem;">
+      <div class="content-container" style="text-align: center;">
+        <h2 style="margin-top: 0; font-size: clamp(2.4rem, 5vw, 3.2rem);">Reklam Bütçenizi Daha Kontrollü Kullanalım</h2>
+        <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem;">Google Ads kampanyalarınızın sadece boş tıklamalar değil, gerçek ve ölçülebilir bir müşteri talebi üretmesi için kampanya yapınızı, anahtar kelimelerinizi, açılış sayfalarınızı ve dönüşüm takibinizi uzman gözüyle birlikte değerlendirebiliriz. İlk adım olarak mevcut reklam hesabınızı veya reklam vermeyi düşündüğünüz hizmetleri analiz ederek size daha net bir yol haritası çıkarabiliriz.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/#contact" class="btn-gold">Google Ads Ön Analizi İste</a>
+          <a href="/web-tasarim.html" class="btn-outline">Web Tasarım Hizmetini İncele</a>
+          <a href="/seo-danismanligi.html" class="btn-outline">SEO Danışmanlığını İncele</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- İlgili Hizmetler Bölümü -->
+    <section class="service-content-section" style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4rem; padding-bottom: 6rem;">
+      <div class="content-container">
+        <h2 style="margin-top: 0;">Google Ads ile Birlikte Değerlendirilebilecek Hizmetler</h2>
+        <div class="related-services-grid">
+          <div class="related-card">
+            <h3>SEO Uyumlu Web Tasarım</h3>
+            <p>Reklamdan gelen kullanıcıların vakit kaybetmeden iletişime geçmesi için web sitesinin hızlı, mobil uyumlu ve dönüşüm odaklı olması gerekir.</p>
+            <a href="/web-tasarim.html">İncele →</a>
+          </div>
+          <div class="related-card">
+            <h3>SEO Danışmanlığı</h3>
+            <p>Google Ads kısa vadeli müşteri talebi oluştururken, SEO danışmanlığı arama motorlarında uzun vadeli organik görünürlüğü destekler.</p>
+            <a href="/seo-danismanligi.html">İncele →</a>
+          </div>
+          <div class="related-card">
+            <h3>Sosyal Medya Yönetimi</h3>
+            <p>Sosyal medya, Google reklamıyla gelen kullanıcının markayı sosyal mecralarda araştırdığı noktada gerekli kalite, güven ve görünürlüğü sağlar.</p>
+            <a href="/sosyal-medya-yonetimi.html">İncele →</a>
+          </div>
+          <div class="related-card">
+            <h3>Blog İçerikleri</h3>
+            <p>Düzenli blog içerikleri, kullanıcıların teknik sorularını yakalayarak hizmet sayfalarına ve geniş reklam stratejisine organik destek olabilir.</p>
+            <a href="/blog.html">İncele →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="work-footer" style="margin-top: 0;">
       <div class="work-footer-inner">
         <a href="/" class="work-footer-logo">Veridia</a>
         <p class="work-footer-copy">Küçük işletmeler için web, SEO, reklam ve sosyal medya odağında büyüme ajansı.</p>
