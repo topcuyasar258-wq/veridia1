@@ -176,9 +176,7 @@
         { value: "social", label: "SEO Danışmanlığı", detail: "Teknik ve içerik SEO odaklı görünürlük planı." },
         { value: "performance", label: "Google Ads Yönetimi", detail: "Lead ve satış odaklı reklam yönetimi." },
         { value: "content", label: "Sosyal Medya Yönetimi", detail: "İçerik planı ve topluluk yönetimi." },
-        { value: "pr", label: "Kurumsal Kimlik", detail: "Logo, renk sistemi ve marka görünümü." },
-        { value: "influencer", label: "E-Ticaret Sitesi", detail: "Ürün, sepet ve satış akışı kurulumu." }
-      ]
+        ]
     },
     {
       key: "sector",
@@ -255,8 +253,6 @@
       social: "SEO Danışmanlığı",
       performance: "Google Ads Yönetimi",
       content: "Sosyal Medya Yönetimi",
-      pr: "Kurumsal Kimlik",
-      influencer: "E-Ticaret Sitesi"
-    });
+      });
   }
 })(window);
