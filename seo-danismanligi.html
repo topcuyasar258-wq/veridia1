@@ -23,6 +23,26 @@
     .faq-item { border-bottom: 1px solid var(--line-soft); padding: 1rem 0; }
     .faq-item h3 { font-size: 1.1rem; color: var(--off-white); margin-bottom: 0.5rem; }
     .faq-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+    
+    .service-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; padding: 2rem 0; }
+    @media (max-width: 900px) { .service-hero-grid { grid-template-columns: 1fr; gap: 2rem; padding: 1rem 0; } }
+    .hero-label { display: inline-block; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-size: 0.75rem; margin-bottom: 1rem; border: 1px solid rgba(201, 168, 76, 0.3); padding: 0.3rem 0.8rem; border-radius: 20px; }
+    .hero-buttons { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+    .hero-buttons .btn-gold, .hero-buttons .btn-outline { text-align: center; justify-content: center; }
+    @media (max-width: 600px) { .hero-buttons .btn-gold, .hero-buttons .btn-outline { width: 100%; } }
+    .hero-trust-line { margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .hero-card { background: rgba(255,255,255,0.03); border: 1px solid var(--line-soft); border-radius: 12px; padding: 2rem; }
+    .hero-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 1.2rem; }
+    .hero-card ul { list-style: none; padding: 0; margin: 0 0 1.5rem 0; }
+    .hero-card li { color: var(--off-white); padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
+    .hero-card li::before { content: "•"; color: var(--gold); font-size: 1.2rem; }
+    .hero-card li:last-child { border-bottom: none; }
+    .hero-card .card-note { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; padding-top: 1rem; border-top: 1px dashed rgba(255,255,255,0.1); }
+    
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+    .benefit-card { background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2)); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; }
+    .benefit-card h4 { color: var(--off-white); font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .benefit-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
   </style>
 </head>
 <body data-custom-cursor="true">
@@ -48,12 +68,56 @@
 
   <main id="main-content" class="work-shell">
 
-      <section class="work-hero reveal visible">
-        <div class="work-hero-grid">
+      <section class="work-hero reveal visible" style="padding-bottom: 2rem; min-height: auto;">
+        <div class="service-hero-grid">
           <div class="work-hero-content">
-            <h1 class="work-title" style="font-size: max(2.5rem, min(8vw, 3.8rem)); margin-bottom: 1.5rem; line-height: 1.1;">Küçük İşletmeler İçin SEO Danışmanlığı</h1>
-            <p class="work-intro">Google’da görünür olmak isteyen işletmeler için SEO, sadece birkaç anahtar kelime eklemekten ibaret değildir. Teknik altyapı, doğru sayfa yapısı, içerik planı, yerel SEO ve düzenli iyileştirme birlikte çalışmalıdır.</p>
+            <span class="hero-label">Hizmet</span>
+            <h1 class="work-title" style="font-size: max(2.5rem, min(7vw, 3.5rem)); margin-bottom: 1.2rem; line-height: 1.1;">Küçük İşletmeler İçin SEO Danışmanlığı</h1>
+            <p class="work-intro" style="font-size: 1.05rem;">Google’da görünür olmak isteyen işletmeler için SEO, sadece birkaç anahtar kelime eklemekten ibaret değildir. Teknik altyapı, doğru sayfa yapısı, içerik planı, yerel SEO ve düzenli iyileştirme birlikte çalışmalıdır.</p>
+            
+            <div class="hero-buttons">
+              <a href="/#quote" class="btn-gold">Ücretsiz Mini Analiz İste</a>
+              <a href="/#contact" class="btn-outline" data-whatsapp-message="Merhaba, Küçük İşletmeler İçin SEO Danışmanlığı hizmeti hakkında bilgi almak istiyorum.">WhatsApp’tan Yaz</a>
+            </div>
+            
+            <div class="hero-trust-line">
+              <span>Dönüşüm odaklı yapı</span> &middot; <span>SEO uyumlu kurulum</span> &middot; <span>Ölçülebilir süreç</span>
+            </div>
           </div>
+          
+          <div class="hero-card-container">
+            <div class="hero-card">
+              <h3>Bu hizmette neler var?</h3>
+              <ul>
+                <li>Teknik SEO ön kontrolü</li>
+                <li>Hizmet sayfası optimizasyonu</li>
+                <li>Blog ve içerik planı</li>
+                <li>İç linkleme önerileri</li>
+              </ul>
+              <div class="card-note">Amaç sadece trafik değil, doğru arama yapan kullanıcıyı doğru sayfaya taşımaktır.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <div class="benefits-grid">
+
+          <div class="benefit-card">
+            <h4>Daha görünür yapı</h4>
+            <p>Sayfalarınız Google’ın daha iyi anlayacağı şekilde düzenlenir.</p>
+          </div>
+
+          <div class="benefit-card">
+            <h4>Doğru içerik planı</h4>
+            <p>Küçük işletmelerin arama niyetine uygun blog ve hizmet içerikleri planlanır.</p>
+          </div>
+
+          <div class="benefit-card">
+            <h4>Sürdürülebilir büyüme</h4>
+            <p>SEO reklam gibi anlık değil, düzenli iyileştirmeyle kalıcı trafik hedefler.</p>
+          </div>
+
         </div>
       </section>
 
@@ -164,10 +228,10 @@
 
       <section class="final-cta reveal" style="padding-top: 0;">
         <div class="final-cta-card">
-          <h2 class="work-title">Sonraki Adım</h2>
-          <p>Web siteniz, SEO’nuz veya reklam yapınızın nerede müşteri kaybettiğini görmek ister misiniz? Ücretsiz mini analiz isteyin.</p>
+          <h2 class="work-title" style="font-size: 2.2rem; margin-bottom: 1rem;">Bu hizmetin işletmeniz için uygun olup olmadığını birlikte kontrol edelim</h2>
+          <p>Web siteniz, SEO’nuz, reklamlarınız veya sosyal medya yapınızın nerede müşteri kaybettiğini görmek için kısa bir mini analiz talep edebilirsiniz.</p>
           <div class="final-cta-actions">
-            <a href="/#contact" class="btn-gold">Ücretsiz Mini Analiz İste</a>
+            <a href="/#quote" class="btn-gold">Ücretsiz Mini Analiz İste</a>
             <a href="/#contact" class="btn-outline" data-whatsapp-message="Merhaba, hizmetleriniz hakkında bilgi almak ve mini analiz talep etmek istiyorum.">WhatsApp’tan Yaz</a>
           </div>
         </div>
