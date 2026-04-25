@@ -462,7 +462,24 @@
 <script defer src="./assets/style-loader.js?v=5"></script>
 <script defer src="./assets/page-shell.js?v=4"></script>
 <script defer src="./assets/home-loader.js?v=5"></script>
+
+<style>
+  html { scroll-padding-top: 80px; }
+  /* Compact services section */
+  .services-shell { display: block; }
+  .services-intro { position: static; max-width: 800px; margin: 0 auto 3rem; text-align: center; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  .service-card { min-height: auto; padding: 1.5rem; }
+  .service-desc { font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; }
+  .service-name { font-size: 1.5rem; margin-top: 0.5rem; }
+  .service-wave { display: none; } /* Remove heavy visuals from cards */
+  /* Reduce padding of sections globally */
+  section { padding: 5rem 1.25rem !important; }
+  #hero { padding-top: 8rem !important; padding-bottom: 5rem !important; }
+  .section-title { font-size: clamp(2rem, 5vw, 3.2rem) !important; line-height: 1.1; }
+</style>
 </head>
+
 <body>
 
 <div class="scroll-bar" id="scrollBar"></div>
@@ -631,8 +648,8 @@
   <div class="services-shell">
     <div class="services-intro">
       <p class="section-label reveal">Hizmetlerimiz</p>
-      <h2 class="section-title reveal">İşletmeniz İçin Net<br>Web, SEO ve Reklam Hizmetleri</h2>
-      <p class="services-lead reveal">Web sitesi, SEO danışmanlığı, Google Ads yönetimi ve sosyal medya yönetimi hizmetlerini arama niyetine ve dönüşüm hedefinize göre kurguluyoruz. Böylece ziyaretçi yalnızca sizi görmez; doğru hizmeti anlar ve harekete geçer.</p>
+      <h2 class="section-title reveal" style="font-size: clamp(2rem, 5vw, 3rem);">Web, SEO ve Reklam Hizmetleri</h2>
+      <p class="services-lead reveal" style="font-size: 1.1rem;">İşletmeniz için web sitesi, SEO, Google Ads ve sosyal medya çalışmalarını aynı müşteri adayı hedefinde topluyoruz.</p>
 
       
     </div>
@@ -651,7 +668,7 @@
         </div>
         <div class="service-kicker">Dönüşüm Odaklı Yüzey</div>
         <h3 class="service-name">Web Tasarım</h3>
-        <p class="service-desc">Sadece güzel görünen değil, kullanıcıyı iletişime ve teklif talebine yönlendiren web siteleri tasarlıyoruz. Mobil uyum, hız, mesaj netliği ve dönüşüm yapısını birlikte ele alıyoruz.</p>
+        <p class="service-desc">Müşteri adayı üretmeye odaklanan hızlı, mobil uyumlu ve SEO altyapılı web siteleri.</p>
         <div class="service-tags">
           <span class="tag">Kurumsal Site</span>
           <span class="tag">Landing Page</span>
@@ -673,7 +690,7 @@
         </div>
         <div class="service-kicker">Google Görünürlüğü</div>
         <h3 class="service-name">SEO Danışmanlığı</h3>
-        <p class="service-desc">Google’da daha görünür olmak isteyen küçük ve orta ölçekli işletmeler için teknik SEO, içerik yapısı ve yerel SEO çalışmalarını anlaşılır bir planla yönetiyoruz.</p>
+        <p class="service-desc">Google’da görünür olmak isteyen işletmeler için teknik SEO, içerik ve yerel SEO çalışmaları.</p>
         <div class="service-tags">
           <span class="tag">Teknik SEO</span>
           <span class="tag">İç SEO</span>
@@ -734,10 +751,10 @@
     <div class="services-detail-intro reveal">
       <div>
         <p class="section-label">Hizmetlerimiz</p>
-        <h3 class="services-detail-title">Web, SEO, reklam ve sosyal medyayı aynı hedefte topluyoruz.</h3>
+        <h3 class="services-detail-title" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">Web, SEO ve reklamı aynı hedefte topluyoruz</h3>
       </div>
       <div>
-        <p class="services-detail-copy">Hizmetlerimiz tek tek yürüyen işler değil; web tasarım, SEO, Google Ads ve sosyal medya yönetimi taraflarını aynı büyüme planına bağlayan modüller. Özellikle küçük işletmeler için bunu şeffaf tutuyoruz: hangi hizmetin ne çözdüğü, ilk teslimin ne olduğu ve hangi noktada form, telefon veya WhatsApp dönüşümünü güçlendirdiği daha görüşme aşamasında netleşir.</p>
+        <p class="services-detail-copy">Hizmetlerimizi tek tek yürüyen işler olarak değil, web sitesi, SEO, reklam ve sosyal medya tarafını aynı müşteri adayı hedefinde birleştiren modüller olarak planlıyoruz.</p>
         
       </div>
     </div>
@@ -745,123 +762,11 @@
     
 
 <!-- ══ AI TEKLIF ══ -->
-<section id="quote">
-  <div class="quote-layout">
-    <div class="quote-intro reveal">
-      <p class="section-label">Hızlı Teklif</p>
-      <h2 class="section-title">İhtiyacı Netleştir,<br>Teklifini Gör</h2>
-      <p>Bu alan bir satış oyunu değil; markanız için uygun hizmet kapsamını, tahmini başlangıç bedelini ve ilk görüşmede konuşacağımız başlıkları hızlıca netleştirmek için tasarlandı.</p>
-      <ul class="quote-points">
-        <li>Hizmet bedeli ile reklam bütçesini ayrı değerlendirir, kapsamı daha şeffaf hale getirir.</li>
-        <li>Uzun görüşme öncesi ihtiyaçları, öncelikleri ve başlangıç hızını netleştirir.</li>
-        <li>İlk temas için kısa, düzenli ve karar vermeyi kolaylaştıran bir özet hazırlar.</li>
-      </ul>
-      <div class="quote-kpis">
-        <div class="quote-kpi"><strong>15 DK</strong><span>İlk Görüşme Mantığı</span></div>
-        <div class="quote-kpi"><strong>6</strong><span>Ana Hizmet Modülü</span></div>
-        <div class="quote-kpi"><strong>1</strong><span>Temiz Ön Brief</span></div>
-      </div>
-      <div class="quote-preview" aria-hidden="true" style="margin-top:1rem;position:relative;overflow:hidden;padding:1rem;border:1px solid rgba(93,159,131,0.18);background:radial-gradient(circle at top right, rgba(94,177,255,0.12), transparent 34%),radial-gradient(circle at bottom left, rgba(26,92,58,0.14), transparent 34%),linear-gradient(180deg, rgba(10,18,16,0.82), rgba(8,14,13,0.92));">
-        <div class="quote-preview-head" style="display:flex;align-items:flex-start;justify-content:space-between;gap:0.8rem;margin-bottom:0.8rem;position:relative;z-index:1;">
-          <div>
-            <div class="quote-preview-kicker" style="font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);">İlk Görüşme Çıktısı</div>
-            <div class="quote-preview-title" style="margin-top:0.2rem;font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:0.05em;color:var(--off-white);">Ön Brief Panosu</div>
-          </div>
-          <div class="quote-preview-status" style="padding:0.28rem 0.5rem;border:1px solid rgba(93,159,131,0.24);font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;color:#7cf7b4;white-space:nowrap;background:rgba(7,13,12,0.4);">Hazır</div>
-        </div>
-        <div class="quote-preview-panel" style="position:relative;z-index:1;padding:0.95rem;border:1px solid rgba(93,159,131,0.14);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.16));">
-          <p class="quote-preview-lead" style="max-width:34ch;font-family:'Cormorant Garamond',serif;font-size:1.04rem;line-height:1.45;color:var(--off-white);">İlk görüşmeden sonra elinizde neyin şimdi başlayacağı, neyin sonraya kalacağı ve ilk ayın hangi ritimde kurulacağı net görünür.</p>
-          <div class="quote-preview-list" style="display:grid;gap:0.6rem;margin-top:0.95rem;">
-            <article class="quote-preview-item" style="display:grid;grid-template-columns:auto 1fr;gap:0.75rem;align-items:start;padding-top:0;border-top:none;">
-              <span class="quote-preview-index" style="display:inline-flex;align-items:center;justify-content:center;width:2.1rem;height:2.1rem;border:1px solid rgba(93,159,131,0.2);background:rgba(10,17,15,0.82);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);">01</span>
-              <div class="quote-preview-copy">
-                <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;line-height:1;color:var(--off-white);">Hizmet Odağı</h3>
-                <p style="margin-top:0.25rem;font-size:0.74rem;line-height:1.5;color:var(--text-muted);">Öncelikli modül ve başlangıç kapsamı dağılmadan belirlenir.</p>
-              </div>
-            </article>
-            <article class="quote-preview-item" style="display:grid;grid-template-columns:auto 1fr;gap:0.75rem;align-items:start;padding-top:0.65rem;border-top:1px solid rgba(93,159,131,0.12);">
-              <span class="quote-preview-index" style="display:inline-flex;align-items:center;justify-content:center;width:2.1rem;height:2.1rem;border:1px solid rgba(93,159,131,0.2);background:rgba(10,17,15,0.82);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);">02</span>
-              <div class="quote-preview-copy">
-                <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;line-height:1;color:var(--off-white);">Bütçe Mantığı</h3>
-                <p style="margin-top:0.25rem;font-size:0.74rem;line-height:1.5;color:var(--text-muted);">Hizmet bedeli ile reklam bütçesi ilk satırda ayrışır.</p>
-              </div>
-            </article>
-            <article class="quote-preview-item" style="display:grid;grid-template-columns:auto 1fr;gap:0.75rem;align-items:start;padding-top:0.65rem;border-top:1px solid rgba(93,159,131,0.12);">
-              <span class="quote-preview-index" style="display:inline-flex;align-items:center;justify-content:center;width:2.1rem;height:2.1rem;border:1px solid rgba(93,159,131,0.2);background:rgba(10,17,15,0.82);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);">03</span>
-              <div class="quote-preview-copy">
-                <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;line-height:1;color:var(--off-white);">İlk Sprint</h3>
-                <p style="margin-top:0.25rem;font-size:0.74rem;line-height:1.5;color:var(--text-muted);">Görüşme omurgası, teslim ritmi ve sonraki adım tek akışta toplanır.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-        <div class="quote-preview-rail" style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:0.55rem;border:1px solid rgba(93,159,131,0.14);background:rgba(93,159,131,0.14);">
-          <span style="padding:0.55rem 0.65rem;background:rgba(9,17,15,0.72);font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-light);text-align:center;">Kapsam</span>
-          <span style="padding:0.55rem 0.65rem;background:rgba(9,17,15,0.72);font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-light);text-align:center;">Zaman</span>
-          <span style="padding:0.55rem 0.65rem;background:rgba(9,17,15,0.72);font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-light);text-align:center;">Çıktı</span>
-        </div>
-        <div class="quote-preview-word" style="position:absolute;right:0.75rem;bottom:0.3rem;font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,9vw,6.8rem);line-height:0.84;color:rgba(93,159,131,0.08);pointer-events:none;user-select:none;">BRIEF</div>
-      </div>
-    </div>
-
-    <div class="quote-console reveal" aria-live="polite">
-      <div class="quote-console-head">
-        <div>
-          <div class="quote-console-sub">Veridia Ön Brief</div>
-          <div class="quote-console-title">Hızlı Teklif Konsolu</div>
-        </div>
-        <div class="quote-status">Durum: <strong>Açık</strong></div>
-      </div>
-
-      <div class="quote-chat" id="quoteChat">
-        <div class="chat-bubble bot">Hoş geldiniz. Birkaç kısa seçimle ihtiyaçlarınızı netleştirip size uygun başlangıç kapsamını ve tahmini hizmet bedelini çıkaracağım.</div>
-      </div>
-
-      <div class="quote-body">
-        <div class="quote-progress" id="quoteProgress"></div>
-        <div class="quote-step-tag" id="quoteStepTag">Adım 1 / 6</div>
-        <h3 class="quote-question" id="quoteQuestion">Hangi hizmet için teklif oluşturuyoruz?</h3>
-        <p class="quote-helper" id="quoteHelper">En yakın ihtiyacınızı seçin; sistem kalan detayları buna göre adapte eder.</p>
-        <div class="quote-options" id="quoteOptions"></div>
-        <p class="quote-validation-error" id="quoteValidationError" role="alert" aria-live="polite"></p>
-        <div class="quote-step-actions" id="quoteStepActions"></div>
-
-        <div class="quote-summary" id="quoteSummaryCard">
-          <div class="quote-summary-main">
-            <div class="quote-package-label">Önerilen Paket</div>
-            <div class="quote-package-name" id="quotePackageName">Büyüme Başlangıç</div>
-            <div class="quote-price" id="quotePrice" style="font-size: 1rem; font-family: 'Inter', sans-serif;">Kapsam seçildikten sonra tahmini başlangıç aralığı gösterilir.</div>
-            <div class="quote-range" id="quoteRange"></div>
-            <ul class="quote-breakdown" id="quoteBreakdown"></ul>
-          </div>
-          <div class="quote-summary-side">
-            <div class="quote-side-card">
-              <div class="quote-side-label">Neden Bu Fiyat?</div>
-              <div class="quote-side-text" id="quoteReadiness">Kapsam bilgilerine göre satış görüşmesine hazır bir ön brief oluştu.</div>
-            </div>
-            <div class="quote-side-card">
-              <div class="quote-side-label">Seçilen Kapsam</div>
-              <ul class="quote-side-list" id="quoteDeliverables"></ul>
-            </div>
-            <div class="quote-side-card">
-              <div class="quote-side-label">Hesap Özeti</div>
-              <div class="quote-side-text" id="quoteAiNote"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="quote-approval" id="quoteApprovalBox">
-          <p class="quote-helper">Kapsam uygunsa özeti doğrudan WhatsApp'ta açabilirsiniz. Nihai kapsam ve kreatif adetleri ilk görüşmede birlikte netleştirilir.</p>
-          <div class="quote-actions">
-            <button type="button" class="btn-gold" id="quoteApproveBtn" data-quote-approve>Görüşme Özetini WhatsApp'ta Aç</button>
-            <button type="button" class="btn-outline" data-quote-restart>Baştan Hesapla</button>
-          </div>
-          <div class="quote-ref" id="quoteReference"></div>
-        </div>
-
-        <p class="quote-inline-note">Not: Bu yapı otomatik ön teklif üretir. Nihai kapsam, kreatif adetleri ve medya bütçesi başlangıç görüşmesinde netleşir.</p>
-      </div>
-    </div>
+<section id="quote" style="padding: 5rem 1.25rem;">
+  <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <h2 class="section-title reveal" style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem;">İhtiyacınızı 1 dakikada netleştirin</h2>
+    <p class="reveal" style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem;">Web sitesi, SEO, Google Ads veya sosyal medya ihtiyacınızı seçerek ilk görüşmede konuşacağımız kapsamı hızlıca belirleyin.</p>
+    <a href="/hizli-teklif.html" class="btn-gold reveal" style="display: inline-block;">Hızlı Teklif Formunu Aç</a>
   </div>
 </section>
 
@@ -909,7 +814,7 @@
 <section id="sectors" style="padding: 5rem 5%;">
   <div class="reveal" style="max-width: 800px; margin: 0 auto; text-align: center;">
     <p class="section-label" style="margin-bottom: 0.5rem;">Sektörler</p>
-    <h2 class="section-title" style="margin-bottom: 2rem;">Hangi İşletmeler İçin Daha Güçlü Sonuç Üretiyoruz?</h2>
+    <h2 class="section-title reveal" style="margin-bottom: 2rem;">Hangi işletmelerle çalışıyoruz?</h2>
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: left;">
       <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
