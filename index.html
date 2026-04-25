@@ -450,12 +450,12 @@
   ]
 }
 </script>
-<link rel="preload" href="./assets/index-critical.css" as="style">
+<link rel="preload" href="./assets/index-critical.css?v=2" as="style">
 <!-- SEO: Homepage critical CSS moved out of the document to reduce inline render-blocking -->
-<link rel="stylesheet" href="./assets/index-critical.css">
-<!-- SEO: Shared homepage CSS is deferred because above-the-fold rules live in index-critical.css -->
-<link data-deferred-style data-href="./assets/shared.css?v=7" data-style-media="all">
-<noscript><link rel="stylesheet" href="./assets/shared.css?v=7"></noscript>
+<link rel="stylesheet" href="./assets/index-critical.css?v=2">
+<!-- SEO: Shared homepage CSS is deferred because above-the-fold rules live in index-critical.css?v=2 -->
+<link data-deferred-style data-href="./assets/shared.css?v=8" data-style-media="all">
+<noscript><link rel="stylesheet" href="./assets/shared.css?v=8"></noscript>
 <link data-deferred-style data-href="./assets/home-contact.css?v=1" data-style-media="all">
 <noscript><link rel="stylesheet" href="./assets/home-contact.css?v=1"></noscript>
 <script defer src="./assets/config.js?v=4"></script>
@@ -463,21 +463,6 @@
 <script defer src="./assets/page-shell.js?v=4"></script>
 <script defer src="./assets/home-loader.js?v=5"></script>
 
-<style>
-  html { scroll-padding-top: 80px; }
-  /* Compact services section */
-  .services-shell { display: block; }
-  .services-intro { position: static; max-width: 800px; margin: 0 auto 3rem; text-align: center; }
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-  .service-card { min-height: auto; padding: 1.5rem; }
-  .service-desc { font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; }
-  .service-name { font-size: 1.5rem; margin-top: 0.5rem; }
-  .service-wave { display: none; } /* Remove heavy visuals from cards */
-  /* Reduce padding of sections globally */
-  section { padding: 5rem 1.25rem !important; }
-  #hero { padding-top: 8rem !important; padding-bottom: 5rem !important; }
-  .section-title { font-size: clamp(2rem, 5vw, 3.2rem) !important; line-height: 1.1; }
-</style>
 </head>
 
 <body>
