@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veridia Hakkında | Küçük İşletmeler İçin Dijital Pazarlama Ajansı</title>
-  <meta name="description" content="Veridia, İstanbul merkezli butik dijital pazarlama ajansı olarak küçük işletmelere web tasarımı, SEO, Google Ads ve sosyal medya yönetimi alanlarında dönüşüm odaklı çözümler sunar.">
+  <meta name="description" content="Veridia; web tasarımı, SEO danışmanlığı, Google Ads yönetimi ve sosyal medya yönetimiyle küçük işletmelerin dijitalde daha görünür ve dönüşüm odaklı olmasına yardımcı olur.">
   <link rel="canonical" href="https://veridiareklam.com.tr/hakkimizda.html" />
   <meta name="theme-color" content="#0a0a0f">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
@@ -20,7 +20,10 @@
     .service-content-section { padding: 5rem 1.25rem; }
     .content-container { max-width: 800px; margin: 0 auto; }
     .content-container h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--off-white); margin-bottom: 1.5rem; margin-top: 4rem; line-height: 1.2; }
+    .content-container h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--gold-light); margin-bottom: 1rem; margin-top: 2rem; }
     .content-container p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .content-container p a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201, 168, 76, 0.4); text-underline-offset: 4px; transition: color 0.3s; }
+    .content-container p a:hover { color: var(--gold-light); text-decoration-color: var(--gold-light); }
     
     .cta-box { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.2)); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 3rem 2.5rem; text-align: center; margin: 4rem 0; box-shadow: 0 14px 34px rgba(0,0,0,0.2); }
     .cta-box h3 { font-family: 'DM Sans', sans-serif; font-size: 1.6rem; margin-top: 0; margin-bottom: 1rem; color: var(--off-white); }
@@ -31,6 +34,25 @@
     .feature-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; }
     .feature-card h3 { font-family: 'Cormorant Garamond', serif; margin-top: 0; margin-bottom: 0.8rem; font-size: 1.5rem; color: var(--off-white); }
     .feature-card p { margin-bottom: 0; font-size: 0.95rem; color: var(--text-muted); }
+
+    .step-grid { display: grid; gap: 2rem; margin: 3rem 0; }
+    .step-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 2.5rem; border-radius: 12px; position: relative; overflow: hidden; }
+    .step-number { font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: rgba(201, 168, 76, 0.08); position: absolute; top: -10px; right: 20px; line-height: 1; user-select: none; }
+    .step-card h3 { font-family: 'Cormorant Garamond', serif; margin-top: 0; margin-bottom: 1rem; font-size: 1.6rem; color: var(--gold-light); position: relative; z-index: 1; }
+    .step-card p { margin-bottom: 0; font-size: 1.05rem; color: var(--text-muted); position: relative; z-index: 1; }
+
+    @media (min-width: 768px) {
+      .step-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Small Services Grid */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .services-card { border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; transition: background 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
+    .services-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+    .services-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--off-white); margin-top: 0; margin-bottom: 0.5rem; }
+    .services-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
+    .services-card a { color: var(--gold); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; text-decoration: none !important; font-weight: bold; }
+    .services-card a:hover { color: var(--gold-light); }
   </style>
 </head>
 <body data-custom-cursor="true">
@@ -60,53 +82,203 @@
       <div class="work-hero-inner" style="max-width: 900px; margin: 0 auto; text-align: center;">
         <span class="work-tag" style="margin-bottom: 1rem; display: inline-block;">HAKKIMIZDA</span>
         <h1 class="work-title" style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem; line-height: 1.1;">Veridia Hakkında</h1>
+        <p class="work-lead" style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 1.5rem;">Veridia, küçük ve orta ölçekli işletmelerin dijitalde daha görünür, daha güvenilir ve daha dönüşüm odaklı hale gelmesi için çalışan İstanbul merkezli butik bir dijital pazarlama ajansıdır.</p>
+        <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 1.5rem;"><a href="/web-tasarim.html">Web tasarımı</a>, <a href="/seo-danismanligi.html">SEO danışmanlığı</a>, <a href="/google-ads-yonetimi.html">Google Ads yönetimi</a> ve <a href="/sosyal-medya-yonetimi.html">sosyal medya yönetimi</a> alanlarında işletmelerin yalnızca internette var olmasını değil, doğru müşteriler tarafından fark edilmesini hedefler.</p>
       </div>
     </section>
 
     <section class="service-content-section" style="padding-top: 0;">
       <div class="content-container">
         
-        <p>Veridia, <a href="/" style="color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201, 168, 76, 0.4); text-underline-offset: 4px;">küçük işletmeler için dijital pazarlama</a> süreçlerinde markaların daha görünür, güvenilir ve dönüşüm odaklı hale gelmesi için çalışan İstanbul merkezli butik bir dijital pazarlama ajansıdır.</p>
+        <p>Bugün birçok işletmenin bir web sitesi, sosyal medya hesabı veya reklam bütçesi var. Ancak bu kanallar her zaman müşteri getiren bir sisteme dönüşmüyor. Web sitesi güzel görünebilir ama kullanıcıyı teklif almaya yönlendirmeyebilir. Reklamlar yayında olabilir ama doğru hedef kitleye ulaşmayabilir. Sosyal medya aktif olabilir ama markaya güven kazandırmayabilir. SEO çalışmaları yapılmış olabilir ama site Google’da yeterince görünür olmayabilir.</p>
         
-        <p>Bir işletmenin dijitalde başarılı olması için yalnızca güzel görünen bir web sitesine sahip olması yeterli değildir. Web sitesi, SEO yapısı, reklam kampanyaları, sosyal medya dili ve dönüşüm noktaları aynı hedefe hizmet etmelidir. Veridia bu yüzden her projeyi tek bir görsel çalışma olarak değil, işletmenin müşteri kazanma sisteminin bir parçası olarak ele alır.</p>
-        
-        <p>Amacımız büyük vaatlerle ilerlemek değil; mevcut durumu doğru okumak, işletmenin gerçekten neye ihtiyacı olduğunu netleştirmek ve uygulanabilir bir dijital yol haritası çıkarmaktır. Küçük işletmeler için en değerli şeyin doğru önceliklendirme olduğunu biliyoruz. Bu nedenle her hizmeti ayrı ayrı satmaya değil, işletmeye en çok katkı sağlayacak adımları belirlemeye odaklanırız.</p>
-        
+        <p>Veridia bu noktada devreye girer. Biz <a href="/#services">dijital pazarlamayı</a> birbirinden kopuk hizmetler olarak değil, işletmenin müşteri kazanma sürecini destekleyen bütüncül bir yapı olarak ele alırız. Bir işletmenin dijitalde başarılı olması için tasarım, içerik, reklam, SEO, sosyal medya dili ve dönüşüm noktalarının aynı hedefe hizmet etmesi gerekir.</p>
+
+        <!-- NEDEN VERİDİA? -->
         <h2>Neden Veridia?</h2>
+        
+        <p>Veridia’nın temel yaklaşımı, her işletmeye aynı hizmet paketini sunmak yerine önce mevcut durumu anlamaya dayanır. Çünkü her işletmenin ihtiyacı aynı değildir.</p>
+        <p>Bazı işletmelerin önceliği web sitesini yenilemek olabilir. Bazıları için Google’da görünürlük kazanmak daha önemlidir. Bazı işletmeler reklam bütçesini daha doğru kullanmak isterken, bazıları sosyal medyada daha profesyonel ve güven veren bir marka algısı oluşturmak isteyebilir.</p>
+        <p>Bu yüzden Veridia’da süreç doğrudan hizmet satmakla başlamaz. Önce işletmenin mevcut dijital varlığı incelenir. Web sitesi varsa kullanıcı deneyimi, mobil uyumluluk, hız, içerik yapısı ve teklif alma noktaları değerlendirilir.</p>
+        <p>SEO tarafında sayfa yapısı, anahtar kelime kullanımı, teknik eksikler ve yerel görünürlük fırsatları analiz edilir. Reklam tarafında bütçenin ne kadar verimli kullanılabileceği, sosyal medya tarafında ise markanın hedef kitleye nasıl göründüğü ele alınır.</p>
+        <p>Amacımız büyük vaatlerle ilerlemek değil, işletmenin gerçekten neye ihtiyacı olduğunu netleştirmektir. Küçük işletmeler için en değerli şeylerden biri doğru önceliklendirmedir. Çünkü sınırlı bütçeyi yanlış alana harcamak, dijital pazarlama sürecini hem yorucu hem de verimsiz hale getirebilir.</p>
         
         <div class="feature-grid">
           <div class="feature-card">
             <h3>Küçük İşletme Odaklı Yaklaşım</h3>
-            <p>KOBİ’lerin ve yerel işletmelerin bütçe, zaman ve görünürlük ihtiyaçlarını dikkate alarak çalışırız.</p>
+            <p>Küçük işletmelerde dijital pazarlama bütçesinin doğru kullanılması gerekir. Bu nedenle Veridia, her projede önce işletmenin mevcut durumunu ve en öncelikli ihtiyacını anlamaya çalışır. Bir işletme için ilk adım <a href="/web-tasarim.html">web sitesinin yenilenmesi</a> olabilirken, başka bir işletme için <a href="/seo-danismanligi.html">SEO altyapısının güçlendirilmesi</a> veya <a href="/google-ads-yonetimi.html">Google Ads kampanyaları</a> daha doğru olabilir.</p>
           </div>
           <div class="feature-card">
             <h3>Web, SEO ve Reklamı Birlikte Düşünürüz</h3>
-            <p><a href="/web-tasarim.html" style="color: var(--gold); text-decoration: none;">Web tasarımı</a>, <a href="/seo-danismanligi.html" style="color: var(--gold); text-decoration: none;">SEO danışmanlığı</a>, <a href="/google-ads-yonetimi.html" style="color: var(--gold); text-decoration: none;">Google Ads yönetimi</a> ve <a href="/sosyal-medya-yonetimi.html" style="color: var(--gold); text-decoration: none;">sosyal medya yönetimi</a> süreçlerini birbirinden kopuk hizmetler olarak değil, aynı hedefe çalışan parçalar olarak planlarız.</p>
+            <p>Veridia’da <a href="/web-tasarim.html">web tasarımı</a>, <a href="/seo-danismanligi.html">SEO danışmanlığı</a>, <a href="/google-ads-yonetimi.html">Google Ads yönetimi</a> ve <a href="/sosyal-medya-yonetimi.html">sosyal medya yönetimi</a> birbirinden kopuk hizmetler olarak ele alınmaz. Çünkü kullanıcının dijitalde markayla karşılaştığı her temas noktası aynı hedefe hizmet etmelidir.</p>
           </div>
           <div class="feature-card">
             <h3>Net Kapsam ve Şeffaf Teklif</h3>
-            <p>İşe başlamadan önce ne yapılacağını, hangi hizmetlerin dahil olduğunu ve sürecin nasıl ilerleyeceğini açık şekilde belirtiriz.</p>
+            <p>Sürecin başında hangi çalışmaların yapılacağı, nelerin dahil olduğu ve projenin nasıl ilerleyeceği açıkça belirtilir. Karmaşık paketler yerine net bir <a href="/calisma-surecimiz.html">çalışma sürecimiz</a> ile ilerleriz.</p>
           </div>
           <div class="feature-card">
-            <h3>Doğrudan İletişim</h3>
-            <p>Kalabalık ve karmaşık ajans süreçleri yerine daha hızlı, daha sade ve daha anlaşılır bir iletişim kurarız.</p>
+            <h3>Doğrudan ve Anlaşılır İletişim</h3>
+            <p>Küçük işletmeler için hızlı ve anlaşılır iletişim önemlidir. Veridia, kalabalık ve karmaşık ajans süreçleri yerine daha sade, doğrudan ve takip edilebilir bir iletişim yapısı kurmayı hedefler.</p>
           </div>
         </div>
 
+        <!-- KİMLERLE ÇALIŞIRIZ? -->
         <h2>Veridia Kimlerle Çalışır?</h2>
         
         <p>Veridia; dijitalde daha profesyonel görünmek, Google’da daha görünür olmak, web sitesinden daha fazla teklif almak veya reklam bütçesini daha doğru kullanmak isteyen küçük ve orta ölçekli işletmelerle çalışır.</p>
+        <p>Özellikle hizmet sektöründe faaliyet gösteren işletmeler, yerel işletmeler, yeni kurulan markalar ve mevcut dijital varlığını daha güçlü hale getirmek isteyen firmalar için web tasarımı, SEO danışmanlığı, Google Ads yönetimi ve sosyal medya yönetimi alanlarında çözüm üretir.</p>
+
+        <h3>Web Sitesi Var Ama Teklif Alamayan İşletmeler</h3>
+        <p>Bir web sitesinin yayında olması tek başına yeterli değildir. Kullanıcı siteye girdiğinde ne yaptığınızı, kime hizmet verdiğinizi ve neden sizinle iletişime geçmesi gerektiğini hızlıca anlayabilmelidir. Veridia, <a href="/blog/web-siteniz-neden-musteri-getirmiyor.html">web sitesi olan ama yeterli teklif alamayan işletmeler</a> için kullanıcı deneyimi, sayfa yapısı ve <a href="/web-tasarim.html">dönüşüm odaklı web tasarımı</a> noktalarını değerlendirir.</p>
+
+        <h3>Google’da Daha Görünür Olmak İsteyen İşletmeler</h3>
+        <p>Google’da görünür olmak, özellikle hizmet satan işletmeler için önemli bir müşteri kazanım kanalıdır. Ancak SEO yalnızca anahtar kelime kullanmaktan ibaret değildir. Sayfa yapısı, teknik altyapı, içerik kalitesi, yerel SEO, site hızı ve kullanıcı deneyimi birlikte ele alınmalıdır. Veridia, <a href="/seo-danismanligi.html">SEO danışmanlığı</a> sürecinde işletmenin Google’da daha doğru aramalarda görünür olmasını hedefler.</p>
+
+        <h3>Reklam Bütçesini Daha Kontrollü Kullanmak İsteyen İşletmeler</h3>
+        <p>Google Ads reklamları, doğru kurulduğunda kısa vadede görünürlük ve teklif alma sürecini hızlandırabilir. Ancak yanlış hedefleme veya zayıf reklam metinleri bütçenin boşa harcanmasına neden olabilir. Veridia, <a href="/google-ads-yonetimi.html">Google Ads yönetimi</a> sürecinde yalnızca reklam yayına almayı değil, bütçenin daha kontrollü ve ölçülebilir kullanılmasını önemser.</p>
+
+        <h3>Sosyal Medyada Daha Profesyonel Görünmek İsteyen Markalar</h3>
+        <p>Kullanıcı bir markayı Instagram’da, Google’da veya web sitesinde gördüğünde tutarlı ve güven veren bir görüntüyle karşılaşmalıdır. Veridia, <a href="/sosyal-medya-yonetimi.html">sosyal medya yönetimi</a> sürecinde yalnızca paylaşım yapmaya değil, markanın hedef kitleye nasıl göründüğünü güçlendirmeye odaklanır.</p>
+
+        <!-- NASIL ÇALIŞIRIZ? 4 ADIM -->
+        <h2>Veridia Nasıl Çalışır?</h2>
+        <p>Veridia’da çalışma süreci sade, anlaşılır ve işletmenin ihtiyacına göre şekillenir. Amaç, işletmeye doğrudan hazır bir paket sunmak değil, önce hangi dijital pazarlama adımının daha fazla katkı sağlayacağını belirlemektir.</p>
         
-        <p>Özellikle hizmet sektöründe faaliyet gösteren işletmeler, yerel işletmeler, yeni kurulan markalar ve mevcut dijital varlığını daha güçlü hale getirmek isteyen firmalar için web tasarımı, SEO danışmanlığı, Google Ads yönetimi ve sosyal medya yönetimi alanlarında çözüm üretiriz.</p>
-        
-        <div class="cta-box">
-          <h3>Dijital varlığınızı birlikte değerlendirelim.</h3>
-          <div class="btn-row">
-            <a href="/#contact" class="btn-gold">Hızlı Teklif Al →</a>
-            <a href="/calisma-surecimiz.html" class="btn-outline">Çalışma Sürecimiz</a>
+        <div class="step-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Mevcut Durum Analizi</h3>
+            <p>İlk aşamada işletmenin mevcut dijital varlığı incelenir. Web sitesi, SEO yapısı, sosyal medya hesapları, reklam ihtiyacı ve hedef kitlesi değerlendirilir. Hangi fırsatların öncelikli olduğu belirlenir.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Hedef ve İhtiyaç Netleştirme</h3>
+            <p>Bazı işletmeler daha fazla teklif almak isterken, bazıları Google görünürlüğünü artırmak isteyebilir. Bu aşamada işletmenin asıl hedefi netleştirilir ve gereksiz çalışmalar elenir.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Kapsam ve Teklif Oluşturma</h3>
+            <p>İhtiyaçlar netleştirildikten sonra hangi hizmetlerin gerekli olduğu belirlenir. Web tasarımı, SEO danışmanlığı, Google Ads yönetimi veya sosyal medya yönetimi hizmetleri işletmenin ihtiyacına göre planlanır.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Uygulama ve Takip</h3>
+            <p>Çalışmalar başlatılır, süreç boyunca yapılan işler takip edilir, gerekli iyileştirmeler uygulanır ve sonuçlar anlaşılır şekilde paylaşılır. Dijital pazarlama sürecin işletmeye nasıl katkı sağladığını takip etmektir.</p>
           </div>
         </div>
         
+        <div class="cta-box">
+          <h3>Sürecin detaylarını görmek için çalışma sürecimiz sayfasını inceleyebilirsiniz.</h3>
+          <div class="btn-row">
+            <a href="/calisma-surecimiz.html" class="btn-gold">Çalışma Sürecimiz</a>
+          </div>
+        </div>
+
+        <!-- NE YAPMAYIZ? -->
+        <h2>Veridia’da Ne Yapmayız?</h2>
+        <p>Veridia’nın çalışma anlayışını yalnızca ne yaptığımız değil, ne yapmadığımız da belirler. Çünkü dijital pazarlama sürecinde güven, en az teknik çalışma kadar önemlidir.</p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>Gerçekçi Olmayan Vaatler Vermeyiz</h3>
+            <p>“Kısa sürede Google’da birinci sıra” gibi kontrol edilemeyen ve güven vermeyen vaatlerle ilerlemeyiz. Sürdürülebilir, ölçülebilir ve uygulanabilir adımlara odaklanırız.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Her İşletmeye Aynı Paketi Önermeyiz</h3>
+            <p>Her işletmenin ihtiyacı aynı değildir. Hazır paket mantığı yerine işletmenin mevcut durumuna göre kapsam oluştururuz.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Sadece Güzel Görünen İşler Üretmeyiz</h3>
+            <p>Tasarımın yalnızca estetik değil, dönüşüm odaklı olmasını önemseriz. Kullanıcı size güvenmiyor veya iletişim butonunu fark etmiyorsa, tasarım görevini yapmıyor demektir.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Süreci Karmaşıklaştırmayız</h3>
+            <p>Dijital pazarlama birçok işletme için karmaşık görünebilir. Ne yapılacağını, neden yapılacağını ve hangi sırayla ilerleyeceğimizi açık şekilde belirtiriz.</p>
+          </div>
+        </div>
+
+        <!-- HİZMETLER -->
+        <h2>Veridia Hangi Hizmetleri Sunar?</h2>
+        <p>Veridia, küçük ve orta ölçekli işletmeler için dijital pazarlama sürecini bütüncül şekilde ele alır. Hizmetler, işletmenin ihtiyacına göre tekil veya birlikte planlanabilir.</p>
+
+        <div class="services-grid">
+          <div class="services-card">
+            <h3>Web Tasarımı</h3>
+            <p>Web sitesi dijitaldeki ana merkezdir. Mobil uyumluluk, hız, kullanıcı deneyimi, net mesaj ve teklif alma noktalarını dikkate alan tasarımlar üretiriz.</p>
+            <a href="/web-tasarim.html">İncele →</a>
+          </div>
+          <div class="services-card">
+            <h3>SEO Danışmanlığı</h3>
+            <p>İşletmenizin Google’da doğru aramalarda görünür olmasını hedefleriz. Teknik yapı, içerik planı ve yerel SEO birlikte değerlendirilir.</p>
+            <a href="/seo-danismanligi.html">İncele →</a>
+          </div>
+          <div class="services-card">
+            <h3>Google Ads Yönetimi</h3>
+            <p>Reklam bütçesinin kontrollü kullanılmasını sağlarız. Doğru anahtar kelimeler, reklam metinleri ve dönüşüm takibi birlikte ele alınır.</p>
+            <a href="/google-ads-yonetimi.html">İncele →</a>
+          </div>
+          <div class="services-card">
+            <h3>Sosyal Medya Yönetimi</h3>
+            <p>Markanızın hedef kitlesiyle daha tutarlı iletişim kurmasına yardımcı olur, marka algısını güçlendirmeye odaklanırız.</p>
+            <a href="/sosyal-medya-yonetimi.html">İncele →</a>
+          </div>
+        </div>
+
+        <!-- KİMLER İÇİN UYGUN -->
+        <h2>Veridia Kimler İçin Uygun?</h2>
+        <p>Veridia, dijital pazarlama tarafında nereden başlayacağını bilmeyen, mevcut web sitesinden yeterli dönüşüm alamayan, reklam bütçesini daha verimli kullanmak isteyen veya SEO çalışmalarına planlı şekilde başlamak isteyen işletmeler için uygundur.</p>
+        <p>Özellikle şu işletmeler için doğru bir başlangıç noktası olabilir:</p>
+        <ul>
+          <li>Web sitesi var ama teklif alamayan işletmeler</li>
+          <li>Google’da daha görünür olmak isteyen yerel firmalar</li>
+          <li>Reklam verip yeterli dönüş alamayan işletmeler</li>
+          <li>Sosyal medya hesaplarını profesyonelleştirmek isteyen markalar</li>
+          <li>Yeni kurulan ve dijitalde doğru temel oluşturmak isteyen işletmeler</li>
+          <li>Hizmet sektöründe müşteri kazanmak isteyen küçük ve orta ölçekli firmalar</li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="service-content-section" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
+      <div class="content-container">
+        <h2 style="text-align: center; margin-top: 0; margin-bottom: 3rem;">Sık Sorulan Sorular</h2>
+        
+        <div class="blog-faq-layout">
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">Veridia hangi işletmelerle çalışır?</h3>
+            <p class="blog-faq-copy">Veridia; küçük ve orta ölçekli işletmeler, yerel hizmet firmaları, yeni kurulan markalar ve dijital görünürlüğünü artırmak isteyen işletmelerle çalışır.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">Veridia sadece web tasarımı mı yapar?</h3>
+            <p class="blog-faq-copy">Hayır. Veridia; web tasarımı, SEO danışmanlığı, Google Ads yönetimi ve sosyal medya yönetimi hizmetlerini işletmenin ihtiyacına göre birlikte veya ayrı ayrı planlar.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">Tek bir hizmet almak mümkün mü?</h3>
+            <p class="blog-faq-copy">Evet. Ancak önce işletmenin mevcut durumu değerlendirilir. Böylece hangi hizmetin daha öncelikli olduğu daha doğru belirlenebilir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">Veridia hazır paketlerle mi çalışır?</h3>
+            <p class="blog-faq-copy">Veridia’da hazır paket mantığı yerine ihtiyaca göre kapsam oluşturulur. Çünkü her işletmenin hedefi, bütçesi ve mevcut dijital durumu farklıdır.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">İlk görüşmede ne yapılır?</h3>
+            <p class="blog-faq-copy">İlk görüşmede işletmenin mevcut dijital durumu, hedefleri ve ihtiyaçları değerlendirilir. Web sitesi, SEO, reklam veya sosyal medya tarafında hangi adımların öncelikli olduğu netleştirilmeye çalışılır.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="service-content-section" style="padding-bottom: 6rem;">
+      <div class="content-container" style="text-align: center;">
+        <h2 style="margin-top: 0; font-size: clamp(2.4rem, 5vw, 3.2rem);">İhtiyaçlarınızı Beraber Belirleyelim</h2>
+        <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem;">İşletmeniz için hangi hizmetin daha öncelikli ve faydalı olacağını analiz ederek ilk adımı birlikte atabiliriz.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/iletisim.html" class="btn-gold">Hızlı Teklif Al</a>
+          <a href="/calisma-surecimiz.html" class="btn-outline">Çalışma Sürecimiz</a>
+        </div>
       </div>
     </section>
 
