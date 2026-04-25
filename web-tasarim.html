@@ -22,10 +22,10 @@
     .content-container h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--gold-light); margin-bottom: 1rem; margin-top: 2rem; }
     .content-container p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem; }
     .content-container ul { list-style: none; padding: 0; margin-bottom: 2rem; }
-    .content-container ul li { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
-    .content-container ul li::before { content: '◆'; color: var(--gold); font-size: 0.8rem; margin-top: 0.3rem; }
-    .content-container a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201, 168, 76, 0.4); text-underline-offset: 4px; transition: color 0.3s; }
-    .content-container a:hover { color: var(--gold-light); text-decoration-color: var(--gold-light); }
+    .content-container ul li { position: relative; padding-left: 1.5rem; margin-bottom: 0.8rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
+    .content-container ul li::before { content: '◆'; color: var(--gold); font-size: 0.8rem; position: absolute; left: 0; top: 0.3rem; }
+    .content-container p a, .content-container li a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201, 168, 76, 0.4); text-underline-offset: 4px; transition: color 0.3s; }
+    .content-container p a:hover, .content-container li a:hover { color: var(--gold-light); text-decoration-color: var(--gold-light); }
     
     .cta-box { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.2)); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 3rem 0; }
     .cta-box h3 { margin-top: 0; margin-bottom: 1rem; color: var(--off-white); }
