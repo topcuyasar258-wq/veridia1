@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SEO Danışmanlığı İstanbul | Küçük İşletmeler İçin SEO</title>
-  <meta name="description" content="Küçük ve orta ölçekli işletmeler için teknik SEO, içerik planı, yerel SEO ve Google görünürlüğünü artırmaya yönelik SEO danışmanlığı.">
+  <title>Küçük İşletmeler İçin SEO Danışmanlığı | Veridia Reklam</title>
+  <meta name="description" content="Veridia Reklam, küçük işletmeler için teknik SEO, içerik planı, hizmet sayfası optimizasyonu ve Google görünürlüğü odaklı SEO danışmanlığı sunar.">
   <meta name="theme-color" content="#0a0a0f">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
@@ -13,40 +13,36 @@
   <link rel="stylesheet" href="./assets/work-pages.css">
   <script defer src="./assets/config.js?v=6"></script>
   <script defer src="./assets/page-shell.js?v=6"></script>
+  <script defer src="./assets/work-pages.js?v=6"></script>
   <style>
-    .service-detail-section { margin-top: 4rem; }
-    .service-detail-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold); margin-bottom: 1.5rem; }
-    .service-detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .service-detail-card { border: 1px solid var(--line-soft); background: rgba(255, 255, 255, 0.02); padding: 1.5rem; border-radius: 8px; }
-    .service-detail-card h3 { font-size: 1.1rem; color: var(--off-white); margin-bottom: 0.5rem; }
-    .service-detail-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
-    .faq-item { border-bottom: 1px solid var(--line-soft); padding: 1rem 0; }
-    .faq-item h3 { font-size: 1.1rem; color: var(--off-white); margin-bottom: 0.5rem; }
-    .faq-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+    /* Content styling for long text pages */
+    .service-content-section { padding: 5rem 1.25rem; }
+    .content-container { max-width: 800px; margin: 0 auto; }
+    .content-container h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--off-white); margin-bottom: 1.5rem; margin-top: 4rem; line-height: 1.2; }
+    .content-container h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--gold-light); margin-bottom: 1rem; margin-top: 2rem; }
+    .content-container p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .content-container ul, .content-container ol { margin-bottom: 2rem; padding: 0; list-style: none; }
+    .content-container ul li { position: relative; padding-left: 1.5rem; margin-bottom: 0.8rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
+    .content-container ul li::before { content: '◆'; color: var(--gold); font-size: 0.8rem; position: absolute; left: 0; top: 0.3rem; }
+    .content-container p a, .content-container li a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201, 168, 76, 0.4); text-underline-offset: 4px; transition: color 0.3s; }
+    .content-container p a:hover, .content-container li a:hover { color: var(--gold-light); text-decoration-color: var(--gold-light); }
     
-    .service-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; padding: 2rem 0; }
-    @media (max-width: 900px) { .service-hero-grid { grid-template-columns: 1fr; gap: 2rem; padding: 1rem 0; } }
-    .hero-label { display: inline-block; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-size: 0.75rem; margin-bottom: 1rem; border: 1px solid rgba(201, 168, 76, 0.3); padding: 0.3rem 0.8rem; border-radius: 20px; }
-    .hero-buttons { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-    .hero-buttons .btn-gold, .hero-buttons .btn-outline { text-align: center; justify-content: center; }
-    @media (max-width: 600px) { .hero-buttons .btn-gold, .hero-buttons .btn-outline { width: 100%; } }
-    .hero-trust-line { margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-    .hero-card { background: rgba(255,255,255,0.03); border: 1px solid var(--line-soft); border-radius: 12px; padding: 2rem; }
-    .hero-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 1.2rem; }
-    .hero-card ul { list-style: none; padding: 0; margin: 0 0 1.5rem 0; }
-    .hero-card li { color: var(--off-white); padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
-    .hero-card li::before { content: "•"; color: var(--gold); font-size: 1.2rem; }
-    .hero-card li:last-child { border-bottom: none; }
-    .hero-card .card-note { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; padding-top: 1rem; border-top: 1px dashed rgba(255,255,255,0.1); }
-    
-    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-    .benefit-card { background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2)); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; }
-    .benefit-card h4 { color: var(--off-white); font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .benefit-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+    .cta-box { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.2)); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 3rem 0; }
+    .cta-box h3 { margin-top: 0; margin-bottom: 1rem; color: var(--off-white); }
+    .cta-box p { margin-bottom: 2rem; }
+    .cta-box .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+    /* Related Services Grid */
+    .related-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .related-card { border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; transition: background 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
+    .related-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+    .related-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--off-white); margin-top: 0; margin-bottom: 0.5rem; }
+    .related-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
+    .related-card a { color: var(--gold); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; text-decoration: none !important; font-weight: bold; }
+    .related-card a:hover { color: var(--gold-light); }
   </style>
 </head>
 <body data-custom-cursor="true">
-  <a class="skip-link" href="#main-content">Ana içeriğe geç</a>
   <nav aria-label="Ana Menü">
     <a href="/" class="nav-logo" aria-label="Veridia Ana Sayfa">Veridia</a>
     <div class="nav-links">
@@ -67,177 +63,257 @@
   </nav>
 
   <main id="main-content" class="work-shell">
+    <section class="work-hero" style="padding-top: 8rem; padding-bottom: 4rem;">
+      <div class="work-hero-inner" style="max-width: 900px; margin: 0 auto; text-align: center;">
+        <span class="work-tag" style="margin-bottom: 1rem; display: inline-block;">Hizmet</span>
+        <h1 class="work-title" style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem; line-height: 1.1;">Küçük İşletmeler İçin SEO Danışmanlığı</h1>
+        <p class="work-lead" style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 1.5rem;">SEO, yalnızca web sitesine anahtar kelime eklemek değildir. Küçük işletmeler için SEO; hizmet sayfalarının doğru kurgulanması, Google’ın siteyi daha iyi anlaması, kullanıcıların aradığı sorulara net cevap verilmesi ve web sitesinin uzun vadede organik müşteri adayı üretmesidir.</p>
+        <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 2.5rem;">Veridia Reklam olarak SEO danışmanlığı sürecinde sitenizin teknik yapısını, içerik düzenini, hizmet sayfalarını, blog planını ve iç linkleme yapısını birlikte ele alıyoruz. Amaç sadece trafik almak değil; doğru ziyaretçiyi doğru sayfaya getirip iletişime geçme ihtimalini artırmaktır.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+          <a href="/#contact" class="btn-gold">SEO Ön Analizi İste</a>
+          <a href="/web-tasarim.html" class="btn-outline">Web Tasarım Hizmetini İncele</a>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--gold); letter-spacing: 0.05em; opacity: 0.8;">Garanti sıralama vaadi değil; ölçülebilir, düzenli ve sürdürülebilir SEO çalışması.</p>
+      </div>
+    </section>
 
-      <section class="work-hero reveal visible" style="padding-bottom: 2rem; min-height: auto;">
-        <div class="service-hero-grid">
-          <div class="work-hero-content">
-            <span class="hero-label">Hizmet</span>
-            <h1 class="work-title" style="font-size: max(2.5rem, min(7vw, 3.5rem)); margin-bottom: 1.2rem; line-height: 1.1;">Küçük İşletmeler İçin SEO Danışmanlığı</h1>
-            <p class="work-intro" style="font-size: 1.05rem;">Google’da görünür olmak isteyen işletmeler için SEO, sadece birkaç anahtar kelime eklemekten ibaret değildir. Teknik altyapı, doğru sayfa yapısı, içerik planı, yerel SEO ve düzenli iyileştirme birlikte çalışmalıdır.</p>
-            
-            <div class="hero-buttons">
-              <a href="/hizli-teklif.html" class="btn-gold">Ücretsiz Mini Analiz İste</a>
-              <a href="/#contact" class="btn-outline" data-whatsapp-message="Merhaba, Küçük İşletmeler İçin SEO Danışmanlığı hizmeti hakkında bilgi almak istiyorum.">WhatsApp’tan Yaz</a>
-            </div>
-            
-            <div class="hero-trust-line">
-              <span>Dönüşüm odaklı yapı</span> &middot; <span>SEO uyumlu kurulum</span> &middot; <span>Ölçülebilir süreç</span>
-            </div>
-          </div>
-          
-          <div class="hero-card-container">
-            <div class="hero-card">
-              <h3>Bu hizmette neler var?</h3>
-              <ul>
-                <li>Teknik SEO ön kontrolü</li>
-                <li>Hizmet sayfası optimizasyonu</li>
-                <li>Blog ve içerik planı</li>
-                <li>İç linkleme önerileri</li>
-              </ul>
-              <div class="card-note">Amaç sadece trafik değil, doğru arama yapan kullanıcıyı doğru sayfaya taşımaktır.</div>
-            </div>
+    <section class="service-content-section">
+      <div class="content-container">
+        
+        <h2 id="google-da-gorunmuyor">Web Siteniz Var Ama Google’da Görünmüyor Olabilir</h2>
+        <p>Birçok küçük işletmenin web sitesi yayındadır; fakat potansiyel müşteriler arama yaptığında Google’da yeterince görünmez. Bunun nedeni çoğu zaman tek bir hata değildir, sistematik eksikliklerdir. Sayfa başlıkları zayıf olabilir, hizmetler tek bir genel sayfaya sıkıştırılmış olabilir, site yavaş açılıyor olabilir veya Google sitenin hangi konuda otorite olduğunu net anlayamıyor olabilir.</p>
+        <p>Eğer organik trafiğiniz zayıfsa, büyük ihtimalle şu problemlerden bazılarını yaşıyorsunuzdur:</p>
+        <ul>
+          <li>Ana sayfanız ne yaptığınızı anlatıyor ama alt hizmet sayfaları içerik ve yapı olarak çok zayıf kalıyor.</li>
+          <li>Her hizmet için ayrı, açıklayıcı bir SEO sayfası oluşturulmamış.</li>
+          <li>Başlık etiketleri ve sayfa isimleri kullanıcının arama niyetine göre değil, jenerik şekilde yazılmış.</li>
+          <li>Blog içerikleri ile hizmet sayfaları birbirine bağlanmıyor.</li>
+          <li>İç linkleme yapısı kurulmadığı için Google siteyi taramakta zorlanıyor.</li>
+          <li>Mobil performans ve yüklenme hızı sorunları kullanıcının hemen çıkmasına neden oluyor.</li>
+          <li>Google Search Console düzenli takip edilmediği için hatalar gözden kaçıyor.</li>
+          <li>Site yayında ama Google’a net bir konu haritası (sitemap) sunmuyor.</li>
+        </ul>
+        <p>Web siteniz yayında olmasına rağmen yeterli müşteri talebi üretmiyorsa, <a href="/blog/web-siteniz-neden-musteri-getirmiyor.html">Web Siteniz Neden Müşteri Getirmiyor?</a> rehberimizde bu sorunu daha detaylı ele aldık.</p>
+
+        <div class="cta-box">
+          <h3>Sitenizin SEO açısından nerede zayıf kaldığını birlikte görelim.</h3>
+          <p>Web sitenizde hangi sayfaların güçlendirilmesi gerektiğini, hangi içeriklerin eksik olduğunu ve Google’ın sitenizi nasıl daha net anlayabileceğini ön analizle değerlendirebiliriz.</p>
+          <div class="btn-row">
+            <a href="/#contact" class="btn-gold">SEO Ön Analizi İste</a>
           </div>
         </div>
-      </section>
 
-      <section class="reveal">
-        <div class="benefits-grid">
+        <h2 id="veridia-neye-odaklanir">Veridia SEO Danışmanlığında Neye Odaklanır?</h2>
+        <p>Veridia’da SEO danışmanlığı; sadece alt sayfalara anahtar kelime eklemek veya rastgele blog yazmak değildir. Teknik yapı, içerik planı, hizmet sayfası kalitesi, kullanıcı niyeti, iç linkleme ve dönüşüm hedefi her zaman birlikte düşünülerek ilerler. Amaç yalnızca daha fazla ziyaretçi çekmek değil, işletmenizin sunduğu hizmetleri Google’da daha anlaşılır ve daha güvenilir hale getirmektir.</p>
 
-          <div class="benefit-card">
-            <h4>Daha görünür yapı</h4>
-            <p>Sayfalarınız Google’ın daha iyi anlayacağı şekilde düzenlenir.</p>
-          </div>
+        <h3>Teknik SEO Kontrolü</h3>
+        <p>SEO çalışmalarının temeli sağlıklı bir altyapıdır. Site hızı, mobil uyum, indekslenebilirlik, başlık hiyerarşisi (H1-H6), URL yapısı, sitemap dosyaları, robots.txt kuralları, yönlendirme hataları ve temel performans sorunları incelenir ve düzeltilir. Site hızı, Core Web Vitals ve teknik yapı hakkında daha detaylı bilgi için <a href="/blog/teknik-seo-ve-web-performansi.html">Teknik SEO ve Web Performansı</a> rehberimizi inceleyebilirsiniz.</p>
 
-          <div class="benefit-card">
-            <h4>Doğru içerik planı</h4>
-            <p>Küçük işletmelerin arama niyetine uygun blog ve hizmet içerikleri planlanır.</p>
-          </div>
+        <h3>Hizmet Sayfası Optimizasyonu</h3>
+        <p>Küçük işletmelerde SEO’nun en önemli alanlarından biri hizmet sayfalarıdır. Her hizmetin ayrı bir sayfada, doğru başlıklarla, kullanıcı sorularına net cevap verecek şekilde ve teklif almaya yönlendiren CTA’larla kurgulanması gerekir. Eğer web sitenizde hizmet sayfaları zayıfsa, önce <a href="/web-tasarim.html">SEO uyumlu web tasarım</a> yapısının güçlendirilmesi gerekebilir.</p>
 
-          <div class="benefit-card">
-            <h4>Sürdürülebilir büyüme</h4>
-            <p>SEO reklam gibi anlık değil, düzenli iyileştirmeyle kalıcı trafik hedefler.</p>
-          </div>
+        <h3>Anahtar Kelime ve Arama Niyeti Analizi</h3>
+        <p>SEO çalışmasında sadece çok yüksek aranma hacmi olan kelimelere değil, müşterinin gerçekten aradığı niyetlere odaklanılır. Örneğin küçük bir işletme sahibi "SEO danışmanlığı" yerine "Google'da nasıl görünürüm?" veya "web sitem neden müşteri getirmiyor?" gibi daha gerçekçi ve nokta atışı problemlerle arama yapabilir.</p>
 
-        </div>
-      </section>
+        <h3>İçerik ve Blog Stratejisi</h3>
+        <p>Blog içerikleri sayfayı dolduracak rastgele yazılar olarak değil, hizmet sayfalarını doğrudan besleyen destekleyici içerikler olarak planlanır. Her blog yazısı, ilgili hizmet sayfasına doğal bir iç link vermeli ve kullanıcının satın alma veya iletişim kararı sürecini desteklemelidir. Uzun vadeli organik büyüme için <a href="/blog.html">blog içerikleri</a>, hizmet sayfalarını destekleyen bir yapı ile planlanmalıdır.</p>
 
-      <section class="service-detail-section reveal">
-        <h2>Kimler İçin Uygun?</h2>
-        <div class="service-detail-grid">
+        <h3>İç Linkleme Yapısı</h3>
+        <p>SEO’da iç linkleme, Google’a hangi sayfanın hangi konuyla ilgili ve ne kadar önemli olduğunu anlatan kilit bir yapıdır. Web tasarım, SEO, Google Ads ve sosyal medya hizmetleri birbirinden tamamen kopuk değil; aynı dijital büyüme sisteminin entegre parçaları olarak birbirine bağlanmalıdır.</p>
 
-          <div class="service-detail-card">
-            <h3>Yerel İşletmeler</h3>
-            <p>Bulunduğu bölgede Google Haritalar ve aramalarda çıkmak isteyenler.</p>
-          </div>
+        <h3>Google Search Console ve Performans Takibi</h3>
+        <p>SEO çalışması yalnızca sayfaları bir kez düzenleyip bırakmak değildir. Hangi arama sorgularından gösterim alındığı, hangi sayfaların potansiyel tıklama sağladığı ve hangi içeriklerin gelişime açık olduğu düzenli olarak analiz edilmeli ve takip edilmelidir.</p>
 
-          <div class="service-detail-card">
-            <h3>Hizmet Verenler</h3>
-            <p>Sektörel anahtar kelimelerde organik trafik ve müşteri adayı arayanlar.</p>
-          </div>
+        <h2 id="surec-nasil-ilerler">SEO Danışmanlığı Sürecimiz Nasıl İlerler?</h2>
+        <p>SEO sürecinde şeffaf ve metodik adımlarla ilerliyoruz:</p>
 
-          <div class="service-detail-card">
-            <h3>Görünmez Kalanlar</h3>
-            <p>Güzel bir sitesi olup Google'da arka sayfalarda kaybolanlar.</p>
-          </div>
+        <h3>1. Mevcut Site Analizi</h3>
+        <p>Sitenin mevcut teknik durumu, sayfa mimarisi, başlık kullanımı, mobil deneyimi, mevcut indeksleme sorunları ve temel SEO sinyalleri incelenir.</p>
 
-        </div>
-      </section>
+        <h3>2. Hedef Kitle ve Hizmet Analizi</h3>
+        <p>İşletmenin hangi hizmetleri sunduğu, hangi müşteri profiline ulaşmak istediği ve Google’da tam olarak hangi arama niyetlerinde görünmesi gerektiği belirlenir.</p>
 
-      <section class="service-detail-section reveal">
-        <h2>Hangi Sorunları Çözer?</h2>
-        <div class="service-detail-grid">
+        <h3>3. Anahtar Kelime ve Arama Niyeti Haritası</h3>
+        <p>Sadece uzun bir kelime listesi çıkarılmaz. Her anahtar kelimenin hangi sayfaya bağlanacağı, kullanıcının hangi niyetle arama yaptığı ve hangi içerikle ikna edileceği net bir şekilde planlanır.</p>
 
-          <div class="service-detail-card">
-            <h3>Organik Trafik Yok</h3>
-            <p>Sitenize Google üzerinden doğal ziyaretçi gelmemesi.</p>
-          </div>
+        <h3>4. Hizmet Sayfalarının Güçlendirilmesi</h3>
+        <p>Web tasarım, SEO, Google Ads veya sosyal medya gibi ana hizmet sayfalarınız daha açıklayıcı, daha ikna edici ve SEO standartlarına tam uygun hale getirilir. SEO çalışmasının güçlü sonuç vermesi için <a href="/web-tasarim.html">web tasarım hizmeti</a> sayfası gibi ana hizmet sayfalarının detaylı ve dönüşüm odaklı hazırlanması gerekir.</p>
 
-          <div class="service-detail-card">
-            <h3>Yanlış Hedefleme</h3>
-            <p>Gelen trafiğin alakasız aramalar yüzünden dönüşmemesi.</p>
-          </div>
+        <h3>5. Blog İçerik Planı</h3>
+        <p>Blog yazıları, kullanıcıların arama motorlarında sık sorduğu sorulara göre stratejik olarak planlanır. Amaç sadece trafik şişirmek değil, o konuyu merak eden doğru kullanıcıyı doğrudan ilgili hizmet sayfasına yönlendirmektir.</p>
 
-          <div class="service-detail-card">
-            <h3>Teknik Hatalar</h3>
-            <p>Google botlarının sitenizi doğru tarayıp dizine ekleyememesi.</p>
-          </div>
+        <h3>6. Teknik SEO ve Performans Kontrolü</h3>
+        <p>Hız, mobil kullanılabilirlik, başlık yapısı, indeksleme hataları ve genel site mimarisi kontrol edilir. Teknik altyapı tarafında daha derin bilgi için <a href="/blog/teknik-seo-ve-web-performansi.html">Teknik SEO ve Web Performansı</a> rehberimizi okuyabilirsiniz.</p>
 
-        </div>
-      </section>
+        <h3>7. İç Linkleme ve Sayfa Otoritesi</h3>
+        <p>Hizmet sayfaları, blog yazıları ve ana sayfa arasında güçlü ve doğal bir bağlantı (link) sistemi kurulur. Böylece Google, sitenizin konu bütünlüğünü ve hiyerarşisini çok daha net anlayabilir.</p>
 
-      <section class="service-detail-section reveal">
-        <h2>Neler Teslim Edilir?</h2>
-        <div class="service-detail-grid">
+        <h3>8. Raporlama ve Gelişim Takibi</h3>
+        <p>SEO tek seferlik bir sihirli dokunuş işlemi değildir. Gösterimler, tıklamalar, organik sıralama eğilimleri ve sayfa performansı düzenli olarak Search Console üzerinden takip edilerek yeni aksiyonlar belirlenir.</p>
 
-          <div class="service-detail-card">
-            <h3 style="color: var(--gold);">Kapsamlı SEO Denetimi</h3>
-            <p>Sitenizin teknik ve içeriksel mevcut durum raporu.</p>
-          </div>
+        <h2 id="neler-teslim-edilir">SEO Danışmanlığı Hizmetinde Neler Var?</h2>
+        <p>Sürecimiz kapsamında işletmenize sağladığımız temel çıktılar ve kontroller şunlardır:</p>
+        <ul>
+          <li>Mevcut site SEO analizi ve denetimi</li>
+          <li>Teknik SEO kontrolü ve hız testleri</li>
+          <li>Sayfa başlıkları (H1, H2) ve meta açıklama önerileri</li>
+          <li>Sektörel anahtar kelime ve arama niyeti haritası</li>
+          <li>Hizmet sayfası içerik optimizasyon planı</li>
+          <li>Sektöre ve sorunlara özel blog konu planı</li>
+          <li>Otoriteyi yönlendirecek iç linkleme stratejisi</li>
+          <li>Google Search Console kontrol önerileri ve hataların tespiti</li>
+          <li>Bölgesel aramalar için yerel SEO yönlendirmeleri</li>
+          <li>Mobil ve hız problemlerinin net tespiti</li>
+          <li>Öncelikli düzeltilmesi gerekenler (Aksiyon listesi)</li>
+          <li>Aylık gelişim değerlendirmesi ve strateji güncellemesi</li>
+        </ul>
 
-          <div class="service-detail-card">
-            <h3 style="color: var(--gold);">Anahtar Kelime Haritası</h3>
-            <p>Müşteri getirecek kelimelerin tespiti ve sayfa eşleştirmesi.</p>
-          </div>
-
-          <div class="service-detail-card">
-            <h3 style="color: var(--gold);">Aylık SEO Raporu</h3>
-            <p>Sıralama artışı, trafik ve yapılan çalışmaların şeffaf sunumu.</p>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="service-detail-section reveal">
-        <h2>Süreç Nasıl İlerler?</h2>
-        <div class="service-detail-grid">
-
-          <div class="service-detail-card">
-            <h3>1. Teknik İyileştirme</h3>
-            <p>Sitenin hız ve taranabilirlik hataları çözülür.</p>
-          </div>
-
-          <div class="service-detail-card">
-            <h3>2. İçerik ve On-Page</h3>
-            <p>Sayfalarınız hedeflenen anahtar kelimelere göre optimize edilir.</p>
-          </div>
-
-          <div class="service-detail-card">
-            <h3>3. Otorite İnşası</h3>
-            <p>Yerel SEO kayıtları ve dış bağlantı (backlink) profili güçlendirilir.</p>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="service-detail-section reveal" style="margin-bottom: 5rem;">
-        <h2>Sık Sorulan Sorular</h2>
-        <div style="max-width: 800px;">
-
-          <div class="faq-item">
-            <h3>SEO ne kadar sürede etki eder?</h3>
-            <p>Sektör rekabetine bağlı olarak ilk hareketlenmeler 2-3 ay içinde görülür.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Garanti veriyor musunuz?</h3>
-            <p>SEO'da 1. sıra garantisi vermek etik değildir. Ancak istikrarlı büyüme ve görünürlük artışı sağlıyoruz.</p>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="final-cta reveal" style="padding-top: 0;">
-        <div class="final-cta-card">
-          <h2 class="work-title" style="font-size: 2.2rem; margin-bottom: 1rem;">Bu hizmetin işletmeniz için uygun olup olmadığını birlikte kontrol edelim</h2>
-          <p>Web siteniz, SEO’nuz, reklamlarınız veya sosyal medya yapınızın nerede müşteri kaybettiğini görmek için kısa bir mini analiz talep edebilirsiniz.</p>
-          <div class="final-cta-actions">
-            <a href="/hizli-teklif.html" class="btn-gold">Ücretsiz Mini Analiz İste</a>
-            <a href="/#contact" class="btn-outline" data-whatsapp-message="Merhaba, hizmetleriniz hakkında bilgi almak ve mini analiz talep etmek istiyorum.">WhatsApp’tan Yaz</a>
+        <div class="cta-box">
+          <h3>SEO çalışmasına nereden başlayacağınızı bilmiyorsanız önce siteyi analiz edelim.</h3>
+          <p>Mevcut web sitenizin Google'da neden görünmediğini belirlemek, yol haritanızı çizmek için atılacak en sağlam adımdır.</p>
+          <div class="btn-row">
+            <a href="/#contact" class="btn-gold">SEO Ön Analizi İste</a>
           </div>
         </div>
-      </section>
 
-    <footer class="work-footer">
+        <h2 id="blog-stratejisi">Blog İçerikleri SEO’da Nasıl Kullanılmalı?</h2>
+        <p>Blog yazıları tek başına müşteri getiren birer satış sayfası değildir. Bloglar; kullanıcının aklındaki soruları yakalar, güven oluşturur, uzmanlığınızı gösterir ve en önemlisi ilgili hizmet sayfalarına stratejik olarak yönlendirir. Bu yüzden blog içerikleri ile ana hizmet sayfaları arasında çok güçlü bir iç link yapısı kurulmalıdır.</p>
+        <p>Örneklerle açıklamak gerekirse:</p>
+        <ul>
+          <li>"Web sitem neden müşteri getirmiyor?" sorusuna cevap veren bir blog yazısı, doğrudan sitenizin <a href="/web-tasarim.html">güçlü web sitesi altyapısı</a> sayfasına link vermelidir.</li>
+          <li>"Teknik SEO nedir?" konulu bir yazı, işletmenin SEO danışmanlığı sayfasını desteklemeli ve okuyucuyu o sayfaya taşımalıdır.</li>
+          <li>"Google reklamı veriyorum ama dönüşüm alamıyorum" konulu bir içerik okuyan kullanıcı, direkt olarak <a href="/google-ads-yonetimi.html">reklam çalışmalarının</a> doğru kurgulandığı sayfaya bağlanmalıdır.</li>
+          <li>"Sosyal medya satış getirir mi?" gibi bir içerik ise işletmenin güven oluşturduğu <a href="/sosyal-medya-yonetimi.html">sosyal medya görünürlüğü</a> sayfasını desteklemelidir.</li>
+        </ul>
+        <p>Tüm bu uzun soluklu yolculuk, düzenli bir <a href="/blog.html">içerik planı</a> ile mümkündür.</p>
+
+        <h2 id="seo-ve-diger-hizmetler">SEO Tek Başına Değil, Web Sitesi ve Reklam Yapısıyla Birlikte Düşünülmelidir</h2>
+        <p>SEO çalışması güçlü, hızlı ve modern bir web sitesi yapısı olmadan verimli ilerlemeyebilir. Eğer site yavaşsa, hizmet sayfaları yetersizse, mobilde kullanıcı rahat ilerleyemiyorsa veya iletişim butonları kolayca bulunamıyorsa; Google organik trafik sağlasa bile kullanıcı siteden hemen çıkacağı için dönüşüm (teklif) düşük kalabilir. Bu sebeple sağlam bir <a href="/web-tasarim.html">SEO uyumlu web tasarım</a> her şeyin başıdır.</p>
+        <p>Aynı şekilde <a href="/google-ads-yonetimi.html">Google Ads yönetimi</a> kampanyaları da SEO’dan bağımsız düşünülmemelidir. Reklamla gelen kullanıcı da sitenizdeki aynı açılış sayfalarına gelir. Eğer sayfa kullanıcıyı ikna etmiyorsa, hem SEO ile kazanılan organik trafik hem de ücretli reklam trafiği boşa harcanabilir.</p>
+        <p>SEO ile uzun vadeli görünürlük kazanırken, <a href="/google-ads-yonetimi.html">kısa vadeli müşteri talebi</a> yaratmak için reklamlar kullanılabilir. Aynı zamanda, iyi bir <a href="/sosyal-medya-yonetimi.html">sosyal medya yönetimi</a> ise arama yapan kullanıcıda markanın güven tarafını tamamlayarak tüm dijital pazarlama sistemini destekler.</p>
+
+        <h2 id="yerel-seo">Yerel SEO Küçük İşletmeler İçin Neden Önemlidir?</h2>
+        <p>Küçük işletmeler için SEO çoğu zaman ulusal geniş kitlelere ulaşmaktan çok, hizmet verilen doğru bölgede ve lokasyonda görünür olmakla başlar. Kullanıcılar genellikle "yakınımdaki web tasarımcı", "İstanbul SEO danışmanlığı", "Google reklam yönetimi İzmir" veya "Hizmet + Konum" şeklinde aramalar yaparlar.</p>
+        <p>Bu nedenle yerel SEO, sadece anahtar kelime değil; hizmet sayfaları, eksiksiz bir Google Business (Benim İşletmem) profili, tutarlı iletişim bilgileri ve gerçek müşteri değerlendirmeleri ile birlikte ele alınmalıdır. İşletme adı, adresi ve telefon numarası (NAP bilgileri) web sitenizde ve tüm platformlarda aynı olmalı; harita görünürlüğü ve yerele odaklanmış blog içerikleriyle bu yapı desteklenmelidir.</p>
+        <p style="margin-top: 2rem;"><strong>Yerel görünürlüğünüzü birlikte değerlendirelim →</strong> <a href="/#contact">İletişime Geçin</a></p>
+
+        <h2 id="kimler-icin-uygun">SEO Danışmanlığı Kimler İçin Uygun?</h2>
+        <ul>
+          <li>Google’da rakiplerinden daha görünür olmak isteyen küçük işletmeler</li>
+          <li>Zaten web sitesi var ama bir türlü tatmin edici organik trafik alamayan firmalar</li>
+          <li>Hizmet sayfaları kısa, zayıf ve kopyala-yapıştır metinlerden oluşan işletmeler</li>
+          <li>Blog içerikleriyle, uzun vadeli ve kalıcı bir organik büyüme isteyen markalar</li>
+          <li>Reklam bütçesine tamamen ve sonsuza kadar bağımlı kalmak istemeyen işletmeler</li>
+          <li>Kendi bölgesindeki yerel aramalardan sürekli müşteri kazanmak isteyen firmalar</li>
+          <li>Web sitesinin sadece bir kartvizit olmaktan çıkıp ölçülebilir olmasını isteyen işletmeler</li>
+        </ul>
+
+        <h2 id="kimler-icin-uygun-degil">SEO Danışmanlığı Kimler İçin Uygun Olmayabilir?</h2>
+        <ul>
+          <li>Çalışma başladıktan hemen birkaç gün içinde garanti 1. sıra veya kesin müşteri bekleyenler</li>
+          <li>SEO'yu sadece sayfanın en altına virgüllerle ayrılmış yüzlerce anahtar kelime doldurmak sananlar</li>
+          <li>Web sitesinin teknik altyapısını veya sayfalarını hiçbir şekilde geliştirmeden sadece sıralama bekleyenler</li>
+          <li>Düzenli blog içeriği üretilmesi veya teknik iyileştirmelerin yapılmasına sıcak bakmayanlar</li>
+          <li>Ölçüm, analiz, Search Console verileri ve raporlama sürecine önem vermeyenler</li>
+          <li>Uzun vadeli, istikrarlı bir çalışma yerine tek seferlik, ucuz ve "mucizevi" bir çözüm arayanlar</li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="service-content-section" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
+      <div class="content-container">
+        <h2 style="text-align: center; margin-top: 0; margin-bottom: 3rem;">SEO Danışmanlığı Hakkında Sık Sorulan Sorular</h2>
+        
+        <div class="blog-faq-layout">
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">1. SEO sonuçları ne kadar sürede görülür?</h3>
+            <p class="blog-faq-copy">SEO sonuçları sektörünüzdeki rekabete, sitenizin mevcut yaşına ve durumuna, içerik üretim kalitesine ve teknik altyapıya göre değişir. Genellikle SEO, birkaç haftalık kısa vadeli bir çözüm değil, 3 ila 6 ay arasında ivme kazanan orta ve uzun vadeli bir büyüme çalışmasıdır.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">2. Küçük işletmeler için SEO gerekli mi?</h3>
+            <p class="blog-faq-copy">Evet, kesinlikle gereklidir. Küçük işletmeler için SEO, sadece reklam bütçesine tamamen bağlı kalmadan Google’da görünürlük kazanmak ve potansiyel müşterilerin aktif olarak arama yaparken sizi organik yollarla bulmasını sağlamak için hayati önem taşır.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">3. SEO danışmanlığı neleri kapsar?</h3>
+            <p class="blog-faq-copy">Çalışmalarımız teknik SEO kontrolünü, hizmet sayfası optimizasyonlarını, anahtar kelime ve arama niyeti analizini, aylık blog planlamasını, iç linkleme kurgusunu, Search Console performans takibini ve düzenli gelişim önerilerini kapsar.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">4. SEO ile Google Ads arasındaki fark nedir?</h3>
+            <p class="blog-faq-copy">SEO organik ve ücretsiz görünürlük oluşturur, uzun vadede çalışır. Google Ads ise belirlediğiniz bir reklam bütçesiyle daha kısa sürede arama sonuçlarında trafik ve talep elde etmenize yardımcı olur. İkisi birlikte ve birbirini besleyerek kullanıldığında en güçlü sonucu verir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">5. Blog yazıları SEO’ya gerçekten katkı sağlar mı?</h3>
+            <p class="blog-faq-copy">Evet, doğru planlandığında ciddi katkı sağlar. Kaliteli blog içerikleri kullanıcıların merak ettiği soruları yakalar, hizmet sayfalarınızı iç linklerle destekler ve Google’a sitenizin ilgili konularda uzmanlık sunduğunu net bir şekilde gösterir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">6. Web sitem eskiyse SEO yapılabilir mi?</h3>
+            <p class="blog-faq-copy">Evet, ancak önce mevcut sitenin teknik yapısı, yazılım hızı, mobil deneyimi ve içerik kalitesi detaylıca incelenmelidir. Eğer altyapı çok eskiyse, bazı durumlarda SEO’dan önce web sitesinin yenilenmesi çok daha verimli ve doğru olabilir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">7. Yerel SEO nedir?</h3>
+            <p class="blog-faq-copy">Yerel SEO, işletmenin bulunduğu belirli bir bölgede veya şehirde yapılan lokasyon bazlı aramalarda daha görünür olmasını hedefleyen çalışmadır. Google Business profili yönetimi, yerel içerikli sayfalar ve adres tutarlılığı bu sürecin yapıtaşlarıdır.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">8. SEO fiyatı neye göre değişir?</h3>
+            <p class="blog-faq-copy">Sitenin güncel hataları, içinde bulunduğunuz sektörün rekabet düzeyi, optimize edilecek sayfa sayısı, üretilecek aylık içerik ihtiyacı, teknik problemlerin derinliği ve aylık danışmanlık kapsamı SEO maliyetini belirleyen başlıca faktörlerdir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">9. SEO çalışması bir kere yapılıp bırakılır mı?</h3>
+            <p class="blog-faq-copy">Hayır. SEO sürekli yaşayan bir süreçtir. Google’ın algoritma güncellemeleri, kullanıcı arama davranışlarındaki değişimler, rakip hamleleri ve markanızın yeni içerik ihtiyaçları düzenli olarak takip edilip optimize edilmelidir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">10. SEO garantili sonuç verir mi?</h3>
+            <p class="blog-faq-copy">Dürüst olmak gerekirse, hiçbir profesyonel SEO çalışması Google’da '%100 garanti sıralama' vaadi vermemelidir. Doğru SEO çalışması, organik görünürlüğü artırmak için hatasız ve sistemli bir süreç kurar; ancak kesin sonuçlar her zaman rekabet, Google algoritmaları ve site durumuna göre şekillenir.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="service-content-section" style="padding-bottom: 6rem;">
+      <div class="content-container" style="text-align: center;">
+        <h2 style="margin-top: 0; font-size: clamp(2.4rem, 5vw, 3.2rem);">Google’da Daha Görünür Olmak İçin SEO Sürecinizi Planlayalım</h2>
+        <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem;">Web sitenizin Google’da daha doğru anlaşılması, hizmet sayfalarınızın güçlenmesi ve potansiyel müşterilerin sizi arama yaparken daha kolay bulması için SEO sürecinizi birlikte planlayabiliriz. İlk adım olarak mevcut sitenizi, sayfa yapınızı ve içerik eksiklerinizi değerlendirelim.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/#contact" class="btn-gold">SEO Ön Analizi İste</a>
+          <a href="/web-tasarim.html" class="btn-outline">Web Tasarım Hizmetini İncele</a>
+          <a href="/google-ads-yonetimi.html" class="btn-outline">Google Ads Yönetimini İncele</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- İlgili Hizmetler Bölümü -->
+    <section class="service-content-section" style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4rem; padding-bottom: 6rem;">
+      <div class="content-container">
+        <h2 style="margin-top: 0;">SEO ile Birlikte Değerlendirilebilecek Hizmetler</h2>
+        <div class="related-services-grid">
+          <div class="related-card">
+            <h3>SEO Uyumlu Web Tasarım</h3>
+            <p>SEO çalışmasının güçlü ilerlemesi için web sitesinin teknik, içerik ve dönüşüm altyapısı doğru kurulmalıdır.</p>
+            <a href="/web-tasarim.html">İncele →</a>
+          </div>
+          <div class="related-card">
+            <h3>Google Ads Yönetimi</h3>
+            <p>SEO uzun vadeli görünürlük sağlarken, Google Ads daha kısa vadeli müşteri talebi oluşturmak için kullanılabilir.</p>
+            <a href="/google-ads-yonetimi.html">İncele →</a>
+          </div>
+          <div class="related-card">
+            <h3>Sosyal Medya Yönetimi</h3>
+            <p>Sosyal medya, marka güvenini ve görünürlüğünü destekler; SEO ve reklam çalışmalarını tamamlayıcı rol oynar.</p>
+            <a href="/sosyal-medya-yonetimi.html">İncele →</a>
+          </div>
+          <div class="related-card">
+            <h3>Blog İçerikleri</h3>
+            <p>Blog yazıları, hizmet sayfalarını destekleyen ve kullanıcı sorularına cevap veren SEO içerikleri olarak planlanmalıdır.</p>
+            <a href="/blog.html">İncele →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="work-footer" style="margin-top: 0;">
       <div class="work-footer-inner">
         <a href="/" class="work-footer-logo">Veridia</a>
         <p class="work-footer-copy">Küçük işletmeler için web, SEO, reklam ve sosyal medya odağında büyüme ajansı.</p>
