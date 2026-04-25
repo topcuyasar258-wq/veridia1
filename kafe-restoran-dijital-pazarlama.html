@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kafe ve Restoranlar İçin Dijital Pazarlama | Veridia Reklam</title>
+  <meta name="description" content="Kafe ve restoranlar için web tasarım, yerel SEO, Google Ads ve sosyal medya yönetimiyle rezervasyon ve müşteri talebi oluşturan dijital pazarlama çözümleri.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/page-shell.css">
+  <link rel="stylesheet" href="./assets/work-pages.css">
+  <script defer src="./assets/config.js?v=6"></script>
+  <script defer src="./assets/page-shell.js?v=6"></script>
+  <script defer src="./assets/work-pages.js?v=6"></script>
+  <style>
+    .service-content-section { padding: 5rem 1.25rem; }
+    .content-container { max-width: 800px; margin: 0 auto; }
+    .content-container h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--off-white); margin-bottom: 1.5rem; margin-top: 4rem; line-height: 1.2; }
+    .content-container h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--gold-light); margin-bottom: 1rem; margin-top: 2rem; }
+    .content-container p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .content-container ul, .content-container ol { margin-bottom: 2rem; padding: 0; list-style: none; }
+    .content-container ul li { position: relative; padding-left: 1.5rem; margin-bottom: 0.8rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
+    .content-container ul li::before { content: '◆'; color: var(--gold); font-size: 0.8rem; position: absolute; left: 0; top: 0.3rem; }
+    .content-container p a, .content-container li a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201, 168, 76, 0.4); text-underline-offset: 4px; transition: color 0.3s; }
+    .content-container p a:hover, .content-container li a:hover { color: var(--gold-light); text-decoration-color: var(--gold-light); }
+    
+    .cta-box { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.2)); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 3rem 0; }
+    .cta-box h3 { margin-top: 0; margin-bottom: 1rem; color: var(--off-white); }
+    .cta-box p { margin-bottom: 2rem; }
+    .cta-box .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+    .related-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .related-card { border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; transition: background 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
+    .related-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+    .related-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--off-white); margin-top: 0; margin-bottom: 0.5rem; }
+    .related-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
+    .related-card a { color: var(--gold); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; text-decoration: none !important; font-weight: bold; }
+    .related-card a:hover { color: var(--gold-light); }
+  </style>
+</head>
+<body data-custom-cursor="true">
+  <nav aria-label="Ana Menü">
+    <a href="/" class="nav-logo" aria-label="Veridia Ana Sayfa">Veridia</a>
+    <div class="nav-links">
+      <a href="/blog.html" class="nav-link">BLOG</a>
+      <a href="/#about" class="nav-link">HAKKIMIZDA</a>
+      <a href="/#services" class="nav-link">HİZMETLER</a>
+      <a href="/hizli-teklif.html" class="nav-link">HIZLI TEKLİF</a>
+      <a href="/#sectors" class="nav-link">SEKTÖRLER</a>
+      <a href="/neler-yapiyoruz.html" class="nav-link">PORTFOLYO</a>
+      <a href="/#contact" class="nav-link">İLETİŞİM</a>
+    </div>
+    <div class="nav-actions">
+      <a href="/hizli-teklif.html" class="btn-outline">Teklif Al</a>
+      <button class="hamburger" aria-expanded="false" aria-label="Menüyü aç">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main-content" class="work-shell">
+    <section class="work-hero" style="padding-top: 8rem; padding-bottom: 4rem;">
+      <div class="work-hero-inner" style="max-width: 900px; margin: 0 auto; text-align: center;">
+        <span class="work-tag" style="margin-bottom: 1rem; display: inline-block;">SEKTÖREL ÇÖZÜMLER</span>
+        <h1 class="work-title" style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem; line-height: 1.1;">Kafe ve Restoranlar İçin Dijital Pazarlama Çözümleri</h1>
+        <p class="work-lead" style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 1.5rem;">Kafenizi veya restoranınızı sadece güzel görünen bir sosyal medya hesabı olmaktan çıkarıyoruz. Google Maps'te bulunan, sosyal medyada güven veren ve doğrudan rezervasyon, paket servis veya mekan ziyaretine yönlendiren bir yapı kuruyoruz.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+          <a href="/hizli-teklif.html" class="btn-gold">Hızlı Teklif Al</a>
+          <a href="/#services" class="btn-outline">Hizmetleri İncele</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-content-section">
+      <div class="content-container">
+        
+        <h2>Kafe ve Restoran İşletmeleri Dijitalde Neden Zorlanıyor?</h2>
+        <p>Yeme-içme sektörü, dijital pazarlamanın en hızlı sonuç verebildiği ancak en çok hata yapılan alanlarından biridir. Birçok mekan işletmecisi, yüksek bütçelerle fotoğraf çekimi yaptırıp Instagram'da paylaştığında dükkanın dolacağını düşünür. Ancak görsel olarak ne kadar iyi olursanız olun, potansiyel müşteriniz sizi "yakınımdaki kafeler" veya "en iyi kahvaltı mekanı" diye arattığında bulamıyorsa, o müşteri rakibinize gider.</p>
+        <p>Ayrıca güncel bir dijital menüsü bulunmayan, konumu Google Haritalar üzerinde net işaretlenmemiş, WhatsApp üzerinden hızlıca rezervasyon alamayan mekanlar, yolda yürürken telefonundan yer arayan anlık müşteriyi kaybetmektedir.</p>
+
+        <h2>Veridia Kafe ve Restoranlar İçin Ne Yapar?</h2>
+        <p>Kafe ve restoranlar için yalnızca estetik sosyal medya içerikleri yeterli değildir; harita optimizasyonundan web sitesine kadar bütüncül bir yaklaşım gerekir.</p>
+        <ul>
+          <li><strong>Yerel SEO & Google Maps:</strong> Müşteriler çevredeki mekanları aradığında Haritalar'da en üstte çıkmanız için yorum ve profil optimizasyonu yaparız.</li>
+          <li><strong>Dönüşüm Odaklı Web Tasarım:</strong> Kullanıcının anında menüye ulaşıp inceleyebileceği ve tek dokunuşla WhatsApp rezervasyon hattına gidebileceği mobil odaklı bir web sitesi kurarız.</li>
+          <li><strong>Sosyal Medya Yönetimi:</strong> İşletmenin atmosferini yansıtan içeriklerle sadece takipçi değil, o mekana gelmek isteyecek yerel bir kitle inşa ederiz.</li>
+          <li><strong>Google Ads:</strong> Özel günlerde, yoğun saatlerde veya paket servis hedeflerinde spesifik aramalara doğrudan hedefli reklamlar veririz.</li>
+        </ul>
+
+        <h2>Müşteri Kazandıran Dijital Sistem Nasıl Kurulur?</h2>
+        <h3>1. Doğru Mesaj</h3>
+        <p>Mekanınızın asıl vurucu özelliği nedir? Manzarası mı, kahvaltısı mı, hızlı servisi mi? Sosyal medya içeriklerinizi ve web sitenizi bu ana vaat etrafında şekillendiririz.</p>
+        <h3>2. Güven Veren Web Sitesi</h3>
+        <p>Menünün sadece PDF olmadığı, kolayca okunabildiği, çalışma saatleri ve adresin net şekilde yer aldığı, hızlı ve <a href="/web-tasarim.html">SEO uyumlu web tasarım</a> altyapısını hazırlarız.</p>
+        <h3>3. Görünürlük ve Trafik</h3>
+        <p>Google Maps ve <a href="/seo-danismanligi.html">yerel SEO</a> çalışmalarıyla organik olarak sizi arayanı içeri çekerken, sosyal medya reklamlarıyla civardaki hedef kitleye markanızı hatırlatırız.</p>
+        <h3>4. Teklif, Randevu veya Satışa Yönlendirme</h3>
+        <p>Profilde ve web sitesinde bulunan belirgin CTA'lar ile kullanıcıyı masadan paket servise, özel gün organizasyonundan basit bir rezervasyona kadar kolayca yönlendiririz.</p>
+
+        <h2>Bu Sektörde Sık Yapılan Dijital Pazarlama Hataları</h2>
+        <ul>
+          <li><strong>Sadece fotoğrafa odaklanmak:</strong> Harika ürün fotoğrafları çekmek ama mekanın adresini, otopark durumunu veya menü fiyatlarını hiçbir yerde belirtmemek.</li>
+          <li><strong>Google My Business'ı ihmal etmek:</strong> Yanlış çalışma saatleri, onaylanmamış konum veya müşteri yorumlarına hiç cevap verilmemesi.</li>
+          <li><strong>Zayıf veya hiç olmayan web sitesi:</strong> Instagram linkinde direkt WhatsApp vermek yerine profesyonel bir ara menü sayfası barındırmamak.</li>
+          <li><strong>Bölgesiz reklamlar:</strong> Şehrin öbür ucundaki, size gelme ihtimali olmayan kişilere yüksek bütçelerle Instagram sponsorlu reklamı çıkmak.</li>
+          <li><strong>Kötü yönlendirme:</strong> Rezervasyon isteyen kullanıcıya uzun formlar doldurtmak yerine tek tıkla arama imkanı sunmamak.</li>
+        </ul>
+
+        <div class="cta-box">
+          <h3>Kafe veya restoranınız için daha net bir dijital yol haritası çıkaralım.</h3>
+          <p>Web siteniz, harita kaydınız ve sosyal medya hesaplarınız birlikte incelenerek size özel bir mekan büyüme planı hazırlanır.</p>
+          <div class="btn-row">
+            <a href="/hizli-teklif.html" class="btn-gold">Ücretsiz Analiz İste</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="service-content-section" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
+      <div class="content-container">
+        <h2 style="text-align: center; margin-top: 0; margin-bottom: 3rem;">Sık Sorulan Sorular</h2>
+        
+        <div class="blog-faq-layout">
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">Restoranım için gerçekten web sitesine ihtiyacım var mı?</h3>
+            <p class="blog-faq-copy">Sadece Instagram çoğu zaman yetersizdir. Müşteriler açık menü, net konum, güncel fiyatlar ve özel rezervasyon bilgileri için profesyonel bir web sitesine güven duyar.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">Google harita yorumları ne kadar önemli?</h3>
+            <p class="blog-faq-copy">Çok önemlidir. Kullanıcıların %80'i yeni bir mekana gitmeden önce mutlaka puanına ve yorumlarına bakar. Yerel SEO stratejimiz bu puanlamayı yükseltmeyi de kapsar.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">Hangi sosyal medya kanalı mekanlar için en iyisi?</h3>
+            <p class="blog-faq-copy">Görselliğin önde olduğu yeme-içme sektörü için Instagram ve TikTok en etkili kanallardır. Müşteriye atmosferi hissettirmek için kısa video (Reels) içerikleri şarttır.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">Google Ads kafeler için işe yarar mı?</h3>
+            <p class="blog-faq-copy">Özellikle "toplantı yapılacak kafe", "canlı müzik olan mekanlar" veya "en iyi kahvaltı" gibi aramalarda, anında talep toplamak için çok etkilidir.</p>
+          </article>
+          <article class="blog-faq-card">
+            <h3 class="blog-faq-title">Rezervasyonları nasıl artırabiliriz?</h3>
+            <p class="blog-faq-copy">Mobilden hızlı açılan, tek bir "WhatsApp'tan Rezervasyon Yap" butonuna sahip, karmaşadan uzak bir yönlendirme hiyerarşisi ile rezervasyon kayıpları en aza indirilir.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-content-section" style="padding-bottom: 6rem;">
+      <div class="content-container" style="text-align: center;">
+        <h2 style="margin-top: 0; font-size: clamp(2.4rem, 5vw, 3.2rem);">Mekanınız İçin Dijitalde Daha Güçlü Bir Yapı Kuralım</h2>
+        <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem;">Veridia, işletmenizin dijital görünürlüğünü sadece trafik için değil; rezervasyon, paket servis veya doğrudan mekan ziyareti oluşturmak için planlar.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/hizli-teklif.html" class="btn-gold">Hızlı Teklif Al</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-content-section" style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4rem; padding-bottom: 6rem;">
+      <div class="content-container">
+        <h2 style="margin-top: 0;">Bu Sektör İçin Önerilen Hizmetlerimiz</h2>
+        <div class="related-services-grid">
+          <div class="related-card">
+            <h3>Web Tasarım</h3>
+            <a href="/web-tasarim.html">İncele →</a>
+          </div>
+          <div class="related-card">
+            <h3>SEO Danışmanlığı</h3>
+            <a href="/seo-danismanligi.html">İncele →</a>
+          </div>
+          <div class="related-card">
+            <h3>Google Ads Yönetimi</h3>
+            <a href="/google-ads-yonetimi.html">İncele →</a>
+          </div>
+          <div class="related-card">
+            <h3>Sosyal Medya Yönetimi</h3>
+            <a href="/sosyal-medya-yonetimi.html">İncele →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="work-footer" style="margin-top: 0;">
+      <div class="work-footer-inner">
+        <a href="/" class="work-footer-logo">Veridia</a>
+        <p class="work-footer-copy">Küçük işletmeler için web, SEO, reklam ve sosyal medya odağında büyüme ajansı.</p>
+        <div class="work-footer-links">
+          <a href="/neler-yapiyoruz.html">Neler Yapıyoruz</a>
+          <a href="/blog.html">Blog</a>
+          <a href="/gizlilik-politikasi.html">Gizlilik</a>
+          <a href="/kvkk-aydinlatma-metni.html">KVKK</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
