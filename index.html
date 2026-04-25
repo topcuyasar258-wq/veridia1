@@ -796,33 +796,123 @@
 </section>
 
 <!-- ══ SEKTÖRLER ══ -->
-<section id="sectors" style="padding: 5rem 5%;">
-  <div class="reveal" style="max-width: 800px; margin: 0 auto; text-align: center;">
+<style>
+/* Sectors Section Styles */
+#sectors .sector-card { background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s, border-color 0.3s, background 0.3s; display: flex; flex-direction: column; }
+#sectors .sector-card:hover { transform: translateY(-5px); border-color: rgba(45, 106, 79, 0.4); background: rgba(255,255,255,0.03); }
+#sectors .sector-icon { font-size: 1.5rem; margin-bottom: 1rem; color: var(--gold); }
+#sectors .sector-title { color: var(--off-white); font-size: 1.5rem; margin-bottom: 0.8rem; font-family: 'Cormorant Garamond', serif; }
+#sectors .sector-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
+#sectors .sector-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+#sectors .sector-tag { background: rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.75rem; padding: 0.3rem 0.6rem; border-radius: 4px; }
+#sectors .sector-link { color: var(--gold); font-size: 0.85rem; text-decoration: none; font-weight: bold; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.3s; display: inline-block; margin-top: auto; }
+#sectors .sector-link:hover { color: var(--gold-light); }
+#sectors .sectors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; text-align: left; margin-bottom: 4rem; margin-top: 3rem; }
+#sectors .sector-special-card { background: linear-gradient(145deg, rgba(201, 168, 76, 0.05), rgba(255,255,255,0.01)); border-color: rgba(201, 168, 76, 0.2); }
+#sectors .sector-special-card:hover { border-color: rgba(201, 168, 76, 0.5); }
+#sectors .sector-cta-area { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4rem; text-align: center; }
+@media (max-width: 1024px) { #sectors .sectors-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { #sectors .sectors-grid { grid-template-columns: 1fr; } }
+</style>
+
+<section id="sectors" style="padding: 6rem 5%;">
+  <div class="reveal" style="max-width: 1200px; margin: 0 auto; text-align: center;">
     <p class="section-label" style="margin-bottom: 0.5rem;">Sektörler</p>
-    <h2 class="section-title reveal" style="margin-bottom: 2rem;">Hangi işletmelerle çalışıyoruz?</h2>
+    <h2 class="section-title reveal" style="margin-bottom: 1.5rem;">Hangi işletmelerle çalışıyoruz?</h2>
+    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; max-width: 800px; margin: 0 auto;">Her işletmenin müşteri kazanma yolu aynı değildir. Veridia olarak her sektör için ayrı mesaj, ayrı reklam dili ve ayrı dönüşüm stratejisi oluşturuyoruz. Web tasarım, SEO, Google Ads ve sosyal medya yönetimini işletmenizin hedef kitlesine göre planlıyoruz.</p>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: left;">
-      <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-        <h3 style="color: var(--off-white); font-size: 1.1rem; margin-bottom: 0.5rem;">Kafe & F&B</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;">Mahalle ilgisini tekrar ziyarete ve rezervasyona çeviren sistem.</p>
+    <div class="sectors-grid reveal">
+      
+      <!-- Kart 1 -->
+      <div class="sector-card">
+        <div class="sector-icon">☕</div>
+        <h3 class="sector-title">Kafe & Restoran</h3>
+        <p class="sector-desc">Kafenizi sadece güzel görünen bir sosyal medya hesabı olmaktan çıkarıp; Google’da bulunan, sosyal medyada hatırlanan ve rezervasyon alan bir yapıya dönüştürüyoruz.</p>
+        <div class="sector-tags">
+          <span class="sector-tag">Yerel SEO</span>
+          <span class="sector-tag">Instagram Reklamları</span>
+          <span class="sector-tag">Web Tasarım</span>
+        </div>
+        <a href="/hizli-teklif.html" class="sector-link">Kafe işletmem için teklif al →</a>
       </div>
-      <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-        <h3 style="color: var(--off-white); font-size: 1.1rem; margin-bottom: 0.5rem;">Moda</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;">Ürün ilgisi, kaydetme ve satın alma isteği yaratan e-ticaret akışı.</p>
+
+      <!-- Kart 2 -->
+      <div class="sector-card">
+        <div class="sector-icon">🛍️</div>
+        <h3 class="sector-title">Moda & E-Ticaret</h3>
+        <p class="sector-desc">Ürünlerinizi sadece sergileyen değil; ilgi, kaydetme, sepete ekleme ve satın alma isteği oluşturan dijital vitrinler tasarlıyoruz.</p>
+        <div class="sector-tags">
+          <span class="sector-tag">Sosyal Medya</span>
+          <span class="sector-tag">Google Ads</span>
+          <span class="sector-tag">E-Ticaret</span>
+        </div>
+        <a href="/sosyal-medya-yonetimi.html" class="sector-link">Moda markam için strateji oluştur →</a>
       </div>
-      <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-        <h3 style="color: var(--off-white); font-size: 1.1rem; margin-bottom: 0.5rem;">Güzellik</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;">Uzmanlık dilini güçlendirerek doğrudan randevu talebi oluşturan yapı.</p>
+
+      <!-- Kart 3 -->
+      <div class="sector-card">
+        <div class="sector-icon">✨</div>
+        <h3 class="sector-title">Güzellik & Klinik</h3>
+        <p class="sector-desc">Uzmanlık algısını güçlendiren, güven veren ve ziyaretçiyi doğrudan randevu talebine yönlendiren web ve reklam sistemleri kuruyoruz.</p>
+        <div class="sector-tags">
+          <span class="sector-tag">Randevu Odaklı Web</span>
+          <span class="sector-tag">Yerel SEO</span>
+          <span class="sector-tag">Google Ads</span>
+        </div>
+        <a href="/web-tasarim.html" class="sector-link">Randevu odaklı sistem kur →</a>
       </div>
-      <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-        <h3 style="color: var(--off-white); font-size: 1.1rem; margin-bottom: 0.5rem;">Teknoloji</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;">Karmaşık ürünü sadeleştirip B2B karar vericilere ulaştıran görünürlük.</p>
+
+      <!-- Kart 4 -->
+      <div class="sector-card">
+        <div class="sector-icon">💻</div>
+        <h3 class="sector-title">Teknoloji & B2B</h3>
+        <p class="sector-desc">Karmaşık ürün ve hizmetleri sadeleştirerek karar vericilerin anlayacağı, güven duyacağı ve iletişime geçeceği dijital bir yapı oluşturuyoruz.</p>
+        <div class="sector-tags">
+          <span class="sector-tag">B2B SEO</span>
+          <span class="sector-tag">Web Tasarım</span>
+          <span class="sector-tag">İçerik Stratejisi</span>
+        </div>
+        <a href="/seo-danismanligi.html" class="sector-link">B2B görünürlüğümü artır →</a>
       </div>
-      <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-        <h3 style="color: var(--off-white); font-size: 1.1rem; margin-bottom: 0.5rem;">Yaşam & Ev</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;">Atmosfer hissini doğrudan koleksiyon sepetine taşıyan içerik kurgusu.</p>
+
+      <!-- Kart 5 -->
+      <div class="sector-card">
+        <div class="sector-icon">🛋️</div>
+        <h3 class="sector-title">Yaşam & Ev</h3>
+        <p class="sector-desc">Dekorasyon, yaşam ve ev ürünlerinde atmosfer hissini güçlendirerek markanızı sadece ürün satan değil, yaşam tarzı sunan bir yapıya taşıyoruz.</p>
+        <div class="sector-tags">
+          <span class="sector-tag">Sosyal Medya</span>
+          <span class="sector-tag">Ürün İçeriği</span>
+          <span class="sector-tag">Google Ads</span>
+        </div>
+        <a href="/google-ads-yonetimi.html" class="sector-link">Markam için dijital vitrin oluştur →</a>
+      </div>
+
+      <!-- Kart 6 (Özel Kart) -->
+      <div class="sector-card sector-special-card">
+        <div class="sector-icon">🎯</div>
+        <h3 class="sector-title">Sektörünüz burada yok mu?</h3>
+        <p class="sector-desc">İş modelinizi analiz edip size özel web tasarım, reklam, SEO ve sosyal medya stratejisi çıkarıyoruz. Hedef kitlenize göre en mantıklı dijital büyüme yolunu birlikte belirleyelim.</p>
+        <div class="sector-tags">
+          <span class="sector-tag">Ücretsiz Analiz</span>
+          <span class="sector-tag">Özel Strateji</span>
+          <span class="sector-tag">Hızlı Teklif</span>
+        </div>
+        <a href="/hizli-teklif.html" class="sector-link">Ücretsiz analiz iste →</a>
+      </div>
+
+    </div>
+
+    <!-- Alt CTA Alanı -->
+    <div class="sector-cta-area reveal">
+      <h3 style="color: var(--off-white); font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; margin-bottom: 1rem;">İşletmeniz için hangi dijital strateji daha mantıklı?</h3>
+      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">Web siteniz, sosyal medya hesaplarınız ve reklam yapınız birlikte incelenerek size özel bir yol haritası hazırlanır.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/hizli-teklif.html" class="btn-gold">Hızlı Teklif Al</a>
+        <a href="/#services" class="btn-outline">Hizmetleri İncele</a>
       </div>
     </div>
+
   </div>
 </section>
 <!-- ══ ÖRNEK ÇALIŞMA SENARYOSU ══ -->
