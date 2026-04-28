@@ -31,7 +31,7 @@
 <meta name="geo.position" content="41.0082;28.9784">
 <meta name="ICBM" content="41.0082, 28.9784">
 <link rel="canonical" href="https://veridiareklam.com.tr">
-<script>(function(){try{if(localStorage.getItem('veridia-theme')==='light'){document.documentElement.dataset.theme='light';}}catch(_){}})();</script>
+<script defer src="./assets/theme-init.js?v=1"></script>
 <link rel="preload" href="./assets/fonts.css?v=4" as="style">
 <link rel="stylesheet" href="./assets/fonts.css?v=4">
 <noscript><link rel="stylesheet" href="./assets/fonts.css?v=4"></noscript>
@@ -453,17 +453,16 @@
 <link rel="preload" href="./assets/index-critical.css?v=5" as="style">
 <!-- SEO: Homepage critical CSS moved out of the document to reduce inline render-blocking -->
 <link rel="stylesheet" href="./assets/index-critical.css?v=5">
-<!-- SEO: Shared homepage CSS is deferred because above-the-fold rules live in index-critical.css?v=5 -->
-<link data-deferred-style data-href="./assets/shared.css?v=11" data-style-media="all">
-<noscript><link rel="stylesheet" href="./assets/shared.css?v=11"></noscript>
+<link rel="stylesheet" href="./assets/shared.css?v=12">
+<noscript><link rel="stylesheet" href="./assets/shared.css?v=12"></noscript>
 <link data-deferred-style data-href="./assets/home-contact.css?v=1" data-style-media="all">
 <noscript><link rel="stylesheet" href="./assets/home-contact.css?v=1"></noscript>
-<link data-deferred-style data-href="./assets/home-mobile-tune.css?v=1" data-style-media="all">
-<noscript><link rel="stylesheet" href="./assets/home-mobile-tune.css?v=1"></noscript>
+<link rel="stylesheet" href="./assets/home-mobile-tune.css?v=5">
+<noscript><link rel="stylesheet" href="./assets/home-mobile-tune.css?v=5"></noscript>
 <script defer src="./assets/config.js?v=4"></script>
 <script defer src="./assets/style-loader.js?v=5"></script>
 <script defer src="./assets/page-shell.js?v=4"></script>
-<script defer src="./assets/home-loader.js?v=5"></script>
+<script defer src="./assets/home-loader.js?v=7"></script>
 
 </head>
 
@@ -497,26 +496,29 @@
     <li><a href="/#portfolio">Portfolyo</a></li>
     <li><a href="/iletisim.html">İletişim</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" type="button" data-mobile-toggle aria-label="Menü" aria-controls="mobileMenu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-mobile-right" style="display: flex; align-items: center; gap: 1rem;">
+    <a href="/hizli-teklif.html" class="nav-mobile-cta" style="display: none;">Teklif Al</a>
+    <button class="hamburger" id="hamburger" type="button" data-mobile-toggle aria-label="Menü" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- ══ HERO ══ -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
-  <div class="hero-content">
-    <p class="hero-label">İstanbul'daki küçük işletmeler için web sitesi, SEO, reklam ve talep toplama sistemi</p>
-    <h1 class="hero-title">Web Sitesi, SEO ve Reklamla<br><span>İşletmenize Daha Fazla Müşteri Adayı Kazandırın</span></h1>
-    <p class="hero-sub">Veridia olarak küçük ve orta ölçekli işletmelerin web sitesi, SEO ve reklam çalışmalarını tek tek değil, müşteri adayı üreten bir dijital sistem olarak ele alıyoruz. Daha net mesaj, daha güçlü Google görünürlüğü ve daha fazla teklif talebi için web sitenizi ve dijital pazarlama yapınızı birlikte planlıyoruz.</p>
-    <div class="hero-cta">
+  <div class="hero-content" style="opacity:1;position:relative;z-index:2;">
+    <p class="hero-label" style="opacity:1;color:var(--gold);">İstanbul'daki küçük işletmeler için web sitesi, SEO, reklam ve talep toplama sistemi</p>
+    <h1 class="hero-title" style="opacity:1;color:var(--off-white);text-shadow:0 12px 28px rgba(0,0,0,0.22);">Web Sitesi, SEO ve Reklamla<br><span style="color:var(--gold);">İşletmenize Daha Fazla Müşteri Adayı Kazandırın</span></h1>
+    <p class="hero-sub" style="opacity:1;color:var(--wave-text, rgba(244,241,234,0.78));">Veridia olarak küçük ve orta ölçekli işletmelerin web sitesi, SEO ve reklam çalışmalarını tek tek değil, müşteri adayı üreten bir dijital sistem olarak ele alıyoruz. Daha net mesaj, daha güçlü Google görünürlüğü ve daha fazla teklif talebi için web sitenizi ve dijital pazarlama yapınızı birlikte planlıyoruz.</p>
+    <div class="hero-cta" style="opacity:1;">
       <a href="https://wa.me/905055174654?text=Merhaba,%20ucretsiz%20mini%20analiz%20istiyorum." target="_blank" rel="noopener" class="btn-gold">Ücretsiz Mini Analiz İste</a>
       <a href="/#services" class="btn-outline">Hizmetleri İncele</a>
     </div>
     <div class="hero-quick-links" aria-label="Hızlı aksiyonlar">
-      <a href="/hizli-teklif.html">Hızlı Teklif</a>
-      <a href="https://wa.me/905055174654?text=Merhaba,%20web%20sitem%20icin%20kisa%20bir%20on%20degerlendirme%20istiyorum." target="_blank" rel="noopener">WhatsApp</a>
+      <a href="/#mini-analiz">Mini Analiz</a>
+      <a href="https://wa.me/905055174654?text=Merhaba,%20web%20sitem%20icin%20kisa%20bir%20on%20degerlendirme%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan Teklif Al</a>
       <a href="/iletisim.html">İletişim</a>
     </div>
     <div class="hero-trust-line" style="margin-top:2rem;font-size:0.85rem;color:var(--text-muted);opacity:0.8;letter-spacing:0.05em;text-transform:uppercase;">
@@ -542,6 +544,45 @@
     </div>
 
     <a href="/blog/web-siteniz-neden-musteri-getirmiyor.html" class="btn-gold" style="display: inline-block;">7 Hatayı Gör ve Siteni Kontrol Et</a>
+  </div>
+</section>
+
+<section id="needs" class="needs-section">
+  <div class="needs-shell reveal">
+    <p class="section-label">Hızlı Yönlendirme</p>
+    <h2 class="section-title">Neye İhtiyacınız Var?</h2>
+    <p class="needs-lead">Mobilde uzun anlatımı taramak zorunda kalmadan, size en yakın ihtiyacı seçin ve ilgili hizmete tek dokunuşla geçin.</p>
+    <div class="needs-grid">
+      <a href="/yazilim/web-sitesi-ve-donusum-yuzeyleri/" class="need-card">
+        <span class="need-card-kicker">Başlangıç</span>
+        <strong>Web sitem yok</strong>
+        <span>Mobil uyumlu, güven veren ve teklif toplamaya odaklı bir başlangıç yüzeyi kuralım.</span>
+      </a>
+      <a href="/blog/web-siteniz-neden-musteri-getirmiyor.html" class="need-card">
+        <span class="need-card-kicker">Dönüşüm</span>
+        <strong>Sitem var ama müşteri getirmiyor</strong>
+        <span>Mesaj, CTA ve mobil akışta nerede kayıp yaşadığınızı birlikte netleştirelim.</span>
+      </a>
+      <a href="/seo/google-gorunurlugu/" class="need-card">
+        <span class="need-card-kicker">Görünürlük</span>
+        <strong>Google’da görünmek istiyorum</strong>
+        <span>Teknik SEO, içerik ve yerel görünürlük tarafında önceliği hızlıca belirleyelim.</span>
+      </a>
+      <a href="/reklam/google-ads-yonetimi/" class="need-card">
+        <span class="need-card-kicker">Performans</span>
+        <strong>Reklam veriyorum ama dönüşüm alamıyorum</strong>
+        <span>Trafiği sadece tıklamaya değil, teklif ve WhatsApp dönüşümüne çevirecek yapıyı kuralım.</span>
+      </a>
+      <a href="/reklam/sosyal-medya-yonetimi/" class="need-card">
+        <span class="need-card-kicker">Güven</span>
+        <strong>Sosyal medyada daha profesyonel görünmek istiyorum</strong>
+        <span>Profil dili, içerik planı ve marka görünümünü daha tutarlı hale getirelim.</span>
+      </a>
+    </div>
+    <div class="needs-actions">
+      <a href="/#mini-analiz" class="btn-gold">Ücretsiz Mini Analiz İste</a>
+      <a href="/seo/google-gorunurlugu/" class="btn-outline">SEO Analizi İste</a>
+    </div>
   </div>
 </section>
 
@@ -590,30 +631,34 @@
   <div class="about-text reveal">
     <p class="section-label">Hakkımızda</p>
     <h2 class="section-title">Veridia Nedir?</h2>
-    
-    <p>Veridia, <a href="/seo/google-gorunurlugu/" style="color:var(--text-muted); border-bottom: 1px dotted var(--gold); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">küçük işletmeler için dijital pazarlama</a> alanında daha görünür, güvenilir ve dönüşüm odaklı hale gelmesi için çalışan <a href="/hakkimizda.html" style="color:var(--text-muted); border-bottom: 1px dotted var(--gold); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">butik dijital pazarlama ajansı</a>dır.</p>
-    
-    <p><a href="/yazilim/web-sitesi-ve-donusum-yuzeyleri/" style="color:var(--text-muted); border-bottom: 1px dotted var(--gold); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Web tasarımı, SEO ve reklam yönetimi</a> hizmetlerini ayrı ayrı işler gibi değil; aynı hedefe çalışan tek bir sistem olarak ele alırız. Çünkü bir işletmenin yalnızca güzel bir siteye değil, doğru kişiye ulaşan, güven veren ve teklif almaya yönlendiren bir dijital yapıya ihtiyacı vardır.</p>
-    
-    <p>Bizim için iyi iş; çok büyük vaatler vermek değil, mevcut durumu doğru okumak, ihtiyaçları netleştirmek ve uygulanabilir bir <a href="/calisma-surecimiz.html" style="color:var(--text-muted); border-bottom: 1px dotted var(--gold); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">çalışma sürecimiz</a> ile yol haritası çıkarmaktır.</p>
+    <div class="mobile-readmore" data-mobile-readmore style="--mobile-readmore-collapsed: 12.75rem;">
+      <div class="mobile-readmore__content" data-mobile-readmore-content>
+        <p>Veridia, <a href="/seo/google-gorunurlugu/" style="color:var(--text-muted); border-bottom: 1px dotted var(--gold); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">küçük işletmeler için dijital pazarlama</a> alanında daha görünür, güvenilir ve dönüşüm odaklı hale gelmesi için çalışan <a href="/hakkimizda.html" style="color:var(--text-muted); border-bottom: 1px dotted var(--gold); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">butik dijital pazarlama ajansı</a>dır.</p>
+        
+        <p><a href="/yazilim/web-sitesi-ve-donusum-yuzeyleri/" style="color:var(--text-muted); border-bottom: 1px dotted var(--gold); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Web tasarımı, SEO ve reklam yönetimi</a> hizmetlerini ayrı ayrı işler gibi değil; aynı hedefe çalışan tek bir sistem olarak ele alırız. Çünkü bir işletmenin yalnızca güzel bir siteye değil, doğru kişiye ulaşan, güven veren ve teklif almaya yönlendiren bir dijital yapıya ihtiyacı vardır.</p>
+        
+        <p>Bizim için iyi iş; çok büyük vaatler vermek değil, mevcut durumu doğru okumak, ihtiyaçları netleştirmek ve uygulanabilir bir <a href="/calisma-surecimiz.html" style="color:var(--text-muted); border-bottom: 1px dotted var(--gold); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">çalışma sürecimiz</a> ile yol haritası çıkarmaktır.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
-      <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 8px;">
-        <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-size: 0.95rem;">Net Kapsam ve Şeffaf Teklif</h4>
-        <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); margin: 0;">İşe başlamadan önce ne yapılacağını, neyin dahil olduğunu ve hangi hedefe çalışıldığını netleştiririz.</p>
-      </div>
-      <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 8px;">
-        <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-size: 0.95rem;">Web, SEO ve Reklam Uyumlu Sistem</h4>
-        <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); margin: 0;">Web sitesi, içerik, reklam ve dönüşüm noktalarını birbirinden kopuk değil, birlikte düşünürüz.</p>
-      </div>
-      <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 8px;">
-        <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-size: 0.95rem;">Hızlı Geri Dönüş ve Doğrudan İletişim</h4>
-        <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); margin: 0;">Butik yapımız sayesinde süreci daha sade, daha anlaşılır ve daha hızlı yönetiriz.</p>
-      </div>
-    </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 8px;">
+            <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-size: 0.95rem;">Net Kapsam ve Şeffaf Teklif</h4>
+            <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); margin: 0;">İşe başlamadan önce ne yapılacağını, neyin dahil olduğunu ve hangi hedefe çalışıldığını netleştiririz.</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 8px;">
+            <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-size: 0.95rem;">Web, SEO ve Reklam Uyumlu Sistem</h4>
+            <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); margin: 0;">Web sitesi, içerik, reklam ve dönüşüm noktalarını birbirinden kopuk değil, birlikte düşünürüz.</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 8px;">
+            <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-size: 0.95rem;">Hızlı Geri Dönüş ve Doğrudan İletişim</h4>
+            <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); margin: 0;">Butik yapımız sayesinde süreci daha sade, daha anlaşılır ve daha hızlı yönetiriz.</p>
+          </div>
+        </div>
 
-    <div style="border-left: 3px solid var(--gold); padding-left: 1rem; margin-bottom: 2rem;">
-      <p style="font-style: italic; color: var(--text-muted); font-size: 1.05rem; margin-bottom: 0;">"Yeni bir dijital pazarlama ajansı olarak büyük görünmeye değil, doğru çalışmaya odaklanıyoruz." <a href="/hakkimizda.html" style="color: var(--gold); text-decoration: none; font-size: 0.9rem; font-style: normal; margin-left: 0.5rem; display: inline-block;">Devamını oku →</a></p>
+        <div style="border-left: 3px solid var(--gold); padding-left: 1rem; margin-bottom: 0.35rem;">
+          <p style="font-style: italic; color: var(--text-muted); font-size: 1.05rem; margin-bottom: 0;">"Yeni bir dijital pazarlama ajansı olarak büyük görünmeye değil, doğru çalışmaya odaklanıyoruz." <a href="/hakkimizda.html" style="color: var(--gold); text-decoration: none; font-size: 0.9rem; font-style: normal; margin-left: 0.5rem; display: inline-block;">Devamını oku →</a></p>
+        </div>
+      </div>
+      <button class="mobile-readmore-toggle" type="button" data-mobile-readmore-toggle aria-expanded="false">Devamını Gör</button>
     </div>
 
     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
@@ -627,26 +672,31 @@
   <div class="team-section-head reveal">
     <p class="section-label">Farkımız</p>
     <h2 class="section-title">Neden Veridia?</h2>
-    <p class="team-section-copy">Veridia olarak dijital pazarlamayı sadece teknik işler bütünü olarak değil, işletmenin müşteri kazanma sürecini güçlendiren bir sistem olarak görüyoruz. Web sitesi, SEO ve reklam çalışmalarını birbirinden kopuk değil, aynı hedefe hizmet eden parçalar olarak planlıyoruz.</p>
-  </div>
-  <div class="team-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-    <div class="team-card reveal" style="padding: 1.5rem;">
-      <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> Küçük ve orta ölçekli işletmelerin gerçek ihtiyaçlarına odaklanırız.</p>
-    </div>
-    <div class="team-card reveal" style="padding: 1.5rem;">
-      <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> Web sitesi, SEO ve reklamı birlikte düşünürüz.</p>
-    </div>
-    <div class="team-card reveal" style="padding: 1.5rem;">
-      <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> Gereksiz teknik terimler yerine net yapılacaklarla ilerleriz.</p>
-    </div>
-    <div class="team-card reveal" style="padding: 1.5rem;">
-      <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> İlk hedefimiz sadece trafik değil, doğru müşteri adayıdır.</p>
-    </div>
-    <div class="team-card reveal" style="padding: 1.5rem;">
-      <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> Hizmet bedeli ve reklam bütçesini açık şekilde ayırırız.</p>
-    </div>
-    <div class="team-card reveal" style="padding: 1.5rem;">
-      <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> Yeni başlayan işletmelere sade, anlaşılır ve uygulanabilir süreç sunarız.</p>
+    <div class="mobile-readmore" data-mobile-readmore style="--mobile-readmore-collapsed: 13.25rem;">
+      <div class="mobile-readmore__content" data-mobile-readmore-content>
+        <p class="team-section-copy">Veridia olarak dijital pazarlamayı sadece teknik işler bütünü olarak değil, işletmenin müşteri kazanma sürecini güçlendiren bir sistem olarak görüyoruz. Web sitesi, SEO ve reklam çalışmalarını birbirinden kopuk değil, aynı hedefe hizmet eden parçalar olarak planlıyoruz.</p>
+        <div class="team-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+          <div class="team-card reveal" style="padding: 1.5rem;">
+            <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> Küçük ve orta ölçekli işletmelerin gerçek ihtiyaçlarına odaklanırız.</p>
+          </div>
+          <div class="team-card reveal" style="padding: 1.5rem;">
+            <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> Web sitesi, SEO ve reklamı birlikte düşünürüz.</p>
+          </div>
+          <div class="team-card reveal" style="padding: 1.5rem;">
+            <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> Gereksiz teknik terimler yerine net yapılacaklarla ilerleriz.</p>
+          </div>
+          <div class="team-card reveal" style="padding: 1.5rem;">
+            <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> İlk hedefimiz sadece trafik değil, doğru müşteri adayıdır.</p>
+          </div>
+          <div class="team-card reveal" style="padding: 1.5rem;">
+            <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> Hizmet bedeli ve reklam bütçesini açık şekilde ayırırız.</p>
+          </div>
+          <div class="team-card reveal" style="padding: 1.5rem;">
+            <p class="team-bio" style="margin-top:0; font-size: 1rem;"><span style="color:var(--gold);">◆</span> Yeni başlayan işletmelere sade, anlaşılır ve uygulanabilir süreç sunarız.</p>
+          </div>
+        </div>
+      </div>
+      <button class="mobile-readmore-toggle" type="button" data-mobile-readmore-toggle aria-expanded="false">Devamını Gör</button>
     </div>
   </div>
 </section>
@@ -663,92 +713,152 @@
     </div>
 
     <div class="services-grid">
-      <article class="service-card feature reveal" tabindex="0" style="--accent-rgb: 96,176,255;">
-        <div class="service-head">
-          <span class="service-number">01</span>
-          <span class="service-code">STRATA</span>
+      <article class="service-card feature reveal" data-mobile-accordion="service" style="--accent-rgb: 96,176,255;">
+        <button class="service-accordion-toggle" type="button" data-accordion-trigger aria-expanded="false">
+          <div class="service-head">
+            <span class="service-number">01</span>
+            <span class="service-code">STRATA</span>
+          </div>
+          <div class="service-wave" aria-hidden="true">
+            <svg viewBox="0 0 320 80" preserveAspectRatio="none">
+              <path d="M0 45 C 36 16, 76 16, 112 45 S 188 74, 224 45 S 284 16, 320 45"></path>
+              <path d="M0 56 C 36 38, 76 38, 112 56 S 188 74, 224 56 S 284 38, 320 56"></path>
+            </svg>
+          </div>
+          <div class="service-summary-top">
+            <span class="service-glyph" aria-hidden="true">◫</span>
+            <div class="service-summary-copy">
+              <div class="service-kicker">Dönüşüm Odaklı Yüzey</div>
+              <h3 class="service-name">Web Tasarım</h3>
+              <p class="service-desc">Müşteri adayı üretmeye odaklanan hızlı, mobil uyumlu ve SEO altyapılı web siteleri.</p>
+            </div>
+            <span class="service-accordion-indicator" aria-hidden="true"></span>
+          </div>
+        </button>
+        <div class="service-accordion-panel" data-accordion-panel>
+          <ul class="service-mobile-points">
+            <li>Mobil uyumlu sayfa akışı ve net ana mesaj</li>
+            <li>WhatsApp, form ve teklif CTA kurgusu</li>
+            <li>Temel SEO altyapısı ve hız odaklı kurulum</li>
+          </ul>
+          <div class="service-tags">
+            <span class="tag">Kurumsal Site</span>
+            <span class="tag">Landing Page</span>
+            <span class="tag">CTA Kurgusu</span>
+          </div>
+          <a href="/yazilim/web-sitesi-ve-donusum-yuzeyleri/" class="btn-outline" style="display: block; text-align: center; margin-top: 1.5rem; margin-bottom: 0.5rem; width: 100%;">Hizmeti İncele</a>
         </div>
-        <div class="service-wave" aria-hidden="true">
-          <svg viewBox="0 0 320 80" preserveAspectRatio="none">
-            <path d="M0 45 C 36 16, 76 16, 112 45 S 188 74, 224 45 S 284 16, 320 45"></path>
-            <path d="M0 56 C 36 38, 76 38, 112 56 S 188 74, 224 56 S 284 38, 320 56"></path>
-          </svg>
-        </div>
-        <div class="service-kicker">Dönüşüm Odaklı Yüzey</div>
-        <h3 class="service-name">Web Tasarım</h3>
-        <p class="service-desc">Müşteri adayı üretmeye odaklanan hızlı, mobil uyumlu ve SEO altyapılı web siteleri.</p>
-        <div class="service-tags">
-          <span class="tag">Kurumsal Site</span>
-          <span class="tag">Landing Page</span>
-          <span class="tag">CTA Kurgusu</span>
-        </div>
-        <a href="/yazilim/web-sitesi-ve-donusum-yuzeyleri/" class="btn-outline" style="display: block; text-align: center; margin-top: 1.5rem; margin-bottom: 0.5rem; width: 100%;">Detaylı İncele</a>
       </article>
 
-      <article class="service-card tall reveal" tabindex="0" style="--accent-rgb: 92,214,185;">
-        <div class="service-head">
-          <span class="service-number">02</span>
-          <span class="service-code">SOCIAL OS</span>
+      <article class="service-card tall reveal" data-mobile-accordion="service" style="--accent-rgb: 92,214,185;">
+        <button class="service-accordion-toggle" type="button" data-accordion-trigger aria-expanded="false">
+          <div class="service-head">
+            <span class="service-number">02</span>
+            <span class="service-code">SOCIAL OS</span>
+          </div>
+          <div class="service-wave" aria-hidden="true">
+            <svg viewBox="0 0 320 80" preserveAspectRatio="none">
+              <path d="M0 40 C 44 68, 86 68, 130 40 S 216 12, 260 40 S 300 68, 320 40"></path>
+              <path d="M0 54 C 44 36, 86 36, 130 54 S 216 72, 260 54 S 300 36, 320 54"></path>
+            </svg>
+          </div>
+          <div class="service-summary-top">
+            <span class="service-glyph" aria-hidden="true">⌕</span>
+            <div class="service-summary-copy">
+              <div class="service-kicker">Google Görünürlüğü</div>
+              <h3 class="service-name">SEO Danışmanlığı</h3>
+              <p class="service-desc">Google’da görünür olmak isteyen işletmeler için teknik SEO, içerik ve yerel SEO çalışmaları.</p>
+            </div>
+            <span class="service-accordion-indicator" aria-hidden="true"></span>
+          </div>
+        </button>
+        <div class="service-accordion-panel" data-accordion-panel>
+          <ul class="service-mobile-points">
+            <li>Teknik SEO tespiti ve önceliklendirme</li>
+            <li>Başlıklar, içerik akışı ve iç link önerileri</li>
+            <li>Yerel görünürlük ve Google odaklı büyüme planı</li>
+          </ul>
+          <div class="service-tags">
+            <span class="tag">Teknik SEO</span>
+            <span class="tag">İç SEO</span>
+            <span class="tag">İç Linkleme</span>
+          </div>
+          <a href="/seo/google-gorunurlugu/" class="btn-outline" style="display: block; text-align: center; margin-top: 1.5rem; margin-bottom: 0.5rem; width: 100%;">Hizmeti İncele</a>
         </div>
-        <div class="service-wave" aria-hidden="true">
-          <svg viewBox="0 0 320 80" preserveAspectRatio="none">
-            <path d="M0 40 C 44 68, 86 68, 130 40 S 216 12, 260 40 S 300 68, 320 40"></path>
-            <path d="M0 54 C 44 36, 86 36, 130 54 S 216 72, 260 54 S 300 36, 320 54"></path>
-          </svg>
-        </div>
-        <div class="service-kicker">Google Görünürlüğü</div>
-        <h3 class="service-name">SEO Danışmanlığı</h3>
-        <p class="service-desc">Google’da görünür olmak isteyen işletmeler için teknik SEO, içerik ve yerel SEO çalışmaları.</p>
-        <div class="service-tags">
-          <span class="tag">Teknik SEO</span>
-          <span class="tag">İç SEO</span>
-          <span class="tag">İç Linkleme</span>
-        </div>
-        <a href="/seo/google-gorunurlugu/" class="btn-outline" style="display: block; text-align: center; margin-top: 1.5rem; margin-bottom: 0.5rem; width: 100%;">Detaylı İncele</a>
       </article>
 
-      <article class="service-card dual reveal" tabindex="0" style="--accent-rgb: 216,171,83;">
-        <div class="service-head">
-          <span class="service-number">03</span>
-          <span class="service-code">PERF GRID</span>
+      <article class="service-card dual reveal" data-mobile-accordion="service" style="--accent-rgb: 216,171,83;">
+        <button class="service-accordion-toggle" type="button" data-accordion-trigger aria-expanded="false">
+          <div class="service-head">
+            <span class="service-number">03</span>
+            <span class="service-code">PERF GRID</span>
+          </div>
+          <div class="service-wave" aria-hidden="true">
+            <svg viewBox="0 0 320 80" preserveAspectRatio="none">
+              <path d="M0 48 C 32 18, 68 18, 100 48 S 168 78, 200 48 S 268 18, 320 48"></path>
+              <path d="M0 60 C 32 44, 68 44, 100 60 S 168 76, 200 60 S 268 44, 320 60"></path>
+            </svg>
+          </div>
+          <div class="service-summary-top">
+            <span class="service-glyph" aria-hidden="true">◎</span>
+            <div class="service-summary-copy">
+              <div class="service-kicker">Arama Niyeti ve Talep</div>
+              <h3 class="service-name">Google Ads Yönetimi</h3>
+              <p class="service-desc">Reklam bütçenizi sadece tıklama almak için değil, daha fazla form, WhatsApp mesajı ve müşteri adayı üretmek için planlıyoruz.</p>
+            </div>
+            <span class="service-accordion-indicator" aria-hidden="true"></span>
+          </div>
+        </button>
+        <div class="service-accordion-panel" data-accordion-panel>
+          <ul class="service-mobile-points">
+            <li>Arama niyeti odaklı kampanya ve anahtar kelime yapısı</li>
+            <li>Landing page, form ve WhatsApp akışı uyumu</li>
+            <li>Dönüşüm takibi, bütçe optimizasyonu ve raporlama</li>
+          </ul>
+          <div class="service-tags">
+            <span class="tag">Search Ads</span>
+            <span class="tag">Google Ads</span>
+            <span class="tag">Landing Page</span>
+          </div>
+          <a href="/reklam/google-ads-yonetimi/" class="btn-outline" style="display: block; text-align: center; margin-top: 1.5rem; margin-bottom: 0.5rem; width: 100%;">Hizmeti İncele</a>
         </div>
-        <div class="service-wave" aria-hidden="true">
-          <svg viewBox="0 0 320 80" preserveAspectRatio="none">
-            <path d="M0 48 C 32 18, 68 18, 100 48 S 168 78, 200 48 S 268 18, 320 48"></path>
-            <path d="M0 60 C 32 44, 68 44, 100 60 S 168 76, 200 60 S 268 44, 320 60"></path>
-          </svg>
-        </div>
-        <div class="service-kicker">Arama Niyeti ve Talep</div>
-        <h3 class="service-name">Google Ads Yönetimi</h3>
-        <p class="service-desc">Reklam bütçenizi sadece tıklama almak için değil, daha fazla form, WhatsApp mesajı ve müşteri adayı üretmek için planlıyoruz.</p>
-        <div class="service-tags">
-          <span class="tag">Search Ads</span>
-          <span class="tag">Google Ads</span>
-          <span class="tag">Landing Page</span>
-        </div>
-        <a href="/reklam/google-ads-yonetimi/" class="btn-outline" style="display: block; text-align: center; margin-top: 1.5rem; margin-bottom: 0.5rem; width: 100%;">Detaylı İncele</a>
       </article>
 
-      <article class="service-card dual reveal" tabindex="0" style="--accent-rgb: 197,106,132;">
-        <div class="service-head">
-          <span class="service-number">04</span>
-          <span class="service-code">MOTION LAB</span>
+      <article class="service-card dual reveal" data-mobile-accordion="service" style="--accent-rgb: 197,106,132;">
+        <button class="service-accordion-toggle" type="button" data-accordion-trigger aria-expanded="false">
+          <div class="service-head">
+            <span class="service-number">04</span>
+            <span class="service-code">MOTION LAB</span>
+          </div>
+          <div class="service-wave" aria-hidden="true">
+            <svg viewBox="0 0 320 80" preserveAspectRatio="none">
+              <path d="M0 34 C 40 62, 80 62, 120 34 S 200 6, 240 34 S 280 62, 320 34"></path>
+              <path d="M0 50 C 40 32, 80 32, 120 50 S 200 68, 240 50 S 280 32, 320 50"></path>
+            </svg>
+          </div>
+          <div class="service-summary-top">
+            <span class="service-glyph" aria-hidden="true">✦</span>
+            <div class="service-summary-copy">
+              <div class="service-kicker">İçerik ve Topluluk</div>
+              <h3 class="service-name">Sosyal Medya Yönetimi</h3>
+              <p class="service-desc">Markanızın sosyal medya hesaplarını sadece paylaşım yapılan alanlar olarak değil, güven oluşturan ve dijital satış sürecini destekleyen kanallar olarak planlıyoruz.</p>
+            </div>
+            <span class="service-accordion-indicator" aria-hidden="true"></span>
+          </div>
+        </button>
+        <div class="service-accordion-panel" data-accordion-panel>
+          <ul class="service-mobile-points">
+            <li>İçerik planı, yayın ritmi ve platform düzeni</li>
+            <li>Profil dili, görsel bütünlük ve profesyonel görünüm</li>
+            <li>Topluluk yönetimi ve güven oluşturan paylaşım sistemi</li>
+          </ul>
+          <div class="service-tags">
+            <span class="tag">İçerik Planı</span>
+            <span class="tag">Reels</span>
+            <span class="tag">Topluluk</span>
+          </div>
+          <a href="/reklam/sosyal-medya-yonetimi/" class="btn-outline" style="display: block; text-align: center; margin-top: 1.5rem; margin-bottom: 0.5rem; width: 100%;">Hizmeti İncele</a>
         </div>
-        <div class="service-wave" aria-hidden="true">
-          <svg viewBox="0 0 320 80" preserveAspectRatio="none">
-            <path d="M0 34 C 40 62, 80 62, 120 34 S 200 6, 240 34 S 280 62, 320 34"></path>
-            <path d="M0 50 C 40 32, 80 32, 120 50 S 200 68, 240 50 S 280 32, 320 50"></path>
-          </svg>
-        </div>
-        <div class="service-kicker">İçerik ve Topluluk</div>
-        <h3 class="service-name">Sosyal Medya Yönetimi</h3>
-        <p class="service-desc">Markanızın sosyal medya hesaplarını sadece paylaşım yapılan alanlar olarak değil, güven oluşturan ve dijital satış sürecini destekleyen kanallar olarak planlıyoruz.</p>
-        <div class="service-tags">
-          <span class="tag">İçerik Planı</span>
-          <span class="tag">Reels</span>
-          <span class="tag">Topluluk</span>
-        </div>
-        <a href="/reklam/sosyal-medya-yonetimi/" class="btn-outline" style="display: block; text-align: center; margin-top: 1.5rem; margin-bottom: 0.5rem; width: 100%;">Detaylı İncele</a>
       </article>
 
 
@@ -763,7 +873,10 @@
       </div>
       <div>
         <p class="services-detail-copy">Hizmetlerimizi tek tek yürüyen işler olarak değil, web sitesi, SEO, reklam ve sosyal medya tarafını aynı müşteri adayı hedefinde birleştiren modüller olarak planlıyoruz.</p>
-        
+        <div class="services-detail-actions">
+          <a href="/#mini-analiz" class="btn-gold">Ücretsiz Mini Analiz İste</a>
+          <a href="/seo/google-gorunurlugu/" class="btn-outline">SEO Analizi İste</a>
+        </div>
       </div>
     </div>
 
@@ -945,61 +1058,69 @@
     <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Örnek Çalışma Senaryosu: Yerel İşletmenin Dijital Yapısını Nasıl Toparlarız?</h2>
     
     <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 2.5rem;">
-      <p style="font-size: 1.05rem; color: var(--off-white); line-height: 1.7; margin-bottom: 2rem;">Bir yerel işletmenin Instagram hesabı aktif olabilir, ancak web sitesi yoksa ya da mevcut site kullanıcıyı iletişime geçirmiyorsa reklam ve sosyal medya çalışmaları yeterli sonuç üretmeyebilir. Bu durumda öncelik, işletmenin hizmetlerini net anlatan, mobil uyumlu, hızlı açılan ve kullanıcıyı WhatsApp veya teklif formuna yönlendiren bir web sitesi kurmaktır.</p>
-      <p style="font-size: 1.05rem; color: var(--off-white); line-height: 1.7; margin-bottom: 2rem;">Veridia olarak böyle bir işletmede önce mevcut dijital görünürlüğü analiz eder, ardından web sitesi yapısını, SEO başlıklarını, hizmet sayfalarını ve reklamdan gelen trafiğin yönleneceği açılış sayfalarını planlarız.</p>
-      
-      <h3 style="font-size: 1.2rem; color: var(--gold); margin-bottom: 1rem; font-family: 'Cormorant Garamond', serif;">Yapılacaklar Listesi:</h3>
-      <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-        <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Mobil uyumlu web sitesi kurulumu</span></li>
-        <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Net ana sayfa mesajı</span></li>
-        <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Hizmet sayfalarının oluşturulması</span></li>
-        <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">WhatsApp ve teklif formu yönlendirmeleri</span></li>
-        <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Google Search Console ve Analytics kurulumu</span></li>
-        <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Google Business optimizasyonu</span></li>
-        <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Temel SEO başlık ve açıklama düzenlemeleri</span></li>
-        <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Reklam trafiği için dönüşüm odaklı sayfa yapısı</span></li>
-      </ul>
-      
-      <div style="padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05);">
-        <p style="font-size: 1.1rem; color: var(--off-white); font-weight: 500; font-family: 'Cormorant Garamond', serif; font-style: italic;">"Bu çalışmanın hedefi, işletmenin dijitalde daha güvenilir görünmesi, Google’dan daha fazla görünürlük kazanması ve kullanıcıların daha kolay iletişime geçmesini sağlamaktır."</p>
+      <div class="mobile-readmore" data-mobile-readmore style="--mobile-readmore-collapsed: 12rem;">
+        <div class="mobile-readmore__content" data-mobile-readmore-content>
+          <p style="font-size: 1.05rem; color: var(--off-white); line-height: 1.7; margin-bottom: 2rem;">Bir yerel işletmenin Instagram hesabı aktif olabilir, ancak web sitesi yoksa ya da mevcut site kullanıcıyı iletişime geçirmiyorsa reklam ve sosyal medya çalışmaları yeterli sonuç üretmeyebilir. Bu durumda öncelik, işletmenin hizmetlerini net anlatan, mobil uyumlu, hızlı açılan ve kullanıcıyı WhatsApp veya teklif formuna yönlendiren bir web sitesi kurmaktır.</p>
+          <p style="font-size: 1.05rem; color: var(--off-white); line-height: 1.7; margin-bottom: 2rem;">Veridia olarak böyle bir işletmede önce mevcut dijital görünürlüğü analiz eder, ardından web sitesi yapısını, SEO başlıklarını, hizmet sayfalarını ve reklamdan gelen trafiğin yönleneceği açılış sayfalarını planlarız.</p>
+          
+          <h3 style="font-size: 1.2rem; color: var(--gold); margin-bottom: 1rem; font-family: 'Cormorant Garamond', serif;">Yapılacaklar Listesi:</h3>
+          <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Mobil uyumlu web sitesi kurulumu</span></li>
+            <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Net ana sayfa mesajı</span></li>
+            <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Hizmet sayfalarının oluşturulması</span></li>
+            <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">WhatsApp ve teklif formu yönlendirmeleri</span></li>
+            <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Google Search Console ve Analytics kurulumu</span></li>
+            <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Google Business optimizasyonu</span></li>
+            <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Temel SEO başlık ve açıklama düzenlemeleri</span></li>
+            <li style="display: flex; align-items: center; gap: 0.8rem;"><span style="color: var(--gold);">◆</span><span style="color: var(--text-muted);">Reklam trafiği için dönüşüm odaklı sayfa yapısı</span></li>
+          </ul>
+          
+          <div style="padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05);">
+            <p style="font-size: 1.1rem; color: var(--off-white); font-weight: 500; font-family: 'Cormorant Garamond', serif; font-style: italic;">"Bu çalışmanın hedefi, işletmenin dijitalde daha güvenilir görünmesi, Google’dan daha fazla görünürlük kazanması ve kullanıcıların daha kolay iletişime geçmesini sağlamaktır."</p>
+          </div>
+        </div>
+        <button class="mobile-readmore-toggle" type="button" data-mobile-readmore-toggle aria-expanded="false">Devamını Gör</button>
       </div>
     </div>
   </div>
 </section>
 
-<section class="premium-contact-section">
+<section id="mini-analiz" class="premium-contact-section">
   <div class="contact-fit">
-    <div class="analysis-detail-grid reveal">
-      <article class="detail-card fit-card">
-        <div class="detail-kicker">UYGUNLUK ÇERÇEVESİ</div>
-        <div class="detail-headline">Nasıl çalışıyoruz?</div>
-        <p class="detail-copy">Veridia olarak hızlı vaatler yerine sürdürülebilir dijital yapı kurmaya odaklanıyoruz. Bu yüzden beklentisi gerçekçi olan ve dijital varlığını adım adım güçlendirmek isteyen işletmelerle daha verimli çalışıyoruz.</p>
-      </article>
-      <article class="detail-card fit-card">
-        <div class="detail-kicker">Kimler İçin Uygunuz?</div>
-        <div class="detail-headline">Ölçülebilir yapı kurmak isteyenler</div>
-        <p class="detail-copy">Veridia, web sitesi, SEO ve reklam tarafında daha düzenli ve ölçülebilir bir yapı kurmak isteyen küçük ve orta ölçekli işletmeler için uygundur. Amacımız sadece görünür olmak değil, dijital kanalları müşteri adayı üretecek şekilde bir araya getirmektir.</p>
-        <ul class="fit-list">
-          <li>Web sitesi var ama teklif veya müşteri talebi alamayan işletmeler</li>
-          <li>Google’da görünür olmak isteyen yerel işletmeler</li>
-          <li>Reklam verip yeterli dönüşüm alamayan markalar</li>
-          <li>Instagram’da aktif olup web sitesi tarafı zayıf kalan işletmeler</li>
-          <li>İlk kez profesyonel bir dijital pazarlama sistemi kurmak isteyen küçük işletmeler</li>
-          <li>Web sitesi, SEO ve reklam tarafını tek plan altında toplamak isteyen firmalar</li>
-        </ul>
-      </article>
-      <article class="detail-card fit-card" style="grid-column: span 2;">
-        <div class="detail-kicker">Kimler İçin Uygun Olmayabiliriz?</div>
-        <div class="detail-headline">Sadece hızlı görünürlük arayan işler</div>
-        <p class="detail-copy">Aşağıdaki beklentilere sahip işletmeler için doğru ekip olmayabiliriz:</p>
-        <ul class="fit-list">
-          <li>Bir gecede sonuç bekleyen işletmeler</li>
-          <li>Reklam bütçesi ayırmadan büyümek isteyen markalar</li>
-          <li>Sadece görsel olarak güzel bir site isteyip dönüşümle ilgilenmeyenler</li>
-          <li>SEO’nun düzenli çalışma gerektirdiğini kabul etmeyenler</li>
-          <li>Ölçümleme, takip ve iyileştirme sürecine kapalı olan işletmeler</li>
-        </ul>
-      </article>
+    <div class="mobile-readmore reveal" data-mobile-readmore style="--mobile-readmore-collapsed: 13rem;">
+      <div class="analysis-detail-grid mobile-readmore__content" data-mobile-readmore-content>
+        <article class="detail-card fit-card">
+          <div class="detail-kicker">UYGUNLUK ÇERÇEVESİ</div>
+          <div class="detail-headline">Nasıl çalışıyoruz?</div>
+          <p class="detail-copy">Veridia olarak hızlı vaatler yerine sürdürülebilir dijital yapı kurmaya odaklanıyoruz. Bu yüzden beklentisi gerçekçi olan ve dijital varlığını adım adım güçlendirmek isteyen işletmelerle daha verimli çalışıyoruz.</p>
+        </article>
+        <article class="detail-card fit-card">
+          <div class="detail-kicker">Kimler İçin Uygunuz?</div>
+          <div class="detail-headline">Ölçülebilir yapı kurmak isteyenler</div>
+          <p class="detail-copy">Veridia, web sitesi, SEO ve reklam tarafında daha düzenli ve ölçülebilir bir yapı kurmak isteyen küçük ve orta ölçekli işletmeler için uygundur. Amacımız sadece görünür olmak değil, dijital kanalları müşteri adayı üretecek şekilde bir araya getirmektir.</p>
+          <ul class="fit-list">
+            <li>Web sitesi var ama teklif veya müşteri talebi alamayan işletmeler</li>
+            <li>Google’da görünür olmak isteyen yerel işletmeler</li>
+            <li>Reklam verip yeterli dönüşüm alamayan markalar</li>
+            <li>Instagram’da aktif olup web sitesi tarafı zayıf kalan işletmeler</li>
+            <li>İlk kez profesyonel bir dijital pazarlama sistemi kurmak isteyen küçük işletmeler</li>
+            <li>Web sitesi, SEO ve reklam tarafını tek plan altında toplamak isteyen firmalar</li>
+          </ul>
+        </article>
+        <article class="detail-card fit-card" style="grid-column: span 2;">
+          <div class="detail-kicker">Kimler İçin Uygun Olmayabiliriz?</div>
+          <div class="detail-headline">Sadece hızlı görünürlük arayan işler</div>
+          <p class="detail-copy">Aşağıdaki beklentilere sahip işletmeler için doğru ekip olmayabiliriz:</p>
+          <ul class="fit-list">
+            <li>Bir gecede sonuç bekleyen işletmeler</li>
+            <li>Reklam bütçesi ayırmadan büyümek isteyen markalar</li>
+            <li>Sadece görsel olarak güzel bir site isteyip dönüşümle ilgilenmeyenler</li>
+            <li>SEO’nun düzenli çalışma gerektirdiğini kabul etmeyenler</li>
+            <li>Ölçümleme, takip ve iyileştirme sürecine kapalı olan işletmeler</li>
+          </ul>
+        </article>
+      </div>
+      <button class="mobile-readmore-toggle" type="button" data-mobile-readmore-toggle aria-expanded="false">Devamını Gör</button>
     </div>
   </div>
   <div class="contact-faq">
@@ -1010,25 +1131,50 @@
       <h2 class="contact-heading" style="max-width: none; margin-bottom: 1rem; font-size: clamp(2.4rem, 5vw, 3.6rem);">Sık Sorulan Sorular</h2>
     </div>
     <div class="blog-faq-layout reveal">
-      <article class="blog-faq-card">
-        <h3 class="blog-faq-title">Web sitem var ama müşteri gelmiyor, sorun ne olabilir?</h3>
-        <p class="blog-faq-copy">Web siteniz yayında olsa bile mesajınız net değilse, sayfa yavaş açılıyorsa, mobil deneyim zayıfsa, teklif alma butonları görünür değilse veya SEO yapınız eksikse kullanıcılar iletişime geçmeden çıkabilir. Bu yüzden web sitesi sadece tasarım olarak değil, dönüşüm ve görünürlük açısından da değerlendirilmelidir.</p>
+      <article class="blog-faq-card" data-mobile-accordion="faq">
+        <button class="faq-toggle" type="button" data-accordion-trigger aria-expanded="false">
+          <span class="blog-faq-title">Web sitem var ama müşteri gelmiyor, sorun ne olabilir?</span>
+          <span class="faq-indicator" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" data-accordion-panel>
+          <p class="blog-faq-copy">Web siteniz yayında olsa bile mesajınız net değilse, sayfa yavaş açılıyorsa, mobil deneyim zayıfsa, teklif alma butonları görünür değilse veya SEO yapınız eksikse kullanıcılar iletişime geçmeden çıkabilir. Bu yüzden web sitesi sadece tasarım olarak değil, dönüşüm ve görünürlük açısından da değerlendirilmelidir.</p>
+        </div>
       </article>
-      <article class="blog-faq-card">
-        <h3 class="blog-faq-title">Yeni kurulan işletmeler için web sitesi ve SEO birlikte gerekli mi?</h3>
-        <p class="blog-faq-copy">Evet. Web sitesi işletmenin dijital merkezi, SEO ise bu merkezin Google’da görünür olmasını sağlayan uzun vadeli yapıdır. Yeni başlayan işletmeler için temel SEO altyapısıyla kurulan bir web sitesi ileride daha sağlıklı büyür.</p>
+      <article class="blog-faq-card" data-mobile-accordion="faq">
+        <button class="faq-toggle" type="button" data-accordion-trigger aria-expanded="false">
+          <span class="blog-faq-title">Yeni kurulan işletmeler için web sitesi ve SEO birlikte gerekli mi?</span>
+          <span class="faq-indicator" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" data-accordion-panel>
+          <p class="blog-faq-copy">Evet. Web sitesi işletmenin dijital merkezi, SEO ise bu merkezin Google’da görünür olmasını sağlayan uzun vadeli yapıdır. Yeni başlayan işletmeler için temel SEO altyapısıyla kurulan bir web sitesi ileride daha sağlıklı büyür.</p>
+        </div>
       </article>
-      <article class="blog-faq-card">
-        <h3 class="blog-faq-title">Google Ads vermeden önce web sitesi hazır olmalı mı?</h3>
-        <p class="blog-faq-copy">Reklama başlamadan önce web sitesinin veya açılış sayfasının kullanıcıyı net şekilde yönlendirmesi gerekir. Aksi halde reklam tıklama getirse bile form, WhatsApp mesajı veya teklif talebi oluşmayabilir.</p>
+      <article class="blog-faq-card" data-mobile-accordion="faq">
+        <button class="faq-toggle" type="button" data-accordion-trigger aria-expanded="false">
+          <span class="blog-faq-title">Google Ads vermeden önce web sitesi hazır olmalı mı?</span>
+          <span class="faq-indicator" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" data-accordion-panel>
+          <p class="blog-faq-copy">Reklama başlamadan önce web sitesinin veya açılış sayfasının kullanıcıyı net şekilde yönlendirmesi gerekir. Aksi halde reklam tıklama getirse bile form, WhatsApp mesajı veya teklif talebi oluşmayabilir.</p>
+        </div>
       </article>
-      <article class="blog-faq-card">
-        <h3 class="blog-faq-title">SEO çalışması ne kadar sürede sonuç verir?</h3>
-        <p class="blog-faq-copy">SEO genellikle düzenli çalışma isteyen bir süreçtir. Teknik altyapı, içerik kalitesi, rekabet durumu ve site geçmişine göre değişmekle birlikte ilk sinyaller birkaç ay içinde görülebilir. Kalıcı sonuçlar için düzenli içerik ve iyileştirme gerekir.</p>
+      <article class="blog-faq-card" data-mobile-accordion="faq">
+        <button class="faq-toggle" type="button" data-accordion-trigger aria-expanded="false">
+          <span class="blog-faq-title">SEO çalışması ne kadar sürede sonuç verir?</span>
+          <span class="faq-indicator" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" data-accordion-panel>
+          <p class="blog-faq-copy">SEO genellikle düzenli çalışma isteyen bir süreçtir. Teknik altyapı, içerik kalitesi, rekabet durumu ve site geçmişine göre değişmekle birlikte ilk sinyaller birkaç ay içinde görülebilir. Kalıcı sonuçlar için düzenli içerik ve iyileştirme gerekir.</p>
+        </div>
       </article>
-      <article class="blog-faq-card">
-        <h3 class="blog-faq-title">Ücretsiz mini analizde neler kontrol edilir?</h3>
-        <p class="blog-faq-copy">Mini analizde web sitenizin ilk izlenimi, mobil deneyimi, SEO başlıkları, hız durumu, WhatsApp/form yönlendirmeleri, Google görünürlüğü ve dönüşüm yapısı genel olarak incelenir. Amaç, sitenizin nerede müşteri kaybettiğini hızlıca görmektir.</p>
+      <article class="blog-faq-card" data-mobile-accordion="faq">
+        <button class="faq-toggle" type="button" data-accordion-trigger aria-expanded="false">
+          <span class="blog-faq-title">Ücretsiz mini analizde neler kontrol edilir?</span>
+          <span class="faq-indicator" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" data-accordion-panel>
+          <p class="blog-faq-copy">Mini analizde web sitenizin ilk izlenimi, mobil deneyimi, SEO başlıkları, hız durumu, WhatsApp/form yönlendirmeleri, Google görünürlüğü ve dönüşüm yapısı genel olarak incelenir. Amaç, sitenizin nerede müşteri kaybettiğini hızlıca görmektir.</p>
+        </div>
       </article>
     </div>
   </div>
@@ -1040,7 +1186,7 @@
 
       <div class="premium-contact-features" style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:2rem;">
         <a href="/hizli-teklif.html" class="btn-gold">Ücretsiz Mini Analiz İste</a>
-        <a href="https://wa.me/905055174654?text=Merhaba" target="_blank" rel="noopener" class="btn-outline">WhatsApp'tan Yaz</a>
+        <a href="https://wa.me/905055174654?text=Merhaba" target="_blank" rel="noopener" class="btn-outline">WhatsApp'tan Teklif Al</a>
       </div>
 
       <div class="premium-contact-direct">
@@ -1099,6 +1245,21 @@
     </div>
   </div>
 </section>
+
+<nav class="mobile-sticky-nav" aria-label="Mobil hızlı aksiyonlar">
+  <a href="/#services" class="mobile-sticky-nav__link">
+    <span class="mobile-sticky-nav__label">Hizmetler</span>
+  </a>
+  <a href="/#mini-analiz" class="mobile-sticky-nav__link">
+    <span class="mobile-sticky-nav__label">Mini Analiz</span>
+  </a>
+  <a href="https://wa.me/905055174654?text=Merhaba,%20ucretsiz%20mini%20analiz%20istiyorum." target="_blank" rel="noopener" class="mobile-sticky-nav__link mobile-sticky-nav__link--accent">
+    <span class="mobile-sticky-nav__label">WhatsApp</span>
+  </a>
+  <a href="/#contact" class="mobile-sticky-nav__link">
+    <span class="mobile-sticky-nav__label">İletişim</span>
+  </a>
+</nav>
 
 <!-- FOOTER -->
 <footer>

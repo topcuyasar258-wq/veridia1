@@ -14,6 +14,29 @@
   scroll-margin-top: 88px;
 }
 
+@media (max-width: 768px) {
+  .nav-mobile-cta {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201, 168, 76, 0.12);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    border-radius: 99px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-mobile-cta:active {
+    background: rgba(201, 168, 76, 0.25);
+  }
+}
+
 .needs-section {
   padding: 4.5rem 5%;
 }
