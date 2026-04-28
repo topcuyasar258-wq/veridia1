@@ -113,20 +113,19 @@ SECURITY_HEADERS = {
     "Cross-Origin-Opener-Policy": "same-origin",
     "Cross-Origin-Resource-Policy": "same-origin",
     "X-Permitted-Cross-Domain-Policies": "none",
-    "Content-Security-Policy": (
-        "default-src 'self'; "
-        "base-uri 'self'; "
-        "object-src 'none'; "
-        "frame-ancestors 'self'; "
-        "script-src 'self' https://www.googletagmanager.com; "
-        "style-src 'self' 'unsafe-inline'; "
-        "img-src 'self' data: https:; "
-        "font-src 'self' data:; "
-        "connect-src 'self' https://formspree.io https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net; "
-        "form-action 'self' https://wa.me https://formspree.io; "
-        "upgrade-insecure-requests"
-    ),
 }
+CONTENT_SECURITY_POLICY = (
+    "default-src 'self'; "
+    "base-uri 'self'; "
+    "object-src 'none'; "
+    "frame-ancestors 'self'; "
+    "script-src 'self' https://www.googletagmanager.com; "
+    "style-src 'self' 'unsafe-inline'; "
+    "img-src 'self' data: https:; "
+    "font-src 'self' data:; "
+    "connect-src 'self' https://formspree.io https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net; "
+    "form-action 'self' https://wa.me https://formspree.io"
+)
 ALLOWED_ORIGINS = frozenset(
     origin.strip()
     for origin in os.environ.get("ALLOWED_ORIGINS", ",".join(DEFAULT_ALLOWED_ORIGINS)).split(",")
@@ -915,7 +914,8 @@ class AppHandler(SimpleHTTPRequestHandler):
         super().__init__(*args, directory=str(ROOT), **kwargs)
 
     def end_headers(self) -> None:
-        path = urlparse(self.path).path
+        request_path = getattr(self, "path", "") or ""
+        path = urlparse(request_path).path
         if path.startswith("/api/") and not path.startswith("/api/profile-image"):
             self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
             self.send_header("Pragma", "no-cache")
@@ -928,11 +928,19 @@ class AppHandler(SimpleHTTPRequestHandler):
             self.send_header("Cache-Control", "no-cache, must-revalidate")
 
         self.send_header("Vary", "Accept-Encoding")
-        for header, value in SECURITY_HEADERS.items():
+        for header, value in self.get_security_headers().items():
             self.send_header(header, value)
         if self.is_secure_request():
             self.send_header("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload")
         super().end_headers()
+
+    def get_security_headers(self) -> dict[str, str]:
+        headers = dict(SECURITY_HEADERS)
+        content_security_policy = CONTENT_SECURITY_POLICY
+        if self.is_secure_request():
+            content_security_policy = f"{content_security_policy}; upgrade-insecure-requests"
+        headers["Content-Security-Policy"] = content_security_policy
+        return headers
 
     def is_secure_request(self) -> bool:
         forwarded_proto = self.headers.get("X-Forwarded-Proto", "").split(",", 1)[0].strip().lower()

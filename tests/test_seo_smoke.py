@@ -21,6 +21,7 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("https://veridiareklam.com.tr/reklam/", sitemap)
         self.assertIn("https://veridiareklam.com.tr/yazilim/", sitemap)
         self.assertIn("https://veridiareklam.com.tr/seo/teknik-seo-denetimi/", sitemap)
+        self.assertIn("https://veridiareklam.com.tr/seo/google-gorunurlugu/", sitemap)
         self.assertIn("https://veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/", sitemap)
         self.assertIn("https://veridiareklam.com.tr/reklam/google-ads-yonetimi/", sitemap)
         self.assertIn("https://veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/", sitemap)
@@ -29,6 +30,10 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("https://veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi.html", sitemap)
         self.assertIn("https://veridiareklam.com.tr/gizlilik-politikasi.html", sitemap)
         self.assertIn("https://veridiareklam.com.tr/kvkk-aydinlatma-metni.html", sitemap)
+        self.assertNotIn("https://veridiareklam.com.tr/web-tasarim.html", sitemap)
+        self.assertNotIn("https://veridiareklam.com.tr/seo-danismanligi.html", sitemap)
+        self.assertNotIn("https://veridiareklam.com.tr/google-ads-yonetimi.html", sitemap)
+        self.assertNotIn("https://veridiareklam.com.tr/sosyal-medya-yonetimi.html", sitemap)
         self.assertNotIn("https://veridiareklam.com.tr/blog/b2b-pazarlamada-donusum-hunisi.html", sitemap)
         self.assertNotIn("127.0.0.1", sitemap)
 
@@ -57,15 +62,15 @@ class SeoSmokeTests(unittest.TestCase):
     def test_homepage_has_service_catalog_and_visible_service_copy(self) -> None:
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('"@type": "ItemList"', homepage)
-        self.assertIn("Marka Stratejisi", homepage)
-        self.assertIn('class="services-detail-grid"', homepage)
+        self.assertIn("Web Tasarım", homepage)
+        self.assertIn('id="services"', homepage)
         self.assertIn('rel="canonical" href="https://veridiareklam.com.tr"', homepage)
         self.assertIn("veridia-social-cover.png", homepage)
         self.assertIn("assets/config.js", homepage)
         self.assertIn("assets/home-loader.js", homepage)
-        self.assertIn("quoteValidationError", homepage)
-        self.assertIn("/neler-yapiyoruz.html", homepage)
-        self.assertIn("/calismalarimiz.html", homepage)
+        self.assertIn("/hizli-teklif.html", homepage)
+        self.assertIn('id="contactForm"', homepage)
+        self.assertIn('action="/api/contact"', homepage)
         self.assertIn('rel="icon"', homepage)
         self.assertNotIn("Marka e-postası bu aşamada doğrulanmadı", homepage)
         self.assertNotIn("APIFY_TOKEN", homepage)
@@ -84,7 +89,24 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertNotIn('http-equiv="refresh"', index)
         self.assertNotIn("window.location.replace", index)
         self.assertIn('rel="canonical" href="https://veridiareklam.com.tr"', index)
-        self.assertIn("<title>Veridia Ajans", index)
+        self.assertIn("<title>Veridia Reklam", index)
+
+    def test_contact_and_service_ctas_point_to_real_targets(self) -> None:
+        homepage = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn('action="/api/contact"', homepage)
+        self.assertNotIn('/iletisim.html', homepage)
+        self.assertIn('/hizli-teklif.html', homepage)
+
+        for page_name in (
+            "hakkimizda.html",
+            "calisma-surecimiz.html",
+            "seo-danismanligi.html",
+            "google-ads-yonetimi.html",
+            "sosyal-medya-yonetimi.html",
+        ):
+            with self.subTest(page_name=page_name):
+                content = (ROOT / page_name).read_text(encoding="utf-8")
+                self.assertNotIn('/iletisim.html', content)
 
     def test_body_internal_links_do_not_hardcode_production_domain(self) -> None:
         paths = [

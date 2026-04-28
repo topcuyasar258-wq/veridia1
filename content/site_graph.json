@@ -434,6 +434,20 @@
       "service_slug": "web-sitesi-ve-donusum-yuzeyleri",
       "source": "markdown",
       "card_summary": "Trafik alıp talep üretemeyen [web sitesi](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) örneklerinde sorun çoğu zaman reklamda değil; mesaj, hız, mobil akış ve dönüşüm kurgusundadır."
+    },
+    {
+      "slug": "web-sitesi-yavassa-musteri-neden-kacar",
+      "url": "/blog/web-sitesi-yavassa-musteri-neden-kacar.html",
+      "file": "blog/web-sitesi-yavassa-musteri-neden-kacar.html",
+      "title": "Web Sitesi Yavaşsa Müşteri Neden Kaçar?",
+      "summary": "Yavaş açılan web sitesi müşteri kaybına, düşük güven algısına ve dönüşüm oranlarının düşmesine neden olabilir. Site hızı, SEO ve satış performansı için neden önemlidir?",
+      "description": "Yavaş açılan web sitesi müşteri kaybına, düşük güven algısına ve dönüşüm oranlarının düşmesine neden olabilir. Site hızı, SEO ve satış performansı için neden önemlidir?",
+      "published_at": "2026-04-28T00:00:00+03:00",
+      "modified_at": "2026-04-28T00:00:00+03:00",
+      "date_label": "28 Nisan 2026",
+      "reading_time": "5 dk okuma",
+      "author": "Veridia Strateji Ekibi",
+      "service_slug": "web-sitesi-ve-donusum-yuzeyleri"
     }
   ]
 }

@@ -33,7 +33,7 @@ Bu repo statik bir landing sayfasi ile onu servis eden yerel bir Python sunucusu
 - `.env` icindeki gizli degerleri commit etme.
 - `analysis_snapshots.sqlite3` dosyasini kaynak kod gibi ele alma; migrate etmiyorsan veya veri ihtiyaci yoksa degistirme.
 - Apify actor ayarlari `.env` uzerinden degisebilir; mevcut degerleri kod icinden varsayma.
-- Bir ayrinti repoda net degilse uydurma bilgi ekleme; kisa bir not dus veya belirsizligi oldugu gibi belirt.
+- Bir ayrinti repoda net degilse uydurma bilgi ekleme; bunun yerine kisa bir not dus ve belirsizligi oldugu gibi birak.
 
 ## Kontrol
 

@@ -246,13 +246,31 @@
 
   window.quoteSteps = quoteSteps;
 
-  if (window.VeridiaQuotePricing && window.VeridiaQuotePricing.PRICING_CONFIG && window.VeridiaQuotePricing.PRICING_CONFIG.labels) {
-    Object.assign(window.VeridiaQuotePricing.PRICING_CONFIG.labels.services, {
+  if (window.VeridiaQuotePricing && typeof window.VeridiaQuotePricing.calculateQuickQuote === "function") {
+    const pricingApi = window.VeridiaQuotePricing;
+    const serviceLabelOverrides = {
       branding: "Web Tasarım",
       strategy: "Web Tasarım",
       social: "SEO Danışmanlığı",
       performance: "Google Ads Yönetimi",
       content: "Sosyal Medya Yönetimi",
+    };
+
+    const originalCalculateQuickQuote = pricingApi.calculateQuickQuote.bind(pricingApi);
+
+    pricingApi.calculateQuickQuote = function calculateQuickQuoteWithOverrides(input, overrides = {}) {
+      const mergedLabels = {
+        ...(overrides.labels || {}),
+        services: {
+          ...((overrides.labels && overrides.labels.services) || {}),
+          ...serviceLabelOverrides,
+        },
+      };
+
+      return originalCalculateQuickQuote(input, {
+        ...overrides,
+        labels: mergedLabels,
       });
+    };
   }
 })(window);

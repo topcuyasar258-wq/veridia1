@@ -1,1 +1,843 @@
-!function(e){const t=e.document,n=e.matchMedia("(prefers-reduced-motion: reduce)").matches;if(n)t.querySelectorAll(".reveal").forEach(e=>e.classList.add("visible"));else{const e=new IntersectionObserver(t=>{t.forEach(t=>{t.isIntersecting&&(t.target.classList.add("visible"),e.unobserve(t.target))})},{threshold:.1});t.querySelectorAll(".reveal").forEach(t=>e.observe(t))}function i(t){const n=Number(t.dataset.target||0),i=t.dataset.divide?Number(t.dataset.divide):1,a=t.dataset.suffix||"";let l=null;e.requestAnimationFrame(function o(r){null===l&&(l=r);const s=Math.min((r-l)/1800,1),c=1-Math.pow(1-s,3),d=n*c/i;t.textContent=i>1?`${d.toFixed(1)}${a}`:`${Math.floor(d)}${a}`,s<1&&e.requestAnimationFrame(o)})}const a=t.querySelector(".stats-ticker");if(a&&!n){const e=new IntersectionObserver(n=>{n[0]?.isIntersecting&&(t.querySelectorAll(".ticker-number").forEach(i),e.disconnect())},{threshold:.5});e.observe(a)}else t.querySelectorAll(".ticker-number").forEach(e=>{const t=Number(e.dataset.target||0),n=e.dataset.divide?Number(e.dataset.divide):1,i=e.dataset.suffix||"",a=n>1?(t/n).toFixed(1):t;e.textContent=`${a}${i}`});const l=e.VERIDIA_CONFIG,o=e.VeridiaQuotePricing,r=e.quoteSteps,s=e.serviceDetails,c=e.portfolioProjects,d=e.portfolioProjectMetrics,u=e.defaultPortfolioMetrics;if(!(l&&o&&Array.isArray(r)&&s&&c))return;const{PRICING_CONFIG:m,calculateQuickQuote:p,buildWhyThisPriceText:y,formatMultiplier:g,formatTryCurrency:f}=o,v=l.whatsapp||"",b={branding:"Marka konumlandırması, mesaj mimarisi ve stratejik yön çerçevesi",strategy:"Marka konumlandırması, mesaj mimarisi ve stratejik yön çerçevesi",social:"Sosyal medya planı, yayın ritmi ve topluluk yönetimi sistemi",performance:"Reklam kampanyası kurulumu, optimizasyonu ve performans takibi",content:"İçerik üretimi, kreatif adaptasyon ve format planlaması",pr:"Basın görünürlüğü, duyuru planı ve marka güveni oluşturan iletişim yönetimi",influencer:"Influencer eşleşmesi, brief süreci ve yayın koordinasyonu"},h={stepIndex:0,answers:{service:[]},result:null,approved:!1};function E(e){return f(e)}function k(){const e=t.getElementById("quoteProgress");e&&(e.innerHTML="",r.forEach((n,i)=>{const a=t.createElement("div");a.className="quote-progress-dot",i<h.stepIndex&&a.classList.add("done"),i===h.stepIndex&&a.classList.add("active"),a.innerHTML="<span></span>",e.appendChild(a)}))}function I(e,n){const i=t.getElementById("quoteChat");if(!i)return;const a=t.createElement("div");a.className=`chat-bubble ${e}`,a.textContent=n,i.appendChild(a),i.scrollTop=i.scrollHeight}function L(e,t){const n=e.options.find(e=>e.value===t);return n?n.label:t}function B(e,t){return(Array.isArray(t)?[...new Set(t)]:[]).map(t=>L(e,t)).filter(Boolean)}function C(e){return e.multiple?Array.isArray(h.answers[e.key])?[...new Set(h.answers[e.key])]:[]:h.answers[e.key]?[h.answers[e.key]]:[]}function x(e=""){const n=t.getElementById("quoteValidationError");n&&(n.textContent=e,n.classList.toggle("active",Boolean(e)))}function $(){const n=r[h.stepIndex],i=C(n),a=n.multiple?B(n,i):i.map(e=>L(n,e));0!==a.length?(x(""),function(n){if(n&&I("user",n),h.stepIndex<r.length-1)return h.stepIndex+=1,I("bot",r[h.stepIndex].question),void M();h.result=function(e){const t=p({services:e.service,sector:e.sector,scale:e.scale,urgency:e.urgency}),n=Array.isArray(e.service)?e.service:[],i=n.map(e=>b[e]).filter(Boolean);n.length>=m.bundleDiscount.minServices&&i.push("Tek ekip gibi çalışan koordinasyon ve tek raporlama katmanı");const a=`VER-${(new Date).toISOString().slice(2,10).replace(/-/g,"")}-${Math.random().toString(36).slice(2,6).toUpperCase()}`,l=t.discountRate>0?`%${Math.round(100*t.discountRate)} paket indirimi dahil aylık başlangıç hizmet bedeli.`:"Seçilen kapsam için aylık başlangıç hizmet bedeli.";return{packageName:t.packageName,monthly:t.finalPrice,reference:a,rangeText:t.minimumApplied?`${l} Minimum teklif koruması uygulandı.`:l,whyThisPrice:y(t),pricingNote:q(t),serviceLabels:B(r[0],e.service),sectorLabel:L(r[1],e.sector),scaleLabel:L(r[2],e.scale),goalLabel:L(r[3],e.goal),urgencyLabel:L(r[4],e.urgency),contactLabel:L(r[5],e.contactMode),contactMode:e.contactMode,deliverables:i,breakdown:[{label:"Hizmet toplamı",value:`${t.basePoints} puan`},{label:"Sektör etkisi",value:g(t.sectorMultiplier)},{label:"İş büyüklüğü etkisi",value:g(t.scaleMultiplier)},{label:"Başlangıç hızı etkisi",value:g(t.urgencyMultiplier)},{label:"Puan başı bedel",value:E(t.unitPrice)},{label:"Ara hesap",value:E(t.subtotalBeforeDiscount)},...t.discountAmount>0?[{label:`Paket indirimi (%${Math.round(100*t.discountRate)})`,value:`-${E(t.discountAmount)}`}]:[],...t.minimumApplied?[{label:"Minimum başlangıç bedeli",value:E(t.minimumPrice)}]:[],{label:"Son aylık teklif",value:E(t.finalPrice)}]}}(h.answers),function(){const n=h.result;if(!n)return;k(),t.querySelectorAll(".quote-progress-dot").forEach(e=>e.classList.add("done")),t.getElementById("quoteStepTag").textContent="Teklif Hazır",t.getElementById("quoteQuestion").textContent="Ön teklifiniz oluşturuldu.",t.getElementById("quoteHelper").textContent="Kapsam özetini inceleyin, uygunsa ön onay verip görüşme özetini açın.",t.getElementById("quoteOptions").innerHTML="",t.getElementById("quoteStepActions").innerHTML="",t.getElementById("quotePackageName").textContent=n.packageName,t.getElementById("quotePrice").innerHTML=`${E(n.monthly)} <small>/ aylık</small>`,t.getElementById("quoteRange").textContent=n.rangeText,t.getElementById("quoteReadiness").textContent=n.whyThisPrice,t.getElementById("quoteAiNote").textContent=n.pricingNote,t.getElementById("quoteReference").textContent=`Referans kodu: ${n.reference}`,t.getElementById("quoteSummaryCard").classList.add("active"),t.getElementById("quoteApprovalBox").classList.add("active");const i=t.getElementById("quoteBreakdown");i.innerHTML="",n.breakdown.forEach(e=>{const n=t.createElement("li");n.innerHTML=`<span>${e.label}</span><strong>${e.value}</strong>`,i.appendChild(n)});const a=t.getElementById("quoteDeliverables");a.innerHTML="",n.deliverables.forEach(e=>{const n=t.createElement("li");n.textContent=e,a.appendChild(n)}),I("bot",`${n.packageName} hazır. Tahmini aylık başlangıç fiyatı ${E(n.monthly)} seviyesinde. Hazırsanız görüşme özetini WhatsApp'ta açabilirsiniz.`),e.localStorage.setItem("veridia-latest-quote",JSON.stringify({answers:h.answers,result:n}))}()}(n.multiple?`Seçilen hizmetler: ${a.join(", ")}`:a[0])):x("Devam etmek için en az bir seçenek işaretleyin.")}function M(){const e=t.getElementById("quoteSummaryCard"),n=t.getElementById("quoteApprovalBox"),i=r[h.stepIndex],a=t.getElementById("quoteOptions"),l=t.getElementById("quoteStepTag"),o=t.getElementById("quoteQuestion"),s=t.getElementById("quoteHelper");if(!(e&&n&&a&&l&&o&&s))return;k(),e.classList.remove("active"),n.classList.remove("active"),x(""),l.textContent=i.tag,o.textContent=i.question,s.textContent=i.helper,a.innerHTML="";const c=C(i);i.options.forEach(e=>{const n=t.createElement("button");n.type="button",n.className="quote-option",n.innerHTML=`<strong>${e.label}</strong><span>${e.detail}</span>`,c.includes(e.value)&&n.classList.add("is-selected"),n.addEventListener("click",()=>{i.multiple?function(e){const t=r[h.stepIndex],n=Array.isArray(h.answers[t.key])?h.answers[t.key]:[],i=n.includes(e)?n.filter(t=>t!==e):[...n,e];h.answers={...h.answers,[t.key]:i},i.length>0&&x(""),M()}(e.value):function(e){const t=r[h.stepIndex];h.answers={...h.answers,[t.key]:e.value},x(""),M()}(e)}),a.appendChild(n)}),function(e){const n=t.getElementById("quoteStepActions");if(!n)return;n.innerHTML="";const i=C(e);if(e.multiple){const e=t.createElement("div");e.className="quote-selection-note",0===i.length?e.textContent="Bir veya birden fazla hizmet seçebilirsiniz.":i.length>=m.bundleDiscount.minServices?e.textContent=`${i.length} hizmet seçildi. %${Math.round(100*m.bundleDiscount.rate)} paket indirimi aktif.`:e.textContent=`${i.length} hizmet seçildi. ${m.bundleDiscount.minServices}+ hizmette otomatik %${Math.round(100*m.bundleDiscount.rate)} indirim devreye girer.`,n.appendChild(e)}const a=t.createElement("button");if(a.type="button",a.className="btn-gold",a.textContent=h.stepIndex===r.length-1?"Teklifi Oluştur":"İleri",a.addEventListener("click",$),n.appendChild(a),e.multiple&&i.length>0){const i=t.createElement("button");i.type="button",i.className="btn-outline",i.textContent="Temizle",i.addEventListener("click",()=>{h.answers={...h.answers,[e.key]:[]},M()}),n.appendChild(i)}}(i)}function q(e){let t=`${[`Hizmet toplamı: ${e.basePoints} puan`,`Sektör etkisi: ${g(e.sectorMultiplier)}`,`İş büyüklüğü: ${g(e.scaleMultiplier)}`,`Başlangıç hızı: ${g(e.urgencyMultiplier)}`,`Puan başı bedel: ${E(e.unitPrice)}`].join(" • ")}. Ara hesap ${E(e.subtotalBeforeDiscount)} oldu.`;return e.discountAmount>0&&(t+=` Paket indirimi olarak ${E(e.discountAmount)} düşüldü.`),e.minimumApplied&&(t+=` Minimum başlangıç bedeli olarak ${E(e.minimumPrice)} baz alındı.`),t+=` Son fiyat ${E(e.finalPrice)} olarak belirlendi.`,t}M(),I("bot",r[0].question);const A=t.getElementById("serviceDialog"),S=t.getElementById("serviceDialogClose"),D=t.getElementById("serviceDialogCta");let w=null;function T(e,n){A&&S&&function(e){const n=s[e];if(!n)return!1;t.getElementById("serviceDialogKicker").textContent=n.kicker,t.getElementById("serviceDialogClient").textContent=`${n.number} / ${n.code}`,t.getElementById("serviceDialogTitle").textContent=n.title,t.getElementById("serviceDialogSummary").textContent=n.summary,t.getElementById("serviceDialogStory").textContent=n.story,t.getElementById("serviceDialogNext").textContent=n.next,t.getElementById("serviceDialogGradient").style.background=n.gradient,D.textContent=`${n.title} İçin Teklif Al`;const i=t.getElementById("serviceDialogPills");i.innerHTML="",n.pills.forEach(e=>{const n=t.createElement("span");n.className="portfolio-pill",n.textContent=e,i.appendChild(n)});const a=t.getElementById("serviceDialogStats");a.innerHTML="",n.stats.forEach(e=>{const n=t.createElement("div");n.className="portfolio-side-stat",n.innerHTML=`<div class="portfolio-side-label">${e.label}</div><div class="portfolio-side-value">${e.value}</div><div class="portfolio-side-note">${e.note}</div>`,a.appendChild(n)});const l=t.getElementById("serviceDialogDeliverables");l.innerHTML="",n.deliverables.forEach(e=>{const n=t.createElement("li");n.textContent=e,l.appendChild(n)});const o=t.getElementById("serviceDialogGallery");return o.innerHTML="",n.gallery.forEach(e=>{const n=t.createElement("div");n.className="portfolio-gallery-cell",n.innerHTML=`<strong>${e.title}</strong><span>${e.copy}</span>`,o.appendChild(n)}),!0}(e)&&(w=n||t.querySelector(`.service-card[data-service="${e}"]`),"function"==typeof A.showModal?A.open||A.showModal():A.setAttribute("open",""),t.body.style.overflow="hidden",S.focus())}function z(){A&&("function"==typeof A.close&&A.open?A.close():A.removeAttribute("open"),t.body.style.overflow="",w?.focus())}t.querySelectorAll(".service-card[data-service]").forEach(e=>{e.addEventListener("click",()=>T(e.dataset.service,e)),e.addEventListener("keydown",t=>{"Enter"!==t.key&&" "!==t.key||(t.preventDefault(),T(e.dataset.service,e))})}),t.querySelectorAll("[data-service-trigger]").forEach(e=>{e.addEventListener("click",()=>T(e.dataset.serviceTrigger,e))}),S?.addEventListener("click",z),A?.addEventListener("click",e=>{const t=A.querySelector(".service-dialog-shell");t&&!t.contains(e.target)&&z()}),A?.addEventListener("cancel",e=>{e.preventDefault(),z()}),D?.addEventListener("click",z),t.querySelectorAll(".filter-btn").forEach(e=>{e.addEventListener("click",()=>{t.querySelectorAll(".filter-btn").forEach(e=>e.classList.remove("active")),e.classList.add("active");const n=e.dataset.filter;t.querySelectorAll(".portfolio-card").forEach(e=>{e.classList.toggle("hidden","all"!==n&&e.dataset.category!==n)})})});const H=t.getElementById("portfolioDialog"),N=t.getElementById("portfolioDialogClose"),P=t.getElementById("portfolioDialogCta");let R=null;function j(e,n){H&&N&&function(e){const n=c[e];if(!n)return!1;t.getElementById("portfolioDialogKicker").textContent=n.kicker,t.getElementById("portfolioDialogClient").textContent=n.client,t.getElementById("portfolioDialogTitle").textContent=n.title,t.getElementById("portfolioDialogSummary").textContent=n.summary,t.getElementById("portfolioDialogStory").textContent=n.story,t.getElementById("portfolioDialogNext").textContent=n.next,t.getElementById("portfolioDialogGradient").style.background=n.gradient;const i=t.getElementById("portfolioDialogPills");i.innerHTML="",n.pills.forEach(e=>{const n=t.createElement("span");n.className="portfolio-pill",n.textContent=e,i.appendChild(n)});const a=t.getElementById("portfolioDialogStats");a.innerHTML="",n.stats.forEach(e=>{const n=t.createElement("div");n.className="portfolio-side-stat",n.innerHTML=`<div class="portfolio-side-label">${e.label}</div><div class="portfolio-side-value">${e.value}</div><div class="portfolio-side-note">${e.note}</div>`,a.appendChild(n)});const l=t.getElementById("portfolioDialogMetrics");l.innerHTML="",(d[e]||u||[]).forEach(e=>{const n=t.createElement("div");n.className="metric",n.innerHTML=`<span class="metric-value">${e.value}</span><span class="metric-label">${e.label}</span>`,l.appendChild(n)});const o=t.getElementById("portfolioDialogDeliverables");o.innerHTML="",n.deliverables.forEach(e=>{const n=t.createElement("li");n.textContent=e,o.appendChild(n)});const r=t.getElementById("portfolioDialogGallery");return r.innerHTML="",n.gallery.forEach(e=>{const n=t.createElement("div");n.className="portfolio-gallery-cell",n.innerHTML=`<strong>${e.title}</strong><span>${e.copy}</span>`,r.appendChild(n)}),!0}(e)&&(R=n||t.querySelector(`.portfolio-card[data-project="${e}"]`),"function"==typeof H.showModal?H.open||H.showModal():H.setAttribute("open",""),t.body.style.overflow="hidden",N.focus())}function F(){H&&("function"==typeof H.close&&H.open?H.close():H.removeAttribute("open"),t.body.style.overflow="",R?.focus())}t.querySelectorAll(".portfolio-card[data-project]").forEach(e=>{e.addEventListener("click",()=>j(e.dataset.project,e)),e.addEventListener("keydown",t=>{"Enter"!==t.key&&" "!==t.key||(t.preventDefault(),j(e.dataset.project,e))})}),N?.addEventListener("click",F),H?.addEventListener("click",e=>{const t=H.querySelector(".portfolio-dialog-shell");t&&!t.contains(e.target)&&F()}),H?.addEventListener("cancel",e=>{e.preventDefault(),F()}),P?.addEventListener("click",F);const O=t.getElementById("baBox"),G=t.getElementById("baAfter"),V=t.getElementById("baLine");let U=!1,Q=!1;function W(e){if(!O||!G||!V)return;const t=O.getBoundingClientRect(),n=Math.max(4,Math.min(96,(e-t.left)/t.width*100));V.style.left=`${n}%`,G.style.clipPath=`inset(0 ${100-n}% 0 0)`}O&&G&&V&&(O.addEventListener("mousedown",e=>{U=!0,W(e.clientX)}),O.addEventListener("touchstart",e=>{U=!0,W(e.touches[0].clientX)},{passive:!0}),t.addEventListener("mouseup",()=>{U=!1}),t.addEventListener("touchend",()=>{U=!1}),t.addEventListener("mousemove",e=>{U&&W(e.clientX)}),t.addEventListener("touchmove",e=>{U&&W(e.touches[0].clientX)},{passive:!0}),!n)&&new IntersectionObserver(t=>{if(t[0]?.isIntersecting&&!Q){Q=!0;let t=0;const n=e.setInterval(()=>{t+=1;const i=50+40*Math.sin(.075*t),a=O.getBoundingClientRect();W(a.left+a.width*i/100),t>84&&e.clearInterval(n)},30)}},{threshold:.6}).observe(O);const _=t.getElementById("aboutDeck"),K=_?_.querySelectorAll(".about-card"):[];if(_&&K.length>0){const t=K.length;_.addEventListener("click",()=>{const n=_.querySelector('.about-card[data-index="0"]');n&&(n.classList.add("exit"),e.setTimeout(()=>{n.classList.remove("exit"),K.forEach(e=>{const n=(Number(e.getAttribute("data-index")||0)-1+t)%t;e.setAttribute("data-index",String(n))})},400))})}const X=t.getElementById("contactForm"),Y=t.getElementById("contactFormMessage");function J(e,t){Y&&(Y.className="form-message",Y.textContent=t,e&&Y.classList.add(e))}X&&X.addEventListener("submit",async t=>{t.preventDefault();const n=X.querySelector(".btn-submit"),i=X.getAttribute("action")||"";if(i.includes("FORM_ID_BURAYA"))J("error","Form kurulumu henüz tamamlanmadı. Lütfen Formspree form ID'sini ekleyin.");else{n?.setAttribute("disabled","disabled"),J("","");try{if(!(await e.fetch(i,{method:"POST",headers:{Accept:"application/json"},body:new e.FormData(X)})).ok)throw new Error("Formspree request failed");X.reset(),J("success","Teşekkürler. Mesajınız bize ulaştı, en kısa sürede size dönüş yapacağız.")}catch(e){J("error","Mesaj gönderilirken bir sorun oluştu. Lütfen tekrar deneyin veya WhatsApp üzerinden bize ulaşın.")}finally{n?.removeAttribute("disabled")}}}),t.querySelectorAll("[data-sector]").forEach(e=>{e.addEventListener("click",()=>{return n=e.dataset.sector,i=e,t.querySelectorAll(".sector-btn").forEach(e=>{e.classList.remove("active"),e.setAttribute("aria-pressed","false")}),t.querySelectorAll(".sector-panel").forEach(e=>e.classList.remove("active")),i.classList.add("active"),i.setAttribute("aria-pressed","true"),void t.getElementById(`sector-${n}`)?.classList.add("active");var n,i})}),t.querySelector("[data-quote-approve]")?.addEventListener("click",function(){if(!h.result)return;h.approved=!0;const t=h.result,n=["Merhaba Veridia, site uzerinden on teklifimi onayladim.",`Referans: ${t.reference}`,`Hizmetler: ${t.serviceLabels.join(", ")}`,`Sektor: ${t.sectorLabel}`,`Isletme olcegi: ${t.scaleLabel}`,`Hedef: ${t.goalLabel}`,`Baslangic zamani: ${t.urgencyLabel}`,`Karar modu: ${t.contactLabel}`,`Onerilen paket: ${t.packageName}`,`Aylik teklif: ${E(t.monthly)}`,"Devam etmek ve başlangıç planını oluşturmak istiyorum."].join("\n");I("user","Teklifi ön onayladım, ekip görüşmesi için hazırım."),I("bot",`Harika. ${t.reference} referans koduyla görüşme özeti hazırlandı.`),e.open(function(t){if("function"==typeof e.buildVeridiaWhatsAppUrl)return e.buildVeridiaWhatsAppUrl(t);const n=v.replace(/\D/g,"");return/^\d{10,15}$/.test(n)?`https://wa.me/${n}?text=${encodeURIComponent(t)}`:`https://wa.me/?text=${encodeURIComponent(t)}`}(n),"_blank","noopener")}),t.querySelector("[data-quote-restart]")?.addEventListener("click",function(){const e=t.getElementById("quoteChat");h.stepIndex=0,h.answers={service:[]},h.result=null,h.approved=!1,e&&(e.innerHTML='<div class="chat-bubble bot">Ön brief yeniden hazır. Yeni kombinasyonu seçin, kapsamı ve tahmini hizmet bedelini tekrar netleştireyim.</div>'),M()})}("undefined"!=typeof window?window:globalThis);
+;(function (window) {
+  const document = window.document
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  const revealElements = [...document.querySelectorAll('.reveal')]
+  if (reducedMotion) {
+    revealElements.forEach((element) => element.classList.add('visible'))
+  } else if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          entry.target.classList.add('visible')
+          revealObserver.unobserve(entry.target)
+        })
+      },
+      { threshold: 0.1 }
+    )
+    revealElements.forEach((element) => revealObserver.observe(element))
+  } else {
+    revealElements.forEach((element) => element.classList.add('visible'))
+  }
+
+  function animateTicker(element) {
+    const target = Number(element.dataset.target || 0)
+    const divide = element.dataset.divide ? Number(element.dataset.divide) : 1
+    const suffix = element.dataset.suffix || ''
+    let startedAt = null
+
+    window.requestAnimationFrame(function step(timestamp) {
+      if (startedAt === null) startedAt = timestamp
+      const progress = Math.min((timestamp - startedAt) / 1800, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      const value = (target * eased) / divide
+      element.textContent = divide > 1 ? `${value.toFixed(1)}${suffix}` : `${Math.floor(value)}${suffix}`
+      if (progress < 1) window.requestAnimationFrame(step)
+    })
+  }
+
+  const statsTicker = document.querySelector('.stats-ticker')
+  if (statsTicker && !reducedMotion && 'IntersectionObserver' in window) {
+    const tickerObserver = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0]?.isIntersecting) return
+        document.querySelectorAll('.ticker-number').forEach(animateTicker)
+        tickerObserver.disconnect()
+      },
+      { threshold: 0.5 }
+    )
+    tickerObserver.observe(statsTicker)
+  } else {
+    document.querySelectorAll('.ticker-number').forEach((element) => {
+      const target = Number(element.dataset.target || 0)
+      const divide = element.dataset.divide ? Number(element.dataset.divide) : 1
+      const suffix = element.dataset.suffix || ''
+      const value = divide > 1 ? (target / divide).toFixed(1) : String(target)
+      element.textContent = `${value}${suffix}`
+    })
+  }
+
+  const config = window.VERIDIA_CONFIG
+  const pricingApi = window.VeridiaQuotePricing
+  const quoteSteps = window.quoteSteps
+  const serviceDetails = window.serviceDetails
+  const portfolioProjects = window.portfolioProjects
+  const portfolioProjectMetrics = window.portfolioProjectMetrics
+  const defaultPortfolioMetrics = window.defaultPortfolioMetrics
+
+  if (!(config && pricingApi && Array.isArray(quoteSteps) && serviceDetails && portfolioProjects)) {
+    return
+  }
+
+  const {
+    PRICING_CONFIG,
+    calculateQuickQuote,
+    buildWhyThisPriceText,
+    formatMultiplier,
+    formatTryCurrency,
+  } = pricingApi
+
+  const whatsapp = config.whatsapp || ''
+  const deliverableMap = {
+    branding: 'Marka konumlandırması, mesaj mimarisi ve stratejik yön çerçevesi',
+    strategy: 'Marka konumlandırması, mesaj mimarisi ve stratejik yön çerçevesi',
+    social: 'Sosyal medya planı, yayın ritmi ve topluluk yönetimi sistemi',
+    performance: 'Reklam kampanyası kurulumu, optimizasyonu ve performans takibi',
+    content: 'İçerik üretimi, kreatif adaptasyon ve format planlaması',
+    pr: 'Basın görünürlüğü, duyuru planı ve marka güveni oluşturan iletişim yönetimi',
+    influencer: 'Influencer eşleşmesi, brief süreci ve yayın koordinasyonu',
+  }
+
+  const quoteState = {
+    stepIndex: 0,
+    answers: { service: [] },
+    result: null,
+    approved: false,
+  }
+
+  const formatCurrency = (value) => formatTryCurrency(value)
+
+  function selectedValues(step) {
+    if (step.multiple) {
+      return Array.isArray(quoteState.answers[step.key]) ? [...new Set(quoteState.answers[step.key])] : []
+    }
+    return quoteState.answers[step.key] ? [quoteState.answers[step.key]] : []
+  }
+
+  function optionLabel(step, value) {
+    const option = step.options.find((item) => item.value === value)
+    return option ? option.label : value
+  }
+
+  function optionLabels(step, values) {
+    return [...new Set(values)].map((value) => optionLabel(step, value)).filter(Boolean)
+  }
+
+  function setValidationError(message = '') {
+    const target = document.getElementById('quoteValidationError')
+    if (!target) return
+    target.textContent = message
+    target.classList.toggle('active', Boolean(message))
+  }
+
+  function renderProgress() {
+    const container = document.getElementById('quoteProgress')
+    if (!container) return
+    container.innerHTML = ''
+    quoteSteps.forEach((step, index) => {
+      const dot = document.createElement('div')
+      dot.className = 'quote-progress-dot'
+      if (index < quoteState.stepIndex) dot.classList.add('done')
+      if (index === quoteState.stepIndex) dot.classList.add('active')
+      dot.innerHTML = '<span></span>'
+      container.appendChild(dot)
+    })
+  }
+
+  function appendChatBubble(role, text) {
+    const chat = document.getElementById('quoteChat')
+    if (!chat) return
+    const bubble = document.createElement('div')
+    bubble.className = `chat-bubble ${role}`
+    bubble.textContent = text
+    chat.appendChild(bubble)
+    chat.scrollTop = chat.scrollHeight
+  }
+
+  function buildPricingNote(result) {
+    let text = [
+      `Hizmet toplamı: ${result.basePoints} puan`,
+      `Sektör etkisi: ${formatMultiplier(result.sectorMultiplier)}`,
+      `İş büyüklüğü: ${formatMultiplier(result.scaleMultiplier)}`,
+      `Başlangıç hızı: ${formatMultiplier(result.urgencyMultiplier)}`,
+      `Puan başı bedel: ${formatCurrency(result.unitPrice)}`,
+    ].join(' • ')
+
+    text += `. Ara hesap ${formatCurrency(result.subtotalBeforeDiscount)} oldu.`
+    if (result.discountAmount > 0) text += ` Paket indirimi olarak ${formatCurrency(result.discountAmount)} düşüldü.`
+    if (result.minimumApplied) text += ` Minimum başlangıç bedeli olarak ${formatCurrency(result.minimumPrice)} baz alındı.`
+    text += ` Son fiyat ${formatCurrency(result.finalPrice)} olarak belirlendi.`
+    return text
+  }
+
+  function buildQuoteResult(answers) {
+    const result = calculateQuickQuote({
+      services: answers.service,
+      sector: answers.sector,
+      scale: answers.scale,
+      urgency: answers.urgency,
+    })
+
+    const services = Array.isArray(answers.service) ? answers.service : []
+    const deliverables = services.map((key) => deliverableMap[key]).filter(Boolean)
+    if (services.length >= PRICING_CONFIG.bundleDiscount.minServices) {
+      deliverables.push('Tek ekip gibi çalışan koordinasyon ve tek raporlama katmanı')
+    }
+
+    const reference = `VER-${new Date().toISOString().slice(2, 10).replace(/-/g, '')}-${Math.random()
+      .toString(36)
+      .slice(2, 6)
+      .toUpperCase()}`
+    const intro = result.discountRate > 0
+      ? `%${Math.round(100 * result.discountRate)} paket indirimi dahil aylık başlangıç hizmet bedeli.`
+      : 'Seçilen kapsam için aylık başlangıç hizmet bedeli.'
+
+    return {
+      packageName: result.packageName,
+      monthly: result.finalPrice,
+      reference,
+      rangeText: result.minimumApplied ? `${intro} Minimum teklif koruması uygulandı.` : intro,
+      whyThisPrice: buildWhyThisPriceText(result),
+      pricingNote: buildPricingNote(result),
+      serviceLabels: optionLabels(quoteSteps[0], answers.service),
+      sectorLabel: optionLabel(quoteSteps[1], answers.sector),
+      scaleLabel: optionLabel(quoteSteps[2], answers.scale),
+      goalLabel: optionLabel(quoteSteps[3], answers.goal),
+      urgencyLabel: optionLabel(quoteSteps[4], answers.urgency),
+      contactLabel: optionLabel(quoteSteps[5], answers.contactMode),
+      contactMode: answers.contactMode,
+      deliverables,
+      breakdown: [
+        { label: 'Hizmet toplamı', value: `${result.basePoints} puan` },
+        { label: 'Sektör etkisi', value: formatMultiplier(result.sectorMultiplier) },
+        { label: 'İş büyüklüğü etkisi', value: formatMultiplier(result.scaleMultiplier) },
+        { label: 'Başlangıç hızı etkisi', value: formatMultiplier(result.urgencyMultiplier) },
+        { label: 'Puan başı bedel', value: formatCurrency(result.unitPrice) },
+        { label: 'Ara hesap', value: formatCurrency(result.subtotalBeforeDiscount) },
+        ...(result.discountAmount > 0
+          ? [{ label: `Paket indirimi (%${Math.round(100 * result.discountRate)})`, value: `-${formatCurrency(result.discountAmount)}` }]
+          : []),
+        ...(result.minimumApplied
+          ? [{ label: 'Minimum başlangıç bedeli', value: formatCurrency(result.minimumPrice) }]
+          : []),
+        { label: 'Son aylık teklif', value: formatCurrency(result.finalPrice) },
+      ],
+    }
+  }
+
+  function renderQuoteSummary() {
+    const summaryCard = document.getElementById('quoteSummaryCard')
+    const approvalBox = document.getElementById('quoteApprovalBox')
+    const result = quoteState.result
+    if (!(summaryCard && approvalBox && result)) return
+
+    renderProgress()
+    document.querySelectorAll('.quote-progress-dot').forEach((dot) => dot.classList.add('done'))
+    document.getElementById('quoteStepTag').textContent = 'Teklif Hazır'
+    document.getElementById('quoteQuestion').textContent = 'Ön teklifiniz oluşturuldu.'
+    document.getElementById('quoteHelper').textContent =
+      'Kapsam özetini inceleyin, uygunsa ön onay verip görüşme özetini açın.'
+    document.getElementById('quoteOptions').innerHTML = ''
+    document.getElementById('quoteStepActions').innerHTML = ''
+    document.getElementById('quotePackageName').textContent = result.packageName
+    document.getElementById('quotePrice').innerHTML = `${formatCurrency(result.monthly)} <small>/ aylık</small>`
+    document.getElementById('quoteRange').textContent = result.rangeText
+    document.getElementById('quoteReadiness').textContent = result.whyThisPrice
+    document.getElementById('quoteAiNote').textContent = result.pricingNote
+    document.getElementById('quoteReference').textContent = `Referans kodu: ${result.reference}`
+
+    const breakdown = document.getElementById('quoteBreakdown')
+    breakdown.innerHTML = ''
+    result.breakdown.forEach((item) => {
+      const element = document.createElement('li')
+      element.innerHTML = `<span>${item.label}</span><strong>${item.value}</strong>`
+      breakdown.appendChild(element)
+    })
+
+    const deliverables = document.getElementById('quoteDeliverables')
+    deliverables.innerHTML = ''
+    result.deliverables.forEach((item) => {
+      const element = document.createElement('li')
+      element.textContent = item
+      deliverables.appendChild(element)
+    })
+
+    summaryCard.classList.add('active')
+    approvalBox.classList.add('active')
+    appendChatBubble(
+      'bot',
+      `${result.packageName} hazır. Tahmini aylık başlangıç fiyatı ${formatCurrency(
+        result.monthly
+      )} seviyesinde. Hazırsanız görüşme özetini WhatsApp'ta açabilirsiniz.`
+    )
+    window.localStorage.setItem(
+      'veridia-latest-quote',
+      JSON.stringify({ answers: quoteState.answers, result })
+    )
+  }
+
+  function submitStep() {
+    const step = quoteSteps[quoteState.stepIndex]
+    const values = selectedValues(step)
+    const labels = step.multiple ? optionLabels(step, values) : values.map((value) => optionLabel(step, value))
+    if (!labels.length) {
+      setValidationError('Devam etmek için en az bir seçenek işaretleyin.')
+      return
+    }
+
+    setValidationError('')
+    appendChatBubble('user', step.multiple ? `Seçilen hizmetler: ${labels.join(', ')}` : labels[0])
+
+    if (quoteState.stepIndex < quoteSteps.length - 1) {
+      quoteState.stepIndex += 1
+      appendChatBubble('bot', quoteSteps[quoteState.stepIndex].question)
+      renderStep()
+      return
+    }
+
+    quoteState.result = buildQuoteResult(quoteState.answers)
+    renderQuoteSummary()
+  }
+
+  function renderStepActions(step, values) {
+    const actions = document.getElementById('quoteStepActions')
+    if (!actions) return
+
+    actions.innerHTML = ''
+    if (step.multiple) {
+      const note = document.createElement('div')
+      note.className = 'quote-selection-note'
+      if (!values.length) {
+        note.textContent = 'Bir veya birden fazla hizmet seçebilirsiniz.'
+      } else if (values.length >= PRICING_CONFIG.bundleDiscount.minServices) {
+        note.textContent = `${values.length} hizmet seçildi. %${Math.round(
+          100 * PRICING_CONFIG.bundleDiscount.rate
+        )} paket indirimi aktif.`
+      } else {
+        note.textContent = `${values.length} hizmet seçildi. ${
+          PRICING_CONFIG.bundleDiscount.minServices
+        }+ hizmette otomatik %${Math.round(100 * PRICING_CONFIG.bundleDiscount.rate)} indirim devreye girer.`
+      }
+      actions.appendChild(note)
+    }
+
+    const nextButton = document.createElement('button')
+    nextButton.type = 'button'
+    nextButton.className = 'btn-gold'
+    nextButton.textContent = quoteState.stepIndex === quoteSteps.length - 1 ? 'Teklifi Oluştur' : 'İleri'
+    nextButton.addEventListener('click', submitStep)
+    actions.appendChild(nextButton)
+
+    if (step.multiple && values.length) {
+      const clearButton = document.createElement('button')
+      clearButton.type = 'button'
+      clearButton.className = 'btn-outline'
+      clearButton.textContent = 'Temizle'
+      clearButton.addEventListener('click', () => {
+        quoteState.answers = { ...quoteState.answers, [step.key]: [] }
+        renderStep()
+      })
+      actions.appendChild(clearButton)
+    }
+  }
+
+  function renderStep() {
+    const summaryCard = document.getElementById('quoteSummaryCard')
+    const approvalBox = document.getElementById('quoteApprovalBox')
+    const step = quoteSteps[quoteState.stepIndex]
+    const options = document.getElementById('quoteOptions')
+
+    if (!(summaryCard && approvalBox && options)) return
+
+    renderProgress()
+    summaryCard.classList.remove('active')
+    approvalBox.classList.remove('active')
+    setValidationError('')
+
+    document.getElementById('quoteStepTag').textContent = step.tag
+    document.getElementById('quoteQuestion').textContent = step.question
+    document.getElementById('quoteHelper').textContent = step.helper
+    options.innerHTML = ''
+
+    const values = selectedValues(step)
+    step.options.forEach((option) => {
+      const button = document.createElement('button')
+      button.type = 'button'
+      button.className = 'quote-option'
+      button.innerHTML = `<strong>${option.label}</strong><span>${option.detail}</span>`
+      if (values.includes(option.value)) button.classList.add('is-selected')
+
+      button.addEventListener('click', () => {
+        if (step.multiple) {
+          const current = Array.isArray(quoteState.answers[step.key]) ? quoteState.answers[step.key] : []
+          const nextValues = current.includes(option.value)
+            ? current.filter((value) => value !== option.value)
+            : [...current, option.value]
+          quoteState.answers = { ...quoteState.answers, [step.key]: nextValues }
+          if (nextValues.length) setValidationError('')
+        } else {
+          quoteState.answers = { ...quoteState.answers, [step.key]: option.value }
+          setValidationError('')
+        }
+        renderStep()
+      })
+
+      options.appendChild(button)
+    })
+
+    renderStepActions(step, values)
+  }
+
+  renderStep()
+  appendChatBubble('bot', quoteSteps[0].question)
+
+  function fillDialogFromRecord(record, prefix, ctaButton) {
+    if (!record) return false
+    document.getElementById(`${prefix}Kicker`).textContent = record.kicker
+    document.getElementById(`${prefix}Client`).textContent = record.number ? `${record.number} / ${record.code}` : record.client
+    document.getElementById(`${prefix}Title`).textContent = record.title
+    document.getElementById(`${prefix}Summary`).textContent = record.summary
+    document.getElementById(`${prefix}Story`).textContent = record.story
+    document.getElementById(`${prefix}Next`).textContent = record.next
+    document.getElementById(`${prefix}Gradient`).style.background = record.gradient
+
+    if (ctaButton && record.title) {
+      ctaButton.textContent = `${record.title} İçin Teklif Al`
+    }
+
+    const pills = document.getElementById(`${prefix}Pills`)
+    pills.innerHTML = ''
+    record.pills.forEach((pill) => {
+      const element = document.createElement('span')
+      element.className = 'portfolio-pill'
+      element.textContent = pill
+      pills.appendChild(element)
+    })
+
+    const stats = document.getElementById(`${prefix}Stats`)
+    stats.innerHTML = ''
+    record.stats.forEach((stat) => {
+      const element = document.createElement('div')
+      element.className = 'portfolio-side-stat'
+      element.innerHTML = `<div class="portfolio-side-label">${stat.label}</div><div class="portfolio-side-value">${stat.value}</div><div class="portfolio-side-note">${stat.note}</div>`
+      stats.appendChild(element)
+    })
+
+    const deliverables = document.getElementById(`${prefix}Deliverables`)
+    deliverables.innerHTML = ''
+    record.deliverables.forEach((item) => {
+      const element = document.createElement('li')
+      element.textContent = item
+      deliverables.appendChild(element)
+    })
+
+    const gallery = document.getElementById(`${prefix}Gallery`)
+    gallery.innerHTML = ''
+    record.gallery.forEach((item) => {
+      const element = document.createElement('div')
+      element.className = 'portfolio-gallery-cell'
+      element.innerHTML = `<strong>${item.title}</strong><span>${item.copy}</span>`
+      gallery.appendChild(element)
+    })
+
+    return true
+  }
+
+  function setupDialog({
+    dialogId,
+    closeId,
+    ctaId,
+    triggerSelector,
+    dataKey,
+    records,
+    prefix,
+    metricTarget,
+  }) {
+    const dialog = document.getElementById(dialogId)
+    const closeButton = document.getElementById(closeId)
+    const ctaButton = document.getElementById(ctaId)
+    let lastTrigger = null
+
+    const close = () => {
+      if (!dialog) return
+      if (typeof dialog.close === 'function' && dialog.open) {
+        dialog.close()
+      } else {
+        dialog.removeAttribute('open')
+      }
+      document.body.style.overflow = ''
+      lastTrigger?.focus()
+    }
+
+    const open = (key, trigger) => {
+      if (!dialog) return
+      const record = records[key]
+      if (!fillDialogFromRecord(record, prefix, ctaButton)) return
+
+      if (metricTarget) {
+        const metrics = document.getElementById(metricTarget.id)
+        metrics.innerHTML = ''
+        ;(metricTarget.map[key] || defaultPortfolioMetrics || []).forEach((item) => {
+          const element = document.createElement('div')
+          element.className = 'metric'
+          element.innerHTML = `<span class="metric-value">${item.value}</span><span class="metric-label">${item.label}</span>`
+          metrics.appendChild(element)
+        })
+      }
+
+      lastTrigger = trigger || document.querySelector(`${triggerSelector}[${dataKey}="${key}"]`)
+      if (typeof dialog.showModal === 'function') {
+        if (!dialog.open) dialog.showModal()
+      } else {
+        dialog.setAttribute('open', '')
+      }
+      document.body.style.overflow = 'hidden'
+      closeButton?.focus()
+    }
+
+    document.querySelectorAll(`${triggerSelector}[${dataKey}]`).forEach((trigger) => {
+      const handler = () => open(trigger.getAttribute(dataKey), trigger)
+      trigger.addEventListener('click', handler)
+      trigger.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return
+        event.preventDefault()
+        handler()
+      })
+    })
+
+    document.querySelectorAll(`[data-service-trigger]`).forEach((trigger) => {
+      if (dataKey !== 'data-service') return
+      trigger.addEventListener('click', () => open(trigger.dataset.serviceTrigger, trigger))
+    })
+
+    closeButton?.addEventListener('click', close)
+    dialog?.addEventListener('click', (event) => {
+      const shell = dialog.querySelector(`.${dialogId.replace('Dialog', '-dialog-shell')}`)
+      if (shell && !shell.contains(event.target)) close()
+    })
+    dialog?.addEventListener('cancel', (event) => {
+      event.preventDefault()
+      close()
+    })
+    ctaButton?.addEventListener('click', close)
+  }
+
+  setupDialog({
+    dialogId: 'serviceDialog',
+    closeId: 'serviceDialogClose',
+    ctaId: 'serviceDialogCta',
+    triggerSelector: '.service-card',
+    dataKey: 'data-service',
+    records: serviceDetails,
+    prefix: 'serviceDialog',
+  })
+
+  setupDialog({
+    dialogId: 'portfolioDialog',
+    closeId: 'portfolioDialogClose',
+    ctaId: 'portfolioDialogCta',
+    triggerSelector: '.portfolio-card',
+    dataKey: 'data-project',
+    records: portfolioProjects,
+    prefix: 'portfolioDialog',
+    metricTarget: { id: 'portfolioDialogMetrics', map: portfolioProjectMetrics },
+  })
+
+  document.querySelectorAll('.filter-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach((item) => item.classList.remove('active'))
+      button.classList.add('active')
+      const filter = button.dataset.filter
+      document.querySelectorAll('.portfolio-card').forEach((card) => {
+        card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter)
+      })
+    })
+  })
+
+  const beforeAfterBox = document.getElementById('baBox')
+  const beforeAfterAfter = document.getElementById('baAfter')
+  const beforeAfterLine = document.getElementById('baLine')
+
+  function setBeforeAfter(clientX) {
+    if (!(beforeAfterBox && beforeAfterAfter && beforeAfterLine)) return
+    const rect = beforeAfterBox.getBoundingClientRect()
+    const percent = Math.max(4, Math.min(96, ((clientX - rect.left) / rect.width) * 100))
+    beforeAfterLine.style.left = `${percent}%`
+    beforeAfterAfter.style.clipPath = `inset(0 ${100 - percent}% 0 0)`
+  }
+
+  if (beforeAfterBox && beforeAfterAfter && beforeAfterLine) {
+    let dragging = false
+    let animated = false
+
+    beforeAfterBox.addEventListener('mousedown', (event) => {
+      dragging = true
+      setBeforeAfter(event.clientX)
+    })
+    beforeAfterBox.addEventListener(
+      'touchstart',
+      (event) => {
+        dragging = true
+        setBeforeAfter(event.touches[0].clientX)
+      },
+      { passive: true }
+    )
+
+    document.addEventListener('mouseup', () => {
+      dragging = false
+    })
+    document.addEventListener('touchend', () => {
+      dragging = false
+    })
+    document.addEventListener('mousemove', (event) => {
+      if (!dragging) return
+      setBeforeAfter(event.clientX)
+    })
+    document.addEventListener(
+      'touchmove',
+      (event) => {
+        if (!dragging) return
+        setBeforeAfter(event.touches[0].clientX)
+      },
+      { passive: true }
+    )
+
+    if (!reducedMotion && 'IntersectionObserver' in window) {
+      const baObserver = new IntersectionObserver(
+        (entries) => {
+          if (!entries[0]?.isIntersecting || animated) return
+          animated = true
+          let frame = 0
+          const timer = window.setInterval(() => {
+            frame += 1
+            const wave = 50 + 40 * Math.sin(0.075 * frame)
+            const rect = beforeAfterBox.getBoundingClientRect()
+            setBeforeAfter(rect.left + (rect.width * wave) / 100)
+            if (frame > 84) window.clearInterval(timer)
+          }, 30)
+        },
+        { threshold: 0.6 }
+      )
+      baObserver.observe(beforeAfterBox)
+    }
+  }
+
+  const aboutDeck = document.getElementById('aboutDeck')
+  const aboutCards = aboutDeck ? [...aboutDeck.querySelectorAll('.about-card')] : []
+  if (aboutDeck && aboutCards.length) {
+    const total = aboutCards.length
+    aboutDeck.addEventListener('click', () => {
+      const lead = aboutDeck.querySelector('.about-card[data-index="0"]')
+      if (!lead) return
+      lead.classList.add('exit')
+      window.setTimeout(() => {
+        lead.classList.remove('exit')
+        aboutCards.forEach((card) => {
+          const nextIndex = (Number(card.getAttribute('data-index') || 0) - 1 + total) % total
+          card.setAttribute('data-index', String(nextIndex))
+        })
+      }, 400)
+    })
+  }
+
+  const contactForm = document.getElementById('contactForm')
+  const contactMessage = document.getElementById('contactFormMessage')
+
+  function setContactMessage(type, text) {
+    if (!contactMessage) return
+    contactMessage.className = 'form-message'
+    contactMessage.textContent = text
+    if (type) contactMessage.classList.add(type)
+  }
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault()
+      const submitButton = contactForm.querySelector('.btn-submit')
+      const action = contactForm.getAttribute('action') || ''
+
+      if (!action) {
+        setContactMessage('error', 'Form bağlantısı şu an eksik görünüyor. Lütfen WhatsApp üzerinden bize ulaşın.')
+        return
+      }
+
+      submitButton?.setAttribute('disabled', 'disabled')
+      setContactMessage('', '')
+
+      try {
+        const payload = Object.fromEntries(new FormData(contactForm).entries())
+        payload.kaynak = window.location?.pathname || '/'
+
+        const response = await window.fetch(action, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        })
+        const body = await response.json().catch(() => null)
+        if (!response.ok) throw new Error(body?.error || 'Contact request failed')
+
+        contactForm.reset()
+        setContactMessage(
+          'success',
+          body?.message || 'Teşekkürler. Mesajınız bize ulaştı, en kısa sürede size dönüş yapacağız.'
+        )
+      } catch (_error) {
+        setContactMessage(
+          'error',
+          'Mesaj gönderilirken bir sorun oluştu. Lütfen tekrar deneyin veya WhatsApp üzerinden bize ulaşın.'
+        )
+      } finally {
+        submitButton?.removeAttribute('disabled')
+      }
+    })
+  }
+
+  document.querySelectorAll('[data-sector]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const sector = button.dataset.sector
+      document.querySelectorAll('.sector-btn').forEach((item) => {
+        item.classList.remove('active')
+        item.setAttribute('aria-pressed', 'false')
+      })
+      document.querySelectorAll('.sector-panel').forEach((panel) => panel.classList.remove('active'))
+      button.classList.add('active')
+      button.setAttribute('aria-pressed', 'true')
+      document.getElementById(`sector-${sector}`)?.classList.add('active')
+    })
+  })
+
+  const mobileLayoutQuery = window.matchMedia('(max-width: 768px)')
+
+  function setAccordionState(root, expanded) {
+    const trigger = root.querySelector('[data-accordion-trigger]')
+    const panel = root.querySelector('[data-accordion-panel]')
+    if (!(trigger && panel)) return
+    root.classList.toggle('is-open', expanded)
+    root.dataset.expanded = String(expanded)
+    trigger.setAttribute('aria-expanded', String(expanded))
+    panel.hidden = !expanded
+  }
+
+  document.querySelectorAll('[data-mobile-accordion]').forEach((root, index) => {
+    const trigger = root.querySelector('[data-accordion-trigger]')
+    const panel = root.querySelector('[data-accordion-panel]')
+    if (!(trigger && panel)) return
+    if (!panel.id) panel.id = `mobile-accordion-panel-${index + 1}`
+    trigger.setAttribute('aria-controls', panel.id)
+    trigger.addEventListener('click', () => {
+      if (!mobileLayoutQuery.matches) return
+      setAccordionState(root, root.dataset.expanded !== 'true')
+    })
+  })
+
+  function syncReadMoreBlocks() {
+    document.querySelectorAll('[data-mobile-readmore]').forEach((block) => {
+      const content = block.querySelector('[data-mobile-readmore-content]')
+      const toggle = block.querySelector('[data-mobile-readmore-toggle]')
+      if (!(content && toggle)) return
+
+      if (!mobileLayoutQuery.matches) {
+        block.classList.add('is-expanded')
+        block.classList.remove('is-short')
+        toggle.hidden = true
+        toggle.textContent = 'Devamını Gör'
+        toggle.setAttribute('aria-expanded', 'true')
+        return
+      }
+
+      const wasExpanded = block.dataset.expanded === 'true'
+      block.classList.remove('is-expanded')
+      const needsToggle = content.scrollHeight > content.clientHeight + 12
+
+      if (!needsToggle) {
+        block.dataset.expanded = 'true'
+        block.classList.add('is-short', 'is-expanded')
+        toggle.hidden = true
+        toggle.setAttribute('aria-expanded', 'true')
+        return
+      }
+
+      block.classList.remove('is-short')
+      block.classList.toggle('is-expanded', wasExpanded)
+      toggle.hidden = false
+      toggle.textContent = wasExpanded ? 'Daha Az Göster' : 'Devamını Gör'
+      toggle.setAttribute('aria-expanded', String(wasExpanded))
+    })
+  }
+
+  document.querySelectorAll('[data-mobile-readmore-toggle]').forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      if (!mobileLayoutQuery.matches) return
+      const block = toggle.closest('[data-mobile-readmore]')
+      if (!block) return
+      const expanded = block.dataset.expanded !== 'true'
+      block.dataset.expanded = String(expanded)
+      block.classList.toggle('is-expanded', expanded)
+      toggle.textContent = expanded ? 'Daha Az Göster' : 'Devamını Gör'
+      toggle.setAttribute('aria-expanded', String(expanded))
+    })
+  })
+
+  function syncMobileExperience() {
+    document.querySelectorAll('[data-mobile-accordion]').forEach((root) => {
+      if (!mobileLayoutQuery.matches) {
+        const trigger = root.querySelector('[data-accordion-trigger]')
+        const panel = root.querySelector('[data-accordion-panel]')
+        root.classList.add('is-open')
+        trigger?.setAttribute('aria-expanded', 'true')
+        if (panel) panel.hidden = false
+        return
+      }
+      setAccordionState(root, root.dataset.expanded === 'true')
+    })
+    syncReadMoreBlocks()
+  }
+
+  if (typeof mobileLayoutQuery.addEventListener === 'function') {
+    mobileLayoutQuery.addEventListener('change', syncMobileExperience)
+  } else if (typeof mobileLayoutQuery.addListener === 'function') {
+    mobileLayoutQuery.addListener(syncMobileExperience)
+  }
+
+  syncMobileExperience()
+
+  document.querySelector('[data-quote-approve]')?.addEventListener('click', () => {
+    if (!quoteState.result) return
+    quoteState.approved = true
+    const result = quoteState.result
+    const message = [
+      'Merhaba Veridia, site uzerinden on teklifimi onayladim.',
+      `Referans: ${result.reference}`,
+      `Hizmetler: ${result.serviceLabels.join(', ')}`,
+      `Sektor: ${result.sectorLabel}`,
+      `Isletme olcegi: ${result.scaleLabel}`,
+      `Hedef: ${result.goalLabel}`,
+      `Baslangic zamani: ${result.urgencyLabel}`,
+      `Karar modu: ${result.contactLabel}`,
+      `Onerilen paket: ${result.packageName}`,
+      `Aylik teklif: ${formatCurrency(result.monthly)}`,
+      'Devam etmek ve başlangıç planını oluşturmak istiyorum.',
+    ].join('\n')
+
+    appendChatBubble('user', 'Teklifi ön onayladım, ekip görüşmesi için hazırım.')
+    appendChatBubble('bot', `Harika. ${result.reference} referans koduyla görüşme özeti hazırlandı.`)
+
+    if (typeof window.buildVeridiaWhatsAppUrl === 'function') {
+      window.open(window.buildVeridiaWhatsAppUrl(message), '_blank', 'noopener')
+      return
+    }
+
+    const digits = whatsapp.replace(/\D/g, '')
+    const url = /^\d{10,15}$/.test(digits)
+      ? `https://wa.me/${digits}?text=${encodeURIComponent(message)}`
+      : `https://wa.me/?text=${encodeURIComponent(message)}`
+    window.open(url, '_blank', 'noopener')
+  })
+
+  document.querySelector('[data-quote-restart]')?.addEventListener('click', () => {
+    const chat = document.getElementById('quoteChat')
+    quoteState.stepIndex = 0
+    quoteState.answers = { service: [] }
+    quoteState.result = null
+    quoteState.approved = false
+    if (chat) {
+      chat.innerHTML =
+        '<div class="chat-bubble bot">Ön brief yeniden hazır. Yeni kombinasyonu seçin, kapsamı ve tahmini hizmet bedelini tekrar netleştireyim.</div>'
+    }
+    renderStep()
+  })
+})(typeof window !== 'undefined' ? window : globalThis)

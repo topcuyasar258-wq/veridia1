@@ -79,6 +79,24 @@ class ServerSecurityTests(unittest.TestCase):
                 self.assertEqual(status, HTTPStatus.OK)
                 self.assertIn("Veridia", body.decode("utf-8"))
 
+    def test_recent_root_pages_are_public(self) -> None:
+        for path in (
+            "/hakkimizda.html",
+            "/calisma-surecimiz.html",
+            "/hizli-teklif.html",
+        ):
+            with self.subTest(path=path):
+                status, body, _ = self.http_request("GET", path)
+                self.assertEqual(status, HTTPStatus.OK)
+                self.assertIn("Veridia", body.decode("utf-8"))
+
+    def test_public_hub_routes_serve_directory_indexes(self) -> None:
+        for path in ("/seo/", "/reklam/", "/yazilim/"):
+            with self.subTest(path=path):
+                status, body, _ = self.http_request("GET", path)
+                self.assertEqual(status, HTTPStatus.OK)
+                self.assertIn("Veridia", body.decode("utf-8"))
+
     def test_legacy_homepage_paths_redirect_to_root(self) -> None:
         for path in ("/index.html", "/asdfadsf.html", "/veridia-ajans.html"):
             with self.subTest(path=path):
@@ -95,6 +113,20 @@ class ServerSecurityTests(unittest.TestCase):
 
         self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
         self.assertEqual(headers.get("Location"), "/blog/b2b-donusum-hunisi.html")
+
+    def test_legacy_service_pages_redirect_to_silo_urls(self) -> None:
+        redirects = {
+            "/web-tasarim.html": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+            "/seo-danismanligi.html": "/seo/google-gorunurlugu/",
+            "/google-ads-yonetimi.html": "/reklam/google-ads-yonetimi/",
+            "/sosyal-medya-yonetimi.html": "/reklam/sosyal-medya-yonetimi/",
+        }
+
+        for path, destination in redirects.items():
+            with self.subTest(path=path):
+                status, _, headers = self.http_request("GET", path, follow_redirects=False)
+                self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                self.assertEqual(headers.get("Location"), destination)
 
     def test_sensitive_files_and_internal_paths_are_not_public(self) -> None:
         for path in ("/.env", "/.git/HEAD", "/analysis_snapshots.sqlite3", "/server.py", "/automation/README.md"):
@@ -154,6 +186,45 @@ class ServerSecurityTests(unittest.TestCase):
 
         self.assertEqual(first_status, HTTPStatus.OK)
         self.assertEqual(second_status, HTTPStatus.TOO_MANY_REQUESTS)
+
+    def test_contact_endpoint_accepts_valid_submission(self) -> None:
+        with mock.patch.object(server, "CONTACT_FORWARD_URL", "", create=True):
+            status, body, _ = self.http_request(
+                "POST",
+                "/api/contact",
+                body=json.dumps(
+                    {
+                        "isim": "Ada Test",
+                        "email": "ada@example.com",
+                        "telefon": "+90 555 111 22 33",
+                        "mesaj": "Web sitesi ve teklif akışı için bilgi almak istiyorum.",
+                        "kaynak": "/",
+                    }
+                ).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+            )
+
+        payload = json.loads(body.decode("utf-8"))
+        self.assertEqual(status, HTTPStatus.OK)
+        self.assertTrue(payload["ok"])
+
+    def test_contact_endpoint_validates_payload(self) -> None:
+        status, body, _ = self.http_request(
+            "POST",
+            "/api/contact",
+            body=json.dumps(
+                {
+                    "isim": "A",
+                    "email": "invalid",
+                    "mesaj": "kısa",
+                }
+            ).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+        )
+
+        payload = json.loads(body.decode("utf-8"))
+        self.assertEqual(status, HTTPStatus.BAD_REQUEST)
+        self.assertFalse(payload["ok"])
 
     def test_analysis_endpoint_uses_forwarded_client_ip_from_trusted_proxy(self) -> None:
         with ExitStack() as stack:
