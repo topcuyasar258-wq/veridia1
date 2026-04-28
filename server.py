@@ -58,6 +58,7 @@ MAX_REQUEST_BODY_BYTES = int(os.environ.get("MAX_REQUEST_BODY_BYTES", "4096"))
 RATE_LIMIT_WINDOW_SECS = int(os.environ.get("RATE_LIMIT_WINDOW_SECS", "300"))
 RATE_LIMIT_MAX_REQUESTS = int(os.environ.get("RATE_LIMIT_MAX_REQUESTS", "5"))
 MAX_PROXY_IMAGE_BYTES = int(os.environ.get("MAX_PROXY_IMAGE_BYTES", "5242880"))
+CONTACT_FORWARD_URL = os.environ.get("CONTACT_FORWARD_URL", "").strip()
 
 DEFAULT_ALLOWED_ORIGINS = (
     f"http://127.0.0.1:{PORT}",
@@ -68,21 +69,40 @@ DEFAULT_ALLOWED_ORIGINS = (
 PUBLIC_FILE_PATHS = frozenset(
     {
         "/index.html",
+        "/404.html",
         "/blog.html",
         "/neler-yapiyoruz.html",
         "/calismalarimiz.html",
+        "/hakkimizda.html",
+        "/calisma-surecimiz.html",
+        "/hizli-teklif.html",
+        "/iletisim.html",
+        "/web-tasarim.html",
+        "/seo-danismanligi.html",
+        "/google-ads-yonetimi.html",
+        "/sosyal-medya-yonetimi.html",
+        "/dijital-pazarlama-stratejisi.html",
+        "/guzellik-klinik-dijital-pazarlama.html",
+        "/kafe-restoran-dijital-pazarlama.html",
+        "/moda-e-ticaret-dijital-pazarlama.html",
+        "/teknoloji-b2b-dijital-pazarlama.html",
+        "/yasam-ev-markalari-dijital-pazarlama.html",
         "/gizlilik-politikasi.html",
         "/kvkk-aydinlatma-metni.html",
         "/robots.txt",
         "/sitemap.xml",
     }
 )
-PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/", "/seo/", "/reklam/", "/yazilim/")
+PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/", "/seo/", "/reklam/", "/yazilim/", "/automation/forms/")
 LEGACY_REDIRECTS = {
     "/index.html": "/",
     "/asdfadsf.html": "/",
     "/veridia-ajans.html": "/",
     "/blog/b2b-pazarlamada-donusum-hunisi.html": "/blog/b2b-donusum-hunisi.html",
+    "/web-tasarim.html": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+    "/seo-danismanligi.html": "/seo/google-gorunurlugu/",
+    "/google-ads-yonetimi.html": "/reklam/google-ads-yonetimi/",
+    "/sosyal-medya-yonetimi.html": "/reklam/sosyal-medya-yonetimi/",
 }
 IMAGE_PROXY_ALLOWED_HOSTS = ("cdninstagram.com", "fbcdn.net")
 SECURITY_HEADERS = {
@@ -233,7 +253,28 @@ def normalize_request_path(raw_path: str) -> str | None:
 def is_public_path(path: str) -> bool:
     if path in PUBLIC_FILE_PATHS:
         return True
-    return any(path.startswith(prefix) and path != prefix for prefix in PUBLIC_DIR_PREFIXES)
+    return any(
+        path == prefix[:-1] or (path.startswith(prefix) and path != prefix)
+        for prefix in PUBLIC_DIR_PREFIXES
+    )
+
+
+def resolve_public_path(path: str) -> str | None:
+    if path == "/":
+        return "/index.html"
+    if path in LEGACY_REDIRECTS:
+        return path
+    if not is_public_path(path):
+        return None
+
+    candidate = ROOT / path.lstrip("/")
+    if candidate.is_dir():
+        index_path = candidate / "index.html"
+        if not index_path.exists():
+            return None
+        return f"{path.rstrip('/')}/index.html"
+
+    return path
 
 
 def is_origin_allowed(origin: str) -> bool:
@@ -758,6 +799,92 @@ def build_analysis(username: str) -> dict[str, Any]:
     }
 
 
+def ensure_contact_db() -> None:
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS contact_submissions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                submitted_at TEXT NOT NULL,
+                name TEXT NOT NULL,
+                email TEXT NOT NULL,
+                phone TEXT NOT NULL,
+                message TEXT NOT NULL,
+                source_path TEXT NOT NULL
+            )
+            """
+        )
+
+
+def save_contact_submission(
+    *,
+    name: str,
+    email: str,
+    phone: str,
+    message: str,
+    source_path: str,
+) -> None:
+    ensure_contact_db()
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.execute(
+            """
+            INSERT INTO contact_submissions (
+                submitted_at, name, email, phone, message, source_path
+            ) VALUES (?, ?, ?, ?, ?, ?)
+            """,
+            (
+                datetime.now(timezone.utc).isoformat(),
+                name,
+                email,
+                phone,
+                message,
+                source_path,
+            ),
+        )
+
+
+def validate_contact_payload(payload: dict[str, Any]) -> dict[str, str]:
+    name = " ".join(str(payload.get("isim", "")).split())
+    email = str(payload.get("email", "")).strip()
+    phone = " ".join(str(payload.get("telefon", "")).split())
+    message = str(payload.get("mesaj", "")).strip()
+    source_path = str(payload.get("kaynak", "/")).strip() or "/"
+
+    if not name or len(name) < 2:
+        raise AnalyzeError(HTTPStatus.BAD_REQUEST, "Ad soyad bilgisi gerekli.")
+    if not email or "@" not in email or len(email) > 254:
+        raise AnalyzeError(HTTPStatus.BAD_REQUEST, "Gecerli bir e-posta adresi gerekli.")
+    if not message or len(message) < 10:
+        raise AnalyzeError(HTTPStatus.BAD_REQUEST, "Mesaj en az 10 karakter olmali.")
+    if len(name) > 120 or len(phone) > 40 or len(message) > 4000 or len(source_path) > 200:
+        raise AnalyzeError(HTTPStatus.BAD_REQUEST, "Gonderilen bilgiler beklenenden uzun.")
+
+    return {
+        "isim": name,
+        "email": email,
+        "telefon": phone,
+        "mesaj": message,
+        "kaynak": source_path,
+    }
+
+
+def forward_contact_submission(payload: dict[str, str]) -> None:
+    if not CONTACT_FORWARD_URL:
+        return
+
+    req = request.Request(
+        CONTACT_FORWARD_URL,
+        data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
+        headers={"Content-Type": "application/json", "Accept": "application/json"},
+        method="POST",
+    )
+    try:
+        run_request(req)
+    except Exception as exc:  # noqa: BLE001
+        logger.exception("Failed to forward contact submission")
+        raise AnalyzeError(HTTPStatus.BAD_GATEWAY, "Form iletisi ileri aktarilamadi.") from exc
+
+
 def json_response(
     handler: "AppHandler",
     status: int,
@@ -841,7 +968,8 @@ class AppHandler(SimpleHTTPRequestHandler):
             self.wfile.write(body)
 
     def do_OPTIONS(self) -> None:
-        if normalize_request_path(self.path) != "/api/analyze-instagram":
+        normalized_path = normalize_request_path(self.path)
+        if normalized_path not in {"/api/analyze-instagram", "/api/contact"}:
             self.send_error(HTTPStatus.NOT_FOUND)
             return
 
@@ -876,17 +1004,18 @@ class AppHandler(SimpleHTTPRequestHandler):
             super().do_GET()
             return
 
-        if normalized_path in LEGACY_REDIRECTS:
+        resolved_path = resolve_public_path(normalized_path)
+        if resolved_path in LEGACY_REDIRECTS:
             self.send_response(HTTPStatus.MOVED_PERMANENTLY)
-            self.send_header("Location", LEGACY_REDIRECTS[normalized_path])
+            self.send_header("Location", LEGACY_REDIRECTS[resolved_path])
             self.end_headers()
             return
 
-        if not is_public_path(normalized_path):
+        if resolved_path is None:
             self.send_error(HTTPStatus.NOT_FOUND)
             return
 
-        self.path = normalized_path
+        self.path = resolved_path
         super().do_GET()
 
     def handle_profile_image_proxy(self, query: str) -> None:
@@ -922,7 +1051,12 @@ class AppHandler(SimpleHTTPRequestHandler):
             self.send_error(HTTPStatus.BAD_GATEWAY, "Image proxy failed.")
 
     def do_POST(self) -> None:
-        if normalize_request_path(self.path) != "/api/analyze-instagram":
+        normalized_path = normalize_request_path(self.path)
+        if normalized_path == "/api/contact":
+            self.handle_contact_submission()
+            return
+
+        if normalized_path != "/api/analyze-instagram":
             self.send_error(HTTPStatus.NOT_FOUND)
             return
 
@@ -972,6 +1106,57 @@ class AppHandler(SimpleHTTPRequestHandler):
                 {"ok": False, "error": "Beklenmeyen bir sunucu hatasi olustu."},
             )
 
+    def handle_contact_submission(self) -> None:
+        try:
+            origin = self.headers.get("Origin")
+            if origin and not is_origin_allowed(origin):
+                raise AnalyzeError(HTTPStatus.FORBIDDEN, "Bu origin icin izin yok.")
+
+            content_type = self.headers.get("Content-Type", "")
+            if "application/json" not in content_type:
+                raise AnalyzeError(HTTPStatus.UNSUPPORTED_MEDIA_TYPE, "Istek JSON olmalidir.")
+
+            length = safe_int(self.headers.get("Content-Length", "0"), default=0)
+            if length > MAX_REQUEST_BODY_BYTES * 2:
+                raise AnalyzeError(HTTPStatus.REQUEST_ENTITY_TOO_LARGE, "Istek govdesi cok buyuk.")
+
+            retry_after = consume_rate_limit(self)
+            if retry_after is not None:
+                json_response(
+                    self,
+                    HTTPStatus.TOO_MANY_REQUESTS,
+                    {"ok": False, "error": "Cok fazla istek gonderildi. Lutfen daha sonra tekrar deneyin."},
+                    extra_headers={"Retry-After": str(retry_after)},
+                )
+                return
+
+            payload = json.loads(self.rfile.read(length).decode("utf-8") or "{}")
+            validated = validate_contact_payload(payload)
+            save_contact_submission(
+                name=validated["isim"],
+                email=validated["email"],
+                phone=validated["telefon"],
+                message=validated["mesaj"],
+                source_path=validated["kaynak"],
+            )
+            forward_contact_submission(validated)
+            json_response(
+                self,
+                HTTPStatus.OK,
+                {"ok": True, "message": "Mesajiniz alindi. En kisa surede size donus yapacagiz."},
+            )
+        except AnalyzeError as exc:
+            json_response(self, exc.status, {"ok": False, "error": exc.message})
+        except json.JSONDecodeError:
+            json_response(self, HTTPStatus.BAD_REQUEST, {"ok": False, "error": "Geçersiz JSON gönderildi."})
+        except Exception:  # noqa: BLE001
+            logger.exception("Unexpected error while handling contact submission")
+            json_response(
+                self,
+                HTTPStatus.INTERNAL_SERVER_ERROR,
+                {"ok": False, "error": "Beklenmeyen bir sunucu hatasi olustu."},
+            )
+
     def do_HEAD(self) -> None:
         normalized_path = normalize_request_path(self.path)
         if normalized_path is None:
@@ -983,17 +1168,18 @@ class AppHandler(SimpleHTTPRequestHandler):
             super().do_HEAD()
             return
 
-        if normalized_path in LEGACY_REDIRECTS:
+        resolved_path = resolve_public_path(normalized_path)
+        if resolved_path in LEGACY_REDIRECTS:
             self.send_response(HTTPStatus.MOVED_PERMANENTLY)
-            self.send_header("Location", LEGACY_REDIRECTS[normalized_path])
+            self.send_header("Location", LEGACY_REDIRECTS[resolved_path])
             self.end_headers()
             return
 
-        if not is_public_path(normalized_path):
+        if resolved_path is None:
             self.send_error(HTTPStatus.NOT_FOUND)
             return
 
-        self.path = normalized_path
+        self.path = resolved_path
         super().do_HEAD()
 
     def list_directory(self, path: str) -> Any:
