@@ -141,6 +141,7 @@
         "web-sitesi-ve-donusum-yuzeyleri"
       ],
       "featured_posts": [
+        "hizmet-sitelerinde-cta-nasil-olmali",
         "mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
         "teknik-seo-ve-web-performansi"
       ]
@@ -378,6 +379,21 @@
     }
   ],
   "blog_posts": [
+    {
+      "slug": "hizmet-sitelerinde-cta-nasil-olmali",
+      "url": "/blog/hizmet-sitelerinde-cta-nasil-olmali.html",
+      "file": "blog/hizmet-sitelerinde-cta-nasil-olmali.html",
+      "title": "Hizmet Sitelerinde CTA Nasıl Olmalı?",
+      "summary": "Bize Ulaşın butonunun neden zayıf kaldığını; net CTA metni, micro-copy, form mantığı ve sayfa tipine göre aksiyon kurgusu üzerinden inceliyoruz.",
+      "description": "Hizmet sitelerinde CTA nasıl olmalı? Bize Ulaşın butonunun neden zayıf kaldığını, net CTA metni, micro-copy, form mantığı ve sayfa tipine göre aksiyon kurgusuyla inceleyin.",
+      "published_at": "2026-05-04T00:00:00+03:00",
+      "modified_at": "2026-05-04T00:00:00+03:00",
+      "date_label": "4 Mayıs 2026",
+      "reading_time": "10 dk okuma",
+      "author": "Veridia Strateji Ekibi",
+      "service_slug": "web-sitesi-ve-donusum-yuzeyleri",
+      "card_summary": "[Dönüşüm odaklı web tasarım](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) için Bize Ulaşın butonunun neden zayıf kaldığını; CTA metni, micro-copy, form mantığı ve sayfa tipine göre aksiyon kurgusuyla anlatıyoruz."
+    },
     {
       "slug": "mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
       "url": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
