@@ -141,6 +141,7 @@
         "web-sitesi-ve-donusum-yuzeyleri"
       ],
       "featured_posts": [
+        "mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
         "teknik-seo-ve-web-performansi"
       ]
     }
@@ -377,6 +378,21 @@
     }
   ],
   "blog_posts": [
+    {
+      "slug": "mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
+      "url": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
+      "file": "blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
+      "title": "Mobil Uyumsuzluk: Reklam Bütçenizi Çöpe Atmanın En Hızlı Yolu",
+      "summary": "Mobil uyumsuzluk reklam bütçesini nasıl boşa harcar? Başparmak dostu tasarım, kısa formlar, güven sinyalleri, CTA akışı ve Core Web Vitals üzerinden mobil dönüşüm kaybını inceliyoruz.",
+      "description": "Mobil uyumsuzluk reklam bütçesini nasıl boşa harcar? Başparmak dostu tasarım, kısa formlar, güven sinyalleri, CTA akışı ve Core Web Vitals üzerinden mobil dönüşüm kaybını inceleyin.",
+      "published_at": "2026-05-04T00:00:00+03:00",
+      "modified_at": "2026-05-04T00:00:00+03:00",
+      "date_label": "4 Mayıs 2026",
+      "reading_time": "11 dk okuma",
+      "author": "Veridia Strateji Ekibi",
+      "service_slug": "web-sitesi-ve-donusum-yuzeyleri",
+      "card_summary": "Mobilde yalnızca açılan değil, başparmakla rahat ilerlenen ve [dönüşüm odaklı web tasarım](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) mantığıyla çalışan sayfaların reklam bütçesini nasıl koruduğunu anlatıyoruz."
+    },
     {
       "slug": "teknik-seo-ve-web-performansi",
       "url": "/blog/teknik-seo-ve-web-performansi.html",
