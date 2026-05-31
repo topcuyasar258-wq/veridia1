@@ -177,6 +177,28 @@ def render_route_map(label: str, links: list[tuple[str, str]]) -> str:
 </section>"""
 
 
+def render_sector_links(links: list[dict]) -> str:
+    if not links:
+        return ""
+    items = "\n".join(
+        f'<li><a href="{item["url"]}">{escape(item["label"])}</a>: {escape(item["copy"])}</li>'
+        for item in links
+    )
+    return f"""<section class="bridge-panel" aria-label="Sektörel uygulamalar">
+    <p class="section-label">Sektörel Uygulama</p>
+    <h2>Bu hizmet farklı sektörlerde nasıl çalışır?</h2>
+    <ul class="route-list">
+{items}
+    </ul>
+  </section>"""
+
+
+def write_if_changed(path: Path, content: str) -> None:
+    if path.exists() and path.read_text(encoding="utf-8") == content:
+        return
+    path.write_text(content, encoding="utf-8")
+
+
 def render_page(entity: dict, graph: dict, kind: str) -> str:
     site = graph["site"]
     base_url = site["base_url"]
@@ -242,6 +264,8 @@ def render_page(entity: dict, graph: dict, kind: str) -> str:
     active_label = "SEO" if entity["url"].startswith("/seo/") else "Reklam" if entity["url"].startswith("/reklam/") else "Yazılım"
     legacy_href = entity.get("legacy_href", entity["secondary_cta_href"])
     legacy_label = entity.get("legacy_label", entity["secondary_cta_label"])
+    sector_links = render_sector_links(entity.get("sector_links", []))
+    sector_block = f"  {sector_links}\n" if sector_links else ""
 
     page_schema = json.dumps(
         {
@@ -330,6 +354,7 @@ def render_page(entity: dict, graph: dict, kind: str) -> str:
     </div>
   </section>
 
+{sector_block}
   {render_route_map("Yol Haritası", route_links)}
 </main>
 
@@ -380,14 +405,14 @@ def main() -> None:
     for hub in graph["hubs"]:
         output_path = ROOT / hub["file"]
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(render_page(hub, graph, "hub"), encoding="utf-8")
+        write_if_changed(output_path, render_page(hub, graph, "hub"))
 
     for service in graph["services"]:
         output_path = ROOT / service["file"]
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(render_page(service, graph, "service"), encoding="utf-8")
+        write_if_changed(output_path, render_page(service, graph, "service"))
 
-    (ROOT / "sitemap.xml").write_text(build_sitemap(graph), encoding="utf-8")
+    write_if_changed(ROOT / "sitemap.xml", build_sitemap(graph))
 
 
 if __name__ == "__main__":

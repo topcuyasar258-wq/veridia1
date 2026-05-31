@@ -56,6 +56,43 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("<h1", page)
         self.assertIn("Restoran ve Kafeler İçin Dijital Pazarlama Sistemi</h1>", page)
 
+    def test_restaurant_page_has_schema_automation_kpis_and_analytics(self) -> None:
+        page = (ROOT / "kafe-restoran-dijital-pazarlama.html").read_text(encoding="utf-8")
+        self.assertIn('"@type": "Service"', page)
+        self.assertIn('"@type": "BreadcrumbList"', page)
+        self.assertIn('"@type": "FAQPage"', page)
+        self.assertIn('aria-label="Breadcrumb"', page)
+        self.assertIn("n8n ile Rezervasyon ve Takip Otomasyonu", page)
+        self.assertIn("Rezervasyon formu", page)
+        self.assertIn("Google Sheets veya CRM", page)
+        self.assertIn("Ölçüm Planı", page)
+        self.assertIn("restaurant_quote_click", page)
+        self.assertIn("restaurant_whatsapp_click", page)
+        self.assertIn("restaurant_phone_click", page)
+        self.assertIn("restaurant_form_submit", page)
+        self.assertIn("./assets/analytics.js", page)
+        self.assertNotIn("Google My Business", page)
+        self.assertNotIn("Kullanıcıların %80'i", page)
+
+    def test_priority_service_pages_link_to_restaurant_landing_page(self) -> None:
+        paths = [
+            ROOT / "seo" / "google-gorunurlugu" / "index.html",
+            ROOT / "reklam" / "google-ads-yonetimi" / "index.html",
+            ROOT / "reklam" / "sosyal-medya-yonetimi" / "index.html",
+            ROOT / "yazilim" / "web-sitesi-ve-donusum-yuzeyleri" / "index.html",
+            ROOT / "dijital-pazarlama-stratejisi.html",
+        ]
+        for path in paths:
+            with self.subTest(path=path):
+                page = path.read_text(encoding="utf-8")
+                self.assertIn("/kafe-restoran-dijital-pazarlama.html", page)
+
+    def test_analytics_supports_declarative_cta_events(self) -> None:
+        analytics = (ROOT / "assets" / "analytics.js").read_text(encoding="utf-8")
+        self.assertIn("data-analytics-event", analytics)
+        self.assertIn("dataset?.analyticsEvent", analytics)
+        self.assertIn("gtag", analytics)
+
     def test_blog_index_has_no_dead_placeholder_links(self) -> None:
         blog_index = (ROOT / "blog.html").read_text(encoding="utf-8")
         self.assertNotIn('href="#"', blog_index)
