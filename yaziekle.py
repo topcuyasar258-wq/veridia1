@@ -43,7 +43,7 @@ def load_dotenv(path: Path) -> None:
 
 
 load_dotenv(ROOT / ".env")
-DEFAULT_SITE_URL = (os.environ.get("SITE_URL", "https://veridiareklam.com.tr").strip() or "https://veridiareklam.com.tr").rstrip("/")
+DEFAULT_SITE_URL = (os.environ.get("SITE_URL", "https://www.veridiareklam.com.tr").strip() or "https://www.veridiareklam.com.tr").rstrip("/")
 
 
 def format_turkish_date(dt: datetime) -> str:

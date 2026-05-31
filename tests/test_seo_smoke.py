@@ -4,38 +4,57 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parent.parent
+PRODUCTION_URL = "https://www.veridiareklam.com.tr"
 
 
 class SeoSmokeTests(unittest.TestCase):
     def test_robots_points_to_production_sitemap(self) -> None:
         robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
-        self.assertIn("Sitemap: https://veridiareklam.com.tr/sitemap.xml", robots)
+        self.assertIn(f"Sitemap: {PRODUCTION_URL}/sitemap.xml", robots)
         self.assertNotIn("127.0.0.1", robots)
 
     def test_sitemap_uses_production_urls(self) -> None:
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
-        self.assertIn("https://veridiareklam.com.tr/", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/neler-yapiyoruz.html", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/calismalarimiz.html", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/seo/", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/reklam/", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/yazilim/", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/seo/teknik-seo-denetimi/", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/seo/google-gorunurlugu/", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/reklam/google-ads-yonetimi/", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/blog/instagram-algoritmasi-2026.html", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/blog/b2b-donusum-hunisi.html", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi.html", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/gizlilik-politikasi.html", sitemap)
-        self.assertIn("https://veridiareklam.com.tr/kvkk-aydinlatma-metni.html", sitemap)
-        self.assertNotIn("https://veridiareklam.com.tr/web-tasarim.html", sitemap)
-        self.assertNotIn("https://veridiareklam.com.tr/seo-danismanligi.html", sitemap)
-        self.assertNotIn("https://veridiareklam.com.tr/google-ads-yonetimi.html", sitemap)
-        self.assertNotIn("https://veridiareklam.com.tr/sosyal-medya-yonetimi.html", sitemap)
-        self.assertNotIn("https://veridiareklam.com.tr/blog/b2b-pazarlamada-donusum-hunisi.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/neler-yapiyoruz.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/calismalarimiz.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/seo/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/reklam/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/yazilim/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/seo/teknik-seo-denetimi/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/seo/google-gorunurlugu/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/reklam/sosyal-medya-yonetimi/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/reklam/google-ads-yonetimi/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/yazilim/web-sitesi-ve-donusum-yuzeyleri/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/dijital-pazarlama-stratejisi.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/guzellik-klinik-dijital-pazarlama.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/kafe-restoran-dijital-pazarlama.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/moda-e-ticaret-dijital-pazarlama.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/teknoloji-b2b-dijital-pazarlama.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/yasam-ev-markalari-dijital-pazarlama.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/blog/instagram-algoritmasi-2026.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/blog/b2b-donusum-hunisi.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/blog/teknik-seo-ve-web-performansi.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/gizlilik-politikasi.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/kvkk-aydinlatma-metni.html", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/web-tasarim.html", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/seo-danismanligi.html", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/google-ads-yonetimi.html", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/sosyal-medya-yonetimi.html", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/blog/b2b-pazarlamada-donusum-hunisi.html", sitemap)
+        self.assertNotIn("https://veridiareklam.com.tr/", sitemap)
         self.assertNotIn("127.0.0.1", sitemap)
+
+    def test_restaurant_page_targets_restaurant_and_cafe_queries(self) -> None:
+        page = (ROOT / "kafe-restoran-dijital-pazarlama.html").read_text(encoding="utf-8")
+        self.assertIn("<title>Restoran Dijital Pazarlama ve Kafe Pazarlama | Veridia</title>", page)
+        self.assertIn(
+            '<meta name="description" content="Restoran ve kafeler için yerel SEO, Google Maps, '
+            'reklam ve rezervasyon otomasyonu. Mekanınıza özel büyüme planı için ücretsiz ön analiz isteyin.">',
+            page,
+        )
+        self.assertIn("<h1", page)
+        self.assertIn("Restoran ve Kafeler İçin Dijital Pazarlama Sistemi</h1>", page)
 
     def test_blog_index_has_no_dead_placeholder_links(self) -> None:
         blog_index = (ROOT / "blog.html").read_text(encoding="utf-8")
@@ -64,7 +83,7 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn('"@type": "ItemList"', homepage)
         self.assertIn("Web Tasarım", homepage)
         self.assertIn('id="services"', homepage)
-        self.assertIn('rel="canonical" href="https://veridiareklam.com.tr"', homepage)
+        self.assertIn(f'rel="canonical" href="{PRODUCTION_URL}"', homepage)
         self.assertIn("veridia-social-cover.png", homepage)
         self.assertIn("assets/config.js", homepage)
         self.assertIn("assets/home-loader.js", homepage)
@@ -88,7 +107,7 @@ class SeoSmokeTests(unittest.TestCase):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertNotIn('http-equiv="refresh"', index)
         self.assertNotIn("window.location.replace", index)
-        self.assertIn('rel="canonical" href="https://veridiareklam.com.tr"', index)
+        self.assertIn(f'rel="canonical" href="{PRODUCTION_URL}"', index)
         self.assertIn("<title>Veridia Reklam", index)
 
     def test_contact_and_service_ctas_point_to_real_targets(self) -> None:
@@ -125,6 +144,7 @@ class SeoSmokeTests(unittest.TestCase):
             with self.subTest(path=path.name):
                 content = path.read_text(encoding="utf-8")
                 body = content.split("<body", 1)[1]
+                self.assertNotIn('href="https://www.veridiareklam.com.tr', body)
                 self.assertNotIn('href="https://veridiareklam.com.tr', body)
 
     def test_legal_pages_exist_and_link_back_to_site(self) -> None:
@@ -228,6 +248,18 @@ class SeoSmokeTests(unittest.TestCase):
                 if condition.get("type") == "host"
             }
             self.assertFalse(blocked_hosts & host_values)
+
+    def test_vercel_config_redirects_legacy_google_ads_page(self) -> None:
+        config = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
+        redirects = config.get("redirects", [])
+        self.assertIn(
+            {
+                "source": "/google-ads-yonetimi.html",
+                "destination": "/reklam/google-ads-yonetimi/",
+                "permanent": True,
+            },
+            redirects,
+        )
 
 if __name__ == "__main__":
     unittest.main()

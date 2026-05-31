@@ -55,7 +55,7 @@ ALLOWED_ORIGINS=http://127.0.0.1:8000,http://localhost:8000,https://veridiarekla
 TRUSTED_PROXY_IPS=
 PORT=8000
 HOST=127.0.0.1
-SITE_URL=https://veridiareklam.com.tr
+SITE_URL=https://www.veridiareklam.com.tr
 ```
 
 `SITE_URL`, blog yazisi olusturma aracinin canonical, Open Graph ve sitemap adreslerini dogru domain ile uretmesi icin kullanilir.

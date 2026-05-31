@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "Veridia",
-    "base_url": "https://veridiareklam.com.tr",
+    "base_url": "https://www.veridiareklam.com.tr",
     "default_image": "/assets/veridia-social-cover.png"
   },
   "static_pages": [
@@ -60,6 +60,48 @@
           "title": "Veridia Örnek Çalışma Senaryoları"
         }
       ]
+    },
+    {
+      "url": "/dijital-pazarlama-stratejisi.html",
+      "file": "dijital-pazarlama-stratejisi.html",
+      "title": "Sektörünüze Özel Dijital Pazarlama Stratejisi",
+      "changefreq": "monthly",
+      "priority": "0.7"
+    },
+    {
+      "url": "/guzellik-klinik-dijital-pazarlama.html",
+      "file": "guzellik-klinik-dijital-pazarlama.html",
+      "title": "Güzellik Merkezleri ve Klinikler İçin Dijital Pazarlama",
+      "changefreq": "monthly",
+      "priority": "0.7"
+    },
+    {
+      "url": "/kafe-restoran-dijital-pazarlama.html",
+      "file": "kafe-restoran-dijital-pazarlama.html",
+      "title": "Restoran ve Kafeler İçin Dijital Pazarlama",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "url": "/moda-e-ticaret-dijital-pazarlama.html",
+      "file": "moda-e-ticaret-dijital-pazarlama.html",
+      "title": "Moda ve E-Ticaret Markaları İçin Dijital Pazarlama",
+      "changefreq": "monthly",
+      "priority": "0.7"
+    },
+    {
+      "url": "/teknoloji-b2b-dijital-pazarlama.html",
+      "file": "teknoloji-b2b-dijital-pazarlama.html",
+      "title": "Teknoloji ve B2B Firmalar İçin Dijital Pazarlama",
+      "changefreq": "monthly",
+      "priority": "0.7"
+    },
+    {
+      "url": "/yasam-ev-markalari-dijital-pazarlama.html",
+      "file": "yasam-ev-markalari-dijital-pazarlama.html",
+      "title": "Yaşam ve Ev Markaları İçin Dijital Pazarlama",
+      "changefreq": "monthly",
+      "priority": "0.7"
     },
     {
       "url": "/gizlilik-politikasi.html",
