@@ -13,7 +13,7 @@
       "priority": "1.0",
       "images": [
         {
-          "path": "/assets/about-visual.png",
+          "path": "/assets/about-visual.jpg",
           "title": "Veridia Ana Sayfa Marka Görseli"
         },
         {
@@ -60,6 +60,34 @@
           "title": "Veridia Örnek Çalışma Senaryoları"
         }
       ]
+    },
+    {
+      "url": "/hakkimizda.html",
+      "file": "hakkimizda.html",
+      "title": "Veridia Hakkında",
+      "changefreq": "monthly",
+      "priority": "0.6"
+    },
+    {
+      "url": "/calisma-surecimiz.html",
+      "file": "calisma-surecimiz.html",
+      "title": "Veridia Çalışma Süreci",
+      "changefreq": "monthly",
+      "priority": "0.6"
+    },
+    {
+      "url": "/iletisim.html",
+      "file": "iletisim.html",
+      "title": "Veridia İletişim",
+      "changefreq": "monthly",
+      "priority": "0.5"
+    },
+    {
+      "url": "/hizli-teklif.html",
+      "file": "hizli-teklif.html",
+      "title": "Veridia Hızlı Teklif",
+      "changefreq": "monthly",
+      "priority": "0.5"
     },
     {
       "url": "/dijital-pazarlama-stratejisi.html",
@@ -124,15 +152,16 @@
       "url": "/seo/",
       "file": "seo/index.html",
       "title": "SEO Hizmetleri",
-      "meta_title": "SEO Danışmanlığı ve Teknik SEO | Veridia",
-      "description": "Teknik SEO denetimi, Google görünürlüğü ve hizmet sayfası optimizasyonu ile Veridia'nın SEO hizmetlerini keşfedin.",
-      "eyebrow": "SEO Silo",
-      "hero_title": "Google'da görünür olmak için net bir SEO planı kuruyoruz.",
-      "hero_body": "SEO tarafında sadece anahtar kelime değil; teknik altyapı, sayfa dili, iç linkleme ve dönüşüm mantığı birlikte çalışmalı. Veridia bu alanları aynı karar sistemi içinde kurgular.",
+      "meta_title": "SEO Ajansı ve SEO Danışmanlığı | Veridia",
+      "description": "SEO danışmanlığı, teknik SEO denetimi, içerik planı ve Google görünürlüğü çalışmalarıyla işletmenizin organik büyüme alanlarını netleştirin.",
+      "eyebrow": "SEO Hizmeti",
+      "hero_title": "SEO danışmanlığı ile Google'da daha net ve ölçülebilir görünürlük kuruyoruz.",
+      "hero_body": "SEO tarafında sadece anahtar kelime değil; teknik altyapı, sayfa dili, iç linkleme, yerel görünürlük ve dönüşüm mantığı birlikte çalışmalı. Veridia bu alanları tek bir SEO hizmet yüzeyinde toplar.",
       "primary_cta_label": "SEO Ön Analizi İste",
       "primary_cta_href": "/#quote",
       "secondary_cta_label": "SEO hizmet alanlarını gör",
       "secondary_cta_href": "/neler-yapiyoruz.html#search",
+      "service_type": "SEO Hizmeti, SEO Danışmanlığı, Teknik SEO",
       "children": [
         "teknik-seo-denetimi",
         "google-gorunurlugu"
@@ -146,15 +175,16 @@
       "url": "/reklam/",
       "file": "reklam/index.html",
       "title": "Reklam Hizmetleri",
-      "meta_title": "Google Ads, Meta Reklam ve Sosyal Medya | Veridia",
-      "description": "Google Ads yönetimi, Meta reklamları ve sosyal medya yönetimi ile Veridia'nın reklam hizmetlerini inceleyin.",
-      "eyebrow": "Reklam Silo",
+      "meta_title": "Reklam Ajansı, Google Ads ve Meta Reklam | Veridia",
+      "description": "Google Ads yönetimi, Meta reklamları ve sosyal medya içerik sistemiyle reklam bütçenizi daha nitelikli talebe dönüştüren hizmetleri inceleyin.",
+      "eyebrow": "Reklam Hizmeti",
       "hero_title": "Reklam bütçesini daha nitelikli talebe dönüştürüyoruz.",
       "hero_body": "Reklam tarafında medya satın alma, teklif cümlesi, landing page ve satışa giden akış aynı sistemde kurulmalı. Veridia reklam hizmetleri bu bağlantıları görünür hale getirir.",
       "primary_cta_label": "Reklam Planı Oluştur",
       "primary_cta_href": "/#quote",
       "secondary_cta_label": "Reklam hizmet alanlarını gör",
       "secondary_cta_href": "/neler-yapiyoruz.html#meta",
+      "service_type": "Reklam Hizmeti, Google Ads Yönetimi, Meta Reklam, Sosyal Medya Yönetimi",
       "children": [
         "sosyal-medya-yonetimi",
         "google-ads-yonetimi",
@@ -170,15 +200,16 @@
       "url": "/yazilim/",
       "file": "yazilim/index.html",
       "title": "Web Tasarım ve Dönüşüm Yüzeyleri",
-      "meta_title": "Web Tasarım ve Landing Page Hizmetleri | Veridia",
-      "description": "Web sitesi, landing page ve dönüşüm yüzeyleri için Veridia'nın web tasarım hizmetlerini keşfedin.",
-      "eyebrow": "Yazılım Silo",
+      "meta_title": "Web Tasarım Ajansı ve Landing Page Hizmeti | Veridia",
+      "description": "Web sitesi, landing page ve dönüşüm yüzeylerinde mesaj hiyerarşisi, mobil akış ve performansı birlikte ele alan web tasarım hizmetlerini keşfedin.",
+      "eyebrow": "Web Tasarım Hizmeti",
       "hero_title": "Web sitesini vitrin değil, müşteri getiren bir sistem gibi kuruyoruz.",
       "hero_body": "Web tarafında mesele sadece güzel görünen sayfalar değil; mesaj hiyerarşisi, hız, mobil akış ve dönüşüm davranışının birlikte çalışmasıdır. Bu hizmet alanı, o yapıyı kurmak için tasarlandı.",
       "primary_cta_label": "Web Sitesi İçin Teklif Al",
       "primary_cta_href": "/#contact",
       "secondary_cta_label": "Web hizmet alanını gör",
       "secondary_cta_href": "/neler-yapiyoruz.html#web",
+      "service_type": "Web Tasarım Hizmeti, Landing Page, Web Sitesi ve Dönüşüm Yüzeyleri",
       "children": [
         "web-sitesi-ve-donusum-yuzeyleri"
       ],
@@ -197,7 +228,7 @@
       "file": "seo/teknik-seo-denetimi/index.html",
       "title": "Teknik SEO Denetimi",
       "meta_title": "Teknik SEO Denetimi | Veridia",
-      "description": "Core Web Vitals, indeksleme, schema ve iç linkleme sorunlarını tespit eden teknik SEO denetimi hizmeti.",
+      "description": "Core Web Vitals, indeksleme, canonical, schema ve iç linkleme sorunlarını tespit edip önceliklendiren teknik SEO denetimi hizmetini inceleyin.",
       "eyebrow": "SEO Alt Hizmeti",
       "hero_title": "Teknik SEO Denetimi ile görünürlüğü düşüren sorunları tespit edin.",
       "hero_body": "Core Web Vitals, taranabilirlik, indeksleme kalitesi, schema ve iç linkleme birlikte okunmadığında görünürlük sessizce aşınır. Teknik SEO denetimi bu kırılmaları büyümeden yakalar.",
@@ -325,7 +356,7 @@
       "file": "reklam/google-ads-yonetimi/index.html",
       "title": "Google Ads Yönetimi",
       "meta_title": "Google Ads Yönetimi | Veridia",
-      "description": "Yüksek niyetli sorguları landing page ve teklif mimarisiyle birlikte yöneten Google Ads yönetimi hizmeti.",
+      "description": "Yüksek niyetli sorguları kampanya yapısı, landing page uyumu, dönüşüm takibi ve teklif mimarisiyle birlikte yöneten Google Ads hizmetini inceleyin.",
       "eyebrow": "Reklam Alt Hizmeti",
       "hero_title": "Google Ads yönetimi ile daha nitelikli başvuru alın.",
       "hero_body": "Google Ads tarafında kampanya başarısı yalnızca anahtar kelimeye değil; landing page, form ve satış hizasına da bağlıdır. Bu hizmet, niyet ile dönüşüm arasındaki kopukluğu kapatır.",
@@ -477,7 +508,7 @@
       "reading_time": "14 dk okuma",
       "author": "Veridia Strateji Ekibi",
       "service_slug": "sosyal-medya-yonetimi",
-      "card_summary": "Güzellik merkezi dijital pazarlama nasıl yapılır, müşteri bulma yöntemleri ve SEO reklam rehberi nasıl kurulur? Web sitesi, lokal SEO ve reklam akışını birlikte anlatıyoruz."
+      "card_summary": "Güzellik merkezleri ve estetik klinikleri için <a href=\"/guzellik-klinik-dijital-pazarlama.html\">sektörel dijital pazarlama</a> sistemini; web sitesi, lokal SEO, sosyal medya ve reklam dönüşüm takibiyle birlikte anlatıyoruz."
     },
     {
       "slug": "hizmet-sitelerinde-cta-nasil-olmali",
@@ -485,7 +516,7 @@
       "file": "blog/hizmet-sitelerinde-cta-nasil-olmali.html",
       "title": "Hizmet Sitelerinde CTA Nasıl Olmalı?",
       "summary": "Bize Ulaşın butonunun neden zayıf kaldığını; net CTA metni, micro-copy, form mantığı ve sayfa tipine göre aksiyon kurgusu üzerinden inceliyoruz.",
-      "description": "Hizmet sitelerinde CTA nasıl olmalı? Bize Ulaşın butonunun neden zayıf kaldığını, net CTA metni, micro-copy, form mantığı ve sayfa tipine göre aksiyon kurgusuyla inceleyin.",
+      "description": "Hizmet sitelerinde CTA metni, micro-copy, form mantığı ve sayfa tipine göre aksiyon kurgusunu inceleyin; zayıf dönüşüm noktalarını bulun.",
       "published_at": "2026-05-04T00:00:00+03:00",
       "modified_at": "2026-05-04T00:00:00+03:00",
       "date_label": "4 Mayıs 2026",
@@ -498,9 +529,9 @@
       "slug": "mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
       "url": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
       "file": "blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
-      "title": "Mobil Uyumsuzluk: Reklam Bütçenizi Çöpe Atmanın En Hızlı Yolu",
+      "title": "Mobil Uyumsuzluk Reklam Bütçesini Nasıl Eritir?",
       "summary": "Mobil uyumsuzluk reklam bütçesini nasıl boşa harcar? Başparmak dostu tasarım, kısa formlar, güven sinyalleri, CTA akışı ve Core Web Vitals üzerinden mobil dönüşüm kaybını inceliyoruz.",
-      "description": "Mobil uyumsuzluk reklam bütçesini nasıl boşa harcar? Başparmak dostu tasarım, kısa formlar, güven sinyalleri, CTA akışı ve Core Web Vitals üzerinden mobil dönüşüm kaybını inceleyin.",
+      "description": "Mobil uyumsuzluk reklam bütçesini nasıl boşa harcar? Kısa formlar, CTA akışı, güven sinyalleri ve Core Web Vitals üzerinden dönüşüm kaybını inceleyin.",
       "published_at": "2026-05-04T00:00:00+03:00",
       "modified_at": "2026-05-04T00:00:00+03:00",
       "date_label": "4 Mayıs 2026",
@@ -555,9 +586,9 @@
       "slug": "web-siteniz-neden-musteri-getirmiyor",
       "url": "/blog/web-siteniz-neden-musteri-getirmiyor.html",
       "file": "blog/web-siteniz-neden-musteri-getirmiyor.html",
-      "title": "Web Siteniz Neden Müşteri Getirmiyor? Dönüşümü Öldüren 7 Kritik Hata",
+      "title": "Web Siteniz Neden Müşteri Getirmiyor?",
       "summary": "Trafik almasına rağmen talep üretmeyen web sitelerinde sorun çoğu zaman reklam bütçesinde değil; mesaj, hız, mobil deneyim, güven sinyalleri ve CTA kurgusundaki kırılmalardadır.",
-      "description": "Web siteniz neden müşteri getirmiyor sorusunu 7 kritik hata üzerinden inceleyen; dönüşüm, hız, mobil deneyim, CTA ve ölçüm altyapısını birlikte ele alan pratik rehber.",
+      "description": "Web siteniz neden müşteri getirmiyor sorusunu 7 kritik hatayla inceleyin; dönüşüm, hız, mobil deneyim, CTA ve ölçüm altyapısındaki sorunları bulun.",
       "published_at": "2026-04-24T00:00:00+03:00",
       "modified_at": "2026-04-24T00:00:00+03:00",
       "date_label": "24 Nisan 2026",
@@ -573,13 +604,27 @@
       "file": "blog/web-sitesi-yavassa-musteri-neden-kacar.html",
       "title": "Web Sitesi Yavaşsa Müşteri Neden Kaçar?",
       "summary": "Yavaş açılan web sitesi müşteri kaybına, düşük güven algısına ve dönüşüm oranlarının düşmesine neden olabilir. Site hızı, SEO ve satış performansı için neden önemlidir?",
-      "description": "Yavaş açılan web sitesi müşteri kaybına, düşük güven algısına ve dönüşüm oranlarının düşmesine neden olabilir. Site hızı, SEO ve satış performansı için neden önemlidir?",
+      "description": "Yavaş açılan web sitelerinin müşteri kaybı, güven algısı ve dönüşüm oranı üzerindeki etkisini; site hızı, SEO ve satış performansıyla birlikte inceleyin.",
       "published_at": "2026-04-28T00:00:00+03:00",
       "modified_at": "2026-04-28T00:00:00+03:00",
       "date_label": "28 Nisan 2026",
       "reading_time": "5 dk okuma",
       "author": "Veridia Strateji Ekibi",
       "service_slug": "web-sitesi-ve-donusum-yuzeyleri"
+    },
+    {
+      "slug": "guzellik-merkezleri-icin-dijital-pazarlama",
+      "url": "/blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
+      "file": "blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
+      "title": "Güzellik Merkezleri İçin Dijital Pazarlama: Daha Fazla Randevu ve Müşteri Kazanmanın Yolları",
+      "summary": "Güzellik merkezleri için Google Haritalar, SEO, web sitesi, reklam ve WhatsApp randevu akışını tek müşteri kazanım sistemi olarak anlatan kapsamlı rehber.",
+      "description": "Güzellik merkezleri için dijital pazarlama rehberi: Google Haritalar, SEO, web sitesi, Google Ads, Meta reklamları ve WhatsApp randevu süreçleriyle daha fazla müşteri kazanın.",
+      "published_at": "2026-06-17T00:00:00+03:00",
+      "modified_at": "2026-06-17T00:00:00+03:00",
+      "date_label": "17 Haziran 2026",
+      "reading_time": "38 dk okuma",
+      "author": "Veridia Strateji Ekibi",
+      "service_slug": "sosyal-medya-yonetimi"
     }
   ]
 }
