@@ -4,16 +4,13 @@ from __future__ import annotations
 import json
 import ipaddress
 import logging
-import math
 import os
 import posixpath
 import sqlite3
 import ssl
-import statistics
 import threading
 import time
-from collections import Counter
-from dataclasses import dataclass
+from contextlib import closing
 from datetime import datetime, timezone
 from email.utils import formatdate
 from http import HTTPStatus
@@ -23,8 +20,10 @@ from typing import Any
 from urllib.parse import parse_qs, quote, unquote, urlparse
 from urllib import error, request
 from instagram_utils import (
-    Metrics, compute_metrics, safe_int, parse_timestamp, 
-    PROFILE_TYPE_LABELS, ARCHETYPE_LABELS, ACCOUNT_TIER_LABELS
+    Metrics,
+    compute_metrics,
+    parse_timestamp,
+    safe_int,
 )
 
 
@@ -89,11 +88,12 @@ PUBLIC_FILE_PATHS = frozenset(
         "/yasam-ev-markalari-dijital-pazarlama.html",
         "/gizlilik-politikasi.html",
         "/kvkk-aydinlatma-metni.html",
+        "/llms.txt",
         "/robots.txt",
         "/sitemap.xml",
     }
 )
-PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/", "/seo/", "/reklam/", "/yazilim/", "/automation/forms/")
+PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/", "/seo/", "/reklam/", "/yazilim/", "/sektorler/", "/automation/forms/")
 LEGACY_REDIRECTS = {
     "/index.html": "/",
     "/asdfadsf.html": "/",
@@ -103,6 +103,18 @@ LEGACY_REDIRECTS = {
     "/seo-danismanligi.html": "/seo/google-gorunurlugu/",
     "/google-ads-yonetimi.html": "/reklam/google-ads-yonetimi/",
     "/sosyal-medya-yonetimi.html": "/reklam/sosyal-medya-yonetimi/",
+    "/seo": "/seo/",
+    "/seo/teknik-seo-denetimi": "/seo/teknik-seo-denetimi/",
+    "/seo/google-gorunurlugu": "/seo/google-gorunurlugu/",
+    "/reklam": "/reklam/",
+    "/reklam/sosyal-medya-yonetimi": "/reklam/sosyal-medya-yonetimi/",
+    "/reklam/google-ads-yonetimi": "/reklam/google-ads-yonetimi/",
+    "/reklam/meta-reklam-yonetimi": "/reklam/meta-reklam-yonetimi/",
+    "/yazilim": "/yazilim/",
+    "/yazilim/web-sitesi-ve-donusum-yuzeyleri": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+    "/sektorler": "/sektorler/",
+    "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+    "/guzellik-merkezleri-icin-dijital-pazarlama": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
 }
 IMAGE_PROXY_ALLOWED_HOSTS = ("cdninstagram.com", "fbcdn.net")
 SECURITY_HEADERS = {
@@ -238,22 +250,24 @@ def normalize_request_path(raw_path: str) -> str | None:
         return None
 
     normalized = posixpath.normpath(decoded)
-    if decoded.endswith("/") and normalized != "/":
-        normalized = f"{normalized}/"
     if not normalized.startswith("/"):
         normalized = f"/{normalized}"
 
     parts = [part for part in normalized.split("/") if part not in ("", ".")]
     if any(part == ".." or part.startswith(".") for part in parts):
         return None
-    return "/" + "/".join(parts) if parts else "/"
+
+    normalized_path = "/" + "/".join(parts) if parts else "/"
+    if decoded.endswith("/") and normalized_path != "/":
+        return f"{normalized_path}/"
+    return normalized_path
 
 
 def is_public_path(path: str) -> bool:
     if path in PUBLIC_FILE_PATHS:
         return True
     return any(
-        path == prefix[:-1] or (path.startswith(prefix) and path != prefix)
+        path == prefix[:-1] or path.startswith(prefix)
         for prefix in PUBLIC_DIR_PREFIXES
     )
 
@@ -414,7 +428,7 @@ def normalize_profile(raw: dict[str, Any], requested_username: str) -> dict[str,
 
 
 def ensure_snapshot_db() -> None:
-    with sqlite3.connect(DB_PATH) as conn:
+    with closing(sqlite3.connect(DB_PATH)) as conn, conn:
         conn.execute(
             """
             CREATE TABLE IF NOT EXISTS analysis_snapshots (
@@ -450,7 +464,7 @@ def ensure_snapshot_db() -> None:
 
 def load_snapshots(username: str, limit: int = 6) -> list[dict[str, Any]]:
     ensure_snapshot_db()
-    with sqlite3.connect(DB_PATH) as conn:
+    with closing(sqlite3.connect(DB_PATH)) as conn, conn:
         conn.row_factory = sqlite3.Row
         rows = conn.execute(
             """
@@ -485,7 +499,7 @@ def save_snapshot(profile: dict[str, Any], metrics: Metrics) -> None:
             ):
                 return
 
-    with sqlite3.connect(DB_PATH) as conn:
+    with closing(sqlite3.connect(DB_PATH)) as conn, conn:
         conn.execute(
             """
             INSERT INTO analysis_snapshots (
@@ -516,38 +530,6 @@ def save_snapshot(profile: dict[str, Any], metrics: Metrics) -> None:
                 metrics.account_tier,
             ),
         )
-
-
-# Metrics computation moved to instagram_utils.py
-    image_share = round((content_counts["image"] / total_posts) * 100)
-
-    return Metrics(
-        representative_engagement_rate=representative_er,
-        median_engagement_rate=median_er,
-        trimmed_engagement_rate=trimmed_er,
-        weighted_recent_engagement_rate=weighted_recent_er,
-        audience_quality=audience_quality,
-        authenticity_risk=authenticity_risk,
-        consistency=consistency,
-        overall_score=overall_score,
-        confidence=confidence,
-        posting_frequency_per_week=posting_frequency_per_week,
-        recent_posts_used=recent_posts_used,
-        avg_likes=avg_likes,
-        avg_comments=avg_comments,
-        avg_views=avg_views,
-        benchmark_er=benchmark_er,
-        benchmark_ratio=benchmark_ratio,
-        profile_type=PROFILE_TYPE_LABELS[archetype],
-        profile_archetype=archetype,
-        profile_archetype_label=ARCHETYPE_LABELS[archetype],
-        account_tier=account_tier,
-        account_tier_label=ACCOUNT_TIER_LABELS[account_tier],
-        reels_share=reels_share,
-        carousel_share=carousel_share,
-        image_share=image_share,
-        comment_rate=comment_rate,
-    )
 
 
 def build_history_summary(previous_snapshots: list[dict[str, Any]], profile: dict[str, Any], metrics: Metrics) -> dict[str, Any]:
@@ -799,7 +781,7 @@ def build_analysis(username: str) -> dict[str, Any]:
 
 
 def ensure_contact_db() -> None:
-    with sqlite3.connect(DB_PATH) as conn:
+    with closing(sqlite3.connect(DB_PATH)) as conn, conn:
         conn.execute(
             """
             CREATE TABLE IF NOT EXISTS contact_submissions (
@@ -824,7 +806,7 @@ def save_contact_submission(
     source_path: str,
 ) -> None:
     ensure_contact_db()
-    with sqlite3.connect(DB_PATH) as conn:
+    with closing(sqlite3.connect(DB_PATH)) as conn, conn:
         conn.execute(
             """
             INSERT INTO contact_submissions (
@@ -922,7 +904,7 @@ class AppHandler(SimpleHTTPRequestHandler):
             self.send_header("Expires", "0")
         elif path.startswith("/assets/"):
             self.send_header("Cache-Control", "public, max-age=31536000, immutable")
-        elif path in ("/robots.txt", "/sitemap.xml"):
+        elif path in ("/llms.txt", "/robots.txt", "/sitemap.xml"):
             self.send_header("Cache-Control", "public, max-age=3600")
         elif path.endswith(".html") or path == "/" or not path:
             self.send_header("Cache-Control", "no-cache, must-revalidate")

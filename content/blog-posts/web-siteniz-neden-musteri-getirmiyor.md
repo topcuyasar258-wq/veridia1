@@ -1,7 +1,7 @@
 ---
-title: Web Siteniz Neden Müşteri Getirmiyor? Dönüşümü Öldüren 7 Kritik Hata
+title: Web Siteniz Neden Müşteri Getirmiyor?
 summary: Trafik almasına rağmen talep üretmeyen web sitelerinde sorun çoğu zaman reklam bütçesinde değil; mesaj, hız, mobil deneyim, güven sinyalleri ve CTA kurgusundaki kırılmalardadır.
-description: Web siteniz neden müşteri getirmiyor sorusunu 7 kritik hata üzerinden inceleyen; dönüşüm, hız, mobil deneyim, CTA ve ölçüm altyapısını birlikte ele alan pratik rehber.
+description: Web siteniz neden müşteri getirmiyor sorusunu 7 kritik hatayla inceleyin; dönüşüm, hız, mobil deneyim, CTA ve ölçüm altyapısındaki sorunları bulun.
 slug: web-siteniz-neden-musteri-getirmiyor
 service_slug: web-sitesi-ve-donusum-yuzeyleri
 author: Veridia Strateji Ekibi

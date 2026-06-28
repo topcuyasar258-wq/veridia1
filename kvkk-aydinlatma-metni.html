@@ -23,6 +23,7 @@
     <meta name="twitter:description" content="Veridia'nın KVKK kapsamındaki veri işleme amaçlarını, hukuki sebepleri ve başvuru haklarını hızlıca inceleyin.">
     <meta name="twitter:image" content="https://www.veridiareklam.com.tr/assets/veridia-social-cover.png">
     <meta name="twitter:site" content="@veridia">
+    <script defer src="./assets/theme-init.js?v=1"></script>
     <link rel="preload" href="./assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="./assets/fonts.css">
@@ -58,54 +59,127 @@
     }
     </script>
     <link rel="stylesheet" href="./assets/page-shell.css">
+    <link rel="stylesheet" href="./assets/revision.css?v=17">
     <link rel="stylesheet" href="./assets/legal-pages.css">
+    <script defer src="./assets/page-shell.js"></script>
+    <script defer src="./assets/revision.js?v=3"></script>
 </head>
-<body>
+<body class="legal-page" data-custom-cursor="true">
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="scroll-bar" id="scrollBar"></div>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="menu-close" type="button" data-mobile-close aria-label="Menüyü kapat">✕</button>
+  <a href="/blog.html">Blog</a>
+  <a href="/#about" data-mobile-close>Hakkımızda</a>
+  <a href="/#services" data-mobile-close>Hizmetler</a>
+  <a href="/hizli-teklif.html" data-mobile-close>Hızlı Teklif</a>
+  <a href="/#sectors" data-mobile-close>Sektörler</a>
+  <a href="/neler-yapiyoruz.html" data-mobile-close>Portfolyo</a>
+  <a href="/iletisim.html" data-mobile-close>İletişim</a>
+</div>
+
 <nav id="navbar" class="scrolled">
   <a href="/" class="nav-logo">Veridia</a>
   <ul class="nav-links">
+    <li><a href="/">Ana Sayfa</a></li>
+    <li><a href="/neler-yapiyoruz.html">Hizmetlerimiz</a></li>
+    <li><a href="/calismalarimiz.html">Portfolyo</a></li>
+    <li><a href="/hakkimizda.html">Hakkımızda</a></li>
     <li><a href="/blog.html">Blog</a></li>
-    <li><a href="/#services">Hizmetler</a></li>
-    <li><a href="/#quote">Hızlı Teklif</a></li>
-    <li><a href="/iletisim.html">İletişim</a></li>
   </ul>
+  <div class="nav-mobile-right">
+    <button class="hamburger" id="hamburger" type="button" data-mobile-toggle aria-label="Menü" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
-<main>
-    <section class="legal-shell">
-        <p class="legal-kicker">6698 Sayılı KVKK</p>
-        <h1>KVKK Aydınlatma Metni</h1>
-        <p class="legal-lead">Son güncelleme: 9 Nisan 2026. Bu metin, Veridia Ajans tarafından işlenen kişisel veriler hakkında 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında genel bilgilendirme sunar.</p>
+<main id="main-content" class="legal-main">
+    <div class="legal-shell">
+        <section class="legal-hero" aria-labelledby="legalTitle">
+            <div class="legal-hero-inner">
+                <p class="legal-kicker">6698 Sayılı KVKK</p>
+                <h1 class="legal-title" id="legalTitle">KVKK Aydınlatma Metni</h1>
+                <p class="legal-lead">Veridia Ajans tarafından işlenen kişisel veriler hakkında 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında genel bilgilendirme sunar.</p>
+                <div class="legal-meta-row" aria-label="Sayfa bilgileri">
+                    <span class="legal-meta">Son güncelleme: 9 Nisan 2026</span>
+                    <span class="legal-meta">Kişisel veri bilgilendirmesi</span>
+                </div>
+            </div>
+        </section>
 
-        <h2>Veri sorumlusu</h2>
-        <p>Bu sayfadaki iletişim kanalları ve teklif akışları üzerinden paylaştığınız kişisel veriler bakımından veri sorumlusu Veridia Ajans'tır. Sorularınız için <a href="mailto:hello@veridiareklam.com.tr">hello@veridiareklam.com.tr</a> adresini kullanabilirsiniz.</p>
+        <div class="legal-layout">
+            <aside class="legal-toc" aria-label="Sayfa içeriği">
+                <strong>Bu sayfada</strong>
+                <a href="#veri-sorumlusu">Veri sorumlusu</a>
+                <a href="#veri-kategorileri">İşlenen veri kategorileri</a>
+                <a href="#isleme-amaclari">İşleme amaçları ve hukuki sebepler</a>
+                <a href="#veri-aktarimi">Verilerin aktarılması</a>
+                <a href="#basvuru-haklari">Başvuru hakları</a>
+            </aside>
 
-        <h2>İşlenen veri kategorileri</h2>
-        <ul>
-            <li>Kimlik ve iletişim verileri: ad, soyad, e-posta, telefon, marka adı</li>
-            <li>Müşteri işlem verileri: talep konusu, seçilen hizmetler, brief notları ve görüşme özetleri</li>
-            <li>İşlem güvenliği verileri: IP, temel erişim kayıtları ve hata logları</li>
-        </ul>
+            <article class="legal-document">
+                <section id="veri-sorumlusu">
+                    <h2>Veri sorumlusu</h2>
+                    <p>Bu sayfadaki iletişim kanalları ve teklif akışları üzerinden paylaştığınız kişisel veriler bakımından veri sorumlusu Veridia Ajans'tır. Sorularınız için <a href="mailto:hello@veridiareklam.com.tr">hello@veridiareklam.com.tr</a> adresini kullanabilirsiniz.</p>
+                </section>
 
-        <h2>İşleme amaçları ve hukuki sebepler</h2>
-        <ul>
-            <li>Talebinizi değerlendirmek ve sizinle iletişim kurmak</li>
-            <li>Teklif oluşturmak, keşif görüşmesi planlamak ve hizmet sürecini yürütmek</li>
-            <li>Meşru menfaat kapsamında site güvenliğini ve hizmet sürekliliğini sağlamak</li>
-            <li>Hukuki yükümlülükler doğduğunda ilgili kayıtları saklamak veya paylaşmak</li>
-        </ul>
+                <section id="veri-kategorileri">
+                    <h2>İşlenen veri kategorileri</h2>
+                    <ul>
+                        <li>Kimlik ve iletişim verileri: ad, soyad, e-posta, telefon, marka adı</li>
+                        <li>Müşteri işlem verileri: talep konusu, seçilen hizmetler, brief notları ve görüşme özetleri</li>
+                        <li>İşlem güvenliği verileri: IP, temel erişim kayıtları ve hata logları</li>
+                    </ul>
+                </section>
 
-        <h2>Verilerin aktarılması</h2>
-        <p>Veriler, hizmetin yürütülmesi için gereken ölçüde barındırma, e-posta, iletişim veya raporlama sağlayıcılarıyla paylaşılabilir. Yetkisiz üçüncü kişilerle gereksiz veri paylaşımı yapılmaz.</p>
+                <section id="isleme-amaclari">
+                    <h2>İşleme amaçları ve hukuki sebepler</h2>
+                    <ul>
+                        <li>Talebinizi değerlendirmek ve sizinle iletişim kurmak</li>
+                        <li>Teklif oluşturmak, keşif görüşmesi planlamak ve hizmet sürecini yürütmek</li>
+                        <li>Meşru menfaat kapsamında site güvenliğini ve hizmet sürekliliğini sağlamak</li>
+                        <li>Hukuki yükümlülükler doğduğunda ilgili kayıtları saklamak veya paylaşmak</li>
+                    </ul>
+                </section>
 
-        <h2>Başvuru hakları</h2>
-        <p>KVKK'nın 11. maddesi kapsamında; verilerinizin işlenip işlenmediğini öğrenme, düzeltilmesini veya silinmesini isteme, aktarıldığı üçüncü kişileri öğrenme ve itiraz etme haklarına sahipsiniz. Başvurularınızı makul biçimde kimlik doğrulaması içerecek şekilde e-posta üzerinden iletebilirsiniz.</p>
+                <section id="veri-aktarimi">
+                    <h2>Verilerin aktarılması</h2>
+                    <p>Veriler, hizmetin yürütülmesi için gereken ölçüde barındırma, e-posta, iletişim veya raporlama sağlayıcılarıyla paylaşılabilir. Yetkisiz üçüncü kişilerle gereksiz veri paylaşımı yapılmaz.</p>
+                </section>
 
-        <div class="legal-links">
-            <a href="/gizlilik-politikasi.html" class="btn-outline">Gizlilik Politikası</a>
-            <a href="/#quote" class="btn-gold">Hızlı Teklif Akışına Dön</a>
+                <section id="basvuru-haklari">
+                    <h2>Başvuru hakları</h2>
+                    <p>KVKK'nın 11. maddesi kapsamında; verilerinizin işlenip işlenmediğini öğrenme, düzeltilmesini veya silinmesini isteme, aktarıldığı üçüncü kişileri öğrenme ve itiraz etme haklarına sahipsiniz. Başvurularınızı makul biçimde kimlik doğrulaması içerecek şekilde e-posta üzerinden iletebilirsiniz.</p>
+                    <p class="legal-note">Başvurularda talebinizi açıkça belirtmeniz, sürecin daha hızlı ve doğru değerlendirilmesine yardımcı olur.</p>
+                </section>
+
+                <div class="legal-links">
+                    <a href="/gizlilik-politikasi.html" class="btn-outline">Gizlilik Politikası</a>
+                    <a href="/hizli-teklif.html" class="btn-gold">Hızlı Teklif Akışına Dön</a>
+                </div>
+            </article>
         </div>
-    </section>
+    </div>
 </main>
+
+<footer>
+  <div class="footer-logo">Veridia</div>
+  <p class="footer-text">© 2026 Veridia Ajans. Tüm hakları saklıdır.</p>
+  <div class="footer-right">
+    <div class="footer-socials">
+      <a href="/iletisim.html">İletişim</a>
+      <a href="mailto:hello@veridiareklam.com.tr">E-posta</a>
+      <a href="/blog.html">Blog</a>
+    </div>
+    <div class="footer-socials footer-legal-links">
+      <a href="/gizlilik-politikasi.html">Gizlilik Politikası</a>
+      <a href="/kvkk-aydinlatma-metni.html" aria-current="page">KVKK</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

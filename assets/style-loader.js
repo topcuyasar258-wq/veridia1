@@ -51,7 +51,4 @@
   }
 
   root.addEventListener('scroll', scheduleDeferredStyles, { passive: true, once: true });
-  doc.addEventListener('pointerdown', scheduleDeferredStyles, { passive: true, once: true });
-  doc.addEventListener('touchstart', scheduleDeferredStyles, { passive: true, once: true });
-  doc.addEventListener('focusin', scheduleDeferredStyles, { once: true });
 })(typeof window !== 'undefined' ? window : globalThis);

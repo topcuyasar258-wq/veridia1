@@ -1,0 +1,19 @@
+# Ignore every root surface unless it is explicitly public.
+/*
+!assets
+!blog
+!seo
+!reklam
+!yazilim
+!sektorler
+!*.html
+!robots.txt
+!sitemap.xml
+!vercel.json
+
+# Legacy service pages stay in the repo for local compatibility, but should not
+# be deployed as public files because they shadow Vercel redirects.
+/web-tasarim.html
+/seo-danismanligi.html
+/google-ads-yonetimi.html
+/sosyal-medya-yonetimi.html

@@ -91,11 +91,38 @@ class ServerSecurityTests(unittest.TestCase):
                 self.assertIn("Veridia", body.decode("utf-8"))
 
     def test_public_hub_routes_serve_directory_indexes(self) -> None:
-        for path in ("/seo/", "/reklam/", "/yazilim/"):
+        for path in ("/seo/", "/reklam/", "/yazilim/", "/sektorler/"):
             with self.subTest(path=path):
                 status, body, _ = self.http_request("GET", path)
                 self.assertEqual(status, HTTPStatus.OK)
                 self.assertIn("Veridia", body.decode("utf-8"))
+
+    def test_sector_landing_route_is_public(self) -> None:
+        status, body, _ = self.http_request("GET", "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/")
+
+        self.assertEqual(status, HTTPStatus.OK)
+        self.assertIn("Güzellik Merkezleri İçin Dijital Pazarlama", body.decode("utf-8"))
+
+    def test_slashless_hub_and_service_routes_redirect_to_canonical_urls(self) -> None:
+        redirects = {
+            "/seo": "/seo/",
+            "/seo/teknik-seo-denetimi": "/seo/teknik-seo-denetimi/",
+            "/seo/google-gorunurlugu": "/seo/google-gorunurlugu/",
+            "/reklam": "/reklam/",
+            "/reklam/sosyal-medya-yonetimi": "/reklam/sosyal-medya-yonetimi/",
+            "/reklam/google-ads-yonetimi": "/reklam/google-ads-yonetimi/",
+            "/reklam/meta-reklam-yonetimi": "/reklam/meta-reklam-yonetimi/",
+            "/yazilim": "/yazilim/",
+            "/yazilim/web-sitesi-ve-donusum-yuzeyleri": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+            "/sektorler": "/sektorler/",
+            "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+        }
+
+        for path, destination in redirects.items():
+            with self.subTest(path=path):
+                status, _, headers = self.http_request("GET", path, follow_redirects=False)
+                self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                self.assertEqual(headers.get("Location"), destination)
 
     def test_legacy_homepage_paths_redirect_to_root(self) -> None:
         for path in ("/index.html", "/asdfadsf.html", "/veridia-ajans.html"):
@@ -113,6 +140,16 @@ class ServerSecurityTests(unittest.TestCase):
 
         self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
         self.assertEqual(headers.get("Location"), "/blog/b2b-donusum-hunisi.html")
+
+    def test_legacy_beauty_sector_url_redirects_to_canonical_sector_landing(self) -> None:
+        status, _, headers = self.http_request(
+            "GET",
+            "/guzellik-merkezleri-icin-dijital-pazarlama",
+            follow_redirects=False,
+        )
+
+        self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+        self.assertEqual(headers.get("Location"), "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/")
 
     def test_legacy_service_pages_redirect_to_silo_urls(self) -> None:
         redirects = {
@@ -278,6 +315,41 @@ class ServerSecurityTests(unittest.TestCase):
         payload = json.loads(body.decode("utf-8"))
         self.assertEqual(status, HTTPStatus.INTERNAL_SERVER_ERROR)
         self.assertNotIn("top secret failure", payload["error"])
+
+    def test_save_snapshot_finishes_after_inserting_record(self) -> None:
+        connection = mock.MagicMock()
+        connection.__enter__.return_value = connection
+        with mock.patch.object(server, "ensure_snapshot_db"), mock.patch.object(
+            server,
+            "load_snapshots",
+            return_value=[],
+        ), mock.patch.object(server.sqlite3, "connect", return_value=connection):
+            server.save_snapshot(
+                {
+                    "username": "veridia",
+                    "followers": 1000,
+                    "following": 100,
+                    "post_count": 24,
+                },
+                mock.Mock(
+                    overall_score=70,
+                    representative_engagement_rate=2.4,
+                    median_engagement_rate=2.3,
+                    trimmed_engagement_rate=2.2,
+                    audience_quality=72,
+                    authenticity_risk=18,
+                    consistency=68,
+                    confidence=74,
+                    posting_frequency_per_week=3.5,
+                    benchmark_er=3.2,
+                    profile_type="Marka Profili",
+                    profile_archetype="brand",
+                    account_tier="micro",
+                ),
+            )
+
+        connection.execute.assert_called_once()
+        connection.close.assert_called_once()
 
 
 if __name__ == "__main__":

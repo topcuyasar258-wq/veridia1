@@ -44,23 +44,21 @@ def posts_for_hub(graph: dict, hub_slug: str) -> list[dict]:
 def render_mobile_menu() -> str:
     return """<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="menu-close" type="button" data-mobile-close aria-label="Menüyü kapat">✕</button>
+  <a href="/">Ana Sayfa</a>
+  <a href="/neler-yapiyoruz.html">Hizmetlerimiz</a>
+  <a href="/calismalarimiz.html">Portfolyo</a>
+  <a href="/hakkimizda.html">Hakkımızda</a>
   <a href="/blog.html">Blog</a>
-  <a href="/seo/">SEO</a>
-  <a href="/reklam/">Reklam</a>
-  <a href="/yazilim/">Yazılım</a>
-  <a href="/#quote" data-mobile-close>Hızlı Teklif</a>
-  <a href="/#contact" data-mobile-close>İletişim</a>
 </div>"""
 
 
 def render_nav(active_label: str) -> str:
     links = [
+        ("/", "Ana Sayfa"),
+        ("/neler-yapiyoruz.html", "Hizmetlerimiz"),
+        ("/calismalarimiz.html", "Portfolyo"),
+        ("/hakkimizda.html", "Hakkımızda"),
         ("/blog.html", "Blog"),
-        ("/seo/", "SEO"),
-        ("/reklam/", "Reklam"),
-        ("/yazilim/", "Yazılım"),
-        ("/#quote", "Hızlı Teklif"),
-        ("/#contact", "İletişim"),
     ]
     nav_links = "\n".join(
         f'    <li><a href="{href}"{" aria-current=\"page\"" if label == active_label else ""}>{label}</a></li>'
@@ -267,18 +265,42 @@ def render_page(entity: dict, graph: dict, kind: str) -> str:
     sector_links = render_sector_links(entity.get("sector_links", []))
     sector_block = f"  {sector_links}\n" if sector_links else ""
 
+    page_entity = {
+        "@type": "CollectionPage" if kind == "hub" else "Service",
+        "name": entity["title"],
+        "description": entity["description"],
+        "url": canonical_url,
+        "inLanguage": "tr",
+    }
+    if kind == "service":
+        page_entity["provider"] = {
+            "@type": "Organization",
+            "name": site["name"],
+            "url": base_url,
+        }
+    page_graph = [page_entity]
+    if kind == "hub":
+        page_graph.append(
+            {
+                "@type": "Service",
+                "@id": f"{canonical_url}#service",
+                "name": entity["meta_title"].split("|")[0].strip(),
+                "description": entity["description"],
+                "serviceType": entity.get("service_type", entity["title"]),
+                "provider": {
+                    "@type": "Organization",
+                    "name": site["name"],
+                    "url": base_url,
+                },
+                "url": canonical_url,
+                "inLanguage": "tr",
+            }
+        )
+
     page_schema = json.dumps(
         {
             "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "CollectionPage",
-                    "name": entity["title"],
-                    "description": entity["description"],
-                    "url": canonical_url,
-                    "inLanguage": "tr",
-                }
-            ],
+            "@graph": page_graph,
         },
         ensure_ascii=False,
         indent=2,

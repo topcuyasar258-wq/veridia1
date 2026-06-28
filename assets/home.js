@@ -633,6 +633,14 @@
 
   const contactForm = document.getElementById('contactForm')
   const contactMessage = document.getElementById('contactFormMessage')
+  const contactSteps = contactForm ? [...contactForm.querySelectorAll('[data-form-step]')] : []
+  const contactProgress = contactForm ? [...contactForm.querySelectorAll('.micro-form-progress span')] : []
+  const serviceInput = document.getElementById('contactService')
+  const websiteInput = document.getElementById('contactWebsite')
+  const emailInput = document.getElementById('contactEmail')
+  const messageInput = document.getElementById('contactMessage')
+  const nameInput = document.getElementById('contactName')
+  let contactStepIndex = 0
 
   function setContactMessage(type, text) {
     if (!contactMessage) return
@@ -641,7 +649,96 @@
     if (type) contactMessage.classList.add(type)
   }
 
+  function showContactStep(nextIndex) {
+    if (!contactSteps.length) return
+    contactStepIndex = Math.max(0, Math.min(nextIndex, contactSteps.length - 1))
+    contactSteps.forEach((step, index) => {
+      const isActive = index === contactStepIndex
+      step.hidden = !isActive
+      step.classList.toggle('is-active', isActive)
+    })
+    contactProgress.forEach((dot, index) => {
+      dot.classList.toggle('is-active', index === contactStepIndex)
+      dot.classList.toggle('is-complete', index < contactStepIndex)
+    })
+
+    const focusTarget = contactSteps[contactStepIndex]?.querySelector('button, input')
+    window.setTimeout(() => focusTarget?.focus({ preventScroll: true }), 80)
+  }
+
+  function normalizeWebsite(value) {
+    return value.trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '')
+  }
+
+  function updateContactMessagePayload() {
+    const service = serviceInput?.value || ''
+    const website = normalizeWebsite(websiteInput?.value || '')
+    const email = emailInput?.value?.trim() || ''
+    if (nameInput) nameInput.value = `Mini analiz talebi - ${service || 'Genel'}`
+    if (messageInput) {
+      messageInput.value = [
+        'Mini analiz talebi',
+        `Hizmet: ${service || 'Belirtilmedi'}`,
+        `Website: ${website || 'Belirtilmedi'}`,
+        `Rapor e-postasi: ${email || 'Belirtilmedi'}`,
+      ].join('\n')
+    }
+  }
+
+  function validateCurrentContactStep() {
+    if (contactStepIndex === 0 && !serviceInput?.value) {
+      setContactMessage('error', 'Başlamak için SEO, Web veya Reklam seçeneklerinden birini seçin.')
+      return false
+    }
+    if (contactStepIndex === 1) {
+      const website = normalizeWebsite(websiteInput?.value || '')
+      if (!website || !website.includes('.') || website.length < 4) {
+        setContactMessage('error', 'Site adresinizi ornekmarka.com formatında yazın.')
+        websiteInput?.focus()
+        return false
+      }
+      if (websiteInput) websiteInput.value = website
+    }
+    if (contactStepIndex === 2 && !emailInput?.checkValidity()) {
+      setContactMessage('error', 'Raporu gönderebilmemiz için geçerli bir e-posta adresi yazın.')
+      emailInput?.focus()
+      return false
+    }
+    setContactMessage('', '')
+    updateContactMessagePayload()
+    return true
+  }
+
   if (contactForm) {
+    contactForm.querySelectorAll('.micro-choice').forEach((choice) => {
+      choice.addEventListener('click', () => {
+        contactForm.querySelectorAll('.micro-choice').forEach((item) => item.classList.remove('is-selected'))
+        choice.classList.add('is-selected')
+        if (serviceInput) serviceInput.value = choice.dataset.serviceValue || choice.textContent.trim()
+        updateContactMessagePayload()
+        setContactMessage('', '')
+        showContactStep(1)
+      })
+    })
+
+    contactForm.querySelectorAll('[data-form-next]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!validateCurrentContactStep()) return
+        showContactStep(contactStepIndex + 1)
+      })
+    })
+
+    contactForm.querySelectorAll('[data-form-back]').forEach((button) => {
+      button.addEventListener('click', () => {
+        setContactMessage('', '')
+        showContactStep(contactStepIndex - 1)
+      })
+    })
+
+    contactForm.querySelectorAll('input').forEach((input) => {
+      input.addEventListener('input', updateContactMessagePayload)
+    })
+
     contactForm.addEventListener('submit', async (event) => {
       event.preventDefault()
       const submitButton = contactForm.querySelector('.btn-submit')
@@ -656,6 +753,8 @@
       setContactMessage('', '')
 
       try {
+        if (!validateCurrentContactStep()) return
+
         const payload = Object.fromEntries(new FormData(contactForm).entries())
         payload.kaynak = window.location?.pathname || '/'
 
@@ -671,9 +770,11 @@
         if (!response.ok) throw new Error(body?.error || 'Contact request failed')
 
         contactForm.reset()
+        contactForm.querySelectorAll('.micro-choice').forEach((item) => item.classList.remove('is-selected'))
+        showContactStep(0)
         setContactMessage(
           'success',
-          body?.message || 'Teşekkürler. Mesajınız bize ulaştı, en kısa sürede size dönüş yapacağız.'
+          body?.message || 'Talebiniz ulaştı, incelemeye başladık. Rapor için en kısa sürede size yazacağız.'
         )
       } catch (_error) {
         setContactMessage(
@@ -684,6 +785,57 @@
         submitButton?.removeAttribute('disabled')
       }
     })
+
+    showContactStep(0)
+  }
+
+  document.querySelectorAll('[data-focus-analysis]').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      window.setTimeout(() => {
+        const firstChoice = contactForm?.querySelector('.micro-choice')
+        firstChoice?.focus({ preventScroll: true })
+      }, 450)
+    })
+  })
+
+  const stickyNav = document.querySelector('.mobile-sticky-nav')
+  if (stickyNav && stickyNav.parentElement !== document.body) {
+    document.body.appendChild(stickyNav)
+  }
+  let stickyPulseTimer = null
+  let stickyPulseArmed = true
+
+  function pulseStickyCta() {
+    if (!stickyNav || reducedMotion || !stickyPulseArmed) return
+    stickyPulseArmed = false
+    stickyNav.classList.remove('is-pulsing')
+    void stickyNav.offsetWidth
+    stickyNav.classList.add('is-pulsing')
+    window.setTimeout(() => stickyNav.classList.remove('is-pulsing'), 2600)
+  }
+
+  function evaluateStickyCtaPrompt() {
+    if (!stickyNav || window.innerWidth > 768) return
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight
+    const progress = scrollable > 0 ? window.scrollY / scrollable : 0
+    if (progress >= 0.7) pulseStickyCta()
+  }
+
+  window.addEventListener('scroll', evaluateStickyCtaPrompt, { passive: true })
+
+  const faqRegion = document.querySelector('.contact-faq')
+  if (faqRegion && 'IntersectionObserver' in window) {
+    const faqObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0]
+        window.clearTimeout(stickyPulseTimer)
+        if (entry?.isIntersecting) {
+          stickyPulseTimer = window.setTimeout(pulseStickyCta, 5000)
+        }
+      },
+      { threshold: 0.45 }
+    )
+    faqObserver.observe(faqRegion)
   }
 
   document.querySelectorAll('[data-sector]').forEach((button) => {
@@ -719,7 +871,7 @@
     if (!panel.id) panel.id = `mobile-accordion-panel-${index + 1}`
     trigger.setAttribute('aria-controls', panel.id)
     trigger.addEventListener('click', () => {
-      if (!mobileLayoutQuery.matches) return
+      if (root.dataset.mobileAccordion !== 'faq' && !mobileLayoutQuery.matches) return
       setAccordionState(root, root.dataset.expanded !== 'true')
     })
   })
@@ -774,7 +926,7 @@
 
   function syncMobileExperience() {
     document.querySelectorAll('[data-mobile-accordion]').forEach((root) => {
-      if (!mobileLayoutQuery.matches) {
+      if (!mobileLayoutQuery.matches && root.dataset.mobileAccordion !== 'faq') {
         const trigger = root.querySelector('[data-accordion-trigger]')
         const panel = root.querySelector('[data-accordion-panel]')
         root.classList.add('is-open')

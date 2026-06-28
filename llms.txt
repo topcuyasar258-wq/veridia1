@@ -1,0 +1,26 @@
+# Veridia Reklam
+
+Veridia Reklam, KOBI'ler ve yerel hizmet isletmeleri icin web tasarim, SEO, Google Ads, Meta reklam ve sosyal medya yonetimi hizmetleri sunan dijital buyume ajansidir.
+
+## Ana Sayfalar
+
+- https://www.veridiareklam.com.tr/ - Ana sayfa ve hizmet ozeti
+- https://www.veridiareklam.com.tr/seo/ - SEO hizmetleri
+- https://www.veridiareklam.com.tr/reklam/ - Reklam hizmetleri
+- https://www.veridiareklam.com.tr/yazilim/ - Web tasarim ve yazilim hizmetleri
+- https://www.veridiareklam.com.tr/blog.html - Pazarlama, SEO ve donusum rehberleri
+- https://www.veridiareklam.com.tr/hizli-teklif.html - Hizli teklif ve on brief akisi
+
+## Hizmet Odaklari
+
+- Teknik SEO denetimi, indekslenebilirlik, Core Web Vitals, canonical, schema ve ic linkleme kontrollerini kapsar.
+- SEO danismanligi, arama niyeti, sayfa dili, hizmet sayfasi uyumu ve organik buyume planini birlikte ele alir.
+- Google Ads yonetimi, kampanya yapisi, landing page uyumu, donusum takibi ve teklif mimarisine odaklanir.
+- Meta reklam yonetimi, kreatif test, hedefleme, teklif mesaji ve funnel okumasini tek sistemde toplar.
+- Web tasarim hizmeti, hiz, mobil deneyim, guven sinyalleri ve teklif/iletisim donusumlerini birlikte planlar.
+
+## Iletisim
+
+- Site: https://www.veridiareklam.com.tr/
+- E-posta: hello@veridiareklam.com.tr
+- Instagram: https://www.instagram.com/veridiareklamajansi

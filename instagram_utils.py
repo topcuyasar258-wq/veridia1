@@ -1,16 +1,12 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import json
-import logging
 import math
 import statistics
 from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any
-from urllib import error, request
-import ssl
 
 @dataclass
 class Metrics:

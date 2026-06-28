@@ -3,3 +3,4 @@ automation/.env
 __pycache__/
 analysis_snapshots.sqlite3
 .DS_Store
+.vercel

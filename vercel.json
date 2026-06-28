@@ -2,9 +2,153 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asdfadsf.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/veridia-ajans.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/b2b-pazarlamada-donusum-hunisi.html",
+      "destination": "/blog/b2b-donusum-hunisi.html",
+      "permanent": true
+    },
+    {
+      "source": "/web-tasarim.html",
+      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "permanent": true
+    },
+    {
+      "source": "/seo-danismanligi.html",
+      "destination": "/seo/google-gorunurlugu/",
+      "permanent": true
+    },
+    {
       "source": "/google-ads-yonetimi.html",
       "destination": "/reklam/google-ads-yonetimi/",
       "permanent": true
+    },
+    {
+      "source": "/sosyal-medya-yonetimi.html",
+      "destination": "/reklam/sosyal-medya-yonetimi/",
+      "permanent": true
+    },
+    {
+      "source": "/seo",
+      "destination": "/seo/",
+      "permanent": true
+    },
+    {
+      "source": "/seo/teknik-seo-denetimi",
+      "destination": "/seo/teknik-seo-denetimi/",
+      "permanent": true
+    },
+    {
+      "source": "/seo/google-gorunurlugu",
+      "destination": "/seo/google-gorunurlugu/",
+      "permanent": true
+    },
+    {
+      "source": "/reklam",
+      "destination": "/reklam/",
+      "permanent": true
+    },
+    {
+      "source": "/reklam/sosyal-medya-yonetimi",
+      "destination": "/reklam/sosyal-medya-yonetimi/",
+      "permanent": true
+    },
+    {
+      "source": "/reklam/google-ads-yonetimi",
+      "destination": "/reklam/google-ads-yonetimi/",
+      "permanent": true
+    },
+    {
+      "source": "/reklam/meta-reklam-yonetimi",
+      "destination": "/reklam/meta-reklam-yonetimi/",
+      "permanent": true
+    },
+    {
+      "source": "/yazilim",
+      "destination": "/yazilim/",
+      "permanent": true
+    },
+    {
+      "source": "/yazilim/web-sitesi-ve-donusum-yuzeyleri",
+      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "permanent": true
+    },
+    {
+      "source": "/sektorler",
+      "destination": "/sektorler/",
+      "permanent": true
+    },
+    {
+      "source": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama",
+      "destination": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/guzellik-merkezleri-icin-dijital-pazarlama",
+      "destination": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://formspree.io https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net; form-action 'self' https://wa.me https://formspree.io; upgrade-insecure-requests"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "X-Permitted-Cross-Domain-Policies",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/assets/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }

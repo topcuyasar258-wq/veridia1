@@ -638,15 +638,95 @@ th {
 @media (max-width: 768px) {
     body {
         padding-top: 6rem;
+        overflow-x: hidden;
+    }
+
+    #navbar {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100vw;
     }
 
     .article-shell {
+        width: 100%;
+        max-width: 100vw;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
+        overflow: hidden;
+    }
+
+    .article-content,
+    .sidebar,
+    .summary-card,
+    .process-card,
+    .author-card,
+    .comparison-card,
+    .info-panel,
+    .faq-panel,
+    .related-panel,
+    .cta-panel,
+    .visual-panel,
+    .sidebar-panel,
+    .visual-surface,
+    .system-grid,
+    .metrics-board,
+    .metrics-list,
+    .metric-row,
+    .code-panel,
+    .table-scroll {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .article-content::before {
+        left: 0;
+        right: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    li,
+    td,
+    th,
+    code,
+    .meta-info,
+    .eyebrow,
+    .metrics-kicker,
+    .primary-link,
+    .secondary-link {
+        overflow-wrap: anywhere;
+    }
+
+    h1 {
+        max-width: 10ch;
+        font-size: clamp(2.55rem, 12vw, 3.3rem);
+        line-height: 1.02;
+    }
+
+    h2 {
+        font-size: clamp(1.75rem, 8vw, 2.12rem);
+        line-height: 1.12;
+    }
+
+    .article-intro,
+    p,
+    li,
+    td,
+    th {
+        font-size: 0.98rem;
+        line-height: 1.75;
+    }
+
+    .meta-info {
+        letter-spacing: 0.1em;
     }
 
     .visual-surface {
         padding: 1.15rem;
+        border-radius: 1.1rem;
+        overflow: hidden;
     }
 
     .meta-info {
@@ -659,9 +739,36 @@ th {
         gap: 0.5rem;
     }
 
+    .system-grid,
+    .summary-grid,
+    .process-grid,
+    .comparison-grid,
+    .metrics-board {
+        grid-template-columns: 1fr;
+    }
+
     .map-core h3,
     .metrics-header h3 {
         font-size: 2rem;
+    }
+
+    .map-core {
+        padding: 1.1rem;
+    }
+
+    .map-core h3 {
+        font-size: clamp(2rem, 12vw, 2.5rem);
+    }
+
+    .table-scroll {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        contain: inline-size;
+    }
+
+    table {
+        min-width: 560px;
     }
 
     .cta-actions,
@@ -669,5 +776,26 @@ th {
     .quick-links {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .primary-link,
+    .secondary-link {
+        width: 100%;
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.25;
+        letter-spacing: 0.08em;
+    }
+}
+
+@media (max-width: 380px) {
+    .article-shell {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    table {
+        min-width: 520px;
     }
 }

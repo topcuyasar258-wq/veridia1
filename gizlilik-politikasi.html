@@ -23,6 +23,7 @@
     <meta name="twitter:description" content="Veridia'nın veri işleme yaklaşımını inceleyin, iletişim ve site kullanımında işlenen veriler hakkında hızlıca bilgi alın.">
     <meta name="twitter:image" content="https://www.veridiareklam.com.tr/assets/veridia-social-cover.png">
     <meta name="twitter:site" content="@veridia">
+    <script defer src="./assets/theme-init.js?v=1"></script>
     <link rel="preload" href="./assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="./assets/fonts.css">
@@ -58,54 +59,127 @@
     }
     </script>
     <link rel="stylesheet" href="./assets/page-shell.css">
+    <link rel="stylesheet" href="./assets/revision.css?v=17">
     <link rel="stylesheet" href="./assets/legal-pages.css">
+    <script defer src="./assets/page-shell.js"></script>
+    <script defer src="./assets/revision.js?v=3"></script>
 </head>
-<body>
+<body class="legal-page" data-custom-cursor="true">
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="scroll-bar" id="scrollBar"></div>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="menu-close" type="button" data-mobile-close aria-label="Menüyü kapat">✕</button>
+  <a href="/blog.html">Blog</a>
+  <a href="/#about" data-mobile-close>Hakkımızda</a>
+  <a href="/#services" data-mobile-close>Hizmetler</a>
+  <a href="/hizli-teklif.html" data-mobile-close>Hızlı Teklif</a>
+  <a href="/#sectors" data-mobile-close>Sektörler</a>
+  <a href="/neler-yapiyoruz.html" data-mobile-close>Portfolyo</a>
+  <a href="/iletisim.html" data-mobile-close>İletişim</a>
+</div>
+
 <nav id="navbar" class="scrolled">
   <a href="/" class="nav-logo">Veridia</a>
   <ul class="nav-links">
+    <li><a href="/">Ana Sayfa</a></li>
+    <li><a href="/neler-yapiyoruz.html">Hizmetlerimiz</a></li>
+    <li><a href="/calismalarimiz.html">Portfolyo</a></li>
+    <li><a href="/hakkimizda.html">Hakkımızda</a></li>
     <li><a href="/blog.html">Blog</a></li>
-    <li><a href="/#services">Hizmetler</a></li>
-    <li><a href="/#quote">Hızlı Teklif</a></li>
-    <li><a href="/iletisim.html">İletişim</a></li>
   </ul>
+  <div class="nav-mobile-right">
+    <button class="hamburger" id="hamburger" type="button" data-mobile-toggle aria-label="Menü" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
-<main>
-    <section class="legal-shell">
-        <p class="legal-kicker">Yasal Bilgilendirme</p>
-        <h1>Gizlilik Politikası</h1>
-        <p class="legal-lead">Son güncelleme: 9 Nisan 2026. Bu sayfa, Veridia Ajans ile paylaştığınız verilerin hangi kapsamda işlendiğini ve nasıl korunduğunu genel çerçevede açıklar.</p>
+<main id="main-content" class="legal-main">
+    <div class="legal-shell">
+        <section class="legal-hero" aria-labelledby="legalTitle">
+            <div class="legal-hero-inner">
+                <p class="legal-kicker">Yasal Bilgilendirme</p>
+                <h1 class="legal-title" id="legalTitle">Gizlilik Politikası</h1>
+                <p class="legal-lead">Veridia Ajans ile paylaştığınız verilerin hangi kapsamda işlendiğini ve nasıl korunduğunu genel çerçevede açıklar.</p>
+                <div class="legal-meta-row" aria-label="Sayfa bilgileri">
+                    <span class="legal-meta">Son güncelleme: 9 Nisan 2026</span>
+                    <span class="legal-meta">Veridia Ajans</span>
+                </div>
+            </div>
+        </section>
 
-        <h2>Hangi verileri işleriz?</h2>
-        <p>Site üzerinde teklif akışı, e-posta veya WhatsApp teması kurduğunuzda aşağıdaki sınırlı veriler işlenebilir:</p>
-        <ul>
-            <li>Ad, soyad, marka adı ve iletişim bilgileri</li>
-            <li>Talebinizin konusu, seçtiğiniz hizmetler ve bütçe/kapsam notları</li>
-            <li>Teknik güvenlik kayıtları, temel sunucu logları ve hata kayıtları</li>
-        </ul>
+        <div class="legal-layout">
+            <aside class="legal-toc" aria-label="Sayfa içeriği">
+                <strong>Bu sayfada</strong>
+                <a href="#hangi-veriler">Hangi verileri işleriz?</a>
+                <a href="#kullanim-amaci">Bu verileri neden kullanırız?</a>
+                <a href="#ucuncu-taraflar">Üçüncü taraf hizmetler</a>
+                <a href="#saklama-suresi">Saklama süresi</a>
+                <a href="#haklariniz">Haklarınız</a>
+            </aside>
 
-        <h2>Bu verileri neden kullanırız?</h2>
-        <ul>
-            <li>Size geri dönüş yapmak ve hizmet talebinizi değerlendirmek</li>
-            <li>Teklif hazırlamak, keşif görüşmesi planlamak ve iletişimi sürdürmek</li>
-            <li>Site güvenliği, kötüye kullanım önleme ve temel operasyon takibi yapmak</li>
-        </ul>
+            <article class="legal-document">
+                <section id="hangi-veriler">
+                    <h2>Hangi verileri işleriz?</h2>
+                    <p>Site üzerinde teklif akışı, e-posta veya WhatsApp teması kurduğunuzda aşağıdaki sınırlı veriler işlenebilir:</p>
+                    <ul>
+                        <li>Ad, soyad, marka adı ve iletişim bilgileri</li>
+                        <li>Talebinizin konusu, seçtiğiniz hizmetler ve bütçe/kapsam notları</li>
+                        <li>Teknik güvenlik kayıtları, temel sunucu logları ve hata kayıtları</li>
+                    </ul>
+                </section>
 
-        <h2>Üçüncü taraf hizmetler</h2>
-        <p>İlk temaslar WhatsApp, e-posta servisleri veya barındırma altyapısı üzerinden ilerleyebilir. Bu kanallar kullanıldığında ilgili servis sağlayıcının kendi gizlilik koşulları da devreye girer. Gereksiz veri paylaşımı yapılmaz; yalnızca hizmetin yürütülmesi için gerekli minimum bilgi kullanılır.</p>
+                <section id="kullanim-amaci">
+                    <h2>Bu verileri neden kullanırız?</h2>
+                    <ul>
+                        <li>Size geri dönüş yapmak ve hizmet talebinizi değerlendirmek</li>
+                        <li>Teklif hazırlamak, keşif görüşmesi planlamak ve iletişimi sürdürmek</li>
+                        <li>Site güvenliği, kötüye kullanım önleme ve temel operasyon takibi yapmak</li>
+                    </ul>
+                </section>
 
-        <h2>Saklama süresi</h2>
-        <p>İletişim kayıtları, ticari ve operasyonel gereklilik sürdüğü müddetçe veya yasal yükümlülükler gerektirdiği süre boyunca saklanır. Aktif kullanılmayan talepler makul süre sonunda silinir, anonimleştirilir veya arşivlenir.</p>
+                <section id="ucuncu-taraflar">
+                    <h2>Üçüncü taraf hizmetler</h2>
+                    <p>İlk temaslar WhatsApp, e-posta servisleri veya barındırma altyapısı üzerinden ilerleyebilir. Bu kanallar kullanıldığında ilgili servis sağlayıcının kendi gizlilik koşulları da devreye girer. Gereksiz veri paylaşımı yapılmaz; yalnızca hizmetin yürütülmesi için gerekli minimum bilgi kullanılır.</p>
+                </section>
 
-        <h2>Haklarınız</h2>
-        <p>Bilgilerinizin işlenip işlenmediğini öğrenme, düzeltilmesini isteme, silme veya erişim talebinde bulunma hakkınız vardır. Bu tür talepler için <a href="mailto:hello@veridiareklam.com.tr">hello@veridiareklam.com.tr</a> adresinden bize ulaşabilirsiniz.</p>
+                <section id="saklama-suresi">
+                    <h2>Saklama süresi</h2>
+                    <p>İletişim kayıtları, ticari ve operasyonel gereklilik sürdüğü müddetçe veya yasal yükümlülükler gerektirdiği süre boyunca saklanır. Aktif kullanılmayan talepler makul süre sonunda silinir, anonimleştirilir veya arşivlenir.</p>
+                </section>
 
-        <div class="legal-links">
-            <a href="/kvkk-aydinlatma-metni.html" class="btn-outline">KVKK Aydınlatma Metni</a>
-            <a href="/iletisim.html" class="btn-gold">İletişime Geç</a>
+                <section id="haklariniz">
+                    <h2>Haklarınız</h2>
+                    <p>Bilgilerinizin işlenip işlenmediğini öğrenme, düzeltilmesini isteme, silme veya erişim talebinde bulunma hakkınız vardır. Bu tür talepler için <a href="mailto:hello@veridiareklam.com.tr">hello@veridiareklam.com.tr</a> adresinden bize ulaşabilirsiniz.</p>
+                    <p class="legal-note">Bu metin genel bilgilendirme amacı taşır. Daha kapsamlı kişisel veri bilgilendirmesi için KVKK Aydınlatma Metni sayfasını da inceleyebilirsiniz.</p>
+                </section>
+
+                <div class="legal-links">
+                    <a href="/kvkk-aydinlatma-metni.html" class="btn-outline">KVKK Aydınlatma Metni</a>
+                    <a href="/iletisim.html" class="btn-gold">İletişime Geç</a>
+                </div>
+            </article>
         </div>
-    </section>
+    </div>
 </main>
+
+<footer>
+  <div class="footer-logo">Veridia</div>
+  <p class="footer-text">© 2026 Veridia Ajans. Tüm hakları saklıdır.</p>
+  <div class="footer-right">
+    <div class="footer-socials">
+      <a href="/iletisim.html">İletişim</a>
+      <a href="mailto:hello@veridiareklam.com.tr">E-posta</a>
+      <a href="/blog.html">Blog</a>
+    </div>
+    <div class="footer-socials footer-legal-links">
+      <a href="/gizlilik-politikasi.html" aria-current="page">Gizlilik Politikası</a>
+      <a href="/kvkk-aydinlatma-metni.html">KVKK</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
