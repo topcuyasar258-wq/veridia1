@@ -1685,6 +1685,8 @@ section.about-hero {
   min-height: clamp(460px, 62svh, 620px) !important;
   align-content: center !important;
   padding-block: clamp(3rem, 6vw, 5.25rem) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--revision-line) !important;
 }
 
 .revision-silo-page.sectors-page .silo-hero h1 {
