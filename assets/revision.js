@@ -7,6 +7,14 @@
     Object.freeze({ href: "/hakkimizda.html", label: "Hakkımızda" }),
     Object.freeze({ href: "/blog.html", label: "Blog" }),
   ]);
+  const sectorLinks = Object.freeze([
+    Object.freeze({ href: "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/", label: "Güzellik Salonları" }),
+    Object.freeze({ href: "/sektorler/avukatlar-icin-dijital-pazarlama/", label: "Avukatlık" }),
+    Object.freeze({ href: "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/", label: "Estetik Klinikleri" }),
+    Object.freeze({ href: "/sektorler/dis-klinikleri-icin-dijital-pazarlama/", label: "Diş Klinikleri" }),
+    Object.freeze({ href: "/sektorler/kuaforler-icin-dijital-pazarlama/", label: "Kuaförler" }),
+    Object.freeze({ href: "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/", label: "Yerel Servis" }),
+  ]);
 
   const normalizePath = (value) => {
     const path = value.split("#")[0].split("?")[0];
@@ -56,7 +64,19 @@
   menu.setAttribute("aria-hidden", "true");
   menu.innerHTML = `
     <div class="revision-mobile-links">
-      ${primaryLinks.map(({ href, label }) => `<a href="${href}" data-revision-close>${label}</a>`).join("")}
+      ${primaryLinks
+        .map(({ href, label }) => {
+          if (href !== "/sektorler/") return `<a href="${href}" data-revision-close>${label}</a>`;
+          return `
+            <div class="revision-mobile-sector-group">
+              <p class="revision-mobile-section-label">Sektörler</p>
+              <div class="revision-mobile-sector-grid">
+                ${sectorLinks.map(({ href, label }) => `<a href="${href}" data-revision-close>${label}</a>`).join("")}
+              </div>
+            </div>
+          `;
+        })
+        .join("")}
     </div>
     <p class="revision-mobile-meta">İstanbul · Türkiye — Dijital büyüme sistemleri</p>
   `;

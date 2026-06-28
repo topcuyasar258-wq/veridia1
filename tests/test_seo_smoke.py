@@ -671,13 +671,25 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("sectors_beauty_card_click", page)
         self.assertNotIn("Yakında", page)
 
-    def test_revision_nav_includes_sector_link_in_mobile_menu(self) -> None:
+    def test_revision_mobile_menu_links_directly_to_sector_landings(self) -> None:
         script = (ROOT / "assets" / "revision.js").read_text(encoding="utf-8")
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
 
         self.assertIn('href: "/sektorler/", label: "Sektörler"', script)
-        self.assertIn('primaryLinks.map(({ href, label }) => `<a href="${href}" data-revision-close>${label}</a>`)', script)
-        self.assertIn('/assets/revision.js?v=4', homepage)
+        self.assertIn("revision-mobile-sector-group", script)
+        self.assertIn("<p class=\"revision-mobile-section-label\">Sektörler</p>", script)
+        for href in (
+            "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+            "/sektorler/avukatlar-icin-dijital-pazarlama/",
+            "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/",
+            "/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
+            "/sektorler/kuaforler-icin-dijital-pazarlama/",
+            "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
+        ):
+            with self.subTest(href=href):
+                self.assertIn(f'href: "{href}"', script)
+        self.assertIn('/assets/revision.js?v=5', homepage)
+        self.assertIn('/assets/revision.css?v=22', homepage)
 
     def test_beauty_sector_page_marks_missing_service_pages_without_links(self) -> None:
         page = (ROOT / "sektorler" / "guzellik-merkezleri-icin-dijital-pazarlama" / "index.html").read_text(
