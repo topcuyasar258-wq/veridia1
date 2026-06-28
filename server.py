@@ -76,10 +76,6 @@ PUBLIC_FILE_PATHS = frozenset(
         "/calisma-surecimiz.html",
         "/hizli-teklif.html",
         "/iletisim.html",
-        "/web-tasarim.html",
-        "/seo-danismanligi.html",
-        "/google-ads-yonetimi.html",
-        "/sosyal-medya-yonetimi.html",
         "/dijital-pazarlama-stratejisi.html",
         "/guzellik-klinik-dijital-pazarlama.html",
         "/kafe-restoran-dijital-pazarlama.html",
@@ -114,6 +110,11 @@ LEGACY_REDIRECTS = {
     "/yazilim/web-sitesi-ve-donusum-yuzeyleri": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
     "/sektorler": "/sektorler/",
     "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+    "/sektorler/avukatlar-icin-dijital-pazarlama": "/sektorler/avukatlar-icin-dijital-pazarlama/",
+    "/sektorler/estetik-klinikleri-icin-dijital-pazarlama": "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/",
+    "/sektorler/dis-klinikleri-icin-dijital-pazarlama": "/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
+    "/sektorler/kuaforler-icin-dijital-pazarlama": "/sektorler/kuaforler-icin-dijital-pazarlama/",
+    "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
     "/guzellik-merkezleri-icin-dijital-pazarlama": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
 }
 IMAGE_PROXY_ALLOWED_HOSTS = ("cdninstagram.com", "fbcdn.net")

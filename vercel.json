@@ -97,6 +97,31 @@
       "permanent": true
     },
     {
+      "source": "/sektorler/avukatlar-icin-dijital-pazarlama",
+      "destination": "/sektorler/avukatlar-icin-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/sektorler/estetik-klinikleri-icin-dijital-pazarlama",
+      "destination": "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/sektorler/dis-klinikleri-icin-dijital-pazarlama",
+      "destination": "/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/sektorler/kuaforler-icin-dijital-pazarlama",
+      "destination": "/sektorler/kuaforler-icin-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama",
+      "destination": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
       "source": "/guzellik-merkezleri-icin-dijital-pazarlama",
       "destination": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
       "permanent": true

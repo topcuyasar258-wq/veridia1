@@ -97,11 +97,20 @@ class ServerSecurityTests(unittest.TestCase):
                 self.assertEqual(status, HTTPStatus.OK)
                 self.assertIn("Veridia", body.decode("utf-8"))
 
-    def test_sector_landing_route_is_public(self) -> None:
-        status, body, _ = self.http_request("GET", "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/")
-
-        self.assertEqual(status, HTTPStatus.OK)
-        self.assertIn("Güzellik Merkezleri İçin Dijital Pazarlama", body.decode("utf-8"))
+    def test_sector_landing_routes_are_public(self) -> None:
+        routes = {
+            "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/": "Güzellik Merkezleri İçin Dijital Pazarlama",
+            "/sektorler/avukatlar-icin-dijital-pazarlama/": "Avukatlar İçin Dijital Pazarlama",
+            "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/": "Estetik Klinikleri İçin Dijital Pazarlama",
+            "/sektorler/dis-klinikleri-icin-dijital-pazarlama/": "Diş Klinikleri İçin Dijital Pazarlama",
+            "/sektorler/kuaforler-icin-dijital-pazarlama/": "Kuaförler İçin Dijital Pazarlama",
+            "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/": "Yerel Servis İşletmeleri İçin Dijital Pazarlama",
+        }
+        for path, expected in routes.items():
+            with self.subTest(path=path):
+                status, body, _ = self.http_request("GET", path)
+                self.assertEqual(status, HTTPStatus.OK)
+                self.assertIn(expected, body.decode("utf-8"))
 
     def test_slashless_hub_and_service_routes_redirect_to_canonical_urls(self) -> None:
         redirects = {
@@ -116,6 +125,11 @@ class ServerSecurityTests(unittest.TestCase):
             "/yazilim/web-sitesi-ve-donusum-yuzeyleri": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
             "/sektorler": "/sektorler/",
             "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+            "/sektorler/avukatlar-icin-dijital-pazarlama": "/sektorler/avukatlar-icin-dijital-pazarlama/",
+            "/sektorler/estetik-klinikleri-icin-dijital-pazarlama": "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/",
+            "/sektorler/dis-klinikleri-icin-dijital-pazarlama": "/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
+            "/sektorler/kuaforler-icin-dijital-pazarlama": "/sektorler/kuaforler-icin-dijital-pazarlama/",
+            "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
         }
 
         for path, destination in redirects.items():

@@ -61,6 +61,11 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn(f"{PRODUCTION_URL}/yazilim/web-sitesi-ve-donusum-yuzeyleri/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/sektorler/avukatlar-icin-dijital-pazarlama/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/sektorler/estetik-klinikleri-icin-dijital-pazarlama/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/sektorler/dis-klinikleri-icin-dijital-pazarlama/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/sektorler/kuaforler-icin-dijital-pazarlama/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/", sitemap)
         self.assertNotIn(f"{PRODUCTION_URL}/guzellik-merkezleri-icin-dijital-pazarlama", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/dijital-pazarlama-stratejisi.html", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/guzellik-klinik-dijital-pazarlama.html", sitemap)
@@ -234,8 +239,8 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertNotIn('<script defer src="./assets/quote-pricing.js"></script>', homepage)
         self.assertIn('<link data-deferred-style data-href="./assets/shared.css?v=12" data-style-media="all">', homepage)
         self.assertIn('<link data-deferred-style data-href="./assets/home-mobile-tune.css?v=6" data-style-media="all">', homepage)
-        self.assertIn('<link data-deferred-style data-href="./assets/fonts.css?v=4" data-style-media="all">', homepage)
-        self.assertNotIn('\n<link rel="stylesheet" href="./assets/fonts.css?v=4">', homepage)
+        self.assertIn('<link rel="stylesheet" href="./assets/fonts.css?v=5">', homepage)
+        self.assertNotIn('<link data-deferred-style data-href="./assets/fonts.css?v=4" data-style-media="all">', homepage)
         self.assertNotIn('\n<link rel="stylesheet" href="./assets/shared.css?v=12">', homepage)
         self.assertNotIn('\n<link rel="stylesheet" href="./assets/home-mobile-tune.css?v=6">', homepage)
 
@@ -271,9 +276,9 @@ class SeoSmokeTests(unittest.TestCase):
         for page_name in (
             "hakkimizda.html",
             "calisma-surecimiz.html",
-            "seo-danismanligi.html",
-            "google-ads-yonetimi.html",
-            "sosyal-medya-yonetimi.html",
+            "seo/google-gorunurlugu/index.html",
+            "reklam/google-ads-yonetimi/index.html",
+            "reklam/sosyal-medya-yonetimi/index.html",
         ):
             with self.subTest(page_name=page_name):
                 content = (ROOT / page_name).read_text(encoding="utf-8")
@@ -463,18 +468,16 @@ class SeoSmokeTests(unittest.TestCase):
                     rf'<img src="{re.escape(src)}"[^>]* width="1600" height="900"',
                 )
 
-    def test_legacy_html_fallbacks_point_to_preferred_urls(self) -> None:
-        expected = {
-            "web-tasarim.html": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
-            "seo-danismanligi.html": "/seo/google-gorunurlugu/",
-            "google-ads-yonetimi.html": "/reklam/google-ads-yonetimi/",
-            "sosyal-medya-yonetimi.html": "/reklam/sosyal-medya-yonetimi/",
-        }
-        for page_name, preferred_path in expected.items():
+    def test_legacy_html_service_duplicates_are_removed(self) -> None:
+        legacy_pages = (
+            "web-tasarim.html",
+            "seo-danismanligi.html",
+            "google-ads-yonetimi.html",
+            "sosyal-medya-yonetimi.html",
+        )
+        for page_name in legacy_pages:
             with self.subTest(page=page_name):
-                content = (ROOT / page_name).read_text(encoding="utf-8")
-                self.assertIn('<meta name="robots" content="noindex,follow">', content)
-                self.assertIn(f'<link rel="canonical" href="{PRODUCTION_URL}{preferred_path}">', content)
+                self.assertFalse((ROOT / page_name).exists())
 
     def test_case_studies_page_positions_scenarios_transparently(self) -> None:
         content = (ROOT / "calismalarimiz.html").read_text(encoding="utf-8")
@@ -530,6 +533,11 @@ class SeoSmokeTests(unittest.TestCase):
             ("/yazilim/web-sitesi-ve-donusum-yuzeyleri", "/yazilim/web-sitesi-ve-donusum-yuzeyleri/"),
             ("/sektorler", "/sektorler/"),
             ("/sektorler/guzellik-merkezleri-icin-dijital-pazarlama", "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/"),
+            ("/sektorler/avukatlar-icin-dijital-pazarlama", "/sektorler/avukatlar-icin-dijital-pazarlama/"),
+            ("/sektorler/estetik-klinikleri-icin-dijital-pazarlama", "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/"),
+            ("/sektorler/dis-klinikleri-icin-dijital-pazarlama", "/sektorler/dis-klinikleri-icin-dijital-pazarlama/"),
+            ("/sektorler/kuaforler-icin-dijital-pazarlama", "/sektorler/kuaforler-icin-dijital-pazarlama/"),
+            ("/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama", "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/"),
             ("/guzellik-merkezleri-icin-dijital-pazarlama", "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/"),
         }
         actual = {(redirect["source"], redirect["destination"]) for redirect in redirects}
@@ -609,6 +617,31 @@ class SeoSmokeTests(unittest.TestCase):
                 "Güzellik Merkezleri İçin Dijital Pazarlama | Veridia Reklam Ajansı",
                 f"{PRODUCTION_URL}/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
             ),
+            (
+                ROOT / "sektorler" / "avukatlar-icin-dijital-pazarlama" / "index.html",
+                "Avukatlar İçin Dijital Pazarlama | Veridia Reklam Ajansı",
+                f"{PRODUCTION_URL}/sektorler/avukatlar-icin-dijital-pazarlama/",
+            ),
+            (
+                ROOT / "sektorler" / "estetik-klinikleri-icin-dijital-pazarlama" / "index.html",
+                "Estetik Klinikleri İçin Dijital Pazarlama | Veridia",
+                f"{PRODUCTION_URL}/sektorler/estetik-klinikleri-icin-dijital-pazarlama/",
+            ),
+            (
+                ROOT / "sektorler" / "dis-klinikleri-icin-dijital-pazarlama" / "index.html",
+                "Diş Klinikleri İçin Dijital Pazarlama | Veridia",
+                f"{PRODUCTION_URL}/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
+            ),
+            (
+                ROOT / "sektorler" / "kuaforler-icin-dijital-pazarlama" / "index.html",
+                "Kuaförler İçin Dijital Pazarlama | Veridia",
+                f"{PRODUCTION_URL}/sektorler/kuaforler-icin-dijital-pazarlama/",
+            ),
+            (
+                ROOT / "sektorler" / "yerel-servis-isletmeleri-icin-dijital-pazarlama" / "index.html",
+                "Yerel Servis İşletmeleri İçin Dijital Pazarlama | Veridia",
+                f"{PRODUCTION_URL}/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
+            ),
         ]
 
         for path, title, canonical in pages:
@@ -622,16 +655,21 @@ class SeoSmokeTests(unittest.TestCase):
                 self.assertIn("FAQPage", types)
                 self.assertIn('aria-label="Breadcrumb"', page)
 
-    def test_sector_hub_avoids_dead_soon_links_and_tracks_ctas(self) -> None:
+    def test_sector_hub_links_all_active_sector_landings_and_tracks_ctas(self) -> None:
         page = (ROOT / "sektorler" / "index.html").read_text(encoding="utf-8")
-        self.assertIn("/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/", page)
+        for href in (
+            "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+            "/sektorler/avukatlar-icin-dijital-pazarlama/",
+            "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/",
+            "/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
+            "/sektorler/kuaforler-icin-dijital-pazarlama/",
+            "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
+        ):
+            with self.subTest(href=href):
+                self.assertIn(href, page)
         self.assertIn("sectors_page_free_analysis_click", page)
         self.assertIn("sectors_beauty_card_click", page)
-        self.assertNotIn("/sektorler/avukatlar-icin-dijital-pazarlama", page)
-        self.assertNotIn("/sektorler/estetik-klinikleri-icin-dijital-pazarlama", page)
-        self.assertNotIn("/sektorler/dis-klinikleri-icin-dijital-pazarlama", page)
-        self.assertNotIn("/sektorler/kuaforler-icin-dijital-pazarlama", page)
-        self.assertNotIn("/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama", page)
+        self.assertNotIn("Yakında", page)
 
     def test_beauty_sector_page_marks_missing_service_pages_without_links(self) -> None:
         page = (ROOT / "sektorler" / "guzellik-merkezleri-icin-dijital-pazarlama" / "index.html").read_text(
