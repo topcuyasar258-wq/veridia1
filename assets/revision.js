@@ -61,9 +61,9 @@
       <div class="revision-menu-panel" id="${id}-panel" role="region" aria-labelledby="${id}-trigger" hidden>
         ${groups
           .map(
-            ({ label, links }) => `
-              <div class="revision-menu-group">
-                ${label ? `<p class="revision-mobile-section-label">${label}</p>` : ""}
+            ({ label, links, className = "", labelMarkup = "" }) => `
+              <div class="revision-menu-group${className ? ` ${className}` : ""}">
+                ${labelMarkup || (label ? `<p class="revision-mobile-section-label">${label}</p>` : "")}
                 <ul class="revision-menu-sublist">
                   ${renderSubLinks(links)}
                 </ul>
@@ -128,7 +128,7 @@
 
       <div class="revision-mobile-links" aria-label="Mobil menü">
         ${renderAccordion({ id: "revision-services", label: "Hizmetler", groups: serviceGroups })}
-        ${renderAccordion({ id: "revision-sectors", label: "Sektörler", groups: [Object.freeze({ label: "", links: sectorLinks })] })}
+        ${renderAccordion({ id: "revision-sectors", label: "Sektörler", groups: [Object.freeze({ label: "Sektörler", links: sectorLinks, className: "revision-mobile-sector-group", labelMarkup: '<p class="revision-mobile-section-label">Sektörler</p>' })] })}
         <a class="revision-menu-link" href="/calismalarimiz.html" data-revision-close>Portfolyo</a>
         <a class="revision-menu-link" href="/hakkimizda.html" data-revision-close>Hakkımızda</a>
         <a class="revision-menu-link" href="/blog.html" data-revision-close>Blog</a>
