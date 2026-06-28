@@ -671,6 +671,14 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("sectors_beauty_card_click", page)
         self.assertNotIn("Yakında", page)
 
+    def test_revision_nav_includes_sector_link_in_mobile_menu(self) -> None:
+        script = (ROOT / "assets" / "revision.js").read_text(encoding="utf-8")
+        homepage = (ROOT / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn('href: "/sektorler/", label: "Sektörler"', script)
+        self.assertIn('primaryLinks.map(({ href, label }) => `<a href="${href}" data-revision-close>${label}</a>`)', script)
+        self.assertIn('/assets/revision.js?v=4', homepage)
+
     def test_beauty_sector_page_marks_missing_service_pages_without_links(self) -> None:
         page = (ROOT / "sektorler" / "guzellik-merkezleri-icin-dijital-pazarlama" / "index.html").read_text(
             encoding="utf-8"

@@ -2,6 +2,7 @@
   const primaryLinks = Object.freeze([
     Object.freeze({ href: "/", label: "Ana Sayfa" }),
     Object.freeze({ href: "/neler-yapiyoruz.html", label: "Hizmetlerimiz" }),
+    Object.freeze({ href: "/sektorler/", label: "Sektörler" }),
     Object.freeze({ href: "/calismalarimiz.html", label: "Portfolyo" }),
     Object.freeze({ href: "/hakkimizda.html", label: "Hakkımızda" }),
     Object.freeze({ href: "/blog.html", label: "Blog" }),
