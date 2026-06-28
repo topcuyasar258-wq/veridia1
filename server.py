@@ -70,14 +70,12 @@ PUBLIC_FILE_PATHS = frozenset(
         "/index.html",
         "/404.html",
         "/blog.html",
-        "/neler-yapiyoruz.html",
         "/calismalarimiz.html",
         "/hakkimizda.html",
         "/calisma-surecimiz.html",
         "/hizli-teklif.html",
         "/iletisim.html",
         "/dijital-pazarlama-stratejisi.html",
-        "/guzellik-klinik-dijital-pazarlama.html",
         "/kafe-restoran-dijital-pazarlama.html",
         "/moda-e-ticaret-dijital-pazarlama.html",
         "/teknoloji-b2b-dijital-pazarlama.html",
@@ -89,16 +87,22 @@ PUBLIC_FILE_PATHS = frozenset(
         "/sitemap.xml",
     }
 )
-PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/", "/seo/", "/reklam/", "/yazilim/", "/sektorler/", "/automation/forms/")
+PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/", "/seo/", "/reklam/", "/yazilim/", "/sektorler/", "/hizmetler/", "/automation/forms/")
 LEGACY_REDIRECTS = {
     "/index.html": "/",
     "/asdfadsf.html": "/",
     "/veridia-ajans.html": "/",
+    "/neler-yapiyoruz.html": "/hizmetler/",
     "/blog/b2b-pazarlamada-donusum-hunisi.html": "/blog/b2b-donusum-hunisi.html",
-    "/web-tasarim.html": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
-    "/seo-danismanligi.html": "/seo/google-gorunurlugu/",
-    "/google-ads-yonetimi.html": "/reklam/google-ads-yonetimi/",
-    "/sosyal-medya-yonetimi.html": "/reklam/sosyal-medya-yonetimi/",
+    "/web-tasarim.html": "/hizmetler/web-tasarim/",
+    "/seo-danismanligi.html": "/hizmetler/seo-danismanligi/",
+    "/google-ads-yonetimi.html": "/hizmetler/google-ads-yonetimi/",
+    "/sosyal-medya-yonetimi.html": "/hizmetler/sosyal-medya-yonetimi/",
+    "/hizmetler": "/hizmetler/",
+    "/hizmetler/web-tasarim": "/hizmetler/web-tasarim/",
+    "/hizmetler/seo-danismanligi": "/hizmetler/seo-danismanligi/",
+    "/hizmetler/google-ads-yonetimi": "/hizmetler/google-ads-yonetimi/",
+    "/hizmetler/sosyal-medya-yonetimi": "/hizmetler/sosyal-medya-yonetimi/",
     "/seo": "/seo/",
     "/seo/teknik-seo-denetimi": "/seo/teknik-seo-denetimi/",
     "/seo/google-gorunurlugu": "/seo/google-gorunurlugu/",
@@ -115,6 +119,7 @@ LEGACY_REDIRECTS = {
     "/sektorler/dis-klinikleri-icin-dijital-pazarlama": "/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
     "/sektorler/kuaforler-icin-dijital-pazarlama": "/sektorler/kuaforler-icin-dijital-pazarlama/",
     "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
+    "/guzellik-klinik-dijital-pazarlama.html": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
     "/guzellik-merkezleri-icin-dijital-pazarlama": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
 }
 IMAGE_PROXY_ALLOWED_HOSTS = ("cdninstagram.com", "fbcdn.net")

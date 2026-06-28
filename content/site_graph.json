@@ -36,8 +36,8 @@
       ]
     },
     {
-      "url": "/neler-yapiyoruz.html",
-      "file": "neler-yapiyoruz.html",
+      "url": "/hizmetler/",
+      "file": "hizmetler/index.html",
       "title": "Veridia Neler Yapıyoruz",
       "changefreq": "monthly",
       "priority": "0.8",
@@ -93,13 +93,6 @@
       "url": "/dijital-pazarlama-stratejisi.html",
       "file": "dijital-pazarlama-stratejisi.html",
       "title": "Sektörünüze Özel Dijital Pazarlama Stratejisi",
-      "changefreq": "monthly",
-      "priority": "0.7"
-    },
-    {
-      "url": "/guzellik-klinik-dijital-pazarlama.html",
-      "file": "guzellik-klinik-dijital-pazarlama.html",
-      "title": "Güzellik Merkezleri ve Klinikler İçin Dijital Pazarlama",
       "changefreq": "monthly",
       "priority": "0.7"
     },
@@ -160,7 +153,7 @@
       "primary_cta_label": "SEO Ön Analizi İste",
       "primary_cta_href": "/#quote",
       "secondary_cta_label": "SEO hizmet alanlarını gör",
-      "secondary_cta_href": "/neler-yapiyoruz.html#search",
+      "secondary_cta_href": "/hizmetler/#search",
       "service_type": "SEO Hizmeti, SEO Danışmanlığı, Teknik SEO",
       "children": [
         "teknik-seo-denetimi",
@@ -183,7 +176,7 @@
       "primary_cta_label": "Reklam Planı Oluştur",
       "primary_cta_href": "/#quote",
       "secondary_cta_label": "Reklam hizmet alanlarını gör",
-      "secondary_cta_href": "/neler-yapiyoruz.html#meta",
+      "secondary_cta_href": "/hizmetler/#meta",
       "service_type": "Reklam Hizmeti, Google Ads Yönetimi, Meta Reklam, Sosyal Medya Yönetimi",
       "children": [
         "sosyal-medya-yonetimi",
@@ -208,7 +201,7 @@
       "primary_cta_label": "Web Sitesi İçin Teklif Al",
       "primary_cta_href": "/#contact",
       "secondary_cta_label": "Web hizmet alanını gör",
-      "secondary_cta_href": "/neler-yapiyoruz.html#web",
+      "secondary_cta_href": "/hizmetler/#web",
       "service_type": "Web Tasarım Hizmeti, Landing Page, Web Sitesi ve Dönüşüm Yüzeyleri",
       "children": [
         "web-sitesi-ve-donusum-yuzeyleri"
@@ -235,7 +228,7 @@
       "primary_cta_label": "Teknik SEO Denetimi İste",
       "primary_cta_href": "/#quote",
       "secondary_cta_label": "SEO hizmet alanına dön",
-      "secondary_cta_href": "/neler-yapiyoruz.html#search",
+      "secondary_cta_href": "/hizmetler/#search",
       "legacy_href": "/blog/teknik-seo-ve-web-performansi.html",
       "legacy_label": "Teknik SEO rehberini oku",
       "blog_category": "seo",
@@ -273,7 +266,7 @@
       "primary_cta_label": "SEO Danışmanlığı İçin Yazın",
       "primary_cta_href": "/#quote",
       "secondary_cta_label": "SEO hizmet alanına dön",
-      "secondary_cta_href": "/neler-yapiyoruz.html#search",
+      "secondary_cta_href": "/hizmetler/#search",
       "legacy_href": "/seo/teknik-seo-denetimi/",
       "legacy_label": "Teknik SEO Denetimi'ne geç",
       "blog_category": "seo",
@@ -318,7 +311,7 @@
       "primary_cta_label": "Sosyal Medya Planı İste",
       "primary_cta_href": "/#quote",
       "secondary_cta_label": "Sosyal medya yüzeyine dön",
-      "secondary_cta_href": "/neler-yapiyoruz.html#social",
+      "secondary_cta_href": "/hizmetler/#social",
       "legacy_href": "/blog/instagram-algoritmasi-2026.html",
       "legacy_label": "Instagram rehberini oku",
       "blog_category": "social",
@@ -363,7 +356,7 @@
       "primary_cta_label": "Google Ads Teklifi Al",
       "primary_cta_href": "/#quote",
       "secondary_cta_label": "Reklam yüzeyine dön",
-      "secondary_cta_href": "/neler-yapiyoruz.html#search",
+      "secondary_cta_href": "/hizmetler/#search",
       "legacy_href": "/blog/b2b-donusum-hunisi.html",
       "legacy_label": "B2B dönüşüm rehberini oku",
       "blog_category": "ads",
@@ -408,7 +401,7 @@
       "primary_cta_label": "Meta Reklam Teklifi Al",
       "primary_cta_href": "/#contact",
       "secondary_cta_label": "Meta yüzeyine dön",
-      "secondary_cta_href": "/neler-yapiyoruz.html#meta",
+      "secondary_cta_href": "/hizmetler/#meta",
       "legacy_href": "/calismalarimiz.html#zeyra",
       "legacy_label": "Meta vaka senaryosunu gör",
       "blog_category": "ads",
@@ -447,7 +440,7 @@
       "primary_cta_label": "Web Sitesi Teklifi Al",
       "primary_cta_href": "/#contact",
       "secondary_cta_label": "Web hizmet alanına dön",
-      "secondary_cta_href": "/neler-yapiyoruz.html#web",
+      "secondary_cta_href": "/hizmetler/#web",
       "legacy_href": "/calismalarimiz.html#maison",
       "legacy_label": "Web vaka senaryosunu gör",
       "blog_category": "web",
@@ -508,7 +501,7 @@
       "reading_time": "14 dk okuma",
       "author": "Veridia Strateji Ekibi",
       "service_slug": "sosyal-medya-yonetimi",
-      "card_summary": "Güzellik merkezleri ve estetik klinikleri için <a href=\"/guzellik-klinik-dijital-pazarlama.html\">sektörel dijital pazarlama</a> sistemini; web sitesi, lokal SEO, sosyal medya ve reklam dönüşüm takibiyle birlikte anlatıyoruz."
+      "card_summary": "Güzellik merkezleri ve estetik klinikleri için <a href=\"/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/\">sektörel dijital pazarlama</a> sistemini; web sitesi, lokal SEO, sosyal medya ve reklam dönüşüm takibiyle birlikte anlatıyoruz."
     },
     {
       "slug": "hizmet-sitelerinde-cta-nasil-olmali",

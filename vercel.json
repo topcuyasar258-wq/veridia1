@@ -17,28 +17,58 @@
       "permanent": true
     },
     {
+      "source": "/neler-yapiyoruz.html",
+      "destination": "/hizmetler/",
+      "permanent": true
+    },
+    {
       "source": "/blog/b2b-pazarlamada-donusum-hunisi.html",
       "destination": "/blog/b2b-donusum-hunisi.html",
       "permanent": true
     },
     {
       "source": "/web-tasarim.html",
-      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "destination": "/hizmetler/web-tasarim/",
       "permanent": true
     },
     {
       "source": "/seo-danismanligi.html",
-      "destination": "/seo/google-gorunurlugu/",
+      "destination": "/hizmetler/seo-danismanligi/",
       "permanent": true
     },
     {
       "source": "/google-ads-yonetimi.html",
-      "destination": "/reklam/google-ads-yonetimi/",
+      "destination": "/hizmetler/google-ads-yonetimi/",
       "permanent": true
     },
     {
       "source": "/sosyal-medya-yonetimi.html",
-      "destination": "/reklam/sosyal-medya-yonetimi/",
+      "destination": "/hizmetler/sosyal-medya-yonetimi/",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler",
+      "destination": "/hizmetler/",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler/web-tasarim",
+      "destination": "/hizmetler/web-tasarim/",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler/seo-danismanligi",
+      "destination": "/hizmetler/seo-danismanligi/",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler/google-ads-yonetimi",
+      "destination": "/hizmetler/google-ads-yonetimi/",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler/sosyal-medya-yonetimi",
+      "destination": "/hizmetler/sosyal-medya-yonetimi/",
       "permanent": true
     },
     {
@@ -119,6 +149,11 @@
     {
       "source": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama",
       "destination": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/guzellik-klinik-dijital-pazarlama.html",
+      "destination": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
       "permanent": true
     },
     {

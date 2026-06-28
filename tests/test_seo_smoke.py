@@ -49,16 +49,16 @@ class SeoSmokeTests(unittest.TestCase):
     def test_sitemap_uses_production_urls(self) -> None:
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn(f"{PRODUCTION_URL}/", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/neler-yapiyoruz.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/hizmetler/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/calismalarimiz.html", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/seo/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/reklam/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/yazilim/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/seo/teknik-seo-denetimi/", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/seo/google-gorunurlugu/", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/reklam/sosyal-medya-yonetimi/", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/reklam/google-ads-yonetimi/", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/yazilim/web-sitesi-ve-donusum-yuzeyleri/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/hizmetler/seo-danismanligi/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/hizmetler/sosyal-medya-yonetimi/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/hizmetler/google-ads-yonetimi/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/hizmetler/web-tasarim/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/avukatlar-icin-dijital-pazarlama/", sitemap)
@@ -68,7 +68,7 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn(f"{PRODUCTION_URL}/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/", sitemap)
         self.assertNotIn(f"{PRODUCTION_URL}/guzellik-merkezleri-icin-dijital-pazarlama", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/dijital-pazarlama-stratejisi.html", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/guzellik-klinik-dijital-pazarlama.html", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/guzellik-klinik-dijital-pazarlama.html", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/kafe-restoran-dijital-pazarlama.html", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/moda-e-ticaret-dijital-pazarlama.html", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/teknoloji-b2b-dijital-pazarlama.html", sitemap)
@@ -147,7 +147,7 @@ class SeoSmokeTests(unittest.TestCase):
     def test_strategy_page_links_to_each_sector_landing_page(self) -> None:
         page = (ROOT / "dijital-pazarlama-stratejisi.html").read_text(encoding="utf-8")
         for href in (
-            "/guzellik-klinik-dijital-pazarlama.html",
+            "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
             "/kafe-restoran-dijital-pazarlama.html",
             "/moda-e-ticaret-dijital-pazarlama.html",
             "/teknoloji-b2b-dijital-pazarlama.html",
@@ -287,7 +287,7 @@ class SeoSmokeTests(unittest.TestCase):
     def test_body_internal_links_do_not_hardcode_production_domain(self) -> None:
         paths = [
             ROOT / "index.html",
-            ROOT / "neler-yapiyoruz.html",
+            ROOT / "hizmetler/index.html",
             ROOT / "calismalarimiz.html",
             ROOT / "blog.html",
             ROOT / "404.html",
@@ -315,7 +315,7 @@ class SeoSmokeTests(unittest.TestCase):
     def test_pages_use_local_font_manifest_and_no_google_fonts(self) -> None:
         paths = [
             ROOT / "index.html",
-            ROOT / "neler-yapiyoruz.html",
+            ROOT / "hizmetler/index.html",
             ROOT / "calismalarimiz.html",
             ROOT / "blog.html",
             ROOT / "404.html",
@@ -335,7 +335,7 @@ class SeoSmokeTests(unittest.TestCase):
     def test_pages_do_not_use_inline_script_handlers(self) -> None:
         paths = [
             ROOT / "index.html",
-            ROOT / "neler-yapiyoruz.html",
+            ROOT / "hizmetler/index.html",
             ROOT / "calismalarimiz.html",
             ROOT / "blog.html",
             ROOT / "404.html",
@@ -352,7 +352,6 @@ class SeoSmokeTests(unittest.TestCase):
 
     def test_work_pages_have_canonical_schema_and_local_assets(self) -> None:
         work_pages = [
-            ROOT / "neler-yapiyoruz.html",
             ROOT / "calismalarimiz.html",
         ]
         for page_path in work_pages:
@@ -368,6 +367,7 @@ class SeoSmokeTests(unittest.TestCase):
 
     def test_silo_hub_pages_exist_with_collection_schema_and_local_assets(self) -> None:
         hub_pages = [
+            ROOT / "hizmetler" / "index.html",
             ROOT / "seo" / "index.html",
             ROOT / "reklam" / "index.html",
             ROOT / "yazilim" / "index.html",
@@ -403,7 +403,6 @@ class SeoSmokeTests(unittest.TestCase):
 
     def test_sector_landing_pages_have_service_and_breadcrumb_schema(self) -> None:
         for page_name in (
-            "guzellik-klinik-dijital-pazarlama.html",
             "moda-e-ticaret-dijital-pazarlama.html",
             "teknoloji-b2b-dijital-pazarlama.html",
             "yasam-ev-markalari-dijital-pazarlama.html",
@@ -437,7 +436,6 @@ class SeoSmokeTests(unittest.TestCase):
             "calisma-surecimiz.html",
             "hizli-teklif.html",
             "dijital-pazarlama-stratejisi.html",
-            "guzellik-klinik-dijital-pazarlama.html",
             "kafe-restoran-dijital-pazarlama.html",
             "moda-e-ticaret-dijital-pazarlama.html",
             "teknoloji-b2b-dijital-pazarlama.html",
@@ -504,7 +502,7 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn(
             {
                 "source": "/google-ads-yonetimi.html",
-                "destination": "/reklam/google-ads-yonetimi/",
+                "destination": "/hizmetler/google-ads-yonetimi/",
                 "permanent": True,
             },
             redirects,
@@ -518,10 +516,10 @@ class SeoSmokeTests(unittest.TestCase):
             ("/asdfadsf.html", "/"),
             ("/veridia-ajans.html", "/"),
             ("/blog/b2b-pazarlamada-donusum-hunisi.html", "/blog/b2b-donusum-hunisi.html"),
-            ("/web-tasarim.html", "/yazilim/web-sitesi-ve-donusum-yuzeyleri/"),
-            ("/seo-danismanligi.html", "/seo/google-gorunurlugu/"),
-            ("/google-ads-yonetimi.html", "/reklam/google-ads-yonetimi/"),
-            ("/sosyal-medya-yonetimi.html", "/reklam/sosyal-medya-yonetimi/"),
+            ("/web-tasarim.html", "/hizmetler/web-tasarim/"),
+            ("/seo-danismanligi.html", "/hizmetler/seo-danismanligi/"),
+            ("/google-ads-yonetimi.html", "/hizmetler/google-ads-yonetimi/"),
+            ("/sosyal-medya-yonetimi.html", "/hizmetler/sosyal-medya-yonetimi/"),
             ("/seo", "/seo/"),
             ("/seo/teknik-seo-denetimi", "/seo/teknik-seo-denetimi/"),
             ("/seo/google-gorunurlugu", "/seo/google-gorunurlugu/"),
@@ -538,6 +536,7 @@ class SeoSmokeTests(unittest.TestCase):
             ("/sektorler/dis-klinikleri-icin-dijital-pazarlama", "/sektorler/dis-klinikleri-icin-dijital-pazarlama/"),
             ("/sektorler/kuaforler-icin-dijital-pazarlama", "/sektorler/kuaforler-icin-dijital-pazarlama/"),
             ("/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama", "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/"),
+            ("/guzellik-klinik-dijital-pazarlama.html", "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/"),
             ("/guzellik-merkezleri-icin-dijital-pazarlama", "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/"),
         }
         actual = {(redirect["source"], redirect["destination"]) for redirect in redirects}
@@ -688,8 +687,8 @@ class SeoSmokeTests(unittest.TestCase):
         ):
             with self.subTest(href=href):
                 self.assertIn(f'href: "{href}"', script)
-        self.assertIn('/assets/revision.js?v=5', homepage)
-        self.assertIn('/assets/revision.css?v=22', homepage)
+        self.assertIn('/assets/revision.js?v=6', homepage)
+        self.assertIn('/assets/revision.css?v=23', homepage)
 
     def test_beauty_sector_page_marks_missing_service_pages_without_links(self) -> None:
         page = (ROOT / "sektorler" / "guzellik-merkezleri-icin-dijital-pazarlama" / "index.html").read_text(

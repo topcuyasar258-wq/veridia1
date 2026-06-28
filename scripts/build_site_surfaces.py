@@ -45,7 +45,7 @@ def render_mobile_menu() -> str:
     return """<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="menu-close" type="button" data-mobile-close aria-label="Menüyü kapat">✕</button>
   <a href="/">Ana Sayfa</a>
-  <a href="/neler-yapiyoruz.html">Hizmetlerimiz</a>
+  <a href="/hizmetler/">Hizmetlerimiz</a>
   <a href="/calismalarimiz.html">Portfolyo</a>
   <a href="/hakkimizda.html">Hakkımızda</a>
   <a href="/blog.html">Blog</a>
@@ -55,7 +55,7 @@ def render_mobile_menu() -> str:
 def render_nav(active_label: str) -> str:
     links = [
         ("/", "Ana Sayfa"),
-        ("/neler-yapiyoruz.html", "Hizmetlerimiz"),
+        ("/hizmetler/", "Hizmetlerimiz"),
         ("/calismalarimiz.html", "Portfolyo"),
         ("/hakkimizda.html", "Hakkımızda"),
         ("/blog.html", "Blog"),

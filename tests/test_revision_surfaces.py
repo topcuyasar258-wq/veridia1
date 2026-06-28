@@ -8,7 +8,7 @@ SURFACES = (
     "blog.html",
     "calismalarimiz.html",
     "hakkimizda.html",
-    "neler-yapiyoruz.html",
+    "hizmetler/index.html",
 )
 EXTENDED_SURFACES = (
     "yazilim/index.html",
@@ -21,7 +21,7 @@ EXTENDED_SURFACES = (
 )
 PRIMARY_LINKS = (
     'href="/"',
-    'href="/neler-yapiyoruz.html"',
+    'href="/hizmetler/"',
     'href="/calismalarimiz.html"',
     'href="/hakkimizda.html"',
     'href="/blog.html"',
@@ -118,7 +118,7 @@ class RevisionSurfaceTests(unittest.TestCase):
             "blog.html": "https://www.veridiareklam.com.tr/blog.html",
             "calismalarimiz.html": "https://www.veridiareklam.com.tr/calismalarimiz.html",
             "hakkimizda.html": "https://www.veridiareklam.com.tr/hakkimizda.html",
-            "neler-yapiyoruz.html": "https://www.veridiareklam.com.tr/neler-yapiyoruz.html",
+            "hizmetler/index.html": "https://www.veridiareklam.com.tr/hizmetler/",
         }
         for relative_path, canonical in expected.items():
             with self.subTest(path=relative_path):

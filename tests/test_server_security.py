@@ -91,7 +91,7 @@ class ServerSecurityTests(unittest.TestCase):
                 self.assertIn("Veridia", body.decode("utf-8"))
 
     def test_public_hub_routes_serve_directory_indexes(self) -> None:
-        for path in ("/seo/", "/reklam/", "/yazilim/", "/sektorler/"):
+        for path in ("/seo/", "/reklam/", "/yazilim/", "/sektorler/", "/hizmetler/"):
             with self.subTest(path=path):
                 status, body, _ = self.http_request("GET", path)
                 self.assertEqual(status, HTTPStatus.OK)
@@ -112,6 +112,19 @@ class ServerSecurityTests(unittest.TestCase):
                 self.assertEqual(status, HTTPStatus.OK)
                 self.assertIn(expected, body.decode("utf-8"))
 
+    def test_service_landing_routes_are_public(self) -> None:
+        routes = {
+            "/hizmetler/web-tasarim/": "Web Tasarım Hizmeti",
+            "/hizmetler/seo-danismanligi/": "SEO Danışmanlığı Hizmeti",
+            "/hizmetler/google-ads-yonetimi/": "Google Ads Yönetimi",
+            "/hizmetler/sosyal-medya-yonetimi/": "Sosyal Medya Yönetimi",
+        }
+        for path, expected in routes.items():
+            with self.subTest(path=path):
+                status, body, _ = self.http_request("GET", path)
+                self.assertEqual(status, HTTPStatus.OK)
+                self.assertIn(expected, body.decode("utf-8"))
+
     def test_slashless_hub_and_service_routes_redirect_to_canonical_urls(self) -> None:
         redirects = {
             "/seo": "/seo/",
@@ -123,6 +136,11 @@ class ServerSecurityTests(unittest.TestCase):
             "/reklam/meta-reklam-yonetimi": "/reklam/meta-reklam-yonetimi/",
             "/yazilim": "/yazilim/",
             "/yazilim/web-sitesi-ve-donusum-yuzeyleri": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+            "/hizmetler": "/hizmetler/",
+            "/hizmetler/web-tasarim": "/hizmetler/web-tasarim/",
+            "/hizmetler/seo-danismanligi": "/hizmetler/seo-danismanligi/",
+            "/hizmetler/google-ads-yonetimi": "/hizmetler/google-ads-yonetimi/",
+            "/hizmetler/sosyal-medya-yonetimi": "/hizmetler/sosyal-medya-yonetimi/",
             "/sektorler": "/sektorler/",
             "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
             "/sektorler/avukatlar-icin-dijital-pazarlama": "/sektorler/avukatlar-icin-dijital-pazarlama/",
@@ -156,21 +174,26 @@ class ServerSecurityTests(unittest.TestCase):
         self.assertEqual(headers.get("Location"), "/blog/b2b-donusum-hunisi.html")
 
     def test_legacy_beauty_sector_url_redirects_to_canonical_sector_landing(self) -> None:
-        status, _, headers = self.http_request(
-            "GET",
+        for path in (
             "/guzellik-merkezleri-icin-dijital-pazarlama",
-            follow_redirects=False,
-        )
+            "/guzellik-klinik-dijital-pazarlama.html",
+        ):
+            with self.subTest(path=path):
+                status, _, headers = self.http_request(
+                    "GET",
+                    path,
+                    follow_redirects=False,
+                )
 
-        self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
-        self.assertEqual(headers.get("Location"), "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/")
+                self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                self.assertEqual(headers.get("Location"), "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/")
 
     def test_legacy_service_pages_redirect_to_silo_urls(self) -> None:
         redirects = {
-            "/web-tasarim.html": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
-            "/seo-danismanligi.html": "/seo/google-gorunurlugu/",
-            "/google-ads-yonetimi.html": "/reklam/google-ads-yonetimi/",
-            "/sosyal-medya-yonetimi.html": "/reklam/sosyal-medya-yonetimi/",
+            "/web-tasarim.html": "/hizmetler/web-tasarim/",
+            "/seo-danismanligi.html": "/hizmetler/seo-danismanligi/",
+            "/google-ads-yonetimi.html": "/hizmetler/google-ads-yonetimi/",
+            "/sosyal-medya-yonetimi.html": "/hizmetler/sosyal-medya-yonetimi/",
         }
 
         for path, destination in redirects.items():
