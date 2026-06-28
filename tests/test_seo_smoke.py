@@ -687,8 +687,8 @@ class SeoSmokeTests(unittest.TestCase):
         ):
             with self.subTest(href=href):
                 self.assertIn(f'href: "{href}"', script)
-        self.assertIn('/assets/revision.js?v=6', homepage)
-        self.assertIn('/assets/revision.css?v=23', homepage)
+        self.assertIn('/assets/revision.js?v=8', homepage)
+        self.assertIn('/assets/revision.css?v=26', homepage)
 
     def test_beauty_sector_page_marks_missing_service_pages_without_links(self) -> None:
         page = (ROOT / "sektorler" / "guzellik-merkezleri-icin-dijital-pazarlama" / "index.html").read_text(
