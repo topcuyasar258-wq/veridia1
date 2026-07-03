@@ -160,6 +160,11 @@
       "source": "/guzellik-merkezleri-icin-dijital-pazarlama",
       "destination": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
       "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
+      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "permanent": true
     }
   ],
   "headers": [
@@ -209,6 +214,12 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html"
     }
   ]
 }
