@@ -156,13 +156,13 @@ def build_breadcrumbs(hub: dict | None, service: dict | None, title: str, site_u
                 "@type": "ListItem",
                 "position": position,
                 "name": "Blog",
-                "item": canonical(site_url, "/blog.html"),
+                "item": canonical(site_url, "/blog"),
             }
         )
         visual_parts.extend(
             [
                 '  <span aria-hidden="true">→</span>',
-                '  <a href="/blog.html">Blog</a>',
+                '  <a href="/blog">Blog</a>',
             ]
         )
         position += 1
@@ -172,7 +172,7 @@ def build_breadcrumbs(hub: dict | None, service: dict | None, title: str, site_u
             "@type": "ListItem",
             "position": position,
             "name": title,
-            "item": canonical(site_url, f"/blog/{article_slug}.html"),
+            "item": canonical(site_url, f"/blog/{article_slug}"),
         }
     )
     visual_parts.extend(
@@ -208,7 +208,7 @@ def build_related_links(graph: dict, service: dict | None, current_slug: str) ->
         return """<div class="related-panel">
   <h2>İlgili Sayfalar</h2>
   <div class="related-links">
-    <a href="/blog.html" class="secondary-link">Tüm Yazılar</a>
+    <a href="/blog" class="secondary-link">Tüm Yazılar</a>
   </div>
 </div>"""
 
@@ -246,7 +246,7 @@ def build_article_template(
 ) -> str:
     graph = graph or load_graph()
     site_url = get_site_url(graph)
-    article_url = f"{site_url}/blog/{url_name}.html"
+    article_url = f"{site_url}/blog/{url_name}"
     safe_title = escape_text(title)
     safe_summary = escape_text(summary)
     safe_author = escape_text(author)
@@ -298,9 +298,9 @@ def build_article_template(
     )
 
     primary_cta_label = escape_text(service["blog_cta_label"] if service else "Blog'a Dön")
-    primary_cta_href = service["url"] if service else "/blog.html"
+    primary_cta_href = service["url"] if service else "/blog"
     secondary_cta_label = escape_text(hub["title"] if hub else "Tüm Yazılar")
-    secondary_cta_href = hub["url"] if hub else "/blog.html"
+    secondary_cta_href = hub["url"] if hub else "/blog"
 
     return f"""<!DOCTYPE html>
 <html lang="tr">
@@ -336,119 +336,14 @@ def build_article_template(
     </script>
     <link rel="stylesheet" href="/assets/fonts.css">
     <link rel="stylesheet" href="/assets/page-shell.css">
-    <style>
-        .article-shell {{
-            width: min(1120px, calc(100% - 3rem));
-            margin: 0 auto;
-            padding: 8.5rem 0 6rem;
-            display: grid;
-            gap: 1.5rem;
-        }}
-        .breadcrumb {{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.55rem;
-            align-items: center;
-            color: rgba(231, 226, 213, 0.7);
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }}
-        .breadcrumb a {{
-            color: rgba(231, 226, 213, 0.78);
-            text-decoration: none;
-        }}
-        .article-content {{
-            border: 1px solid rgba(201, 168, 76, 0.12);
-            border-radius: 30px;
-            background:
-              radial-gradient(circle at 12% 18%, rgba(201, 168, 76, 0.14), transparent 34%),
-              linear-gradient(180deg, rgba(16, 19, 24, 0.96), rgba(13, 16, 20, 0.98));
-            padding: clamp(1.5rem, 3vw, 2.7rem);
-        }}
-        .article-content h1 {{
-            margin: 0.35rem 0 1rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.9rem, 7vw, 4.8rem);
-            line-height: 0.98;
-            color: var(--off-white);
-            max-width: 12ch;
-        }}
-        .article-intro,
-        .article-content p,
-        .article-content li {{
-            color: rgba(231, 226, 213, 0.76);
-            line-height: 1.9;
-            font-size: 1.03rem;
-        }}
-        .meta-info {{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.85rem 1.2rem;
-            padding-bottom: 1.25rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(201, 168, 76, 0.12);
-            color: rgba(201, 168, 76, 0.9);
-            font-size: 0.74rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-        }}
-        .article-content h2 {{
-            margin: 2.2rem 0 0.8rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: var(--off-white);
-        }}
-        .cta-panel,
-        .related-panel,
-        .callout {{
-            margin-top: 1.6rem;
-            padding: 1.25rem;
-            border-radius: 24px;
-            border: 1px solid rgba(201, 168, 76, 0.12);
-            background: rgba(17, 21, 26, 0.84);
-        }}
-        .cta-actions,
-        .related-links {{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.85rem;
-            margin-top: 1rem;
-        }}
-        .primary-link,
-        .secondary-link {{
-            text-decoration: none;
-            font-size: 0.94rem;
-        }}
-        .primary-link {{
-            color: var(--gold);
-        }}
-        .secondary-link {{
-            color: rgba(231, 226, 213, 0.78);
-        }}
-        @media (max-width: 768px) {{
-            .article-shell {{
-                width: min(100% - 1.5rem, 1120px);
-                padding-top: 6.8rem;
-            }}
-            .article-content {{
-                border-radius: 22px;
-            }}
-            .article-content h1 {{
-                max-width: 100%;
-                font-size: clamp(2.4rem, 11vw, 3.5rem);
-            }}
-            .meta-info {{
-                flex-direction: column;
-                gap: 0.4rem;
-            }}
-        }}
-    </style>
+    <link rel="stylesheet" href="/assets/revision.css?v=26">
+    <link rel="stylesheet" href="/assets/blog-detail-revision.css?v=1">
     <script defer src="/assets/config.js"></script>
     <script defer src="/assets/analytics.js"></script>
     <script defer src="/assets/page-shell.js"></script>
+    <script defer src="/assets/revision.js?v=8"></script>
 </head>
-<body data-custom-cursor="true">
+<body class="revision-article-page" data-custom-cursor="true">
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
@@ -456,7 +351,7 @@ def build_article_template(
 
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="menu-close" type="button" data-mobile-close aria-label="Menüyü kapat">✕</button>
-  <a href="/blog.html">Blog</a>
+  <a href="/blog">Blog</a>
   <a href="/seo/">SEO</a>
   <a href="/reklam/">Reklam</a>
   <a href="/yazilim/">Yazılım</a>
@@ -467,7 +362,7 @@ def build_article_template(
 <nav id="navbar">
   <a href="/" class="nav-logo">Veridia</a>
   <ul class="nav-links">
-    <li><a href="/blog.html" aria-current="page">Blog</a></li>
+    <li><a href="/blog" aria-current="page">Blog</a></li>
     <li><a href="/seo/">SEO</a></li>
     <li><a href="/reklam/">Reklam</a></li>
     <li><a href="/yazilim/">Yazılım</a></li>
@@ -539,7 +434,7 @@ def insert_blog_card(
     content = blog_path.read_text(encoding="utf-8")
     category = service["blog_category"] if service else "all"
     label = service["blog_label"] if service else "Yeni Yazı"
-    secondary_href = service["url"] if service else "/blog.html"
+    secondary_href = service["url"] if service else "/blog"
     secondary_label = service["blog_cta_label"] if service else "Tüm Yazılar"
 
     safe_title = escape_text(title)
@@ -554,10 +449,10 @@ def insert_blog_card(
                 <span>{escape_text(reading_time)}</span>
                 <span>Yazar: {safe_author}</span>
             </div>
-            <h2><a href="/blog/{url_name}.html">{safe_title}</a></h2>
+            <h2><a href="/blog/{url_name}">{safe_title}</a></h2>
             <p>{safe_summary}</p>
             <div class="blog-card-footer">
-                <a href="/blog/{url_name}.html" class="read-more">Makaleyi Oku</a>
+                <a href="/blog/{url_name}" class="read-more">Makaleyi Oku</a>
                 <a href="{secondary_href}" class="secondary-link">{escape_text(secondary_label)}</a>
             </div>
         </article>
@@ -614,7 +509,7 @@ def append_post_to_graph(
     graph["blog_posts"].append(
         {
             "slug": slug,
-            "url": f"/blog/{slug}.html",
+            "url": f"/blog/{slug}",
             "file": f"blog/{slug}.html",
             "title": title,
             "summary": summary,

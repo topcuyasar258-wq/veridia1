@@ -1,402 +1,43 @@
 .beauty-web-article {
   background:
-    radial-gradient(circle at 80% 6%, rgba(154, 175, 137, 0.12), transparent 24rem),
+    radial-gradient(circle at 82% 6%, rgba(154, 175, 137, 0.14), transparent 24rem),
+    radial-gradient(circle at 8% 20%, rgba(154, 175, 137, 0.08), transparent 18rem),
     var(--revision-bg) !important;
 }
 
-.beauty-web-article .article-shell {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 320px) !important;
-  gap: clamp(2rem, 5vw, 4.5rem) !important;
-  padding-top: clamp(3.5rem, 7vw, 6.5rem) !important;
-  padding-bottom: clamp(4rem, 8vw, 7rem) !important;
-}
-
-.beauty-web-article .article-content {
-  max-width: 880px;
-  padding: 0 !important;
-}
-
-.beauty-web-article .article-content::before {
-  display: none !important;
-}
-
-.beauty-web-article .breadcrumb {
-  margin-bottom: clamp(2rem, 4vw, 3.5rem) !important;
-  color: rgba(154, 175, 137, 0.86) !important;
-  font-size: 0.66rem !important;
-  letter-spacing: 0.22em !important;
-}
-
-.beauty-web-article .breadcrumb span[aria-current="page"] {
-  max-width: 32ch;
-  color: rgba(241, 239, 232, 0.74) !important;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .beauty-web-article .article-content > h1 {
-  max-width: 11ch !important;
-  margin: 0 0 clamp(1.35rem, 2vw, 1.8rem) !important;
-  font-size: clamp(3.55rem, 8.2vw, 7.4rem) !important;
-  line-height: 0.88 !important;
-  letter-spacing: -0.06em !important;
-}
-
-.beauty-web-article .article-intro {
-  max-width: 760px !important;
-  margin-bottom: clamp(1.5rem, 3vw, 2.25rem) !important;
-  color: rgba(241, 239, 232, 0.72) !important;
-  font-size: clamp(1.05rem, 1.45vw, 1.22rem) !important;
-  line-height: 1.78 !important;
-}
-
-.beauty-web-article .meta-info {
-  margin-bottom: 0 !important;
-  padding: 1rem 0 1.35rem !important;
-  border-top: 1px solid var(--revision-line) !important;
-  border-bottom: 1px solid var(--revision-line) !important;
-  color: rgba(241, 239, 232, 0.58) !important;
-  font-size: 0.68rem !important;
-}
-
-.article-hero-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  margin: clamp(1.75rem, 4vw, 3rem) 0;
-  border: 1px solid var(--revision-line);
-  background: var(--revision-line);
-}
-
-.article-hero-grid > div {
-  min-height: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.6rem;
-  padding: clamp(1.2rem, 2vw, 1.8rem);
-  background:
-    linear-gradient(135deg, rgba(13, 18, 14, 0.86), rgba(9, 12, 10, 0.96));
-}
-
-.hero-grid-kicker {
-  color: var(--revision-accent-strong);
-  font-size: 0.67rem;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-}
-
-.beauty-web-article .article-hero-grid p {
-  max-width: 38ch !important;
-  margin: 0 !important;
-  color: rgba(241, 239, 232, 0.78) !important;
-  font-size: clamp(1rem, 1.35vw, 1.12rem) !important;
-  line-height: 1.65 !important;
-}
-
-.beauty-web-article .info-panel {
-  display: grid;
-  grid-template-columns: minmax(180px, 0.55fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  margin: clamp(2rem, 4vw, 3.25rem) 0 !important;
-  padding: clamp(1.35rem, 3vw, 2.3rem) 0 !important;
-  border: 0 !important;
-  border-top: 1px solid var(--revision-line) !important;
-  border-bottom: 1px solid var(--revision-line) !important;
-  background: transparent !important;
-}
-
-.beauty-web-article .info-panel h2,
-.beauty-web-article .faq-panel h2,
-.beauty-web-article .related-panel h2,
-.beauty-web-article .cta-panel h2 {
-  border-left: 0 !important;
-  padding-left: 0 !important;
-}
-
-.beauty-web-article .info-panel h2 {
-  margin: 0 !important;
-  font-size: clamp(1.7rem, 3vw, 2.45rem) !important;
-  line-height: 1.05 !important;
-}
-
-.beauty-web-article .toc-list {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 !important;
-  margin: 0 !important;
-}
-
-.beauty-web-article .toc-list li {
-  margin: 0 !important;
-  border-top: 1px solid rgba(241, 239, 232, 0.1);
-}
-
-.beauty-web-article .toc-list li:nth-child(-n + 2) {
-  border-top: 0;
-}
-
-.beauty-web-article .toc-list a {
-  min-height: 3.25rem;
-  display: flex;
-  align-items: center;
-  padding: 0.8rem 1rem 0.8rem 0;
-  color: rgba(241, 239, 232, 0.82) !important;
-  font-size: 0.93rem;
-  line-height: 1.35 !important;
-  transition: color 180ms ease, transform 180ms ease;
-}
-
-.beauty-web-article .toc-list a:hover {
-  color: var(--revision-accent-strong) !important;
-  transform: translateX(4px);
+  max-width: 10.5ch;
 }
 
 .beauty-web-article .article-content > h2 {
-  position: relative;
-  margin-top: clamp(4rem, 7vw, 6rem) !important;
-  padding-top: 1.25rem;
-  padding-left: 0 !important;
-  border-top: 1px solid var(--revision-line);
-  border-left: 0 !important;
-  font-size: clamp(2.35rem, 4vw, 3.65rem) !important;
-  line-height: 0.98 !important;
-  letter-spacing: -0.035em !important;
+  margin-top: clamp(4rem, 7vw, 5.8rem);
 }
 
-.beauty-web-article .article-content > h2::before {
-  position: absolute;
-  top: -1px;
-  left: 0;
-  width: 5.5rem;
-  height: 1px;
-  content: "";
-  background: var(--revision-accent-strong);
-}
-
-.beauty-web-article .article-content h3 {
-  margin-top: 2.1rem !important;
-  color: rgba(241, 239, 232, 0.94) !important;
-  font-family: var(--revision-font-body) !important;
-  font-size: 1rem !important;
-  font-weight: 650 !important;
-  letter-spacing: 0.01em !important;
-}
-
-.beauty-web-article .article-content :is(p, li) {
-  max-width: 72ch;
-  color: rgba(241, 239, 232, 0.68) !important;
-  font-size: 1.02rem !important;
-  line-height: 1.86 !important;
-}
-
-.beauty-web-article .article-content ul {
-  max-width: 72ch;
-  padding-left: 0 !important;
-  list-style: none;
-}
-
-.beauty-web-article .article-content li {
-  position: relative;
-  padding-left: 1.35rem;
-}
-
-.beauty-web-article .article-content li::before {
-  position: absolute;
-  top: 0.88em;
-  left: 0;
-  width: 0.38rem;
-  aspect-ratio: 1;
-  border-radius: 999px;
-  content: "";
-  background: var(--revision-accent-strong);
+.beauty-web-article .article-hero-grid > div {
+  background:
+    linear-gradient(135deg, rgba(13, 18, 14, 0.86), rgba(9, 12, 10, 0.97));
 }
 
 .beauty-web-article .callout {
-  max-width: 780px;
-  margin: clamp(2rem, 4vw, 3rem) 0 !important;
-  padding: clamp(1.25rem, 3vw, 2rem) !important;
-  border: 1px solid rgba(154, 175, 137, 0.32) !important;
-  border-left: 2px solid var(--revision-accent-strong) !important;
-  color: rgba(241, 239, 232, 0.82);
   background:
-    linear-gradient(135deg, rgba(132, 154, 116, 0.12), rgba(13, 18, 14, 0.8)) !important;
-  font-family: var(--revision-font-display);
-  font-size: clamp(1.35rem, 2.5vw, 2rem);
-  line-height: 1.28;
+    linear-gradient(135deg, rgba(132, 154, 116, 0.14), rgba(13, 18, 14, 0.84));
 }
 
-.beauty-web-article .cta-panel,
+.beauty-web-article .sidebar-panel a,
+.beauty-web-article .related-panel a,
+.beauty-web-article .article-content a {
+  text-decoration-thickness: 1px;
+}
+
 .beauty-web-article .faq-panel,
-.beauty-web-article .related-panel {
-  margin: clamp(2.5rem, 5vw, 4rem) 0 !important;
-  padding: clamp(1.35rem, 3vw, 2.25rem) !important;
-  border: 1px solid var(--revision-line) !important;
-  background:
-    radial-gradient(circle at 100% 0, rgba(154, 175, 137, 0.1), transparent 18rem),
-    rgba(13, 18, 14, 0.72) !important;
-}
-
-.beauty-web-article .cta-panel {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 1.5rem 2rem !important;
-}
-
-.beauty-web-article .cta-panel h2,
-.beauty-web-article .cta-panel p {
-  grid-column: 1;
-}
-
-.beauty-web-article .cta-panel .cta-actions {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-}
-
-.beauty-web-article .cta-panel h2,
-.beauty-web-article .related-panel h2,
-.beauty-web-article .faq-panel h2 {
-  font-size: clamp(1.85rem, 3vw, 2.75rem) !important;
-  line-height: 1.04 !important;
-}
-
-.beauty-web-article .cta-panel p {
-  max-width: 60ch !important;
-}
-
-.beauty-web-article .cta-actions,
-.beauty-web-article .related-links {
-  gap: 0.65rem !important;
-  margin-top: 0 !important;
-}
-
-.beauty-web-article :is(.primary-link, .secondary-link) {
-  min-height: 2.9rem;
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  border-radius: 2px;
-  font-size: 0.68rem !important;
-  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
-}
-
-.beauty-web-article .primary-link {
-  border: 1px solid var(--revision-accent-strong);
-  color: #071008 !important;
-  background: var(--revision-accent-strong) !important;
-}
-
-.beauty-web-article .secondary-link {
-  border: 1px solid rgba(241, 239, 232, 0.22) !important;
-  color: var(--revision-text) !important;
-  background: transparent !important;
-}
-
-.beauty-web-article :is(.primary-link, .secondary-link):hover {
-  transform: translateY(-2px);
-}
-
-.beauty-web-article .faq-panel {
-  display: grid;
-  gap: 0;
-}
-
-.beauty-web-article .faq-item {
-  padding: 1.15rem 0;
-  border-top: 1px solid rgba(241, 239, 232, 0.1);
-}
-
-.beauty-web-article .faq-item:first-of-type {
-  border-top: 0;
-}
-
-.beauty-web-article .faq-item p {
-  margin-bottom: 0.5rem !important;
-}
-
-.beauty-web-article .faq-item p:last-child {
-  margin-bottom: 0 !important;
-}
-
-.beauty-web-article .sidebar {
-  gap: 1px !important;
-  padding-top: 0.2rem;
-  border: 1px solid var(--revision-line);
-  background: var(--revision-line);
-  top: calc(var(--revision-header-height) + 1.5rem) !important;
-}
-
+.beauty-web-article .related-panel,
+.beauty-web-article .cta-panel,
 .beauty-web-article .sidebar-panel {
-  padding: 1.35rem !important;
-  border: 0 !important;
-  background: rgba(9, 12, 10, 0.95) !important;
+  background:
+    radial-gradient(circle at 100% 0, rgba(154, 175, 137, 0.11), transparent 18rem),
+    rgba(13, 18, 14, 0.8);
 }
 
 .beauty-web-article .sidebar-panel h2 {
-  color: var(--revision-accent-strong) !important;
-  font-family: var(--revision-font-body) !important;
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.22em !important;
-  text-transform: uppercase;
-}
-
-.beauty-web-article .sidebar-panel p {
-  color: rgba(241, 239, 232, 0.72) !important;
-  font-size: 0.94rem !important;
-  line-height: 1.68 !important;
-}
-
-@media (max-width: 960px) {
-  .beauty-web-article .article-shell {
-    grid-template-columns: 1fr !important;
-  }
-
-  .beauty-web-article .sidebar {
-    order: 2 !important;
-    position: static !important;
-  }
-}
-
-@media (max-width: 760px) {
-  .beauty-web-article .article-shell {
-    padding-top: 2.5rem !important;
-  }
-
-  .beauty-web-article .article-content > h1 {
-    max-width: 100% !important;
-    font-size: clamp(3.05rem, 17vw, 4.8rem) !important;
-  }
-
-  .beauty-web-article .breadcrumb span[aria-current="page"] {
-    max-width: 20ch;
-  }
-
-  .article-hero-grid,
-  .beauty-web-article .info-panel,
-  .beauty-web-article .toc-list,
-  .beauty-web-article .cta-panel {
-    grid-template-columns: 1fr !important;
-  }
-
-  .beauty-web-article .cta-panel h2,
-  .beauty-web-article .cta-panel p,
-  .beauty-web-article .cta-panel .cta-actions {
-    grid-column: 1 !important;
-    grid-row: auto !important;
-  }
-
-  .beauty-web-article .toc-list li:nth-child(2) {
-    border-top: 1px solid rgba(241, 239, 232, 0.1);
-  }
-
-  .beauty-web-article .cta-actions,
-  .beauty-web-article .related-links {
-    flex-direction: column;
-    align-items: stretch;
-  }
+  color: rgba(154, 175, 137, 0.94);
 }
