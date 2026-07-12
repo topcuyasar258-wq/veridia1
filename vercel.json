@@ -162,13 +162,58 @@
       "permanent": true
     },
     {
-      "source": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
-      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "source": "/blog",
+      "destination": "/blog.html",
       "permanent": true
     },
     {
-      "source": "/blog.html",
-      "destination": "/blog",
+      "source": "/iletisim",
+      "destination": "/iletisim.html",
+      "permanent": true
+    },
+    {
+      "source": "/hizli-teklif",
+      "destination": "/hizli-teklif.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezi-dijital-pazarlama",
+      "destination": "/blog/guzellik-merkezi-dijital-pazarlama.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-seo-nedir",
+      "destination": "/blog/guzellik-merkezleri-icin-seo-nedir.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
+      "destination": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/instagram-algoritmasi-2026",
+      "destination": "/blog/instagram-algoritmasi-2026.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/avukatlar-icin-google-reklamlari",
+      "destination": "/blog/avukatlar-icin-google-reklamlari/",
       "permanent": true
     }
   ],
@@ -219,16 +264,6 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/blog",
-      "destination": "/blog.html"
-    },
-    {
-      "source": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
-      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html"
     }
   ]
 }

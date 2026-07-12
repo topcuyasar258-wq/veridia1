@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.veridiareklam.com.tr</loc>
-    <lastmod>2026-06-08T05:50:43+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/</loc>
+    <lastmod>2026-07-12T00:00:00+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -232,8 +232,8 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/blog/avukatlar-icin-google-reklamlari</loc>
-    <lastmod>2026-06-16T15:01:53+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog/avukatlar-icin-google-reklamlari/</loc>
+    <lastmod>2026-07-12T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -288,6 +288,30 @@
   <url>
     <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama.html</loc>
     <lastmod>2026-06-17T13:52:55+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html</loc>
+    <lastmod>2026-07-12T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html</loc>
+    <lastmod>2026-07-12T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-seo-nedir.html</loc>
+    <lastmod>2026-07-12T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.veridiareklam.com.tr/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html</loc>
+    <lastmod>2026-07-12T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

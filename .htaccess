@@ -1,5 +1,22 @@
-<IfModule mod_alias.c>
-  Redirect 301 /blog/b2b-pazarlamada-donusum-hunisi.html /blog/b2b-donusum-hunisi.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # non-www -> www
+  RewriteCond %{HTTP_HOST} ^veridiareklam\.com\.tr$ [NC]
+  RewriteRule ^(.*)$ https://www.veridiareklam.com.tr/$1 [R=301,L]
+
+  # http -> https
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://www.veridiareklam.com.tr/$1 [R=301,L]
+
+  # Legacy URL'ler
+  RewriteRule ^blog/b2b-pazarlamada-donusum-hunisi\.html$ /blog/b2b-donusum-hunisi.html [R=301,L]
+
+  # .html'siz istekleri .html'li kanonik versiyona yonlendir
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.*)$ /$1.html [R=301,L]
 </IfModule>
 
 <IfModule mod_headers.c>
