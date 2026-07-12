@@ -9,8 +9,21 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://www.veridiareklam.com.tr/$1 [R=301,L]
 
+  # /index.html -> / (sadece dogrudan istekte; DirectoryIndex ic istegi haric)
+  RewriteCond %{THE_REQUEST} \s/index\.html [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+
   # Legacy URL'ler
   RewriteRule ^blog/b2b-pazarlamada-donusum-hunisi\.html$ /blog/b2b-donusum-hunisi.html [R=301,L]
+  RewriteRule ^asdfadsf\.html$ / [R=301,L]
+  RewriteRule ^veridia-ajans\.html$ / [R=301,L]
+  RewriteRule ^neler-yapiyoruz\.html$ /hizmetler/ [R=301,L]
+  RewriteRule ^web-tasarim\.html$ /hizmetler/web-tasarim/ [R=301,L]
+  RewriteRule ^seo-danismanligi\.html$ /hizmetler/seo-danismanligi/ [R=301,L]
+  RewriteRule ^google-ads-yonetimi\.html$ /hizmetler/google-ads-yonetimi/ [R=301,L]
+  RewriteRule ^sosyal-medya-yonetimi\.html$ /hizmetler/sosyal-medya-yonetimi/ [R=301,L]
+  RewriteRule ^guzellik-klinik-dijital-pazarlama\.html$ /sektorler/guzellik-merkezleri-icin-dijital-pazarlama/ [R=301,L]
+  RewriteRule ^guzellik-merkezleri-icin-dijital-pazarlama$ /sektorler/guzellik-merkezleri-icin-dijital-pazarlama/ [R=301,L]
 
   # .html'siz istekleri .html'li kanonik versiyona yonlendir
   RewriteCond %{REQUEST_FILENAME} !-f
