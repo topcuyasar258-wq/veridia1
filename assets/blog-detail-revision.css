@@ -519,12 +519,36 @@ body.revision-article-page {
 
   .article-shell {
     width: min(100% - 1.5rem, var(--revision-container));
-    padding-top: 1.5rem;
+    padding-block: 1.75rem 3.5rem !important;
   }
 
-  .article-content > h1 {
-    max-width: 100%;
-    font-size: clamp(2.9rem, 16vw, 4.8rem);
+  body.revision-article-page .article-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  body.revision-article-page .breadcrumb,
+  body.revision-article-page .article-content > :is(p, ul, ol, figure, blockquote, div),
+  body.revision-article-page :is(.meta-info, .article-meta, .article-breadcrumb, .breadcrumbs) {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  body.revision-article-page .article-content > h1 {
+    max-width: 100% !important;
+    margin-bottom: 1.35rem !important;
+    font-size: clamp(2.15rem, 9.8vw, 2.8rem) !important;
+    line-height: 1.03 !important;
+    letter-spacing: -0.035em !important;
+    text-wrap: balance;
+  }
+
+  body.revision-article-page .article-intro {
+    margin-bottom: 1.35rem !important;
+    font-size: 0.98rem !important;
+    line-height: 1.58 !important;
   }
 
   .article-hero-grid,
@@ -550,5 +574,12 @@ body.revision-article-page {
 
   .toc-list li:nth-child(2) {
     border-top: 1px solid rgba(241, 239, 232, 0.08);
+  }
+
+  .toc-list a,
+  :is(.primary-link, .secondary-link) {
+    width: 100%;
+    overflow-wrap: anywhere;
+    text-align: center;
   }
 }
