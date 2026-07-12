@@ -121,6 +121,17 @@ LEGACY_REDIRECTS = {
     "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
     "/guzellik-klinik-dijital-pazarlama.html": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
     "/guzellik-merkezleri-icin-dijital-pazarlama": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+    "/blog": "/blog.html",
+    "/iletisim": "/iletisim.html",
+    "/hizli-teklif": "/hizli-teklif.html",
+    "/blog/guzellik-merkezi-web-sitesi-nasil-olmali": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
+    "/blog/guzellik-merkezi-dijital-pazarlama": "/blog/guzellik-merkezi-dijital-pazarlama.html",
+    "/blog/guzellik-merkezleri-icin-dijital-pazarlama": "/blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
+    "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
+    "/blog/guzellik-merkezleri-icin-seo-nedir": "/blog/guzellik-merkezleri-icin-seo-nedir.html",
+    "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
+    "/blog/instagram-algoritmasi-2026": "/blog/instagram-algoritmasi-2026.html",
+    "/blog/avukatlar-icin-google-reklamlari": "/blog/avukatlar-icin-google-reklamlari/",
 }
 IMAGE_PROXY_ALLOWED_HOSTS = ("cdninstagram.com", "fbcdn.net")
 SECURITY_HEADERS = {

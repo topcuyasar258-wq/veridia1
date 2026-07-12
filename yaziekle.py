@@ -156,13 +156,13 @@ def build_breadcrumbs(hub: dict | None, service: dict | None, title: str, site_u
                 "@type": "ListItem",
                 "position": position,
                 "name": "Blog",
-                "item": canonical(site_url, "/blog"),
+                "item": canonical(site_url, "/blog.html"),
             }
         )
         visual_parts.extend(
             [
                 '  <span aria-hidden="true">→</span>',
-                '  <a href="/blog">Blog</a>',
+                '  <a href="/blog.html">Blog</a>',
             ]
         )
         position += 1
@@ -172,7 +172,7 @@ def build_breadcrumbs(hub: dict | None, service: dict | None, title: str, site_u
             "@type": "ListItem",
             "position": position,
             "name": title,
-            "item": canonical(site_url, f"/blog/{article_slug}"),
+            "item": canonical(site_url, f"/blog/{article_slug}.html"),
         }
     )
     visual_parts.extend(
@@ -208,7 +208,7 @@ def build_related_links(graph: dict, service: dict | None, current_slug: str) ->
         return """<div class="related-panel">
   <h2>İlgili Sayfalar</h2>
   <div class="related-links">
-    <a href="/blog" class="secondary-link">Tüm Yazılar</a>
+    <a href="/blog.html" class="secondary-link">Tüm Yazılar</a>
   </div>
 </div>"""
 
@@ -246,7 +246,7 @@ def build_article_template(
 ) -> str:
     graph = graph or load_graph()
     site_url = get_site_url(graph)
-    article_url = f"{site_url}/blog/{url_name}"
+    article_url = f"{site_url}/blog/{url_name}.html"
     safe_title = escape_text(title)
     safe_summary = escape_text(summary)
     safe_author = escape_text(author)
@@ -298,9 +298,9 @@ def build_article_template(
     )
 
     primary_cta_label = escape_text(service["blog_cta_label"] if service else "Blog'a Dön")
-    primary_cta_href = service["url"] if service else "/blog"
+    primary_cta_href = service["url"] if service else "/blog.html"
     secondary_cta_label = escape_text(hub["title"] if hub else "Tüm Yazılar")
-    secondary_cta_href = hub["url"] if hub else "/blog"
+    secondary_cta_href = hub["url"] if hub else "/blog.html"
 
     return f"""<!DOCTYPE html>
 <html lang="tr">
@@ -351,7 +351,7 @@ def build_article_template(
 
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="menu-close" type="button" data-mobile-close aria-label="Menüyü kapat">✕</button>
-  <a href="/blog">Blog</a>
+  <a href="/blog.html">Blog</a>
   <a href="/seo/">SEO</a>
   <a href="/reklam/">Reklam</a>
   <a href="/yazilim/">Yazılım</a>
@@ -362,7 +362,7 @@ def build_article_template(
 <nav id="navbar">
   <a href="/" class="nav-logo">Veridia</a>
   <ul class="nav-links">
-    <li><a href="/blog" aria-current="page">Blog</a></li>
+    <li><a href="/blog.html" aria-current="page">Blog</a></li>
     <li><a href="/seo/">SEO</a></li>
     <li><a href="/reklam/">Reklam</a></li>
     <li><a href="/yazilim/">Yazılım</a></li>
@@ -434,7 +434,7 @@ def insert_blog_card(
     content = blog_path.read_text(encoding="utf-8")
     category = service["blog_category"] if service else "all"
     label = service["blog_label"] if service else "Yeni Yazı"
-    secondary_href = service["url"] if service else "/blog"
+    secondary_href = service["url"] if service else "/blog.html"
     secondary_label = service["blog_cta_label"] if service else "Tüm Yazılar"
 
     safe_title = escape_text(title)
@@ -449,10 +449,10 @@ def insert_blog_card(
                 <span>{escape_text(reading_time)}</span>
                 <span>Yazar: {safe_author}</span>
             </div>
-            <h2><a href="/blog/{url_name}">{safe_title}</a></h2>
+            <h2><a href="/blog/{url_name}.html">{safe_title}</a></h2>
             <p>{safe_summary}</p>
             <div class="blog-card-footer">
-                <a href="/blog/{url_name}" class="read-more">Makaleyi Oku</a>
+                <a href="/blog/{url_name}.html" class="read-more">Makaleyi Oku</a>
                 <a href="{secondary_href}" class="secondary-link">{escape_text(secondary_label)}</a>
             </div>
         </article>
@@ -509,7 +509,7 @@ def append_post_to_graph(
     graph["blog_posts"].append(
         {
             "slug": slug,
-            "url": f"/blog/{slug}",
+            "url": f"/blog/{slug}.html",
             "file": f"blog/{slug}.html",
             "title": title,
             "summary": summary,
