@@ -22,7 +22,8 @@
   <meta name="theme-color" content="#0a0a0f">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="./assets/fonts.css">
+  <script defer src="/assets/theme-init.js?v=1"></script>
+<link rel="stylesheet" href="./assets/fonts.css">
   <link rel="stylesheet" href="./assets/page-shell.css">
   <link rel="stylesheet" href="./assets/work-pages.css">
   <script defer src="./assets/config.js?v=6"></script>
@@ -67,6 +68,12 @@
     .services-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
     .services-card a { color: var(--gold); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; text-decoration: none !important; font-weight: bold; }
     .services-card a:hover { color: var(--gold-light); }
+
+    [data-theme="light"] .cta-box { background: linear-gradient(180deg, rgba(45,106,79,0.05), rgba(23,33,29,0.04)); border-color: rgba(23,33,29,0.08); box-shadow: 0 14px 34px rgba(23,33,29,0.06); }
+    [data-theme="light"] .feature-card,
+    [data-theme="light"] .step-card,
+    [data-theme="light"] .services-card { background: rgba(23,33,29,0.03); border-color: rgba(23,33,29,0.08); }
+    [data-theme="light"] .services-card:hover { background: rgba(23,33,29,0.05); border-color: rgba(23,33,29,0.14); }
   </style>
   <link rel="stylesheet" href="/assets/revision.css?v=26">
   <script defer src="/assets/revision.js?v=8"></script>

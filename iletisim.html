@@ -26,7 +26,8 @@
   <link rel="preload" href="./assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./assets/fonts.css">
+  <script defer src="/assets/theme-init.js?v=1"></script>
+<link rel="stylesheet" href="./assets/fonts.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -345,6 +346,10 @@
             <a href="/blog.html">Blog</a>
             <a href="/gizlilik-politikasi.html">Gizlilik</a>
             <a href="/kvkk-aydinlatma-metni.html">KVKK</a>
+            <button class="theme-toggle-btn" type="button" data-theme-toggle>
+              <span class="theme-toggle-icon" id="themeIcon">🌙</span>
+              <span id="themeLabel">Koyu</span>
+            </button>
           </div>
         </div>
       </footer>

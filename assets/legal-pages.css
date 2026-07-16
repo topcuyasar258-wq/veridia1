@@ -307,3 +307,11 @@ body.legal-page > footer {
     display: grid;
   }
 }
+
+[data-theme="light"] .legal-meta {
+  background: rgba(23, 33, 29, 0.06);
+}
+
+[data-theme="light"] .legal-document li {
+  background: rgba(23, 33, 29, 0.05);
+}

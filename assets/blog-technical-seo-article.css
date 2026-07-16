@@ -502,7 +502,7 @@ th {
 
 .code-note {
     margin-bottom: 0;
-    color: rgba(232, 235, 230, 0.78);
+    color: var(--text-muted);
     font-size: 0.96rem;
 }
 
