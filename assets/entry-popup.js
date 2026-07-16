@@ -2,7 +2,7 @@
   const t = e.document;
   const STORAGE_KEY = "veridia-campaign-popup-seen";
   const WHATSAPP_NUMBER = "905055174654";
-  const WHATSAPP_MESSAGE = "Merhaba Veridia, %50 indirim kampanyasından yararlanmak istiyorum.";
+  const WHATSAPP_MESSAGE = "Merhaba Deniz, %50 indirim kampanyası hakkında bilgi almak istiyorum.";
   const SHOW_DELAY_MS = 1200;
 
   function alreadySeen() {
@@ -29,19 +29,21 @@
 #veridiaCampaignOverlay{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:1.25rem;background:rgba(10,15,13,.72);backdrop-filter:blur(6px);opacity:0;transition:opacity .35s ease;}
 #veridiaCampaignOverlay.is-visible{opacity:1;}
 #veridiaCampaignOverlay.is-closing{opacity:0;}
-#veridiaCampaignPopup{position:relative;width:100%;max-width:430px;background:var(--surface-1);border:1px solid var(--line-strong);border-radius:20px;box-shadow:var(--shadow-strong);padding:2.25rem 1.75rem 1.75rem;text-align:center;transform:translateY(18px) scale(.97);transition:transform .35s ease;font-family:"DM Sans",sans-serif;color:var(--off-white);}
-#veridiaCampaignOverlay.is-visible #veridiaCampaignPopup{transform:translateY(0) scale(1);}
+#veridiaCampaignPopup{position:relative;width:100%;max-width:410px;background:var(--surface-1);border:1px solid var(--line-strong);border-radius:26px 26px 6px 26px;box-shadow:var(--shadow-strong);padding:1.9rem 1.6rem 1.6rem;text-align:left;transform:translateY(18px) scale(.97) rotate(-.4deg);transition:transform .35s ease;font-family:"DM Sans",sans-serif;color:var(--off-white);}
+#veridiaCampaignOverlay.is-visible #veridiaCampaignPopup{transform:translateY(0) scale(1) rotate(0deg);}
 #veridiaCampaignPopup .vcp-close{position:absolute;top:.85rem;right:.85rem;width:2.1rem;height:2.1rem;border:1px solid var(--line-soft);border-radius:50%;background:transparent;color:var(--off-white);font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 #veridiaCampaignPopup .vcp-close:hover{background:var(--surface-strong);}
-#veridiaCampaignPopup .vcp-badge{display:inline-block;padding:.35rem .9rem;border-radius:999px;background:rgba(45,106,79,.16);border:1px solid var(--line-strong);color:var(--gold-light);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;}
-#veridiaCampaignPopup h2{font-size:1.5rem;line-height:1.25;margin-bottom:.65rem;}
-#veridiaCampaignPopup p{font-size:.95rem;line-height:1.55;color:var(--text-muted);margin-bottom:1.1rem;}
-#veridiaCampaignPopup .vcp-price{display:flex;align-items:baseline;justify-content:center;gap:.6rem;margin-bottom:1.4rem;}
-#veridiaCampaignPopup .vcp-price-old{font-size:1.05rem;color:var(--text-muted);text-decoration:line-through;}
-#veridiaCampaignPopup .vcp-price-new{font-size:1.6rem;font-weight:700;color:var(--gold-light);}
-#veridiaCampaignPopup .btn-gold{display:block;width:100%;text-align:center;box-sizing:border-box;margin-bottom:.75rem;}
-#veridiaCampaignPopup .vcp-dismiss{background:none;border:none;color:var(--text-muted);font-size:.85rem;text-decoration:underline;cursor:pointer;padding:.25rem;}
-@media (max-width:480px){#veridiaCampaignPopup{padding:2rem 1.35rem 1.5rem;}#veridiaCampaignPopup h2{font-size:1.3rem;}}
+#veridiaCampaignPopup .vcp-who{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem;}
+#veridiaCampaignPopup .vcp-avatar{flex:none;width:2.75rem;height:2.75rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.05rem;color:var(--charcoal);background:linear-gradient(135deg,var(--gold-light),var(--emerald));}
+#veridiaCampaignPopup .vcp-who-name{font-weight:700;font-size:.95rem;line-height:1.2;}
+#veridiaCampaignPopup .vcp-who-meta{font-size:.78rem;color:var(--text-muted);}
+#veridiaCampaignPopup .vcp-message{font-size:.97rem;line-height:1.6;color:var(--off-white);margin-bottom:1.3rem;}
+#veridiaCampaignPopup .vcp-message s{color:var(--text-muted);}
+#veridiaCampaignPopup .vcp-message strong{color:var(--gold-light);}
+#veridiaCampaignPopup .btn-gold{display:block;width:100%;text-align:center;box-sizing:border-box;margin-bottom:.6rem;}
+#veridiaCampaignPopup .vcp-fineprint{display:block;text-align:center;font-size:.74rem;color:var(--text-muted);margin-bottom:.5rem;}
+#veridiaCampaignPopup .vcp-dismiss{display:block;margin:0 auto;background:none;border:none;color:var(--text-muted);font-size:.85rem;text-decoration:underline;cursor:pointer;padding:.25rem;}
+@media (max-width:480px){#veridiaCampaignPopup{padding:1.7rem 1.3rem 1.4rem;}}
 `;
     t.head.appendChild(style);
   }
@@ -57,15 +59,17 @@
     overlay.innerHTML = `
       <div id="veridiaCampaignPopup" role="dialog" aria-modal="true" aria-labelledby="vcpTitle">
         <button type="button" class="vcp-close" aria-label="Kapat">&times;</button>
-        <span class="vcp-badge">Sınırlı Süre Kampanyası</span>
-        <h2 id="vcpTitle">Web Sitenizde %50 İndirim</h2>
-        <p>Dönüşüm odaklı, mobilde hızlı çalışan profesyonel web sitesi paketlerinde bu ay geçerli kampanya fiyatlarıyla başlayın.</p>
-        <div class="vcp-price">
-          <span class="vcp-price-old">40.000 TL</span>
-          <span class="vcp-price-new">20.000 TL'den başlayan</span>
+        <div class="vcp-who">
+          <div class="vcp-avatar" aria-hidden="true">D</div>
+          <div>
+            <div class="vcp-who-name">Deniz · Veridia</div>
+            <div class="vcp-who-meta">az önce</div>
+          </div>
         </div>
-        <a class="btn-gold" href="${waHref}" data-whatsapp-message="${WHATSAPP_MESSAGE}" target="_blank" rel="noopener">Kampanyadan Yararlan</a>
-        <button type="button" class="vcp-dismiss">Şimdi değil</button>
+        <p id="vcpTitle" class="vcp-message">Merhaba 👋 Bu ay yeni gelen markalara küçük bir jestimiz var: normalde <s>40.000 TL</s> olan web sitesi paketini <strong>20.000 TL'ye</strong> çekiyoruz. İster direkt merhaba deyin, ister aklınıza takılan bir şeyi sorun, ben bakarım.</p>
+        <a class="btn-gold" href="${waHref}" data-whatsapp-message="${WHATSAPP_MESSAGE}" target="_blank" rel="noopener">WhatsApp'tan Yaz</a>
+        <span class="vcp-fineprint">Bu ay için geçerli, kontenjan sınırlı</span>
+        <button type="button" class="vcp-dismiss">Şimdilik geç</button>
       </div>
     `;
     return overlay;
