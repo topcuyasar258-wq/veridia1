@@ -22,7 +22,8 @@
   <meta name="theme-color" content="#0a0a0f">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="./assets/fonts.css">
+  <script defer src="/assets/theme-init.js?v=1"></script>
+<link rel="stylesheet" href="./assets/fonts.css">
   <link rel="stylesheet" href="./assets/page-shell.css">
   <link rel="stylesheet" href="./assets/work-pages.css">
   <link rel="stylesheet" href="/assets/revision.css?v=26">
@@ -62,6 +63,12 @@
       .step-grid { grid-template-columns: repeat(2, 1fr); }
       .feature-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    [data-theme="light"] .cta-box { background: linear-gradient(180deg, rgba(45,106,79,0.05), rgba(23,33,29,0.04)); border-color: rgba(23,33,29,0.08); box-shadow: 0 14px 34px rgba(23,33,29,0.06); }
+    [data-theme="light"] .feature-card,
+    [data-theme="light"] .step-card,
+    [data-theme="light"] .services-card { background: rgba(23,33,29,0.03); border-color: rgba(23,33,29,0.08); }
+    [data-theme="light"] .services-card:hover { background: rgba(23,33,29,0.05); border-color: rgba(23,33,29,0.14); }
   </style>
 </head>
 <body class="revision-process-page" data-custom-cursor="true">

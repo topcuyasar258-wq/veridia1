@@ -91,6 +91,13 @@
 
     existingList.innerHTML = linkMarkup;
 
+    let actionSlot = nav.querySelector(".nav-mobile-right, .nav-actions");
+    if (!actionSlot) {
+      actionSlot = document.createElement("div");
+      actionSlot.className = "nav-actions";
+      nav.append(actionSlot);
+    }
+
     if (!nav.querySelector(".revision-nav-cta")) {
       const cta = document.createElement("a");
       cta.className = "revision-nav-cta";
@@ -99,8 +106,23 @@
       cta.target = "_blank";
       cta.rel = "noopener";
       cta.textContent = "Proje Başlat";
-      const actionSlot = nav.querySelector(".nav-mobile-right, .nav-actions");
-      (actionSlot || nav).append(cta);
+      actionSlot.append(cta);
+    }
+
+    if (!document.querySelector("[data-theme-toggle]")) {
+      const storedTheme = (() => {
+        try {
+          return window.localStorage.getItem("veridia-theme") || "dark";
+        } catch (_error) {
+          return "dark";
+        }
+      })();
+      const themeBtn = document.createElement("button");
+      themeBtn.type = "button";
+      themeBtn.className = "theme-toggle-btn revision-nav-theme-toggle";
+      themeBtn.setAttribute("data-theme-toggle", "");
+      themeBtn.innerHTML = `<span class="theme-toggle-icon" id="themeIcon">${storedTheme === "light" ? "☀️" : "🌙"}</span><span id="themeLabel">${storedTheme === "light" ? "Açık" : "Koyu"}</span>`;
+      actionSlot.append(themeBtn);
     }
   }
 

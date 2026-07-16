@@ -22,7 +22,8 @@
   <meta name="theme-color" content="#0a0a0f">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="./assets/fonts.css">
+  <script defer src="/assets/theme-init.js?v=1"></script>
+<link rel="stylesheet" href="./assets/fonts.css">
   <link rel="stylesheet" href="./assets/page-shell.css">
   <link rel="stylesheet" href="./assets/work-pages.css">
   <script type="application/ld+json">
@@ -95,6 +96,12 @@
     .related-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
     .related-card a { color: var(--gold); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; text-decoration: none !important; font-weight: bold; }
     .related-card a:hover { color: var(--gold-light); }
+
+    [data-theme="light"] .cta-box { background: linear-gradient(180deg, rgba(45,106,79,0.05), rgba(23,33,29,0.04)); border-color: rgba(23,33,29,0.08); box-shadow: 0 14px 34px rgba(23,33,29,0.06); }
+    [data-theme="light"] .feature-card,
+    [data-theme="light"] .step-card,
+    [data-theme="light"] .services-card { background: rgba(23,33,29,0.03); border-color: rgba(23,33,29,0.08); }
+    [data-theme="light"] .services-card:hover { background: rgba(23,33,29,0.05); border-color: rgba(23,33,29,0.14); }
   </style>
 </head>
 <body data-custom-cursor="true">
@@ -251,6 +258,10 @@
           <a href="/blog.html">Blog</a>
           <a href="/gizlilik-politikasi.html">Gizlilik</a>
           <a href="/kvkk-aydinlatma-metni.html">KVKK</a>
+          <button class="theme-toggle-btn" type="button" data-theme-toggle>
+            <span class="theme-toggle-icon" id="themeIcon">🌙</span>
+            <span id="themeLabel">Koyu</span>
+          </button>
         </div>
       </div>
     </footer>

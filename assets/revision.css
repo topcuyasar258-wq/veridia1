@@ -2,15 +2,16 @@
   --revision-bg: #090c0a;
   --revision-surface: #0d110e;
   --revision-text: #f1efe8;
+  --revision-text-rgb: 241, 239, 232;
   --revision-muted: #a0a69f;
   --revision-accent: #849a74;
   --revision-accent-strong: #9aaf89;
-  --revision-line: rgba(241, 239, 232, 0.13);
+  --revision-line: rgba(var(--revision-text-rgb), 0.13);
   --revision-gutter: clamp(1.25rem, 4vw, 4rem);
   --revision-container: 1360px;
   --revision-grid:
-    linear-gradient(rgba(241, 239, 232, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(241, 239, 232, 0.055) 1px, transparent 1px);
+    linear-gradient(rgba(var(--revision-text-rgb), 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--revision-text-rgb), 0.055) 1px, transparent 1px);
   --revision-panel: rgba(13, 18, 14, 0.82);
   --revision-section-space: clamp(4.5rem, 8vw, 8rem);
   --revision-display-size: clamp(3.4rem, 7vw, 7.2rem);
@@ -18,6 +19,22 @@
   --revision-font-display: "Cormorant Garamond", Georgia, serif;
   --revision-font-body: "DM Sans", Arial, sans-serif;
 }
+
+[data-theme="light"] {
+  --revision-bg: #f7f8f5;
+  --revision-surface: #edf1eb;
+  --revision-text: #17211d;
+  --revision-text-rgb: 23, 33, 29;
+  --revision-muted: #55665e;
+  --revision-accent: #2d6a4f;
+  --revision-accent-strong: #2d6a4f;
+  --revision-line: rgba(23, 33, 29, 0.14);
+  --revision-grid:
+    linear-gradient(rgba(23, 33, 29, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 33, 29, 0.06) 1px, transparent 1px);
+  --revision-panel: rgba(255, 255, 255, 0.86);
+}
+
 
 *,
 *::before,
@@ -247,12 +264,12 @@ body > nav[aria-label="Ana Menü"].is-scrolled {
   display: flex;
   flex-direction: column;
   background:
-    linear-gradient(rgba(241, 239, 232, 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(241, 239, 232, 0.024) 1px, transparent 1px);
+    linear-gradient(rgba(var(--revision-text-rgb), 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--revision-text-rgb), 0.024) 1px, transparent 1px);
   background-size: 86px 86px;
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-color: rgba(241, 239, 232, 0.44) transparent;
+  scrollbar-color: rgba(var(--revision-text-rgb), 0.44) transparent;
 }
 
 .revision-mobile-head {
@@ -264,7 +281,7 @@ body > nav[aria-label="Ana Menü"].is-scrolled {
   justify-content: space-between;
   min-height: 104px;
   padding: 1.45rem var(--revision-gutter);
-  border-bottom: 1px solid rgba(241, 239, 232, 0.09);
+  border-bottom: 1px solid rgba(var(--revision-text-rgb), 0.09);
   background: #080d0a;
 }
 
@@ -297,9 +314,9 @@ body > nav[aria-label="Ana Menü"].is-scrolled {
   position: relative;
   width: 2.85rem;
   aspect-ratio: 1;
-  border: 1px solid rgba(241, 239, 232, 0.15) !important;
+  border: 1px solid rgba(var(--revision-text-rgb), 0.15) !important;
   border-radius: 999px;
-  background: rgba(241, 239, 232, 0.025) !important;
+  background: rgba(var(--revision-text-rgb), 0.025) !important;
 }
 
 .revision-menu-close::before,
@@ -337,7 +354,7 @@ body > nav[aria-label="Ana Menü"].is-scrolled {
   min-height: 4.05rem;
   padding: 0.78rem 0;
   border: 0 !important;
-  border-bottom: 1px solid rgba(241, 239, 232, 0.11) !important;
+  border-bottom: 1px solid rgba(var(--revision-text-rgb), 0.11) !important;
   border-radius: 0 !important;
   color: var(--revision-text) !important;
   background: transparent !important;
@@ -370,8 +387,8 @@ body > nav[aria-label="Ana Menü"].is-scrolled {
 .revision-menu-arrow {
   width: 0.72rem;
   height: 0.72rem;
-  border-right: 1px solid rgba(241, 239, 232, 0.86);
-  border-bottom: 1px solid rgba(241, 239, 232, 0.86);
+  border-right: 1px solid rgba(var(--revision-text-rgb), 0.86);
+  border-bottom: 1px solid rgba(var(--revision-text-rgb), 0.86);
   transform: translateY(-0.2rem) rotate(45deg);
   transition: transform 180ms ease;
 }
@@ -413,7 +430,7 @@ body > nav[aria-label="Ana Menü"].is-scrolled {
   max-width: 100%;
   padding: 0.28rem 0 0.28rem 1.15rem !important;
   border: 0 !important;
-  color: rgba(241, 239, 232, 0.74) !important;
+  color: rgba(var(--revision-text-rgb), 0.74) !important;
   background: transparent !important;
   font-family: var(--revision-font-body) !important;
   font-size: clamp(0.98rem, 4.9vw, 1.28rem) !important;
@@ -450,10 +467,10 @@ body > nav[aria-label="Ana Menü"].is-scrolled {
   justify-content: center;
   min-height: 3rem;
   padding: 0 1.2rem;
-  border: 1px solid rgba(241, 239, 232, 0.18) !important;
+  border: 1px solid rgba(var(--revision-text-rgb), 0.18) !important;
   border-radius: 999px;
-  color: rgba(241, 239, 232, 0.82) !important;
-  background: rgba(241, 239, 232, 0.018) !important;
+  color: rgba(var(--revision-text-rgb), 0.82) !important;
+  background: rgba(var(--revision-text-rgb), 0.018) !important;
   font-family: var(--revision-font-body) !important;
   font-size: 0.9rem !important;
   font-weight: 600 !important;
@@ -615,7 +632,7 @@ section.about-hero {
 
 .btn-outline,
 .hero-secondary {
-  border-color: rgba(241, 239, 232, 0.45) !important;
+  border-color: rgba(var(--revision-text-rgb), 0.45) !important;
   border-radius: 2px !important;
   color: var(--revision-text) !important;
   background: transparent !important;
@@ -748,7 +765,8 @@ body > footer {
   }
 
   .nav-links,
-  .revision-nav-cta {
+  .revision-nav-cta,
+  .revision-nav-theme-toggle {
     display: none !important;
   }
 
@@ -1313,7 +1331,7 @@ body.reference-home-page #hero :is(.cta-risk-reversal, .hero-quick-links, .hero-
   position: absolute;
   top: 1rem;
   left: clamp(2rem, 5vw, 4.25rem);
-  color: rgba(241, 239, 232, 0.13);
+  color: rgba(var(--revision-text-rgb), 0.13);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(7rem, 15vw, 13rem);
   font-weight: 400;
@@ -2126,4 +2144,86 @@ body.reference-home-page #hero :is(.cta-risk-reversal, .hero-quick-links, .hero-
   .revision-silo-page.sectors-page .trust-list {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
+}
+
+/* Light theme overrides. Placed last so they win ties against the
+   !important dark-mode rules declared throughout this file. */
+
+[data-theme="light"] .nav-links a {
+  color: var(--revision-muted) !important;
+}
+
+[data-theme="light"] .mobile-menu.revision-mobile-menu {
+  background:
+    radial-gradient(circle at 14% 0, rgba(45, 106, 79, 0.08), transparent 18rem),
+    linear-gradient(180deg, #f7f8f5 0%, #edf1eb 100%) !important;
+}
+
+[data-theme="light"] .revision-mobile-head {
+  background: #f7f8f5;
+}
+
+[data-theme="light"] #navbar.is-scrolled,
+[data-theme="light"] body > nav[aria-label="Ana Menü"].is-scrolled {
+  background: rgba(247, 248, 245, 0.94) !important;
+}
+
+[data-theme="light"] #navbar,
+[data-theme="light"] body > nav[aria-label="Ana Menü"] {
+  background: rgba(247, 248, 245, 0.7) !important;
+}
+
+[data-theme="light"] .proof-card:hover,
+[data-theme="light"] .summary-card:hover,
+[data-theme="light"] .service-card-mini:hover,
+[data-theme="light"] .blog-card:hover {
+  background: #e4ebe5 !important;
+}
+
+[data-theme="light"] .revision-article-page .article-intro {
+  color: var(--revision-text) !important;
+}
+
+[data-theme="light"] .revision-article-page :is(.callout, .article-callout) {
+  color: var(--revision-text) !important;
+}
+
+[data-theme="light"] .reference-trust-logos span {
+  color: var(--revision-muted);
+}
+
+[data-theme="light"] body::before,
+[data-theme="light"] body.reference-home-page::before {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(45, 106, 79, 0.07), transparent 34rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.04)) !important;
+}
+
+[data-theme="light"] body:has(.blog-page)::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.04)) !important;
+}
+
+[data-theme="light"] .page-anchor-nav {
+  background: rgba(247, 248, 245, 0.94) !important;
+}
+
+[data-theme="light"] body:has(#hero) .need-card,
+[data-theme="light"] body:has(#hero) .service-card,
+[data-theme="light"] body:has(#hero) .portfolio-card,
+[data-theme="light"] body:has(#hero) .sector-card {
+  background: #edf1eb !important;
+}
+
+[data-theme="light"] .reference-closing > div {
+  background: rgba(23, 33, 29, 0.05);
+}
+
+[data-theme="light"] .work-hero::before {
+  background: rgba(255, 255, 255, 0.4) !important;
+}
+
+[data-theme="light"] .revision-silo-page.sectors-page .trust-list li,
+[data-theme="light"] .revision-silo-page.sectors-page .check-list li,
+[data-theme="light"] .revision-silo-page.sectors-page .step-list li {
+  background: rgba(23, 33, 29, 0.05) !important;
 }
