@@ -1234,7 +1234,7 @@ body.reference-home-page #hero :is(.cta-risk-reversal, .hero-quick-links, .hero-
   color: #d7dbd5 !important;
 }
 
-.revision-article-page :is(.article-content, .article-container > article) a {
+.revision-article-page :is(.article-content, .article-container > article) a:not(.primary-link):not(.secondary-link) {
   color: var(--revision-accent-strong) !important;
   text-decoration-color: rgba(154, 175, 137, 0.45) !important;
   text-underline-offset: 0.2em;
