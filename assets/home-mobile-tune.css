@@ -991,3 +991,264 @@
     font-size: 0.92rem !important;
   }
 }
+
+/* Home light theme final pass: keep deferred home styles from pulling dark surfaces back in. */
+[data-theme="light"] body.reference-home-page {
+  --home-light-bg: #f7faf7;
+  --home-light-panel: rgba(255, 255, 255, 0.9);
+  --home-light-panel-strong: rgba(255, 255, 255, 0.96);
+  --home-light-panel-soft: rgba(247, 250, 247, 0.84);
+  --home-light-text: #10241d;
+  --home-light-muted: #50645b;
+  --home-light-accent: #2d6a4f;
+  --home-light-accent-strong: #245f45;
+  --home-light-line: rgba(31, 75, 54, 0.16);
+  --home-light-line-strong: rgba(31, 75, 54, 0.28);
+  --home-light-shadow: 0 18px 46px rgba(31, 75, 54, 0.08);
+  --home-light-shadow-soft: 0 10px 28px rgba(31, 75, 54, 0.06);
+}
+
+[data-theme="light"] body.reference-home-page :is(
+  #problem,
+  #needs,
+  #about,
+  #neden-veridia,
+  #services,
+  #quote,
+  #sectors,
+  #portfolio,
+  #mini-analiz,
+  #contact,
+  footer
+) {
+  color: var(--home-light-text) !important;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(45, 106, 79, 0.07), transparent 24rem),
+    radial-gradient(circle at 88% 8%, rgba(116, 43, 61, 0.045), transparent 22rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(247, 250, 247, 0.72)) !important;
+}
+
+[data-theme="light"] body.reference-home-page :is(
+  .needs-shell,
+  .services-shell,
+  .services-detail-shell,
+  .quote-layout,
+  .quote-intro,
+  .quote-console,
+  .quote-preview,
+  .contact-left-panel,
+  .contact-right-panel,
+  .premium-contact-grid,
+  .contact-faq,
+  .sector-cta-area,
+  .portfolio-note,
+  .team-card,
+  .about-card,
+  .about-founder-note,
+  .contact-copy,
+  .contact-form-shell,
+  footer
+) {
+  border-color: var(--home-light-line) !important;
+  color: var(--home-light-text) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(247, 250, 247, 0.82)) !important;
+  box-shadow: var(--home-light-shadow) !important;
+}
+
+[data-theme="light"] body.reference-home-page :is(
+  .need-card,
+  .service-card,
+  .sector-card,
+  .portfolio-card,
+  .quote-option,
+  .quote-preview-panel,
+  .quote-preview-item,
+  .quote-preview-index,
+  .premium-contact-direct,
+  .contact-form-note,
+  .form-group input,
+  .form-group select,
+  .form-group textarea,
+  .form-input,
+  .form-select,
+  .form-textarea
+) {
+  border-color: var(--home-light-line) !important;
+  color: var(--home-light-text) !important;
+  background: var(--home-light-panel) !important;
+  box-shadow: var(--home-light-shadow-soft) !important;
+}
+
+[data-theme="light"] body.reference-home-page :is(
+  .need-card:hover,
+  .service-card:hover,
+  .sector-card:hover,
+  .portfolio-card:hover,
+  .quote-option:hover,
+  .quote-option:focus-visible
+) {
+  border-color: var(--home-light-line-strong) !important;
+  background: var(--home-light-panel-strong) !important;
+  box-shadow: 0 20px 48px rgba(31, 75, 54, 0.11) !important;
+}
+
+[data-theme="light"] body.reference-home-page :is(
+  p,
+  li,
+  small,
+  .needs-lead,
+  .service-desc,
+  .service-mobile-points li,
+  .sector-desc,
+  .premium-contact-desc,
+  .form-header p,
+  .contact-form-note span,
+  .footer-text
+) {
+  color: var(--home-light-muted) !important;
+}
+
+[data-theme="light"] body.reference-home-page :is(
+  .section-label,
+  .need-card-kicker,
+  .service-index,
+  .service-kicker,
+  .sector-tag,
+  .ticker-label,
+  .contact-form-note strong
+) {
+  color: var(--home-light-accent) !important;
+}
+
+[data-theme="light"] body.reference-home-page :is(
+  .btn-gold,
+  .btn-conversion,
+  .btn-submit,
+  .btn-premium-submit
+) {
+  border-color: rgba(36, 95, 69, 0.32) !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, var(--home-light-accent-strong), #347a58) !important;
+  box-shadow: 0 16px 36px rgba(45, 106, 79, 0.2) !important;
+}
+
+[data-theme="light"] body.reference-home-page :is(
+  .btn-gold:hover,
+  .btn-conversion:hover,
+  .btn-submit:hover,
+  .btn-premium-submit:hover
+) {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #1f553d, var(--home-light-accent)) !important;
+  box-shadow: 0 20px 44px rgba(45, 106, 79, 0.24) !important;
+}
+
+[data-theme="light"] body.reference-home-page :is(
+  .btn-outline,
+  .mobile-readmore-toggle,
+  .sector-link,
+  .primary-link,
+  .secondary-link,
+  .theme-toggle-btn
+) {
+  border-color: var(--home-light-line-strong) !important;
+  color: var(--home-light-text) !important;
+  background: var(--home-light-panel-soft) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="light"] body.reference-home-page :is(
+  .btn-outline:hover,
+  .mobile-readmore-toggle:hover,
+  .sector-link:hover,
+  .primary-link:hover,
+  .secondary-link:hover,
+  .theme-toggle-btn:hover
+) {
+  border-color: rgba(45, 106, 79, 0.52) !important;
+  color: var(--home-light-accent-strong) !important;
+  background: rgba(45, 106, 79, 0.08) !important;
+}
+
+[data-theme="light"] body.reference-home-page :is(
+  .service-glyph,
+  .sector-icon,
+  .contact-item-icon,
+  .ig-at
+) {
+  border-color: var(--home-light-line) !important;
+  color: var(--home-light-accent-strong) !important;
+  background: rgba(45, 106, 79, 0.08) !important;
+}
+
+[data-theme="light"] body.reference-home-page .mobile-readmore:not(.is-expanded) .mobile-readmore__content::after {
+  background: linear-gradient(180deg, rgba(247, 250, 247, 0), var(--home-light-bg)) !important;
+}
+
+[data-theme="light"] body.reference-home-page .mobile-sticky-nav {
+  border-color: var(--home-light-line) !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 -12px 34px rgba(31, 75, 54, 0.1) !important;
+}
+
+[data-theme="light"] body.reference-home-page .mobile-sticky-nav__link {
+  color: var(--home-light-text) !important;
+  background: rgba(45, 106, 79, 0.06) !important;
+}
+
+[data-theme="light"] body.reference-home-page .mobile-sticky-nav__link--accent {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, var(--home-light-accent-strong), var(--home-light-accent)) !important;
+  box-shadow: 0 12px 30px rgba(45, 106, 79, 0.2) !important;
+}
+
+[data-theme="light"] body.reference-home-page #services .services-shell,
+[data-theme="light"] body.reference-home-page #services .services-detail-shell,
+[data-theme="light"] body.reference-home-page #quote .quote-layout,
+[data-theme="light"] body.reference-home-page #quote .quote-intro,
+[data-theme="light"] body.reference-home-page #quote .quote-console,
+[data-theme="light"] body.reference-home-page #quote .quote-preview,
+[data-theme="light"] body.reference-home-page #mini-analiz .contact-right-panel,
+[data-theme="light"] body.reference-home-page #mini-analiz .contact-left-panel,
+[data-theme="light"] body.reference-home-page #contact.premium-contact-grid {
+  border-color: var(--home-light-line) !important;
+  color: var(--home-light-text) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(247, 250, 247, 0.82)) !important;
+  box-shadow: var(--home-light-shadow) !important;
+}
+
+[data-theme="light"] body.reference-home-page #needs .need-card,
+[data-theme="light"] body.reference-home-page #services .service-card,
+[data-theme="light"] body.reference-home-page #sectors .sector-card,
+[data-theme="light"] body.reference-home-page #portfolio .portfolio-card,
+[data-theme="light"] body.reference-home-page #quote .quote-option,
+[data-theme="light"] body.reference-home-page #quote .quote-preview-panel,
+[data-theme="light"] body.reference-home-page #quote .quote-preview-item,
+[data-theme="light"] body.reference-home-page #mini-analiz .contact-form-note {
+  border-color: var(--home-light-line) !important;
+  color: var(--home-light-text) !important;
+  background: var(--home-light-panel) !important;
+  box-shadow: var(--home-light-shadow-soft) !important;
+}
+
+[data-theme="light"] body.reference-home-page #services .services-lead,
+[data-theme="light"] body.reference-home-page #services .service-desc,
+[data-theme="light"] body.reference-home-page #sectors .sector-desc,
+[data-theme="light"] body.reference-home-page #sectors .sector-tag,
+[data-theme="light"] body.reference-home-page #mini-analiz .premium-contact-desc {
+  color: var(--home-light-muted) !important;
+}
+
+[data-theme="light"] body.reference-home-page #services .service-name,
+[data-theme="light"] body.reference-home-page #sectors .sector-title,
+[data-theme="light"] body.reference-home-page #mini-analiz .premium-contact-title {
+  color: var(--home-light-text) !important;
+}
+
+[data-theme="light"] body.reference-home-page #sectors .sector-link {
+  border-color: var(--home-light-line-strong) !important;
+  color: var(--home-light-accent-strong) !important;
+  background: rgba(45, 106, 79, 0.08) !important;
+}

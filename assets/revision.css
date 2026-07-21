@@ -20,6 +20,284 @@
   --revision-font-body: "DM Sans", Arial, sans-serif;
 }
 
+/* Deploy light-theme cleanup: calmer canvas, readable surfaces, compact page rhythm. */
+[data-theme="light"] {
+  --revision-bg: #f8faf7;
+  --revision-panel: rgba(255, 255, 255, 0.92);
+  --revision-panel-soft: rgba(255, 255, 255, 0.78);
+  --revision-text: #10241d;
+  --revision-muted: #50645b;
+  --revision-accent: #2d6a4f;
+  --revision-line: rgba(31, 75, 54, 0.13);
+  --revision-line-strong: rgba(31, 75, 54, 0.26);
+  --revision-shadow: 0 14px 34px rgba(31, 75, 54, 0.065);
+  --line-soft: rgba(31, 75, 54, 0.13);
+  --line-strong: rgba(31, 75, 54, 0.26);
+}
+
+[data-theme="light"] html,
+[data-theme="light"] body {
+  color: var(--revision-text) !important;
+  background-color: var(--revision-bg) !important;
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(45, 106, 79, 0.055), transparent 28rem),
+    radial-gradient(circle at 88% 8%, rgba(120, 143, 103, 0.06), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0%, #f8faf7 58%, #eef4ef 100%) !important;
+  background-size: auto, auto, 100% 100% !important;
+  background-attachment: fixed, fixed, fixed !important;
+}
+
+[data-theme="light"] body::before,
+[data-theme="light"] body::after,
+[data-theme="light"] body.reference-home-page::before,
+[data-theme="light"] body.reference-home-page::after {
+  opacity: 0 !important;
+  background: none !important;
+}
+
+[data-theme="light"] :is(section, [id], .silo-hero, .work-hero, .blog-header, .bridge-panel, .route-map, .final-cta, .service-content-section, .content-container, .page-anchor-nav) {
+  scroll-margin-top: calc(var(--revision-header-height, 76px) + 1.5rem);
+}
+
+[data-theme="light"] :is(.revision-nav-cta, .revision-nav-theme, .revision-nav-theme-toggle, .theme-toggle-btn) {
+  border-color: var(--revision-line-strong) !important;
+  color: var(--revision-text) !important;
+  background: rgba(255, 255, 255, 0.76) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="light"] :is(.revision-nav-cta, .revision-nav-theme, .revision-nav-theme-toggle, .theme-toggle-btn):hover {
+  border-color: rgba(45, 106, 79, 0.46) !important;
+  color: var(--revision-accent) !important;
+  background: rgba(45, 106, 79, 0.07) !important;
+}
+
+[data-theme="light"] body :is(
+  .silo-hero,
+  .bridge-panel,
+  .route-map,
+  .faq-panel,
+  .signal-card,
+  .surface-card,
+  .resource-card,
+  .trust-list li,
+  .check-list li,
+  .step-list li,
+  .hero-panel,
+  .work-hero,
+  .proof-card,
+  .summary-card,
+  .story-card,
+  .metric-card,
+  .service-card-mini,
+  .case-note-card,
+  .case-story-card,
+  .case-brand-card,
+  .case-fact-list div,
+  .ledger-card,
+  .result-card,
+  .case-quote,
+  .case-board,
+  .service-board,
+  .final-cta-card,
+  .cta-box,
+  .feature-card,
+  .step-card,
+  .services-card,
+  .content-container,
+  .blog-faq-card,
+  .blog-card
+) {
+  border-color: var(--revision-line) !important;
+  color: var(--revision-text) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(247, 250, 247, 0.84)) !important;
+  box-shadow: var(--revision-shadow) !important;
+}
+
+[data-theme="light"] body :is(.silo-hero, .work-hero)::before {
+  border-color: var(--revision-line) !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(45, 106, 79, 0.07), transparent 26rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(247, 250, 247, 0.72)) !important;
+}
+
+[data-theme="light"] body :is(
+  p,
+  li,
+  small,
+  figcaption,
+  .silo-copy,
+  .route-list,
+  .work-intro,
+  .hero-panel p,
+  .service-content > p,
+  .case-main > p,
+  .board-caption,
+  .board-panel p,
+  .service-list,
+  .case-list,
+  .blog-card p,
+  .blog-subtitle,
+  .blog-footer-note,
+  .surface-card p,
+  .resource-card p,
+  .bridge-panel p,
+  .route-map p
+) {
+  color: var(--revision-muted) !important;
+}
+
+[data-theme="light"] body :is(
+  h1,
+  h2,
+  h3,
+  .work-title,
+  .blog-header h1,
+  .blog-card h2,
+  .surface-card h2,
+  .resource-card h2,
+  .bridge-panel h2,
+  .route-map h2,
+  .footer-logo,
+  .footer-heading,
+  .work-footer-logo
+) {
+  color: var(--revision-text) !important;
+}
+
+[data-theme="light"] body :is(
+  .section-label,
+  .work-kicker,
+  .work-chip strong,
+  .blog-meta,
+  .surface-card-kicker,
+  .route-list a:hover,
+  .route-list a:focus-visible
+) {
+  color: var(--revision-accent) !important;
+}
+
+[data-theme="light"] body .revision-silo-page .route-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important;
+  gap: 0.7rem !important;
+}
+
+[data-theme="light"] body .revision-silo-page .route-list a {
+  min-height: 3.25rem !important;
+  padding: 0.85rem 1rem !important;
+  border: 1px solid var(--revision-line) !important;
+  color: var(--revision-muted) !important;
+  background: rgba(255, 255, 255, 0.74) !important;
+}
+
+[data-theme="light"] body :is(.sector-footer, .work-footer, .blog-footer, footer, body > footer) {
+  border-color: var(--revision-line) !important;
+  color: var(--revision-text) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(242, 247, 242, 0.92)) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="light"] body :is(.sector-footer, .work-footer, .blog-footer, footer, body > footer) :is(
+  p,
+  a,
+  small,
+  .footer-text,
+  .work-footer-copy,
+  .work-footer-links a,
+  .footer-socials a,
+  .footer-legal-links a
+) {
+  color: var(--revision-muted) !important;
+}
+
+[data-theme="light"] body .blog-header {
+  min-height: clamp(320px, 40vw, 440px) !important;
+  padding-block: clamp(6rem, 8vw, 7.5rem) clamp(2.6rem, 4vw, 3.8rem) !important;
+  background:
+    radial-gradient(circle at 16% 10%, rgba(45, 106, 79, 0.08), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 250, 247, 0.78)) !important;
+}
+
+[data-theme="light"] body .blog-feed .blog-card {
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+
+@media (min-width: 1024px) {
+  [data-theme="light"] body .revision-silo-page .silo-shell {
+    padding-top: clamp(1.5rem, 3vw, 3rem) !important;
+    padding-bottom: clamp(2.5rem, 4vw, 4rem) !important;
+  }
+
+  [data-theme="light"] body .revision-silo-page .silo-hero {
+    margin-bottom: clamp(1.25rem, 3vw, 2rem) !important;
+    padding: clamp(2.25rem, 4vw, 4rem) !important;
+  }
+
+  [data-theme="light"] body .revision-silo-page .silo-hero h1 {
+    max-width: 15ch !important;
+    font-size: clamp(3.7rem, 6vw, 6rem) !important;
+    line-height: 0.98 !important;
+    text-wrap: balance;
+  }
+
+  [data-theme="light"] body .revision-silo-page :is(.bridge-panel, .route-map, .faq-panel) {
+    margin-block: clamp(1.25rem, 3vw, 2.4rem) !important;
+    padding: clamp(1.4rem, 2.5vw, 2.2rem) !important;
+  }
+
+  [data-theme="light"] body .revision-silo-page :is(.signal-grid, .surface-grid, .resources-grid, .conversion-grid) {
+    gap: 0.85rem !important;
+  }
+
+  [data-theme="light"] body .work-main {
+    padding-top: 0 !important;
+  }
+
+  [data-theme="light"] body .work-hero {
+    padding-block: clamp(2.5rem, 4vw, 4rem) !important;
+  }
+
+  [data-theme="light"] body .final-cta {
+    padding-block: clamp(2.4rem, 4vw, 3.6rem) !important;
+  }
+
+  [data-theme="light"] body .final-cta-card {
+    min-height: auto !important;
+    padding: clamp(2rem, 3.5vw, 3rem) !important;
+  }
+
+  [data-theme="light"] body .service-content-section {
+    padding-block: clamp(2.4rem, 4vw, 3.8rem) !important;
+  }
+
+  [data-theme="light"] body .service-content-section:has(h2) .content-container {
+    padding: clamp(1.8rem, 3vw, 2.7rem) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  [data-theme="light"] body .revision-silo-page .silo-hero {
+    padding: 2rem 1.25rem !important;
+  }
+
+  [data-theme="light"] body .revision-silo-page .silo-hero h1 {
+    max-width: 100% !important;
+    padding-left: 0.08em !important;
+    font-size: clamp(3.15rem, 15vw, 4.25rem) !important;
+    line-height: 1.02 !important;
+    overflow-wrap: normal;
+    text-wrap: balance;
+  }
+
+  [data-theme="light"] body .revision-silo-page .silo-copy {
+    font-size: clamp(1.05rem, 5.4vw, 1.35rem) !important;
+    line-height: 1.7 !important;
+  }
+}
+
 [data-theme="light"] {
   --revision-bg: #f7f8f5;
   --revision-surface: #edf1eb;
@@ -2226,4 +2504,186 @@ body.reference-home-page #hero :is(.cta-risk-reversal, .hero-quick-links, .hero-
 [data-theme="light"] .revision-silo-page.sectors-page .check-list li,
 [data-theme="light"] .revision-silo-page.sectors-page .step-list li {
   background: rgba(23, 33, 29, 0.05) !important;
+}
+
+/* Deploy light-theme final word: these rules intentionally live last. */
+[data-theme="light"] {
+  --revision-bg: #f8faf7;
+  --revision-panel: rgba(255, 255, 255, 0.92);
+  --revision-panel-soft: rgba(255, 255, 255, 0.78);
+  --revision-text: #10241d;
+  --revision-muted: #50645b;
+  --revision-accent: #2d6a4f;
+  --revision-line: rgba(31, 75, 54, 0.13);
+  --revision-line-strong: rgba(31, 75, 54, 0.26);
+  --revision-shadow: 0 14px 34px rgba(31, 75, 54, 0.065);
+  --line-soft: rgba(31, 75, 54, 0.13);
+  --line-strong: rgba(31, 75, 54, 0.26);
+}
+
+[data-theme="light"] html,
+[data-theme="light"] body {
+  color: var(--revision-text) !important;
+  background-color: var(--revision-bg) !important;
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(45, 106, 79, 0.055), transparent 28rem),
+    radial-gradient(circle at 88% 8%, rgba(120, 143, 103, 0.06), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0%, #f8faf7 58%, #eef4ef 100%) !important;
+  background-size: auto, auto, 100% 100% !important;
+  background-attachment: fixed, fixed, fixed !important;
+}
+
+[data-theme="light"] body::before,
+[data-theme="light"] body::after,
+[data-theme="light"] body.reference-home-page::before,
+[data-theme="light"] body.reference-home-page::after {
+  opacity: 0 !important;
+  background: none !important;
+}
+
+[data-theme="light"] :is(section, [id], .silo-hero, .work-hero, .blog-header, .bridge-panel, .route-map, .final-cta, .service-content-section, .content-container, .page-anchor-nav) {
+  scroll-margin-top: calc(var(--revision-header-height, 76px) + 1.5rem);
+}
+
+[data-theme="light"] :is(.revision-nav-cta, .revision-nav-theme, .revision-nav-theme-toggle, .theme-toggle-btn) {
+  border-color: var(--revision-line-strong) !important;
+  color: var(--revision-text) !important;
+  background: rgba(255, 255, 255, 0.76) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="light"] body :is(.silo-hero, .bridge-panel, .route-map, .faq-panel, .signal-card, .surface-card, .resource-card, .trust-list li, .check-list li, .step-list li, .hero-panel, .work-hero, .proof-card, .summary-card, .story-card, .metric-card, .service-card-mini, .case-note-card, .case-story-card, .case-brand-card, .case-fact-list div, .ledger-card, .result-card, .case-quote, .case-board, .service-board, .final-cta-card, .cta-box, .feature-card, .step-card, .services-card, .content-container, .blog-faq-card, .blog-card) {
+  border-color: var(--revision-line) !important;
+  color: var(--revision-text) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(247, 250, 247, 0.84)) !important;
+  box-shadow: var(--revision-shadow) !important;
+}
+
+[data-theme="light"] body :is(.silo-hero, .work-hero)::before {
+  border-color: var(--revision-line) !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(45, 106, 79, 0.07), transparent 26rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(247, 250, 247, 0.72)) !important;
+}
+
+[data-theme="light"] body :is(p, li, small, figcaption, .silo-copy, .route-list, .work-intro, .hero-panel p, .service-content > p, .case-main > p, .board-caption, .board-panel p, .service-list, .case-list, .blog-card p, .blog-subtitle, .blog-footer-note, .surface-card p, .resource-card p, .bridge-panel p, .route-map p) {
+  color: var(--revision-muted) !important;
+}
+
+[data-theme="light"] body :is(h1, h2, h3, .work-title, .blog-header h1, .blog-card h2, .surface-card h2, .resource-card h2, .bridge-panel h2, .route-map h2, .footer-logo, .footer-heading, .work-footer-logo) {
+  color: var(--revision-text) !important;
+}
+
+[data-theme="light"] body :is(.section-label, .work-kicker, .work-chip strong, .blog-meta, .surface-card-kicker, .route-list a:hover, .route-list a:focus-visible) {
+  color: var(--revision-accent) !important;
+}
+
+[data-theme="light"] body .revision-silo-page .route-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important;
+  gap: 0.7rem !important;
+}
+
+[data-theme="light"] body .revision-silo-page .route-list a {
+  min-height: 3.25rem !important;
+  padding: 0.85rem 1rem !important;
+  border: 1px solid var(--revision-line) !important;
+  color: var(--revision-muted) !important;
+  background: rgba(255, 255, 255, 0.74) !important;
+}
+
+[data-theme="light"] body :is(.sector-footer, .work-footer, .blog-footer, footer, body > footer) {
+  border-color: var(--revision-line) !important;
+  color: var(--revision-text) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(242, 247, 242, 0.92)) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="light"] body :is(.sector-footer, .work-footer, .blog-footer, footer, body > footer) :is(p, a, small, .footer-text, .work-footer-copy, .work-footer-links a, .footer-socials a, .footer-legal-links a) {
+  color: var(--revision-muted) !important;
+}
+
+[data-theme="light"] body .blog-header {
+  min-height: clamp(320px, 40vw, 440px) !important;
+  padding-block: clamp(6rem, 8vw, 7.5rem) clamp(2.6rem, 4vw, 3.8rem) !important;
+  background:
+    radial-gradient(circle at 16% 10%, rgba(45, 106, 79, 0.08), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 250, 247, 0.78)) !important;
+}
+
+[data-theme="light"] body .blog-feed .blog-card {
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+
+@media (min-width: 1024px) {
+  [data-theme="light"] body .revision-silo-page .silo-shell {
+    padding-top: clamp(1.5rem, 3vw, 3rem) !important;
+    padding-bottom: clamp(2.5rem, 4vw, 4rem) !important;
+  }
+
+  [data-theme="light"] body .revision-silo-page .silo-hero {
+    margin-bottom: clamp(1.25rem, 3vw, 2rem) !important;
+    padding: clamp(2.25rem, 4vw, 4rem) !important;
+  }
+
+  [data-theme="light"] body .revision-silo-page .silo-hero h1 {
+    max-width: 15ch !important;
+    font-size: clamp(3.7rem, 6vw, 6rem) !important;
+    line-height: 0.98 !important;
+    text-wrap: balance;
+  }
+
+  [data-theme="light"] body .revision-silo-page :is(.bridge-panel, .route-map, .faq-panel) {
+    margin-block: clamp(1.25rem, 3vw, 2.4rem) !important;
+    padding: clamp(1.4rem, 2.5vw, 2.2rem) !important;
+  }
+
+  [data-theme="light"] body .revision-silo-page :is(.signal-grid, .surface-grid, .resources-grid, .conversion-grid) {
+    gap: 0.85rem !important;
+  }
+
+  [data-theme="light"] body .work-main {
+    padding-top: 0 !important;
+  }
+
+  [data-theme="light"] body .work-hero {
+    padding-block: clamp(2.5rem, 4vw, 4rem) !important;
+  }
+
+  [data-theme="light"] body .final-cta {
+    padding-block: clamp(2.4rem, 4vw, 3.6rem) !important;
+  }
+
+  [data-theme="light"] body .final-cta-card {
+    min-height: auto !important;
+    padding: clamp(2rem, 3.5vw, 3rem) !important;
+  }
+
+  [data-theme="light"] body .service-content-section {
+    padding-block: clamp(2.4rem, 4vw, 3.8rem) !important;
+  }
+
+  [data-theme="light"] body .service-content-section:has(h2) .content-container {
+    padding: clamp(1.8rem, 3vw, 2.7rem) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  [data-theme="light"] body .revision-silo-page .silo-hero {
+    padding: 2rem 1.25rem !important;
+  }
+
+  [data-theme="light"] body .revision-silo-page .silo-hero h1 {
+    max-width: 100% !important;
+    padding-left: 0.08em !important;
+    font-size: clamp(3.15rem, 15vw, 4.25rem) !important;
+    line-height: 1.02 !important;
+    overflow-wrap: normal;
+    text-wrap: balance;
+  }
+
+  [data-theme="light"] body .revision-silo-page .silo-copy {
+    font-size: clamp(1.05rem, 5.4vw, 1.35rem) !important;
+    line-height: 1.7 !important;
+  }
 }
