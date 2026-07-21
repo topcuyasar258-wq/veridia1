@@ -145,7 +145,8 @@ class RevisionSurfaceTests(unittest.TestCase):
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn("data-whatsapp-message", script)
         self.assertIn("Proje Başlat", script)
-        self.assertIn('href="/hizli-teklif.html"', homepage)
+        self.assertIn("Projeni Ücretsiz Değerlendir", homepage)
+        self.assertIn('href="/hizli-teklif"', homepage)
         for relative_path in (
             "yazilim/index.html",
             "seo/index.html",
@@ -155,7 +156,7 @@ class RevisionSurfaceTests(unittest.TestCase):
         ):
             with self.subTest(path=relative_path):
                 page = (ROOT / relative_path).read_text(encoding="utf-8")
-                self.assertIn('href="/hizli-teklif.html" class="btn-gold"', page)
+                self.assertRegex(page, r'href="/#(?:contact|quote)" class="btn-gold"')
 
     def test_all_blog_articles_load_the_shared_revision_system(self) -> None:
         articles = sorted((ROOT / "blog").glob("*.html"))

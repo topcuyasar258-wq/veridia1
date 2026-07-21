@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.veridiareklam.com.tr/</loc>
-    <lastmod>2026-07-12T00:00:00+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr</loc>
+    <lastmod>2026-07-06T14:05:08+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -16,8 +16,8 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/blog.html</loc>
-    <lastmod>2026-06-17T13:52:55+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog</loc>
+    <lastmod>2026-07-08T15:09:33+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -26,42 +26,88 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/hizmetler/</loc>
-    <lastmod>2026-06-28T06:10:00+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/sektorler/</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
-      <image:title>Veridia Hizmetlerimiz</image:title>
+      <image:title>Veridia Sektörler Kapak Görseli</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/hizmetler/web-tasarim/</loc>
-    <lastmod>2026-06-28T06:10:00+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/</loc>
+    <lastmod>2026-07-16T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:title>Güzellik Merkezi Dijital Pazarlama Hizmeti</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/hizmetler/seo-danismanligi/</loc>
-    <lastmod>2026-06-28T06:10:00+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/sektorler/avukatlar-icin-dijital-pazarlama/</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:title>Avukatlar İçin Dijital Pazarlama</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.veridiareklam.com.tr/sektorler/estetik-klinikleri-icin-dijital-pazarlama/</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:title>Estetik Klinikleri İçin Dijital Pazarlama</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.veridiareklam.com.tr/sektorler/dis-klinikleri-icin-dijital-pazarlama/</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:title>Diş Klinikleri İçin Dijital Pazarlama</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.veridiareklam.com.tr/sektorler/kuaforler-icin-dijital-pazarlama/</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:title>Kuaförler İçin Dijital Pazarlama</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.veridiareklam.com.tr/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:title>Yerel Servis İşletmeleri İçin Dijital Pazarlama</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.veridiareklam.com.tr/hizmetler/</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.veridiareklam.com.tr/assets/veridia-social-cover.png</image:loc>
+      <image:title>Veridia Neler Yapıyoruz</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/hizmetler/google-ads-yonetimi/</loc>
-    <lastmod>2026-06-28T06:10:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/hizmetler/sosyal-medya-yonetimi/</loc>
-    <lastmod>2026-06-28T06:10:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/calismalarimiz.html</loc>
-    <lastmod>2026-06-01T15:33:55+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/calismalarimiz</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -70,266 +116,182 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/hakkimizda.html</loc>
-    <lastmod>2026-06-01T15:34:46+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/hakkimizda</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/calisma-surecimiz.html</loc>
-    <lastmod>2026-06-01T15:34:46+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/calisma-surecimiz</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/iletisim.html</loc>
-    <lastmod>2026-06-01T15:55:55+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/iletisim</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/hizli-teklif.html</loc>
-    <lastmod>2026-06-01T15:34:46+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/hizli-teklif</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/dijital-pazarlama-stratejisi.html</loc>
-    <lastmod>2026-06-01T15:33:34+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/dijital-pazarlama-stratejisi</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/kafe-restoran-dijital-pazarlama.html</loc>
-    <lastmod>2026-06-01T15:56:25+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/sektorler/kafe-restoran-dijital-pazarlama/</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/moda-e-ticaret-dijital-pazarlama.html</loc>
-    <lastmod>2026-06-01T15:34:46+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/sektorler/moda-e-ticaret-dijital-pazarlama/</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/teknoloji-b2b-dijital-pazarlama.html</loc>
-    <lastmod>2026-04-29T19:26:44+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/sektorler/teknoloji-b2b-dijital-pazarlama/</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/yasam-ev-markalari-dijital-pazarlama.html</loc>
-    <lastmod>2026-04-29T19:26:00+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/sektorler/yasam-ev-markalari-dijital-pazarlama/</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/gizlilik-politikasi.html</loc>
-    <lastmod>2026-06-01T15:33:55+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/gizlilik-politikasi</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/kvkk-aydinlatma-metni.html</loc>
-    <lastmod>2026-06-01T15:33:55+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/kvkk-aydinlatma-metni</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.veridiareklam.com.tr/seo/</loc>
-    <lastmod>2026-06-03T03:36:33+03:00</lastmod>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.veridiareklam.com.tr/reklam/</loc>
-    <lastmod>2026-06-03T03:42:20+03:00</lastmod>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.veridiareklam.com.tr/yazilim/</loc>
-    <lastmod>2026-06-03T03:42:20+03:00</lastmod>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.veridiareklam.com.tr/seo/teknik-seo-denetimi/</loc>
-    <lastmod>2026-06-03T03:36:33+03:00</lastmod>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.veridiareklam.com.tr/seo/google-gorunurlugu/</loc>
-    <lastmod>2026-06-03T03:36:33+03:00</lastmod>
+    <lastmod>2026-07-08T15:09:49+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/</loc>
-    <lastmod>2026-06-17T13:53:09+03:00</lastmod>
+    <lastmod>2026-07-07T15:11:09+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.veridiareklam.com.tr/reklam/google-ads-yonetimi/</loc>
-    <lastmod>2026-06-17T13:53:10+03:00</lastmod>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.veridiareklam.com.tr/reklam/meta-reklam-yonetimi/</loc>
-    <lastmod>2026-06-03T03:36:33+03:00</lastmod>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/</loc>
-    <lastmod>2026-06-03T03:36:33+03:00</lastmod>
+    <lastmod>2026-07-07T15:11:09+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/sektorler/</loc>
-    <lastmod>2026-06-28T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/</loc>
-    <lastmod>2026-06-28T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/sektorler/avukatlar-icin-dijital-pazarlama/</loc>
-    <lastmod>2026-06-28T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/sektorler/estetik-klinikleri-icin-dijital-pazarlama/</loc>
-    <lastmod>2026-06-28T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/sektorler/dis-klinikleri-icin-dijital-pazarlama/</loc>
-    <lastmod>2026-06-28T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/sektorler/kuaforler-icin-dijital-pazarlama/</loc>
-    <lastmod>2026-06-28T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/</loc>
-    <lastmod>2026-06-28T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/blog/avukatlar-icin-google-reklamlari/</loc>
-    <lastmod>2026-07-12T00:00:00+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog/avukatlar-icin-google-reklamlari</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezi-dijital-pazarlama.html</loc>
-    <lastmod>2026-06-15T03:39:56+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog/hizmet-sitelerinde-cta-nasil-olmali</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/blog/hizmet-sitelerinde-cta-nasil-olmali.html</loc>
-    <lastmod>2026-06-01T15:35:31+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html</loc>
-    <lastmod>2026-06-01T15:35:31+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi.html</loc>
-    <lastmod>2026-06-01T15:56:25+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog/instagram-algoritmasi-2026</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/blog/instagram-algoritmasi-2026.html</loc>
-    <lastmod>2026-06-01T15:56:25+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog/b2b-donusum-hunisi</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/blog/b2b-donusum-hunisi.html</loc>
-    <lastmod>2026-06-01T15:56:25+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog/web-siteniz-neden-musteri-getirmiyor</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/blog/web-siteniz-neden-musteri-getirmiyor.html</loc>
-    <lastmod>2026-06-01T15:55:55+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog/web-sitesi-yavassa-musteri-neden-kacar</loc>
+    <lastmod>2026-06-30T15:16:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/blog/web-sitesi-yavassa-musteri-neden-kacar.html</loc>
-    <lastmod>2026-06-01T15:35:31+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezi-web-sitesi-nasil-olmali</loc>
+    <lastmod>2026-07-16T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama.html</loc>
-    <lastmod>2026-06-17T13:52:55+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html</loc>
-    <lastmod>2026-07-12T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html</loc>
-    <lastmod>2026-07-20T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-seo-nedir.html</loc>
-    <lastmod>2026-07-12T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html</loc>
-    <lastmod>2026-07-12T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar.html</loc>
-    <lastmod>2026-07-15T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir.html</loc>
-    <lastmod>2026-07-19T00:00:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.veridiareklam.com.tr/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir.html</loc>
-    <lastmod>2026-07-18T00:00:00+03:00</lastmod>
+    <loc>https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama</loc>
+    <lastmod>2026-07-16T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

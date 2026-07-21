@@ -48,7 +48,7 @@ Bu repo statik HTML yuzeyleri ile bunlari servis eden yerel bir Python sunucusun
 ## Kontrol
 
 - Degisiklikten sonra `python3 server.py` hatasiz aciliyor mu bak.
-- Arayuz degistiyse `/`, `/blog.html` ve ilgili servis sayfasi akisini tarayicida kontrol et.
+- Arayuz degistiyse `/`, `/blog` ve ilgili servis sayfasi akisini tarayicida kontrol et.
 - Analiz akisina dokunulduysa en azindan `/api/analyze-instagram` istemcisinin dogru endpoint'e gittigini ve form/durum alanlarinin bozulmadigini kontrol et.
 - Contact veya proxy akisina dokunulduysa `/api/contact` ve `/api/profile-image` davranisinin hata durumlariyla birlikte bozulmadigini kontrol et.
 - Apify tarafina dokunulduysa canli test icin gercek `APIFY_TOKEN` gerekir; token yoksa bunu not et, test uydurma.

@@ -93,7 +93,16 @@ LEGACY_REDIRECTS = {
     "/asdfadsf.html": "/",
     "/veridia-ajans.html": "/",
     "/neler-yapiyoruz.html": "/hizmetler/",
-    "/blog/b2b-pazarlamada-donusum-hunisi.html": "/blog/b2b-donusum-hunisi.html",
+    "/blog/": "/blog",
+    "/blog/b2b-pazarlamada-donusum-hunisi.html": "/blog/b2b-donusum-hunisi",
+    "/blog/guzellik-merkezi-dijital-pazarlama": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+    "/blog/guzellik-merkezi-dijital-pazarlama.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+    "/blog/guzellik-merkezleri-icin-seo-nedir": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+    "/blog/guzellik-merkezleri-icin-seo-nedir.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+    "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+    "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+    "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+    "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
     "/web-tasarim.html": "/hizmetler/web-tasarim/",
     "/seo-danismanligi.html": "/hizmetler/seo-danismanligi/",
     "/google-ads-yonetimi.html": "/hizmetler/google-ads-yonetimi/",
@@ -119,19 +128,21 @@ LEGACY_REDIRECTS = {
     "/sektorler/dis-klinikleri-icin-dijital-pazarlama": "/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
     "/sektorler/kuaforler-icin-dijital-pazarlama": "/sektorler/kuaforler-icin-dijital-pazarlama/",
     "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
-    "/guzellik-klinik-dijital-pazarlama.html": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+    "/sektorler/kafe-restoran-dijital-pazarlama": "/sektorler/kafe-restoran-dijital-pazarlama/",
+    "/sektorler/moda-e-ticaret-dijital-pazarlama": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
+    "/sektorler/teknoloji-b2b-dijital-pazarlama": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
+    "/sektorler/yasam-ev-markalari-dijital-pazarlama": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
+    "/guzellik-klinik-dijital-pazarlama": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+    "/guzellik-klinik-dijital-pazarlama.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
     "/guzellik-merkezleri-icin-dijital-pazarlama": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
-    "/blog": "/blog.html",
-    "/iletisim": "/iletisim.html",
-    "/hizli-teklif": "/hizli-teklif.html",
-    "/blog/guzellik-merkezi-web-sitesi-nasil-olmali": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
-    "/blog/guzellik-merkezi-dijital-pazarlama": "/blog/guzellik-merkezi-dijital-pazarlama.html",
-    "/blog/guzellik-merkezleri-icin-dijital-pazarlama": "/blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
-    "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
-    "/blog/guzellik-merkezleri-icin-seo-nedir": "/blog/guzellik-merkezleri-icin-seo-nedir.html",
-    "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
-    "/blog/instagram-algoritmasi-2026": "/blog/instagram-algoritmasi-2026.html",
-    "/blog/avukatlar-icin-google-reklamlari": "/blog/avukatlar-icin-google-reklamlari/",
+    "/kafe-restoran-dijital-pazarlama": "/sektorler/kafe-restoran-dijital-pazarlama/",
+    "/kafe-restoran-dijital-pazarlama.html": "/sektorler/kafe-restoran-dijital-pazarlama/",
+    "/moda-e-ticaret-dijital-pazarlama": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
+    "/moda-e-ticaret-dijital-pazarlama.html": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
+    "/teknoloji-b2b-dijital-pazarlama": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
+    "/teknoloji-b2b-dijital-pazarlama.html": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
+    "/yasam-ev-markalari-dijital-pazarlama": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
+    "/yasam-ev-markalari-dijital-pazarlama.html": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
 }
 IMAGE_PROXY_ALLOWED_HOSTS = ("cdninstagram.com", "fbcdn.net")
 SECURITY_HEADERS = {
@@ -289,22 +300,52 @@ def is_public_path(path: str) -> bool:
     )
 
 
+def clean_html_path(path: str) -> str:
+    if path == "/index.html":
+        return "/"
+    if path.endswith("/index.html"):
+        return f"{path[:-len('/index.html')]}/"
+    if path.endswith(".html"):
+        return path[:-len(".html")]
+    return path
+
+
+def redirect_location(path: str, query: str = "") -> str:
+    return f"{path}?{query}" if query else path
+
+
 def resolve_public_path(path: str) -> str | None:
     if path == "/":
         return "/index.html"
     if path in LEGACY_REDIRECTS:
         return path
-    if not is_public_path(path):
-        return None
 
-    candidate = ROOT / path.lstrip("/")
+    if not is_public_path(path):
+        clean_candidate = f"{path}.html" if "." not in Path(path).name else path
+        if not is_public_path(clean_candidate):
+            return None
+    else:
+        clean_candidate = path
+
+    if clean_candidate.endswith(".html") and (ROOT / clean_candidate.lstrip("/")).is_file():
+        if path == clean_candidate:
+            return path
+        return clean_candidate
+
+    if "." not in Path(path).name:
+        html_candidate = ROOT / f"{path.lstrip('/')}.html"
+        html_path = f"{path}.html"
+        if html_candidate.is_file() and is_public_path(html_path):
+            return html_path
+
+    candidate = ROOT / clean_candidate.lstrip("/")
     if candidate.is_dir():
         index_path = candidate / "index.html"
         if not index_path.exists():
             return None
-        return f"{path.rstrip('/')}/index.html"
+        return f"{clean_candidate.rstrip('/')}/index.html"
 
-    return path
+    return clean_candidate
 
 
 def is_origin_allowed(origin: str) -> bool:
@@ -1011,10 +1052,16 @@ class AppHandler(SimpleHTTPRequestHandler):
             super().do_GET()
             return
 
+        if normalized_path.endswith(".html") and normalized_path != "/404.html" and normalized_path not in LEGACY_REDIRECTS:
+            self.send_response(HTTPStatus.MOVED_PERMANENTLY)
+            self.send_header("Location", redirect_location(clean_html_path(normalized_path), parsed.query))
+            self.end_headers()
+            return
+
         resolved_path = resolve_public_path(normalized_path)
         if resolved_path in LEGACY_REDIRECTS:
             self.send_response(HTTPStatus.MOVED_PERMANENTLY)
-            self.send_header("Location", LEGACY_REDIRECTS[resolved_path])
+            self.send_header("Location", redirect_location(LEGACY_REDIRECTS[resolved_path], parsed.query))
             self.end_headers()
             return
 
@@ -1165,6 +1212,7 @@ class AppHandler(SimpleHTTPRequestHandler):
             )
 
     def do_HEAD(self) -> None:
+        parsed = urlparse(self.path)
         normalized_path = normalize_request_path(self.path)
         if normalized_path is None:
             self.send_error(HTTPStatus.NOT_FOUND)
@@ -1175,10 +1223,16 @@ class AppHandler(SimpleHTTPRequestHandler):
             super().do_HEAD()
             return
 
+        if normalized_path.endswith(".html") and normalized_path != "/404.html" and normalized_path not in LEGACY_REDIRECTS:
+            self.send_response(HTTPStatus.MOVED_PERMANENTLY)
+            self.send_header("Location", redirect_location(clean_html_path(normalized_path), parsed.query))
+            self.end_headers()
+            return
+
         resolved_path = resolve_public_path(normalized_path)
         if resolved_path in LEGACY_REDIRECTS:
             self.send_response(HTTPStatus.MOVED_PERMANENTLY)
-            self.send_header("Location", LEGACY_REDIRECTS[resolved_path])
+            self.send_header("Location", redirect_location(LEGACY_REDIRECTS[resolved_path], parsed.query))
             self.end_headers()
             return
 

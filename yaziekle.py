@@ -312,7 +312,7 @@ def build_article_template(
     <meta name="theme-color" content="#0a0a0f">
     <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="author" content="{safe_author}">
-    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-512.png" type="image/png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     <link rel="canonical" href="{article_url}">
     <meta property="og:title" content="{safe_title} | Veridia Blog">

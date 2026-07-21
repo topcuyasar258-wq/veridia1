@@ -67,13 +67,13 @@ class ServerSecurityTests(unittest.TestCase):
         self.assertEqual(headers.get("Cache-Control"), "public, max-age=31536000, immutable")
 
     def test_html_pages_require_revalidation(self) -> None:
-        status, _, headers = self.http_request("GET", "/blog.html")
+        status, _, headers = self.http_request("GET", "/blog")
 
         self.assertEqual(status, HTTPStatus.OK)
         self.assertEqual(headers.get("Cache-Control"), "no-cache, must-revalidate")
 
     def test_legal_pages_are_served(self) -> None:
-        for path in ("/gizlilik-politikasi.html", "/kvkk-aydinlatma-metni.html"):
+        for path in ("/gizlilik-politikasi", "/kvkk-aydinlatma-metni"):
             with self.subTest(path=path):
                 status, body, _ = self.http_request("GET", path)
                 self.assertEqual(status, HTTPStatus.OK)
@@ -81,9 +81,9 @@ class ServerSecurityTests(unittest.TestCase):
 
     def test_recent_root_pages_are_public(self) -> None:
         for path in (
-            "/hakkimizda.html",
-            "/calisma-surecimiz.html",
-            "/hizli-teklif.html",
+            "/hakkimizda",
+            "/calisma-surecimiz",
+            "/hizli-teklif",
         ):
             with self.subTest(path=path):
                 status, body, _ = self.http_request("GET", path)
@@ -99,7 +99,7 @@ class ServerSecurityTests(unittest.TestCase):
 
     def test_sector_landing_routes_are_public(self) -> None:
         routes = {
-            "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/": "Güzellik Merkezleri İçin Dijital Pazarlama",
+            "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/": "Güzellik Merkezleri İçin Randevu Odaklı Dijital Pazarlama Hizmeti",
             "/sektorler/avukatlar-icin-dijital-pazarlama/": "Avukatlar İçin Dijital Pazarlama",
             "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/": "Estetik Klinikleri İçin Dijital Pazarlama",
             "/sektorler/dis-klinikleri-icin-dijital-pazarlama/": "Diş Klinikleri İçin Dijital Pazarlama",
@@ -114,8 +114,8 @@ class ServerSecurityTests(unittest.TestCase):
 
     def test_service_landing_routes_are_public(self) -> None:
         routes = {
-            "/hizmetler/web-tasarim/": "Web Tasarım Hizmeti",
-            "/hizmetler/seo-danismanligi/": "SEO Danışmanlığı Hizmeti",
+            "/hizmetler/web-tasarim/": "Web Tasarım ve Landing Page",
+            "/hizmetler/seo-danismanligi/": "SEO Danışmanlığı",
             "/hizmetler/google-ads-yonetimi/": "Google Ads Yönetimi",
             "/hizmetler/sosyal-medya-yonetimi/": "Sosyal Medya Yönetimi",
         }
@@ -171,13 +171,51 @@ class ServerSecurityTests(unittest.TestCase):
         )
 
         self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
-        self.assertEqual(headers.get("Location"), "/blog/b2b-donusum-hunisi.html")
+        self.assertEqual(headers.get("Location"), "/blog/b2b-donusum-hunisi")
 
-    def test_legacy_beauty_sector_url_redirects_to_canonical_sector_landing(self) -> None:
+    def test_consolidated_beauty_article_redirects_to_pillar(self) -> None:
         for path in (
-            "/guzellik-merkezleri-icin-dijital-pazarlama",
+            "/blog/guzellik-merkezi-dijital-pazarlama",
+            "/blog/guzellik-merkezi-dijital-pazarlama.html",
+            "/blog/guzellik-merkezleri-icin-seo-nedir",
+            "/blog/guzellik-merkezleri-icin-seo-nedir.html",
+            "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
+            "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
+            "/guzellik-klinik-dijital-pazarlama",
             "/guzellik-klinik-dijital-pazarlama.html",
         ):
+            with self.subTest(path=path):
+                status, _, headers = self.http_request("GET", path, follow_redirects=False)
+                self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                self.assertEqual(headers.get("Location"), "/blog/guzellik-merkezleri-icin-dijital-pazarlama")
+
+    def test_consolidated_beauty_web_article_redirects_to_web_guide(self) -> None:
+        for path in (
+            "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
+            "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
+        ):
+            with self.subTest(path=path):
+                status, _, headers = self.http_request("GET", path, follow_redirects=False)
+                self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                self.assertEqual(headers.get("Location"), "/blog/guzellik-merkezi-web-sitesi-nasil-olmali")
+
+    def test_html_page_paths_redirect_to_clean_urls(self) -> None:
+        redirects = {
+            "/blog.html": "/blog",
+            "/blog/": "/blog",
+            "/calismalarimiz.html": "/calismalarimiz",
+            "/hizli-teklif.html?sektor=restoran-kafe": "/hizli-teklif?sektor=restoran-kafe",
+            "/blog/instagram-algoritmasi-2026.html": "/blog/instagram-algoritmasi-2026",
+        }
+
+        for path, destination in redirects.items():
+            with self.subTest(path=path):
+                status, _, headers = self.http_request("GET", path, follow_redirects=False)
+                self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                self.assertEqual(headers.get("Location"), destination)
+
+    def test_legacy_beauty_sector_url_redirects_to_canonical_sector_landing(self) -> None:
+        for path in ("/guzellik-merkezleri-icin-dijital-pazarlama",):
             with self.subTest(path=path):
                 status, _, headers = self.http_request(
                     "GET",
@@ -187,6 +225,23 @@ class ServerSecurityTests(unittest.TestCase):
 
                 self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
                 self.assertEqual(headers.get("Location"), "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/")
+
+    def test_legacy_root_sector_urls_redirect_to_sektorler_standard(self) -> None:
+        redirects = {
+            "/kafe-restoran-dijital-pazarlama": "/sektorler/kafe-restoran-dijital-pazarlama/",
+            "/kafe-restoran-dijital-pazarlama.html": "/sektorler/kafe-restoran-dijital-pazarlama/",
+            "/moda-e-ticaret-dijital-pazarlama": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
+            "/moda-e-ticaret-dijital-pazarlama.html": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
+            "/teknoloji-b2b-dijital-pazarlama": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
+            "/teknoloji-b2b-dijital-pazarlama.html": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
+            "/yasam-ev-markalari-dijital-pazarlama": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
+            "/yasam-ev-markalari-dijital-pazarlama.html": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
+        }
+        for path, destination in redirects.items():
+            with self.subTest(path=path):
+                status, _, headers = self.http_request("GET", path, follow_redirects=False)
+                self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                self.assertEqual(headers.get("Location"), destination)
 
     def test_legacy_service_pages_redirect_to_silo_urls(self) -> None:
         redirects = {

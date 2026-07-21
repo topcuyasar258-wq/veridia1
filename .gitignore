@@ -1,6 +1,9 @@
 .env
 automation/.env
 __pycache__/
+**/__pycache__/
+*.py[cod]
 analysis_snapshots.sqlite3
 .DS_Store
+**/.DS_Store
 .vercel

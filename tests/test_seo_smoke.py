@@ -50,15 +50,15 @@ class SeoSmokeTests(unittest.TestCase):
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn(f"{PRODUCTION_URL}/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/hizmetler/", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/calismalarimiz.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/calismalarimiz", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/seo/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/reklam/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/yazilim/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/seo/teknik-seo-denetimi/", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/hizmetler/seo-danismanligi/", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/hizmetler/sosyal-medya-yonetimi/", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/hizmetler/google-ads-yonetimi/", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/hizmetler/web-tasarim/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/seo/google-gorunurlugu/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/reklam/sosyal-medya-yonetimi/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/reklam/google-ads-yonetimi/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/yazilim/web-sitesi-ve-donusum-yuzeyleri/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/avukatlar-icin-dijital-pazarlama/", sitemap)
@@ -67,17 +67,27 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn(f"{PRODUCTION_URL}/sektorler/kuaforler-icin-dijital-pazarlama/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/", sitemap)
         self.assertNotIn(f"{PRODUCTION_URL}/guzellik-merkezleri-icin-dijital-pazarlama", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/dijital-pazarlama-stratejisi.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/dijital-pazarlama-stratejisi", sitemap)
         self.assertNotIn(f"{PRODUCTION_URL}/guzellik-klinik-dijital-pazarlama.html", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/kafe-restoran-dijital-pazarlama.html", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/moda-e-ticaret-dijital-pazarlama.html", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/teknoloji-b2b-dijital-pazarlama.html", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/yasam-ev-markalari-dijital-pazarlama.html", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/blog/instagram-algoritmasi-2026.html", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/blog/b2b-donusum-hunisi.html", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/blog/teknik-seo-ve-web-performansi.html", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/gizlilik-politikasi.html", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/kvkk-aydinlatma-metni.html", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/sektorler/kafe-restoran-dijital-pazarlama/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/sektorler/moda-e-ticaret-dijital-pazarlama/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/sektorler/teknoloji-b2b-dijital-pazarlama/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/sektorler/yasam-ev-markalari-dijital-pazarlama/", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/kafe-restoran-dijital-pazarlama", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/moda-e-ticaret-dijital-pazarlama", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/teknoloji-b2b-dijital-pazarlama", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/yasam-ev-markalari-dijital-pazarlama", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/blog/instagram-algoritmasi-2026", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/blog/b2b-donusum-hunisi", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/blog/teknik-seo-ve-web-performansi", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/blog/guzellik-merkezi-web-sitesi-nasil-olmali", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/blog/guzellik-merkezleri-icin-dijital-pazarlama", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/blog/guzellik-merkezi-dijital-pazarlama", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/blog/guzellik-merkezleri-icin-seo-nedir", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/gizlilik-politikasi", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/kvkk-aydinlatma-metni", sitemap)
         self.assertNotIn(f"{PRODUCTION_URL}/web-tasarim.html", sitemap)
         self.assertNotIn(f"{PRODUCTION_URL}/seo-danismanligi.html", sitemap)
         self.assertNotIn(f"{PRODUCTION_URL}/google-ads-yonetimi.html", sitemap)
@@ -89,10 +99,10 @@ class SeoSmokeTests(unittest.TestCase):
     def test_sitemap_includes_public_company_and_conversion_pages(self) -> None:
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
         for path in (
-            "/hakkimizda.html",
-            "/calisma-surecimiz.html",
-            "/iletisim.html",
-            "/hizli-teklif.html",
+            "/hakkimizda",
+            "/calisma-surecimiz",
+            "/iletisim",
+            "/hizli-teklif",
         ):
             with self.subTest(path=path):
                 self.assertIn(f"{PRODUCTION_URL}{path}", sitemap)
@@ -111,7 +121,14 @@ class SeoSmokeTests(unittest.TestCase):
             page,
         )
         self.assertIn("<h1", page)
-        self.assertIn("Restoran ve Kafeler İçin Dijital Pazarlama Sistemi</h1>", page)
+        self.assertIn("Kafe Pazarlama ve Restoranlar İçin Dijital Sistem</h1>", page)
+        self.assertIn(
+            'href="https://wa.me/905055174654?text=Merhaba%20Veridia%2C%20restoran%20veya%20kafem%20i%C3%A7in%20dijital%20pazarlama%20%C3%B6n%20analizi%20istiyorum."',
+            page,
+        )
+        self.assertNotIn('href="#"', page)
+        self.assertIn("restaurant-google-profile-mock.webp", page)
+        self.assertIn("restaurant-kpi-dashboard-mock.webp", page)
 
     def test_restaurant_page_has_schema_automation_kpis_and_analytics(self) -> None:
         page = (ROOT / "kafe-restoran-dijital-pazarlama.html").read_text(encoding="utf-8")
@@ -142,16 +159,16 @@ class SeoSmokeTests(unittest.TestCase):
         for path in paths:
             with self.subTest(path=path):
                 page = path.read_text(encoding="utf-8")
-                self.assertIn("/kafe-restoran-dijital-pazarlama.html", page)
+                self.assertIn("/sektorler/kafe-restoran-dijital-pazarlama/", page)
 
     def test_strategy_page_links_to_each_sector_landing_page(self) -> None:
         page = (ROOT / "dijital-pazarlama-stratejisi.html").read_text(encoding="utf-8")
         for href in (
             "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
-            "/kafe-restoran-dijital-pazarlama.html",
-            "/moda-e-ticaret-dijital-pazarlama.html",
-            "/teknoloji-b2b-dijital-pazarlama.html",
-            "/yasam-ev-markalari-dijital-pazarlama.html",
+            "/sektorler/kafe-restoran-dijital-pazarlama/",
+            "/sektorler/moda-e-ticaret-dijital-pazarlama/",
+            "/sektorler/teknoloji-b2b-dijital-pazarlama/",
+            "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
         ):
             with self.subTest(href=href):
                 self.assertIn(f'href="{href}"', page)
@@ -169,6 +186,16 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("canonical", blog_index)
         self.assertIn("Veridia Strateji Ekibi", blog_index)
         self.assertNotIn("#analyze", blog_index)
+
+    def test_blog_index_uses_revision_hero_copy_and_card_ctas(self) -> None:
+        blog_index = (ROOT / "blog.html").read_text(encoding="utf-8")
+        self.assertIn("<h1>Blog</h1>", blog_index)
+        self.assertIn(
+            "Veridia Reklam Ajansı blogunda web tasarım, SEO, Google reklamları, sosyal medya yönetimi ve sektörlere özel dijital pazarlama stratejileri üzerine rehber içerikler bulabilirsiniz.",
+            blog_index,
+        )
+        self.assertIn("Devamını Oku", blog_index)
+        self.assertIn('data-category="guzellik-merkezleri"', blog_index)
 
     def test_homepage_routes_primary_service_ctas_to_clean_hub_urls(self) -> None:
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -210,7 +237,8 @@ class SeoSmokeTests(unittest.TestCase):
             self.assertIn('<link rel="canonical"', content)
             self.assertIn('"@type": "Article"', content)
             self.assertIn('meta property="og:type" content="article"', content)
-            self.assertIn("veridia-social-cover.png", content)
+            self.assertIn('meta property="og:image"', content)
+            self.assertIn("/assets/blog/", content)
             self.assertIn('rel="icon"', content)
 
     def test_homepage_has_service_catalog_and_visible_service_copy(self) -> None:
@@ -222,7 +250,7 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("veridia-social-cover.png", homepage)
         self.assertIn("assets/config.js", homepage)
         self.assertIn("assets/home-loader.js", homepage)
-        self.assertIn("/hizli-teklif.html", homepage)
+        self.assertIn("/hizli-teklif", homepage)
         self.assertIn('id="contactForm"', homepage)
         self.assertIn('action="/api/contact"', homepage)
         self.assertIn('rel="icon"', homepage)
@@ -270,8 +298,8 @@ class SeoSmokeTests(unittest.TestCase):
     def test_contact_and_service_ctas_point_to_real_targets(self) -> None:
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('action="/api/contact"', homepage)
-        self.assertNotIn('/iletisim.html', homepage)
-        self.assertIn('/hizli-teklif.html', homepage)
+        self.assertNotIn('/iletisim', homepage)
+        self.assertIn('/hizli-teklif', homepage)
 
         for page_name in (
             "hakkimizda.html",
@@ -282,7 +310,7 @@ class SeoSmokeTests(unittest.TestCase):
         ):
             with self.subTest(page_name=page_name):
                 content = (ROOT / page_name).read_text(encoding="utf-8")
-                self.assertNotIn('/iletisim.html', content)
+                self.assertNotIn('/iletisim', content)
 
     def test_body_internal_links_do_not_hardcode_production_domain(self) -> None:
         paths = [
@@ -403,9 +431,10 @@ class SeoSmokeTests(unittest.TestCase):
 
     def test_sector_landing_pages_have_service_and_breadcrumb_schema(self) -> None:
         for page_name in (
-            "moda-e-ticaret-dijital-pazarlama.html",
-            "teknoloji-b2b-dijital-pazarlama.html",
-            "yasam-ev-markalari-dijital-pazarlama.html",
+            "sektorler/kafe-restoran-dijital-pazarlama/index.html",
+            "sektorler/moda-e-ticaret-dijital-pazarlama/index.html",
+            "sektorler/teknoloji-b2b-dijital-pazarlama/index.html",
+            "sektorler/yasam-ev-markalari-dijital-pazarlama/index.html",
         ):
             with self.subTest(page=page_name):
                 types = json_ld_types(ROOT / page_name)
@@ -508,6 +537,54 @@ class SeoSmokeTests(unittest.TestCase):
             redirects,
         )
 
+    def test_vercel_config_redirects_consolidated_beauty_article(self) -> None:
+        config = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
+        redirects = config.get("redirects", [])
+        actual = {(redirect["source"], redirect["destination"]) for redirect in redirects}
+        expected = {
+            (
+                "/blog/guzellik-merkezi-dijital-pazarlama",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/blog/guzellik-merkezi-dijital-pazarlama.html",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/blog/guzellik-merkezleri-icin-seo-nedir",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/blog/guzellik-merkezleri-icin-seo-nedir.html",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/guzellik-klinik-dijital-pazarlama",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/guzellik-klinik-dijital-pazarlama.html",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
+                "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+            ),
+            (
+                "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
+                "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+            ),
+        }
+        self.assertTrue(expected.issubset(actual))
+
     def test_vercel_config_redirects_all_legacy_and_slashless_silo_paths(self) -> None:
         config = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
         redirects = config.get("redirects", [])
@@ -515,7 +592,7 @@ class SeoSmokeTests(unittest.TestCase):
             ("/index.html", "/"),
             ("/asdfadsf.html", "/"),
             ("/veridia-ajans.html", "/"),
-            ("/blog/b2b-pazarlamada-donusum-hunisi.html", "/blog/b2b-donusum-hunisi.html"),
+            ("/blog/b2b-pazarlamada-donusum-hunisi.html", "/blog/b2b-donusum-hunisi"),
             ("/web-tasarim.html", "/hizmetler/web-tasarim/"),
             ("/seo-danismanligi.html", "/hizmetler/seo-danismanligi/"),
             ("/google-ads-yonetimi.html", "/hizmetler/google-ads-yonetimi/"),
@@ -536,11 +613,35 @@ class SeoSmokeTests(unittest.TestCase):
             ("/sektorler/dis-klinikleri-icin-dijital-pazarlama", "/sektorler/dis-klinikleri-icin-dijital-pazarlama/"),
             ("/sektorler/kuaforler-icin-dijital-pazarlama", "/sektorler/kuaforler-icin-dijital-pazarlama/"),
             ("/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama", "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/"),
-            ("/guzellik-klinik-dijital-pazarlama.html", "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/"),
+            ("/guzellik-klinik-dijital-pazarlama.html", "/blog/guzellik-merkezleri-icin-dijital-pazarlama"),
             ("/guzellik-merkezleri-icin-dijital-pazarlama", "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/"),
         }
         actual = {(redirect["source"], redirect["destination"]) for redirect in redirects}
         self.assertTrue(expected <= actual)
+
+    def test_htaccess_redirects_non_www_to_www_before_path_redirects(self) -> None:
+        htaccess = (ROOT / ".htaccess").read_text(encoding="utf-8")
+        self.assertIn("RewriteCond %{HTTP_HOST} ^veridiareklam\\.com\\.tr$", htaccess)
+        self.assertIn("RewriteRule ^(.*)$ https://www.veridiareklam.com.tr/$1 [R=301,L]", htaccess)
+        self.assertLess(htaccess.index("RewriteCond %{HTTP_HOST}"), htaccess.index("Redirect 301"))
+
+    def test_root_sector_urls_are_legacy_only_after_sektorler_standard(self) -> None:
+        config = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
+        redirects = {(redirect["source"], redirect["destination"]) for redirect in config.get("redirects", [])}
+        expected = {
+            ("/kafe-restoran-dijital-pazarlama", "/sektorler/kafe-restoran-dijital-pazarlama/"),
+            ("/kafe-restoran-dijital-pazarlama.html", "/sektorler/kafe-restoran-dijital-pazarlama/"),
+            ("/moda-e-ticaret-dijital-pazarlama", "/sektorler/moda-e-ticaret-dijital-pazarlama/"),
+            ("/moda-e-ticaret-dijital-pazarlama.html", "/sektorler/moda-e-ticaret-dijital-pazarlama/"),
+            ("/teknoloji-b2b-dijital-pazarlama", "/sektorler/teknoloji-b2b-dijital-pazarlama/"),
+            ("/teknoloji-b2b-dijital-pazarlama.html", "/sektorler/teknoloji-b2b-dijital-pazarlama/"),
+            ("/yasam-ev-markalari-dijital-pazarlama", "/sektorler/yasam-ev-markalari-dijital-pazarlama/"),
+            ("/yasam-ev-markalari-dijital-pazarlama.html", "/sektorler/yasam-ev-markalari-dijital-pazarlama/"),
+        }
+        self.assertTrue(expected <= redirects)
+        rewrite_sources = {rewrite["source"] for rewrite in config.get("rewrites", [])}
+        for source, _ in expected:
+            self.assertNotIn(source, rewrite_sources)
 
     def test_vercel_config_sets_browser_cache_headers_for_assets(self) -> None:
         config = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
@@ -569,6 +670,30 @@ class SeoSmokeTests(unittest.TestCase):
             },
             headers,
         )
+
+    def test_public_html_canonical_and_og_urls_use_single_www_host(self) -> None:
+        public_pages = list(ROOT.glob("*.html")) + list((ROOT / "blog").glob("*.html"))
+        for path in public_pages:
+            content = path.read_text(encoding="utf-8")
+            head = content.split("</head>", 1)[0]
+            with self.subTest(path=path.relative_to(ROOT)):
+                self.assertNotIn("https://veridiareklam.com.tr", head)
+                self.assertNotIn("http://veridiareklam.com.tr", head)
+
+    def test_about_page_exposes_founder_identity_without_fake_portrait_claim(self) -> None:
+        page = (ROOT / "hakkimizda.html").read_text(encoding="utf-8")
+        self.assertIn("Kurucu: Yaşar İshak Topçu", page)
+        self.assertIn("SEO, web performansı, reklam ölçümü ve dönüşüm odaklı web yüzeyleri", page)
+        self.assertIn("Kurucu portresi eklenecek", page)
+
+    def test_every_blog_article_has_visible_author_box(self) -> None:
+        article_paths = list((ROOT / "blog").glob("*.html")) + list((ROOT / "blog").glob("*/index.html"))
+        self.assertGreater(len(article_paths), 0)
+        for path in article_paths:
+            with self.subTest(path=path.relative_to(ROOT)):
+                content = path.read_text(encoding="utf-8")
+                self.assertIn('class="author-box"', content)
+                self.assertIn("Yazar", content)
 
     def test_vercelignore_allowlists_only_public_static_surfaces(self) -> None:
         patterns = (ROOT / ".vercelignore").read_text(encoding="utf-8").splitlines()
@@ -613,7 +738,7 @@ class SeoSmokeTests(unittest.TestCase):
             ),
             (
                 ROOT / "sektorler" / "guzellik-merkezleri-icin-dijital-pazarlama" / "index.html",
-                "Güzellik Merkezleri İçin Dijital Pazarlama | Veridia Reklam Ajansı",
+                "Güzellik Merkezi Dijital Pazarlama Hizmeti | Veridia",
                 f"{PRODUCTION_URL}/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
             ),
             (
@@ -654,6 +779,23 @@ class SeoSmokeTests(unittest.TestCase):
                 self.assertIn("FAQPage", types)
                 self.assertIn('aria-label="Breadcrumb"', page)
 
+    def test_beauty_pillar_article_has_consolidated_seo_sections_and_clean_canonical(self) -> None:
+        page = (ROOT / "blog" / "guzellik-merkezleri-icin-dijital-pazarlama.html").read_text(encoding="utf-8")
+        self.assertIn(
+            '<link rel="canonical" href="https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama">',
+            page,
+        )
+        self.assertIn(
+            "Güzellik Merkezi SEO: Google'da Nasıl Üst Sıralara Çıkarsınız",
+            page,
+        )
+        self.assertIn("Güzellik Merkezi Web Sitesi Nasıl Olmalı", page)
+        self.assertIn("Google Business Profile ve Yorum Yönetimi ile Lokal SEO", page)
+        self.assertIn("Instagram Yönetimi: Güven ve Talep Üretimi", page)
+        self.assertIn("FAQPage", page)
+        self.assertIn("/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/", page)
+        self.assertIn("/blog/guzellik-merkezi-web-sitesi-nasil-olmali", page)
+
     def test_sector_hub_links_all_active_sector_landings_and_tracks_ctas(self) -> None:
         page = (ROOT / "sektorler" / "index.html").read_text(encoding="utf-8")
         for href in (
@@ -687,8 +829,8 @@ class SeoSmokeTests(unittest.TestCase):
         ):
             with self.subTest(href=href):
                 self.assertIn(f'href: "{href}"', script)
-        self.assertIn('/assets/revision.js?v=8', homepage)
-        self.assertIn('/assets/revision.css?v=26', homepage)
+        self.assertRegex(homepage, r'/assets/revision\.js\?v=\d+')
+        self.assertRegex(homepage, r'/assets/revision\.css\?v=\d+')
 
     def test_beauty_sector_page_marks_missing_service_pages_without_links(self) -> None:
         page = (ROOT / "sektorler" / "guzellik-merkezleri-icin-dijital-pazarlama" / "index.html").read_text(

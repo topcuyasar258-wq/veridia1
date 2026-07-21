@@ -23,7 +23,7 @@
       ]
     },
     {
-      "url": "/blog.html",
+      "url": "/blog",
       "file": "blog.html",
       "title": "Veridia Blog",
       "changefreq": "weekly",
@@ -32,6 +32,97 @@
         {
           "path": "/assets/veridia-social-cover.png",
           "title": "Veridia Blog Kapak Görseli"
+        }
+      ]
+    },
+    {
+      "url": "/sektorler/",
+      "file": "sektorler/index.html",
+      "title": "Sektörlere Özel Dijital Pazarlama Çözümleri",
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Veridia Sektörler Kapak Görseli"
+        }
+      ]
+    },
+    {
+      "url": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+      "file": "sektorler/guzellik-merkezleri-icin-dijital-pazarlama/index.html",
+      "title": "Güzellik Merkezleri İçin Dijital Pazarlama",
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Güzellik Merkezleri İçin Dijital Pazarlama"
+        }
+      ]
+    },
+    {
+      "url": "/sektorler/avukatlar-icin-dijital-pazarlama/",
+      "file": "sektorler/avukatlar-icin-dijital-pazarlama/index.html",
+      "title": "Avukatlar İçin Dijital Pazarlama",
+      "changefreq": "monthly",
+      "priority": "0.7",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Avukatlar İçin Dijital Pazarlama"
+        }
+      ]
+    },
+    {
+      "url": "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/",
+      "file": "sektorler/estetik-klinikleri-icin-dijital-pazarlama/index.html",
+      "title": "Estetik Klinikleri İçin Dijital Pazarlama",
+      "changefreq": "monthly",
+      "priority": "0.7",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Estetik Klinikleri İçin Dijital Pazarlama"
+        }
+      ]
+    },
+    {
+      "url": "/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
+      "file": "sektorler/dis-klinikleri-icin-dijital-pazarlama/index.html",
+      "title": "Diş Klinikleri İçin Dijital Pazarlama",
+      "changefreq": "monthly",
+      "priority": "0.7",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Diş Klinikleri İçin Dijital Pazarlama"
+        }
+      ]
+    },
+    {
+      "url": "/sektorler/kuaforler-icin-dijital-pazarlama/",
+      "file": "sektorler/kuaforler-icin-dijital-pazarlama/index.html",
+      "title": "Kuaförler İçin Dijital Pazarlama",
+      "changefreq": "monthly",
+      "priority": "0.7",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Kuaförler İçin Dijital Pazarlama"
+        }
+      ]
+    },
+    {
+      "url": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
+      "file": "sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/index.html",
+      "title": "Yerel Servis İşletmeleri İçin Dijital Pazarlama",
+      "changefreq": "monthly",
+      "priority": "0.7",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Yerel Servis İşletmeleri İçin Dijital Pazarlama"
         }
       ]
     },
@@ -49,7 +140,7 @@
       ]
     },
     {
-      "url": "/calismalarimiz.html",
+      "url": "/calismalarimiz",
       "file": "calismalarimiz.html",
       "title": "Veridia Örnek Çalışma Senaryoları",
       "changefreq": "monthly",
@@ -62,77 +153,77 @@
       ]
     },
     {
-      "url": "/hakkimizda.html",
+      "url": "/hakkimizda",
       "file": "hakkimizda.html",
       "title": "Veridia Hakkında",
       "changefreq": "monthly",
       "priority": "0.6"
     },
     {
-      "url": "/calisma-surecimiz.html",
+      "url": "/calisma-surecimiz",
       "file": "calisma-surecimiz.html",
       "title": "Veridia Çalışma Süreci",
       "changefreq": "monthly",
       "priority": "0.6"
     },
     {
-      "url": "/iletisim.html",
+      "url": "/iletisim",
       "file": "iletisim.html",
       "title": "Veridia İletişim",
       "changefreq": "monthly",
       "priority": "0.5"
     },
     {
-      "url": "/hizli-teklif.html",
+      "url": "/hizli-teklif",
       "file": "hizli-teklif.html",
       "title": "Veridia Hızlı Teklif",
       "changefreq": "monthly",
       "priority": "0.5"
     },
     {
-      "url": "/dijital-pazarlama-stratejisi.html",
+      "url": "/dijital-pazarlama-stratejisi",
       "file": "dijital-pazarlama-stratejisi.html",
       "title": "Sektörünüze Özel Dijital Pazarlama Stratejisi",
       "changefreq": "monthly",
       "priority": "0.7"
     },
     {
-      "url": "/kafe-restoran-dijital-pazarlama.html",
+      "url": "/sektorler/kafe-restoran-dijital-pazarlama/",
       "file": "kafe-restoran-dijital-pazarlama.html",
       "title": "Restoran ve Kafeler İçin Dijital Pazarlama",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
-      "url": "/moda-e-ticaret-dijital-pazarlama.html",
+      "url": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
       "file": "moda-e-ticaret-dijital-pazarlama.html",
       "title": "Moda ve E-Ticaret Markaları İçin Dijital Pazarlama",
       "changefreq": "monthly",
       "priority": "0.7"
     },
     {
-      "url": "/teknoloji-b2b-dijital-pazarlama.html",
+      "url": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
       "file": "teknoloji-b2b-dijital-pazarlama.html",
       "title": "Teknoloji ve B2B Firmalar İçin Dijital Pazarlama",
       "changefreq": "monthly",
       "priority": "0.7"
     },
     {
-      "url": "/yasam-ev-markalari-dijital-pazarlama.html",
+      "url": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
       "file": "yasam-ev-markalari-dijital-pazarlama.html",
       "title": "Yaşam ve Ev Markaları İçin Dijital Pazarlama",
       "changefreq": "monthly",
       "priority": "0.7"
     },
     {
-      "url": "/gizlilik-politikasi.html",
+      "url": "/gizlilik-politikasi",
       "file": "gizlilik-politikasi.html",
       "title": "Gizlilik Politikası",
       "changefreq": "yearly",
       "priority": "0.3"
     },
     {
-      "url": "/kvkk-aydinlatma-metni.html",
+      "url": "/kvkk-aydinlatma-metni",
       "file": "kvkk-aydinlatma-metni.html",
       "title": "KVKK Aydınlatma Metni",
       "changefreq": "yearly",
@@ -160,6 +251,7 @@
         "google-gorunurlugu"
       ],
       "featured_posts": [
+        "guzellik-merkezleri-icin-dijital-pazarlama",
         "teknik-seo-ve-web-performansi"
       ]
     },
@@ -229,7 +321,7 @@
       "primary_cta_href": "/#quote",
       "secondary_cta_label": "SEO hizmet alanına dön",
       "secondary_cta_href": "/hizmetler/#search",
-      "legacy_href": "/blog/teknik-seo-ve-web-performansi.html",
+      "legacy_href": "/blog/teknik-seo-ve-web-performansi",
       "legacy_label": "Teknik SEO rehberini oku",
       "blog_category": "seo",
       "blog_label": "Teknik SEO",
@@ -291,7 +383,7 @@
       ],
       "sector_links": [
         {
-          "url": "/kafe-restoran-dijital-pazarlama.html",
+          "url": "/sektorler/kafe-restoran-dijital-pazarlama/",
           "label": "Restoranlar için yerel SEO",
           "copy": "Google Maps görünürlüğünü rezervasyon ve mekan ziyareti hedefleriyle birlikte ele alan uygulama planını inceleyin."
         }
@@ -312,7 +404,7 @@
       "primary_cta_href": "/#quote",
       "secondary_cta_label": "Sosyal medya yüzeyine dön",
       "secondary_cta_href": "/hizmetler/#social",
-      "legacy_href": "/blog/instagram-algoritmasi-2026.html",
+      "legacy_href": "/blog/instagram-algoritmasi-2026",
       "legacy_label": "Instagram rehberini oku",
       "blog_category": "social",
       "blog_label": "Sosyal Medya",
@@ -336,7 +428,7 @@
       ],
       "sector_links": [
         {
-          "url": "/kafe-restoran-dijital-pazarlama.html",
+          "url": "/sektorler/kafe-restoran-dijital-pazarlama/",
           "label": "Kafeler için rezervasyon odaklı pazarlama",
           "copy": "İçerik ritmini yerel kitle, WhatsApp aksiyonu ve tekrar ziyaret hedefleriyle birleştiren yaklaşımı görün."
         }
@@ -357,7 +449,7 @@
       "primary_cta_href": "/#quote",
       "secondary_cta_label": "Reklam yüzeyine dön",
       "secondary_cta_href": "/hizmetler/#search",
-      "legacy_href": "/blog/b2b-donusum-hunisi.html",
+      "legacy_href": "/blog/b2b-donusum-hunisi",
       "legacy_label": "B2B dönüşüm rehberini oku",
       "blog_category": "ads",
       "blog_label": "Google Ads",
@@ -381,7 +473,7 @@
       ],
       "sector_links": [
         {
-          "url": "/kafe-restoran-dijital-pazarlama.html",
+          "url": "/sektorler/kafe-restoran-dijital-pazarlama/",
           "label": "Restoran Google Ads kampanyaları",
           "copy": "Bölgesel aramaları menü, rezervasyon ve özel gün landing page'leriyle eşleştiren sektör planını inceleyin."
         }
@@ -402,7 +494,7 @@
       "primary_cta_href": "/#contact",
       "secondary_cta_label": "Meta yüzeyine dön",
       "secondary_cta_href": "/hizmetler/#meta",
-      "legacy_href": "/calismalarimiz.html#zeyra",
+      "legacy_href": "/calismalarimiz#zeyra",
       "legacy_label": "Meta vaka senaryosunu gör",
       "blog_category": "ads",
       "blog_label": "Meta Reklam",
@@ -441,7 +533,7 @@
       "primary_cta_href": "/#contact",
       "secondary_cta_label": "Web hizmet alanına dön",
       "secondary_cta_href": "/hizmetler/#web",
-      "legacy_href": "/calismalarimiz.html#maison",
+      "legacy_href": "/calismalarimiz#maison",
       "legacy_label": "Web vaka senaryosunu gör",
       "blog_category": "web",
       "blog_label": "Web ve CRO",
@@ -465,7 +557,7 @@
       ],
       "sector_links": [
         {
-          "url": "/kafe-restoran-dijital-pazarlama.html",
+          "url": "/sektorler/kafe-restoran-dijital-pazarlama/",
           "label": "Restoran rezervasyon landing page'i",
           "copy": "Mobil menü, WhatsApp aksiyonu ve kısa rezervasyon akışını birlikte kurgulayan sektör uygulamasını görün."
         }
@@ -474,8 +566,23 @@
   ],
   "blog_posts": [
     {
+      "slug": "guzellik-merkezi-web-sitesi-nasil-olmali",
+      "url": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "file": "blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
+      "title": "Güzellik Merkezi Web Sitesi Nasıl Olmalı? Randevu Yapısı",
+      "summary": "Güzellik merkezleri için mobil hız, zorunlu sayfalar, hizmet sayfası netliği, güven unsurları, WhatsApp aksiyonu ve form dönüşümünü randevu odaklı bir web sitesi yapısında topluyoruz.",
+      "description": "Güzellik merkezi web sitesi nasıl olmalı? Zorunlu sayfalar, hizmet yapısı, WhatsApp ve form dönüşümünü güçlendiren randevu odaklı rehber.",
+      "published_at": "2026-06-30T00:00:00+03:00",
+      "modified_at": "2026-07-16T00:00:00+03:00",
+      "date_label": "30 Haziran 2026",
+      "reading_time": "16 dk okuma",
+      "author": "Veridia Strateji Ekibi",
+      "service_slug": "web-sitesi-ve-donusum-yuzeyleri",
+      "card_summary": "Güzellik merkezleri için mobil hız, zorunlu sayfalar, hizmet sayfası netliği, güven unsurları, WhatsApp aksiyonu ve form dönüşümünü randevu odaklı bir web sitesi yapısında topluyoruz."
+    },
+    {
       "slug": "avukatlar-icin-google-reklamlari",
-      "url": "/blog/avukatlar-icin-google-reklamlari/",
+      "url": "/blog/avukatlar-icin-google-reklamlari",
       "file": "blog/avukatlar-icin-google-reklamlari/index.html",
       "title": "Avukatlar İçin Google Reklamları: Daha Fazla Müvekkil Kazanmanın Yolları",
       "summary": "Avukatlar için Google reklamları nasıl kurgulanmalı? Hukuk büroları için Google Ads, reklam bütçesi, dönüşüm takibi ve müvekkil kazanma stratejilerini keşfedin.",
@@ -489,23 +596,8 @@
       "card_summary": "Hukuk büroları için Google Ads kampanya kurgusu, etik reklam dili, bütçe planı, landing page ve dönüşüm takibini müvekkil adayı kazanma odağıyla anlatıyoruz."
     },
     {
-      "slug": "guzellik-merkezi-dijital-pazarlama",
-      "url": "/blog/guzellik-merkezi-dijital-pazarlama.html",
-      "file": "blog/guzellik-merkezi-dijital-pazarlama.html",
-      "title": "Güzellik Merkezi Dijital Pazarlama Rehberi: Web Sitesi, SEO ve Reklam Stratejisi",
-      "summary": "Güzellik merkezi dijital pazarlama nasıl yapılır? SEO, reklam ve müşteri bulma yöntemlerini web sitesi, Google ve sosyal medya üzerinden öğrenin.",
-      "description": "Güzellik merkezi dijital pazarlama nasıl yapılır? SEO, reklam ve müşteri bulma yöntemlerini web sitesi, Google ve sosyal medya üzerinden öğrenin.",
-      "published_at": "2026-06-15T00:00:00+03:00",
-      "modified_at": "2026-06-15T00:00:00+03:00",
-      "date_label": "15 Haziran 2026",
-      "reading_time": "14 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "sosyal-medya-yonetimi",
-      "card_summary": "Güzellik merkezleri ve estetik klinikleri için <a href=\"/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/\">sektörel dijital pazarlama</a> sistemini; web sitesi, lokal SEO, sosyal medya ve reklam dönüşüm takibiyle birlikte anlatıyoruz."
-    },
-    {
       "slug": "hizmet-sitelerinde-cta-nasil-olmali",
-      "url": "/blog/hizmet-sitelerinde-cta-nasil-olmali.html",
+      "url": "/blog/hizmet-sitelerinde-cta-nasil-olmali",
       "file": "blog/hizmet-sitelerinde-cta-nasil-olmali.html",
       "title": "Hizmet Sitelerinde CTA Nasıl Olmalı?",
       "summary": "Bize Ulaşın butonunun neden zayıf kaldığını; net CTA metni, micro-copy, form mantığı ve sayfa tipine göre aksiyon kurgusu üzerinden inceliyoruz.",
@@ -520,7 +612,7 @@
     },
     {
       "slug": "mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
-      "url": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
+      "url": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
       "file": "blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
       "title": "Mobil Uyumsuzluk Reklam Bütçesini Nasıl Eritir?",
       "summary": "Mobil uyumsuzluk reklam bütçesini nasıl boşa harcar? Başparmak dostu tasarım, kısa formlar, güven sinyalleri, CTA akışı ve Core Web Vitals üzerinden mobil dönüşüm kaybını inceliyoruz.",
@@ -535,7 +627,7 @@
     },
     {
       "slug": "teknik-seo-ve-web-performansi",
-      "url": "/blog/teknik-seo-ve-web-performansi.html",
+      "url": "/blog/teknik-seo-ve-web-performansi",
       "file": "blog/teknik-seo-ve-web-performansi.html",
       "title": "Teknik SEO ve Web Performansı: Dönüşüm Getiren Web Sitelerinin Perde Arkası",
       "summary": "Core Web Vitals, TTFB, schema markup, EEAT, crawl budget ve otomasyon katmanlarının görünürlük ile dönüşümü nasıl birlikte büyüttüğünü örneklerle anlatıyoruz.",
@@ -549,7 +641,7 @@
     },
     {
       "slug": "instagram-algoritmasi-2026",
-      "url": "/blog/instagram-algoritmasi-2026.html",
+      "url": "/blog/instagram-algoritmasi-2026",
       "file": "blog/instagram-algoritmasi-2026.html",
       "title": "Instagram Algoritması 2026: Erişim ve Etkileşim İçin Uygulamalı Rehber",
       "summary": "Hangi sinyallerin görünürlüğü gerçekten yukarı çektiğini, reels-carousels dengesiyle paylaşım ritminin neden birlikte çalışması gerektiğini ve 30 günlük optimizasyon planını adım adım anlatıyoruz.",
@@ -563,7 +655,7 @@
     },
     {
       "slug": "b2b-donusum-hunisi",
-      "url": "/blog/b2b-donusum-hunisi.html",
+      "url": "/blog/b2b-donusum-hunisi",
       "file": "blog/b2b-donusum-hunisi.html",
       "title": "B2B Pazarlamada Dönüşüm Hunisi: Lead'den Satışa Net Sistem",
       "summary": "Lead toplama ile satış ekibine hazır fırsat üretme arasındaki boşlukları kapatmak için içerik, skorlamа, nurture akışı ve satış-CRM hizasını birlikte ele alıyoruz.",
@@ -577,7 +669,7 @@
     },
     {
       "slug": "web-siteniz-neden-musteri-getirmiyor",
-      "url": "/blog/web-siteniz-neden-musteri-getirmiyor.html",
+      "url": "/blog/web-siteniz-neden-musteri-getirmiyor",
       "file": "blog/web-siteniz-neden-musteri-getirmiyor.html",
       "title": "Web Siteniz Neden Müşteri Getirmiyor?",
       "summary": "Trafik almasına rağmen talep üretmeyen web sitelerinde sorun çoğu zaman reklam bütçesinde değil; mesaj, hız, mobil deneyim, güven sinyalleri ve CTA kurgusundaki kırılmalardadır.",
@@ -593,7 +685,7 @@
     },
     {
       "slug": "web-sitesi-yavassa-musteri-neden-kacar",
-      "url": "/blog/web-sitesi-yavassa-musteri-neden-kacar.html",
+      "url": "/blog/web-sitesi-yavassa-musteri-neden-kacar",
       "file": "blog/web-sitesi-yavassa-musteri-neden-kacar.html",
       "title": "Web Sitesi Yavaşsa Müşteri Neden Kaçar?",
       "summary": "Yavaş açılan web sitesi müşteri kaybına, düşük güven algısına ve dönüşüm oranlarının düşmesine neden olabilir. Site hızı, SEO ve satış performansı için neden önemlidir?",
@@ -607,115 +699,17 @@
     },
     {
       "slug": "guzellik-merkezleri-icin-dijital-pazarlama",
-      "url": "/blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
+      "url": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
       "file": "blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
       "title": "Güzellik Merkezleri İçin Dijital Pazarlama: Daha Fazla Randevu ve Müşteri Kazanmanın Yolları",
       "summary": "Güzellik merkezleri için Google Haritalar, SEO, web sitesi, reklam ve WhatsApp randevu akışını tek müşteri kazanım sistemi olarak anlatan kapsamlı rehber.",
-      "description": "Güzellik merkezleri için dijital pazarlama rehberi: Google Haritalar, SEO, web sitesi, Google Ads, Meta reklamları ve WhatsApp randevu süreçleriyle daha fazla müşteri kazanın.",
+      "description": "Güzellik merkezleri için dijital pazarlama, SEO, web sitesi, Google Business Profile, Instagram, reklam ve yorum yönetimi rehberi.",
       "published_at": "2026-06-17T00:00:00+03:00",
-      "modified_at": "2026-06-17T00:00:00+03:00",
+      "modified_at": "2026-07-16T00:00:00+03:00",
       "date_label": "17 Haziran 2026",
-      "reading_time": "38 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "sosyal-medya-yonetimi"
-    },
-    {
-      "slug": "guzellik-merkezi-web-sitesi-nasil-olmali",
-      "url": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
-      "file": "blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
-      "title": "Güzellik Merkezi Web Sitesi Nasıl Olmalı? Randevu Yapısı",
-      "summary": "Güzellik merkezleri için mobil hız, hizmet sayfası netliği, güven unsurları, WhatsApp aksiyonu ve form dönüşümünü randevu odaklı bir web sitesi yapısında topluyoruz.",
-      "description": "Güzellik merkezi web sitesi nasıl olmalı? Randevu talebi, WhatsApp mesajı ve form dönüşümünü güçlendiren sayfa yapısını şimdi adım adım keşfedin.",
-      "published_at": "2026-06-30T00:00:00+03:00",
-      "modified_at": "2026-07-20T00:00:00+03:00",
-      "date_label": "30 Haziran 2026",
-      "reading_time": "13 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "web-sitesi-ve-donusum-yuzeyleri"
-    },
-    {
-      "slug": "guzellik-merkezleri-icin-dijital-pazarlama-nedir",
-      "url": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
-      "file": "blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
-      "title": "Güzellik Merkezleri İçin Dijital Pazarlama Nedir? Daha Fazla Randevu Almanın Yolu",
-      "summary": "Güzellik merkezleri için dijital pazarlamanın Google Haritalar, web sitesi, SEO, reklam ve WhatsApp dönüşümleriyle nasıl randevuya dönüştüğünü anlatan rehber.",
-      "description": "Güzellik merkezleri için dijital pazarlamanın Google Haritalar, web sitesi, SEO, reklam ve WhatsApp dönüşümleriyle nasıl randevuya dönüştüğünü öğrenin.",
-      "published_at": "2026-06-29T00:00:00+03:00",
-      "modified_at": "2026-06-29T00:00:00+03:00",
-      "date_label": "29 Haziran 2026",
-      "reading_time": "12 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "sosyal-medya-yonetimi"
-    },
-    {
-      "slug": "guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
-      "url": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
-      "file": "blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
-      "title": "Güzellik Salonu Web Sitesinde Olması Gereken Zorunlu Sayfalar",
-      "summary": "Güzellik salonu web sitesinde olması gereken zorunlu sayfaları; ana sayfa, hizmet sayfaları, fiyat yaklaşımı, SSS, yorumlar ve iletişim akışı üzerinden anlatan rehber.",
-      "description": "Güzellik salonu web sitesinde olması gereken zorunlu sayfaları; ana sayfa, hizmet sayfaları, fiyat yaklaşımı, SSS, yorumlar ve iletişim akışı üzerinden keşfedin.",
-      "published_at": "2026-07-07T00:00:00+03:00",
-      "modified_at": "2026-07-07T00:00:00+03:00",
-      "date_label": "7 Temmuz 2026",
-      "reading_time": "11 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "web-sitesi-ve-donusum-yuzeyleri"
-    },
-    {
-      "slug": "guzellik-merkezleri-icin-seo-nedir",
-      "url": "/blog/guzellik-merkezleri-icin-seo-nedir.html",
-      "file": "blog/guzellik-merkezleri-icin-seo-nedir.html",
-      "title": "Güzellik Merkezleri İçin SEO Nedir? Google'da Görünür Olmanın Mantığı",
-      "summary": "Güzellik merkezleri için SEO'nun mantığını, lokal arama niyetini, hizmet sayfalarını ve dönüşüm akışını anlatan rehber.",
-      "description": "Güzellik merkezleri için SEO nedir? Google'da görünür olmanın mantığını, lokal arama niyetini, hizmet sayfalarını ve dönüşüm akışını şimdi keşfedin.",
-      "published_at": "2026-07-08T00:00:00+03:00",
-      "modified_at": "2026-07-08T00:00:00+03:00",
-      "date_label": "8 Temmuz 2026",
-      "reading_time": "12 dk okuma",
+      "reading_time": "40 dk okuma",
       "author": "Veridia Strateji Ekibi",
       "service_slug": "google-gorunurlugu"
-    },
-    {
-      "slug": "guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar",
-      "url": "/blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar.html",
-      "file": "blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar.html",
-      "title": "Güzellik Merkezi Google Haritalar'da Üst Sıraya Nasıl Çıkar?",
-      "summary": "İşletmeniz haritada çıkmıyorsa nedenini ve güzellik merkezinizi Google Haritalar'da üst sıraya taşıyacak adımları bu rehberde bulun.",
-      "description": "İşletmeniz haritada çıkmıyorsa nedenini ve güzellik merkezinizi Google Haritalar'da üst sıraya taşıyacak adımları bu rehberde bulun.",
-      "published_at": "2026-07-15T00:00:00+03:00",
-      "modified_at": "2026-07-15T00:00:00+03:00",
-      "date_label": "15 Temmuz 2026",
-      "reading_time": "10 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "google-gorunurlugu"
-    },
-    {
-      "slug": "whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir",
-      "url": "/blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir.html",
-      "file": "blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir.html",
-      "title": "WhatsApp'ta Fiyat Sorusunu Randevuya Çevirme Rehberi",
-      "summary": "WhatsApp'tan gelen 'Fiyat nedir?' mesajları boşa mı gidiyor? Güzellik merkeziniz için whatsapp randevu dönüşümünü artıracak hazır cevap akışını öğrenin.",
-      "description": "WhatsApp'tan gelen 'Fiyat nedir?' mesajları boşa mı gidiyor? Güzellik merkeziniz için whatsapp randevu dönüşümünü artıracak hazır cevap akışını öğrenin.",
-      "published_at": "2026-07-19T00:00:00+03:00",
-      "modified_at": "2026-07-19T00:00:00+03:00",
-      "date_label": "19 Temmuz 2026",
-      "reading_time": "9 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "sosyal-medya-yonetimi"
-    },
-    {
-      "slug": "guzellik-estetik-reklamlari-metada-neden-reddedilir",
-      "url": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir.html",
-      "file": "blog/guzellik-estetik-reklamlari-metada-neden-reddedilir.html",
-      "title": "Güzellik ve Estetik Reklamları Meta'da Neden Reddedilir?",
-      "summary": "Instagram reklamınız reddedildi mi? Güzellik ve estetik reklamlarının Meta'da reddedilme nedenlerini ve onay alacak reklam yazma yollarını öğrenin.",
-      "description": "Instagram reklamınız reddedildi mi? Güzellik ve estetik reklamlarının Meta'da reddedilme nedenlerini ve onay alacak reklam yazma yollarını öğrenin.",
-      "published_at": "2026-07-18T00:00:00+03:00",
-      "modified_at": "2026-07-18T00:00:00+03:00",
-      "date_label": "18 Temmuz 2026",
-      "reading_time": "9 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "meta-reklam-yonetimi"
     }
   ]
 }

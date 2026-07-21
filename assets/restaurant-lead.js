@@ -22,7 +22,7 @@
       const payload = {
         ...fields,
         mesaj: 'Restoran veya kafe dijital pazarlama ön analizi talebi.',
-        kaynak: root.location?.pathname || '/kafe-restoran-dijital-pazarlama.html',
+        kaynak: root.location?.pathname || '/kafe-restoran-dijital-pazarlama',
       }
       const response = await root.fetch(form.action, {
         method: 'POST',

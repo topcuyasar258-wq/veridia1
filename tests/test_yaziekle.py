@@ -34,7 +34,7 @@ class BlogGeneratorTests(unittest.TestCase):
                 "9 Nisan 2026",
             )
 
-        self.assertIn("https://demo.example/blog/deneme-baslik.html", html)
+        self.assertIn("https://demo.example/blog/deneme-baslik", html)
         self.assertIn("https://demo.example/assets/veridia-social-cover.png", html)
 
     def test_template_embeds_service_breadcrumbs_and_related_cluster_links(self) -> None:

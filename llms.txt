@@ -8,8 +8,8 @@ Veridia Reklam, KOBI'ler ve yerel hizmet isletmeleri icin web tasarim, SEO, Goog
 - https://www.veridiareklam.com.tr/seo/ - SEO hizmetleri
 - https://www.veridiareklam.com.tr/reklam/ - Reklam hizmetleri
 - https://www.veridiareklam.com.tr/yazilim/ - Web tasarim ve yazilim hizmetleri
-- https://www.veridiareklam.com.tr/blog.html - Pazarlama, SEO ve donusum rehberleri
-- https://www.veridiareklam.com.tr/hizli-teklif.html - Hizli teklif ve on brief akisi
+- https://www.veridiareklam.com.tr/blog - Pazarlama, SEO ve donusum rehberleri
+- https://www.veridiareklam.com.tr/hizli-teklif - Hizli teklif ve on brief akisi
 
 ## Hizmet Odaklari
 

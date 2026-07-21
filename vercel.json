@@ -23,7 +23,57 @@
     },
     {
       "source": "/blog/b2b-pazarlamada-donusum-hunisi.html",
-      "destination": "/blog/b2b-donusum-hunisi.html",
+      "destination": "/blog/b2b-donusum-hunisi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezi-dijital-pazarlama",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezi-dijital-pazarlama.html",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-seo-nedir",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-seo-nedir.html",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "permanent": true
+    },
+    {
+      "source": "/guzellik-klinik-dijital-pazarlama",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "permanent": true
+    },
+    {
+      "source": "/guzellik-klinik-dijital-pazarlama.html",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
+      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
+      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
       "permanent": true
     },
     {
@@ -152,8 +202,23 @@
       "permanent": true
     },
     {
-      "source": "/guzellik-klinik-dijital-pazarlama.html",
-      "destination": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+      "source": "/sektorler/kafe-restoran-dijital-pazarlama",
+      "destination": "/sektorler/kafe-restoran-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/sektorler/moda-e-ticaret-dijital-pazarlama",
+      "destination": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/sektorler/teknoloji-b2b-dijital-pazarlama",
+      "destination": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/sektorler/yasam-ev-markalari-dijital-pazarlama",
+      "destination": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
       "permanent": true
     },
     {
@@ -162,58 +227,153 @@
       "permanent": true
     },
     {
-      "source": "/blog",
-      "destination": "/blog.html",
+      "source": "/blog.html",
+      "destination": "/blog",
       "permanent": true
     },
     {
-      "source": "/iletisim",
-      "destination": "/iletisim.html",
+      "source": "/calismalarimiz.html",
+      "destination": "/calismalarimiz",
       "permanent": true
     },
     {
-      "source": "/hizli-teklif",
-      "destination": "/hizli-teklif.html",
+      "source": "/hakkimizda.html",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
-      "source": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
-      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
+      "source": "/calisma-surecimiz.html",
+      "destination": "/calisma-surecimiz",
       "permanent": true
     },
     {
-      "source": "/blog/guzellik-merkezi-dijital-pazarlama",
-      "destination": "/blog/guzellik-merkezi-dijital-pazarlama.html",
+      "source": "/hizli-teklif.html",
+      "destination": "/hizli-teklif",
       "permanent": true
     },
     {
-      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
-      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
+      "source": "/iletisim.html",
+      "destination": "/iletisim",
       "permanent": true
     },
     {
-      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
+      "source": "/dijital-pazarlama-stratejisi.html",
+      "destination": "/dijital-pazarlama-stratejisi",
       "permanent": true
     },
     {
-      "source": "/blog/guzellik-merkezleri-icin-seo-nedir",
-      "destination": "/blog/guzellik-merkezleri-icin-seo-nedir.html",
+      "source": "/kafe-restoran-dijital-pazarlama.html",
+      "destination": "/sektorler/kafe-restoran-dijital-pazarlama/",
       "permanent": true
     },
     {
-      "source": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
-      "destination": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
+      "source": "/kafe-restoran-dijital-pazarlama",
+      "destination": "/sektorler/kafe-restoran-dijital-pazarlama/",
       "permanent": true
     },
     {
-      "source": "/blog/instagram-algoritmasi-2026",
-      "destination": "/blog/instagram-algoritmasi-2026.html",
+      "source": "/moda-e-ticaret-dijital-pazarlama.html",
+      "destination": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
       "permanent": true
     },
     {
-      "source": "/blog/avukatlar-icin-google-reklamlari",
-      "destination": "/blog/avukatlar-icin-google-reklamlari/",
+      "source": "/moda-e-ticaret-dijital-pazarlama",
+      "destination": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/teknoloji-b2b-dijital-pazarlama.html",
+      "destination": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/teknoloji-b2b-dijital-pazarlama",
+      "destination": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/yasam-ev-markalari-dijital-pazarlama.html",
+      "destination": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/yasam-ev-markalari-dijital-pazarlama",
+      "destination": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
+      "permanent": true
+    },
+    {
+      "source": "/gizlilik-politikasi.html",
+      "destination": "/gizlilik-politikasi",
+      "permanent": true
+    },
+    {
+      "source": "/kvkk-aydinlatma-metni.html",
+      "destination": "/kvkk-aydinlatma-metni",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/b2b-donusum-hunisi.html",
+      "destination": "/blog/b2b-donusum-hunisi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
+      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hizmet-sitelerinde-cta-nasil-olmali.html",
+      "destination": "/blog/hizmet-sitelerinde-cta-nasil-olmali",
+      "permanent": true
+    },
+    {
+      "source": "/blog/instagram-algoritmasi-2026.html",
+      "destination": "/blog/instagram-algoritmasi-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
+      "destination": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
+      "permanent": true
+    },
+    {
+      "source": "/blog/teknik-seo-ve-web-performansi.html",
+      "destination": "/blog/teknik-seo-ve-web-performansi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/web-siteniz-neden-musteri-getirmiyor.html",
+      "destination": "/blog/web-siteniz-neden-musteri-getirmiyor",
+      "permanent": true
+    },
+    {
+      "source": "/blog/web-sitesi-yavassa-musteri-neden-kacar.html",
+      "destination": "/blog/web-sitesi-yavassa-musteri-neden-kacar",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar.html",
+      "destination": "/blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir.html",
+      "destination": "/blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir.html",
+      "destination": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir",
       "permanent": true
     }
   ],
@@ -264,6 +424,108 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/calismalarimiz",
+      "destination": "/calismalarimiz.html"
+    },
+    {
+      "source": "/hakkimizda",
+      "destination": "/hakkimizda.html"
+    },
+    {
+      "source": "/calisma-surecimiz",
+      "destination": "/calisma-surecimiz.html"
+    },
+    {
+      "source": "/hizli-teklif",
+      "destination": "/hizli-teklif.html"
+    },
+    {
+      "source": "/iletisim",
+      "destination": "/iletisim.html"
+    },
+    {
+      "source": "/dijital-pazarlama-stratejisi",
+      "destination": "/dijital-pazarlama-stratejisi.html"
+    },
+    {
+      "source": "/sektorler/kafe-restoran-dijital-pazarlama/",
+      "destination": "/sektorler/kafe-restoran-dijital-pazarlama/index.html"
+    },
+    {
+      "source": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
+      "destination": "/sektorler/moda-e-ticaret-dijital-pazarlama/index.html"
+    },
+    {
+      "source": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
+      "destination": "/sektorler/teknoloji-b2b-dijital-pazarlama/index.html"
+    },
+    {
+      "source": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
+      "destination": "/sektorler/yasam-ev-markalari-dijital-pazarlama/index.html"
+    },
+    {
+      "source": "/gizlilik-politikasi",
+      "destination": "/gizlilik-politikasi.html"
+    },
+    {
+      "source": "/kvkk-aydinlatma-metni",
+      "destination": "/kvkk-aydinlatma-metni.html"
+    },
+    {
+      "source": "/blog/b2b-donusum-hunisi",
+      "destination": "/blog/b2b-donusum-hunisi.html"
+    },
+    {
+      "source": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html"
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama.html"
+    },
+    {
+      "source": "/blog/hizmet-sitelerinde-cta-nasil-olmali",
+      "destination": "/blog/hizmet-sitelerinde-cta-nasil-olmali.html"
+    },
+    {
+      "source": "/blog/instagram-algoritmasi-2026",
+      "destination": "/blog/instagram-algoritmasi-2026.html"
+    },
+    {
+      "source": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
+      "destination": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html"
+    },
+    {
+      "source": "/blog/teknik-seo-ve-web-performansi",
+      "destination": "/blog/teknik-seo-ve-web-performansi.html"
+    },
+    {
+      "source": "/blog/web-siteniz-neden-musteri-getirmiyor",
+      "destination": "/blog/web-siteniz-neden-musteri-getirmiyor.html"
+    },
+    {
+      "source": "/blog/web-sitesi-yavassa-musteri-neden-kacar",
+      "destination": "/blog/web-sitesi-yavassa-musteri-neden-kacar.html"
+    },
+    {
+      "source": "/blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar",
+      "destination": "/blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar.html"
+    },
+    {
+      "source": "/blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir",
+      "destination": "/blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir.html"
+    },
+    {
+      "source": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir",
+      "destination": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir.html"
     }
   ]
 }

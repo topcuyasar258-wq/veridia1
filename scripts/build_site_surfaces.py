@@ -46,9 +46,9 @@ def render_mobile_menu() -> str:
   <button class="menu-close" type="button" data-mobile-close aria-label="Menüyü kapat">✕</button>
   <a href="/">Ana Sayfa</a>
   <a href="/hizmetler/">Hizmetlerimiz</a>
-  <a href="/calismalarimiz.html">Portfolyo</a>
-  <a href="/hakkimizda.html">Hakkımızda</a>
-  <a href="/blog.html">Blog</a>
+  <a href="/calismalarimiz">Portfolyo</a>
+  <a href="/hakkimizda">Hakkımızda</a>
+  <a href="/blog">Blog</a>
 </div>"""
 
 
@@ -56,9 +56,9 @@ def render_nav(active_label: str) -> str:
     links = [
         ("/", "Ana Sayfa"),
         ("/hizmetler/", "Hizmetlerimiz"),
-        ("/calismalarimiz.html", "Portfolyo"),
-        ("/hakkimizda.html", "Hakkımızda"),
-        ("/blog.html", "Blog"),
+        ("/calismalarimiz", "Portfolyo"),
+        ("/hakkimizda", "Hakkımızda"),
+        ("/blog", "Blog"),
     ]
     nav_links = "\n".join(
         f'    <li><a href="{href}"{" aria-current=\"page\"" if label == active_label else ""}>{label}</a></li>'
@@ -210,7 +210,7 @@ def render_page(entity: dict, graph: dict, kind: str) -> str:
         route_links = [(service["url"], service["title"]) for service in child_services]
         route_links.extend(
             [
-                ("/blog.html", "Editoryal rehberlerin tamamını gör"),
+                ("/blog", "Editoryal rehberlerin tamamını gör"),
                 (entity["secondary_cta_href"], entity["secondary_cta_label"]),
             ]
         )
@@ -237,7 +237,7 @@ def render_page(entity: dict, graph: dict, kind: str) -> str:
         route_links = [
             (parent["url"], parent["title"]),
             (entity["secondary_cta_href"], entity["secondary_cta_label"]),
-            ("/blog.html", "Tüm yazılar"),
+            ("/blog", "Tüm yazılar"),
         ]
         for sibling in related_services:
             route_links.insert(1, (sibling["url"], sibling["title"]))
@@ -315,7 +315,7 @@ def render_page(entity: dict, graph: dict, kind: str) -> str:
   <meta name="description" content="{escape(entity["description"])}">
   <meta name="theme-color" content="#0a0a0f">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-512.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="canonical" href="{canonical_url}">
   <meta property="og:title" content="{escape(entity["meta_title"])}">

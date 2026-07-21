@@ -15,7 +15,7 @@ toc: true
 
 Web siteniz yayında olabilir. Hatta reklamdan trafik alıyor, Google'da bazı aramalarda görünürlük kazanıyor ve dışarıdan bakınca kurumsal da duruyor olabilir. Buna rağmen telefon çalmıyor, form gelmiyor ve teklif talebi zayıf kalıyorsa sorun çoğu zaman trafikte değil; [web sitesi](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) kurgusunun ziyaretçiyi ikna edemeyen yapısındadır.
 
-Birçok işletme burada aynı hatayı yapıyor: daha fazla trafik almaya çalışıyor ama mevcut trafiğin neden müşteriye dönüşmediğini analiz etmiyor. Oysa kayıp çoğu zaman çok daha temel noktalarda başlıyor. Mesaj net değildir, ilk izlenim zayıftır, sayfa yavaştır, mobil deneyim yorucudur, CTA'lar belirsizdir ve [ölçüm altyapısı](/blog/teknik-seo-ve-web-performansi.html) kurulmamıştır.
+Birçok işletme burada aynı hatayı yapıyor: daha fazla trafik almaya çalışıyor ama mevcut trafiğin neden müşteriye dönüşmediğini analiz etmiyor. Oysa kayıp çoğu zaman çok daha temel noktalarda başlıyor. Mesaj net değildir, ilk izlenim zayıftır, sayfa yavaştır, mobil deneyim yorucudur, CTA'lar belirsizdir ve [ölçüm altyapısı](/blog/teknik-seo-ve-web-performansi) kurulmamıştır.
 
 İyi bir hizmet sitesi sadece bilgi vermez. Ziyaretçiye ne sunduğunuzu hızla anlatır, güven oluşturur ve onu bir sonraki adıma taşır. Bu üç halka aynı anda çalışmıyorsa, [web sitesi ve dönüşüm yüzeyi](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) olarak kurgulanmamış bir yapı trafiğin bir bölümünü sessizce boşa akıtıyor demektir.
 
@@ -25,7 +25,7 @@ Birçok işletme burada aynı hatayı yapıyor: daha fazla trafik almaya çalı�
 
 Bir web sitesinin yayında olmasıyla müşteri getirmesi arasında ciddi fark vardır. Özellikle hizmet satan küçük ve orta ölçekli işletmeler için site, dijital kartvizit değil; satış öncesi ikna alanıdır. Kullanıcı sizi ilk kez ekranda tartar, sonra karar verir.
 
-Bu yüzden [web sitesi performansı](/blog/teknik-seo-ve-web-performansi.html) tasarımdan ibaret değildir. Mesaj, hız, kullanılabilirlik, güven sinyalleri, CTA kurgusu, içerik mimarisi ve ölçüm birlikte çalışır. Bu halkalardan biri bile ciddi biçimde zayıfsa, geri kalanların etkisi de düşer.
+Bu yüzden [web sitesi performansı](/blog/teknik-seo-ve-web-performansi) tasarımdan ibaret değildir. Mesaj, hız, kullanılabilirlik, güven sinyalleri, CTA kurgusu, içerik mimarisi ve ölçüm birlikte çalışır. Bu halkalardan biri bile ciddi biçimde zayıfsa, geri kalanların etkisi de düşer.
 
 ## 1. Ana sayfa mesajı ne yaptığınızı 5 saniyede anlatmıyor
 
@@ -58,7 +58,7 @@ Gerçek hayatta hız problemi çoğu zaman şöyle görünür: ilk ekranda beyaz
 
 ### Hız problemi neden reklam bütçesini boşa çıkarır?
 
-Hızın dönüşüm etkisi sadece teorik değildir. Bu yüzden hız problemi çözülmüyorsa, daha fazla reklam bütçesi koymak çoğu zaman delik kovaya su doldurmaya benzer. [Teknik SEO ve Web Performansı](/blog/teknik-seo-ve-web-performansi.html) rehberinde anlattığımız performans katmanı, [Teknik SEO Denetimi](/seo/teknik-seo-denetimi/) ve dönüşüm tarafında da aynı derecede kritiktir.
+Hızın dönüşüm etkisi sadece teorik değildir. Bu yüzden hız problemi çözülmüyorsa, daha fazla reklam bütçesi koymak çoğu zaman delik kovaya su doldurmaya benzer. [Teknik SEO ve Web Performansı](/blog/teknik-seo-ve-web-performansi) rehberinde anlattığımız performans katmanı, [Teknik SEO Denetimi](/seo/teknik-seo-denetimi/) ve dönüşüm tarafında da aynı derecede kritiktir.
 
 ![1 saniyeden 9 saniyeye uzayan yüklenme süresinde artan hemen çıkma riskini gösteren hız grafiği](/assets/web-conversion-speed-curve.svg)
 
@@ -152,7 +152,7 @@ Burada temel kavram arama niyetidir. Kullanıcının her araması aynı aşamada
 
 En sık yapılan hata, bütün hizmetleri tek sayfaya sıkıştırmaktır. Web tasarım, SEO, reklam yönetimi ve sosyal medya gibi farklı hizmetleri birkaç paragrafla aynı sayfada anlatmak hem kullanıcı hem arama motoru için zayıf sinyal üretir. Çünkü her hizmetin problemi, kararı ve beklentisi ayrıdır.
 
-İkinci büyük hata, blog ile hizmet sayfasını birbirinden kopuk tutmaktır. Bilgilendirici blog yazıları trafik getirebilir. Ama bu trafiği [hizmet sayfalarına](/yazilim/web-sitesi-ve-donusum-yuzeyleri/), vaka analizlerine ve teklif akışına bağlamıyorsanız içerik yalnızca okunur; iş üretmez. Bu yüzden [Google Görünürlüğü](/seo/google-gorunurlugu/), [Teknik SEO Denetimi](/seo/teknik-seo-denetimi/), [Reklam Hizmetleri](/reklam/) ve [blog ana sayfası](/blog.html) arasında stratejik bir iç link akışı kurmak gerekir.
+İkinci büyük hata, blog ile hizmet sayfasını birbirinden kopuk tutmaktır. Bilgilendirici blog yazıları trafik getirebilir. Ama bu trafiği [hizmet sayfalarına](/yazilim/web-sitesi-ve-donusum-yuzeyleri/), vaka analizlerine ve teklif akışına bağlamıyorsanız içerik yalnızca okunur; iş üretmez. Bu yüzden [Google Görünürlüğü](/seo/google-gorunurlugu/), [Teknik SEO Denetimi](/seo/teknik-seo-denetimi/), [Reklam Hizmetleri](/reklam/) ve [blog ana sayfası](/blog) arasında stratejik bir iç link akışı kurmak gerekir.
 
 ### Güçlü yapı nasıl görünür?
 
@@ -219,7 +219,7 @@ Tek bir hata söylemek zordur; çoğu zaman sorun zincirleme çalışır. Ama en
 
 ### Yavaş web sitesi gerçekten müşteri kaybettirir mi?
 
-Evet. Yavaş yüklenen sayfalar kullanıcı henüz teklifinizi görmeden terk edilebilir. Bu yüzden hız sadece teknik kalite göstergesi değil, doğrudan dönüşüm ve güven metriğidir. Bu alanı ayrıca [Teknik SEO ve Web Performansı](/blog/teknik-seo-ve-web-performansi.html) yazısında daha detaylı açıyoruz.
+Evet. Yavaş yüklenen sayfalar kullanıcı henüz teklifinizi görmeden terk edilebilir. Bu yüzden hız sadece teknik kalite göstergesi değil, doğrudan dönüşüm ve güven metriğidir. Bu alanı ayrıca [Teknik SEO ve Web Performansı](/blog/teknik-seo-ve-web-performansi) yazısında daha detaylı açıyoruz.
 
 ### Mobil uyumlu site ile mobilde dönüşüm alan site arasındaki fark nedir?
 
@@ -236,6 +236,6 @@ En azından form gönderimleri, telefon tıklamaları, WhatsApp tıklamaları, t
 ## Sonraki adım için ilgili sayfalar
 
 - [Web Sitesi ve Dönüşüm Yüzeyleri](/yazilim/web-sitesi-ve-donusum-yuzeyleri/)
-- [Teknik SEO ve Web Performansı](/blog/teknik-seo-ve-web-performansi.html)
+- [Teknik SEO ve Web Performansı](/blog/teknik-seo-ve-web-performansi)
 - [Google Görünürlüğü](/seo/google-gorunurlugu/)
-- [Tüm blog yazıları](/blog.html)
+- [Tüm blog yazıları](/blog)

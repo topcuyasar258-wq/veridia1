@@ -631,7 +631,7 @@ th {
 
     .sidebar {
         position: static;
-        order: -1;
+        order: 2;
     }
 }
 
@@ -797,5 +797,28 @@ th {
 
     table {
         min-width: 520px;
+    }
+}
+
+@media (max-width: 760px) {
+    body.revision-article-page .table-scroll {
+        max-width: 100%;
+        overflow-x: visible;
+        contain: none;
+    }
+
+    body.revision-article-page .table-scroll table,
+    body.revision-article-page table {
+        width: 100%;
+        min-width: 0 !important;
+        table-layout: fixed;
+    }
+
+    body.revision-article-page .table-scroll :is(th, td),
+    body.revision-article-page :is(th, td) {
+        padding: 0.72rem 0.62rem;
+        font-size: 0.78rem;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
     }
 }

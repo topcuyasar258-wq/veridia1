@@ -3,9 +3,9 @@
     Object.freeze({ href: "/", label: "Ana Sayfa" }),
     Object.freeze({ href: "/hizmetler/", label: "Hizmetlerimiz" }),
     Object.freeze({ href: "/sektorler/", label: "Sektörler" }),
-    Object.freeze({ href: "/calismalarimiz.html", label: "Portfolyo" }),
-    Object.freeze({ href: "/hakkimizda.html", label: "Hakkımızda" }),
-    Object.freeze({ href: "/blog.html", label: "Blog" }),
+    Object.freeze({ href: "/calismalarimiz", label: "Portfolyo" }),
+    Object.freeze({ href: "/hakkimizda", label: "Hakkımızda" }),
+    Object.freeze({ href: "/blog", label: "Blog" }),
   ]);
   const serviceLinks = Object.freeze([
     Object.freeze({ href: "/hizmetler/web-tasarim/", label: "Web Tasarım" }),
@@ -42,7 +42,7 @@
       links: Object.freeze([
         serviceLinks[2],
         serviceLinks[3],
-        Object.freeze({ href: "/hizli-teklif.html", label: "Hızlı Teklif Akışı" }),
+        Object.freeze({ href: "/hizli-teklif", label: "Hızlı Teklif Akışı" }),
       ]),
     }),
   ]);
@@ -95,7 +95,31 @@
     if (!actionSlot) {
       actionSlot = document.createElement("div");
       actionSlot.className = "nav-actions";
-      nav.append(actionSlot);
+      const menuToggle = nav.querySelector("[data-mobile-toggle], .hamburger");
+      if (menuToggle) {
+        nav.insertBefore(actionSlot, menuToggle);
+        actionSlot.append(menuToggle);
+      } else {
+        nav.append(actionSlot);
+      }
+    }
+
+    const appendBeforeMenu = (element) => {
+      const menuToggle = actionSlot.querySelector("[data-mobile-toggle], .hamburger");
+      if (menuToggle) {
+        actionSlot.insertBefore(element, menuToggle);
+      } else {
+        actionSlot.append(element);
+      }
+    };
+
+    if (!nav.querySelector(".revision-nav-theme")) {
+      const themeButton = document.createElement("button");
+      themeButton.className = "revision-nav-theme";
+      themeButton.type = "button";
+      themeButton.setAttribute("data-theme-toggle", "");
+      themeButton.innerHTML = '<span class="theme-toggle-icon" data-theme-icon aria-hidden="true">🌙</span><span data-theme-label>Koyu</span>';
+      appendBeforeMenu(themeButton);
     }
 
     if (!nav.querySelector(".revision-nav-cta")) {
@@ -106,23 +130,7 @@
       cta.target = "_blank";
       cta.rel = "noopener";
       cta.textContent = "Proje Başlat";
-      actionSlot.append(cta);
-    }
-
-    if (!document.querySelector("[data-theme-toggle]")) {
-      const storedTheme = (() => {
-        try {
-          return window.localStorage.getItem("veridia-theme") || "dark";
-        } catch (_error) {
-          return "dark";
-        }
-      })();
-      const themeBtn = document.createElement("button");
-      themeBtn.type = "button";
-      themeBtn.className = "theme-toggle-btn revision-nav-theme-toggle";
-      themeBtn.setAttribute("data-theme-toggle", "");
-      themeBtn.innerHTML = `<span class="theme-toggle-icon" id="themeIcon">${storedTheme === "light" ? "☀️" : "🌙"}</span><span id="themeLabel">${storedTheme === "light" ? "Açık" : "Koyu"}</span>`;
-      actionSlot.append(themeBtn);
+      appendBeforeMenu(cta);
     }
   }
 
@@ -151,9 +159,9 @@
       <div class="revision-mobile-links" aria-label="Mobil menü">
         ${renderAccordion({ id: "revision-services", label: "Hizmetler", groups: serviceGroups })}
         ${renderAccordion({ id: "revision-sectors", label: "Sektörler", groups: [Object.freeze({ label: "Sektörler", links: sectorLinks, className: "revision-mobile-sector-group", labelMarkup: '<p class="revision-mobile-section-label">Sektörler</p>' })] })}
-        <a class="revision-menu-link" href="/calismalarimiz.html" data-revision-close>Portfolyo</a>
-        <a class="revision-menu-link" href="/hakkimizda.html" data-revision-close>Hakkımızda</a>
-        <a class="revision-menu-link" href="/blog.html" data-revision-close>Blog</a>
+        <a class="revision-menu-link" href="/calismalarimiz" data-revision-close>Portfolyo</a>
+        <a class="revision-menu-link" href="/hakkimizda" data-revision-close>Hakkımızda</a>
+        <a class="revision-menu-link" href="/blog" data-revision-close>Blog</a>
       </div>
 
       <div class="revision-mobile-actions" aria-label="Hızlı aksiyonlar">
@@ -161,7 +169,7 @@
           <span aria-hidden="true">☼</span>
           <span>Açık</span>
         </button>
-        <a class="revision-mobile-pill" href="/iletisim.html" data-revision-close>İletişime Geç</a>
+        <a class="revision-mobile-pill" href="/iletisim" data-revision-close>İletişime Geç</a>
       </div>
     </div>
   `;
