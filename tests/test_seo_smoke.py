@@ -56,6 +56,7 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn(f"{PRODUCTION_URL}/yazilim/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/seo/teknik-seo-denetimi/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/seo/google-gorunurlugu/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/araclar/site-analizi/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/reklam/sosyal-medya-yonetimi/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/reklam/google-ads-yonetimi/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/yazilim/web-sitesi-ve-donusum-yuzeyleri/", sitemap)
@@ -214,6 +215,21 @@ class SeoSmokeTests(unittest.TestCase):
         ):
             with self.subTest(path=path):
                 self.assertIn("Service", json_ld_types(path))
+
+    def test_site_analysis_tool_is_seo_ready(self) -> None:
+        page_path = ROOT / "araclar" / "site-analizi" / "index.html"
+        page = page_path.read_text(encoding="utf-8")
+        self.assertIn("<title>Ücretsiz Site Analizi Aracı | Veridia</title>", page)
+        self.assertIn('name="description"', page)
+        self.assertIn('<link rel="canonical" href="https://www.veridiareklam.com.tr/araclar/site-analizi/">', page)
+        self.assertIn("<h1>Site Analizi Aracı</h1>", page)
+        self.assertIn("FAQPage", json_ld_types(page_path))
+        self.assertIn("SoftwareApplication", json_ld_types(page_path))
+        self.assertIn('action: "analyze"', (ROOT / "assets" / "js" / "analiz.js").read_text(encoding="utf-8"))
+        self.assertIn("/api/analyze", (ROOT / "assets" / "js" / "analiz.js").read_text(encoding="utf-8"))
+        server = (ROOT / "server.py").read_text(encoding="utf-8")
+        self.assertIn('"/araclar/"', server)
+        self.assertIn('"/araclar/site-analizi": "/araclar/site-analizi/"', server)
 
     def test_vercel_deploy_excludes_legacy_service_html_files(self) -> None:
         ignore = (ROOT / ".vercelignore").read_text(encoding="utf-8")

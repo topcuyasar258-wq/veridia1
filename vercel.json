@@ -227,6 +227,16 @@
       "permanent": true
     },
     {
+      "source": "/araclar/site-analizi",
+      "destination": "/araclar/site-analizi/",
+      "permanent": true
+    },
+    {
+      "source": "/araclar/site-analizi.html",
+      "destination": "/araclar/site-analizi/",
+      "permanent": true
+    },
+    {
       "source": "/blog.html",
       "destination": "/blog",
       "permanent": true
@@ -478,6 +488,10 @@
     {
       "source": "/kvkk-aydinlatma-metni",
       "destination": "/kvkk-aydinlatma-metni.html"
+    },
+    {
+      "source": "/araclar/site-analizi/",
+      "destination": "/araclar/site-analizi/index.html"
     },
     {
       "source": "/blog/b2b-donusum-hunisi",

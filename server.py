@@ -87,7 +87,17 @@ PUBLIC_FILE_PATHS = frozenset(
         "/sitemap.xml",
     }
 )
-PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/", "/seo/", "/reklam/", "/yazilim/", "/sektorler/", "/hizmetler/", "/automation/forms/")
+PUBLIC_DIR_PREFIXES = (
+    "/assets/",
+    "/blog/",
+    "/seo/",
+    "/reklam/",
+    "/yazilim/",
+    "/sektorler/",
+    "/hizmetler/",
+    "/araclar/",
+    "/automation/forms/",
+)
 LEGACY_REDIRECTS = {
     "/index.html": "/",
     "/asdfadsf.html": "/",
@@ -115,6 +125,8 @@ LEGACY_REDIRECTS = {
     "/seo": "/seo/",
     "/seo/teknik-seo-denetimi": "/seo/teknik-seo-denetimi/",
     "/seo/google-gorunurlugu": "/seo/google-gorunurlugu/",
+    "/araclar/site-analizi": "/araclar/site-analizi/",
+    "/araclar/site-analizi.html": "/araclar/site-analizi/",
     "/reklam": "/reklam/",
     "/reklam/sosyal-medya-yonetimi": "/reklam/sosyal-medya-yonetimi/",
     "/reklam/google-ads-yonetimi": "/reklam/google-ads-yonetimi/",
