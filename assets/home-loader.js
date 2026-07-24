@@ -1,1 +1,63 @@
-!function(e){const t=e.document,n=["./assets/site-data.js?v=6","./assets/quote-pricing.js?v=6","./assets/home-content-overrides.js?v=7","./assets/home.js?v=7"];let o=null;function r(){return o||(o=n.reduce((e,n)=>e.then(()=>function(e){return new Promise((n,o)=>{const r=t.querySelector(`script[src="${e}"]`);if(r)return"true"===r.dataset.loaded?void n():(r.addEventListener("load",()=>n(),{once:!0}),void r.addEventListener("error",()=>o(new Error(`Failed to load ${e}`)),{once:!0}));const s=t.createElement("script");s.src=e,s.async=!1,s.addEventListener("load",()=>{s.dataset.loaded="true",n()},{once:!0}),s.addEventListener("error",()=>o(new Error(`Failed to load ${e}`)),{once:!0}),t.head.appendChild(s)})}(n)),Promise.resolve())),o}function s(){r(),i?.disconnect()}let i=null;!function(){if(!("IntersectionObserver"in e))return;const n=["#about","#services","#quote","#portfolio"].map(e=>t.querySelector(e)).filter(Boolean);0!==n.length&&(i=new IntersectionObserver(e=>{e.some(e=>e.isIntersecting)&&s()},{rootMargin:"320px 0px"}),n.forEach(e=>i.observe(e)))}(),e.addEventListener("scroll",s,{passive:!0,once:!0}),t.addEventListener("touchstart",s,{passive:!0,once:!0}),t.addEventListener("pointerdown",s,{passive:!0,once:!0}),"requestIdleCallback"in e?e.requestIdleCallback(()=>r(),{timeout:1800}):e.setTimeout(()=>r(),1200)}("undefined"!=typeof window?window:globalThis);
+;(function initializeHomeAssets(root) {
+  const document = root.document
+  const assetUrls = Object.freeze([
+    './assets/site-data.js?v=6',
+    './assets/quote-pricing.js?v=6',
+    './assets/home-content-overrides.js?v=7',
+    './assets/home.js?v=8',
+  ])
+
+  let loadPromise = null
+
+  function loadScript(url) {
+    return new Promise((resolve, reject) => {
+      const existing = document.querySelector(`script[src="${url}"]`)
+      if (existing) {
+        if (existing.dataset.loaded === 'true') {
+          resolve()
+          return
+        }
+
+        existing.addEventListener('load', resolve, { once: true })
+        existing.addEventListener('error', () => reject(new Error(`Failed to load ${url}`)), { once: true })
+        return
+      }
+
+      const script = document.createElement('script')
+      script.src = url
+      script.async = false
+      script.addEventListener(
+        'load',
+        () => {
+          script.dataset.loaded = 'true'
+          resolve()
+        },
+        { once: true },
+      )
+      script.addEventListener('error', () => reject(new Error(`Failed to load ${url}`)), { once: true })
+      document.head.appendChild(script)
+    })
+  }
+
+  function loadAssets() {
+    if (!loadPromise) {
+      loadPromise = assetUrls.reduce(
+        (sequence, url) => sequence.then(() => loadScript(url)),
+        Promise.resolve(),
+      )
+    }
+    return loadPromise
+  }
+
+  function startLoading() {
+    loadAssets().catch((error) => {
+      console.error('Homepage interactions could not be initialized.', error)
+    })
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startLoading, { once: true })
+  } else {
+    startLoading()
+  }
+})(typeof window !== 'undefined' ? window : globalThis)

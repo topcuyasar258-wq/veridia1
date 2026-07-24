@@ -1252,3 +1252,190 @@
   color: var(--home-light-accent-strong) !important;
   background: rgba(45, 106, 79, 0.08) !important;
 }
+
+/* Reliable mobile composition. Loaded after revision.css on the homepage. */
+@media (max-width: 760px) {
+  body.reference-home-page {
+    padding-bottom: 0 !important;
+  }
+
+  body.reference-home-page #hero {
+    min-height: calc(100svh - 64px) !important;
+    display: grid !important;
+    place-items: center !important;
+    padding: clamp(1.75rem, 5vh, 2.75rem) 1rem 2rem !important;
+  }
+
+  body.reference-home-page #hero .hero-content {
+    width: 100% !important;
+    max-width: 36rem !important;
+    display: block !important;
+  }
+
+  body.reference-home-page #hero .hero-label {
+    width: min(100%, 34rem) !important;
+    max-width: 34ch !important;
+    margin: 0 auto 0.9rem !important;
+    padding: 0 !important;
+    font-size: 0.62rem !important;
+    line-height: 1.45 !important;
+    letter-spacing: 0.16em !important;
+    text-wrap: balance;
+  }
+
+  body.reference-home-page #hero .hero-title {
+    max-width: 15ch !important;
+    margin: 0 auto !important;
+    font-size: clamp(2.65rem, 12.2vw, 3.55rem) !important;
+    letter-spacing: -0.045em !important;
+    line-height: 0.93 !important;
+    text-wrap: balance;
+  }
+
+  body.reference-home-page #hero .hero-title br {
+    display: none !important;
+  }
+
+  body.reference-home-page #hero .hero-sub {
+    max-width: 35ch !important;
+    margin: 1.15rem auto 0 !important;
+    font-size: clamp(0.9rem, 4vw, 0.98rem) !important;
+    line-height: 1.52 !important;
+    text-wrap: pretty;
+  }
+
+  body.reference-home-page #hero .hero-cta {
+    width: min(100%, 24rem) !important;
+    margin: 1.25rem auto 0 !important;
+  }
+
+  body.reference-home-page #hero .hero-cta .btn-gold {
+    width: 100% !important;
+    min-height: 52px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1rem !important;
+    border-radius: 999px !important;
+    line-height: 1.2 !important;
+  }
+
+  body.reference-home-page .reference-trust {
+    padding: 2.5rem 1rem !important;
+  }
+
+  body.reference-home-page .reference-trust h2 {
+    margin-bottom: 1.35rem !important;
+    font-size: 0.58rem !important;
+    letter-spacing: 0.24em !important;
+  }
+
+  body.reference-home-page .reference-trust-logos {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem 0.75rem !important;
+  }
+
+  body.reference-home-page .reference-trust-logos span,
+  body.reference-home-page .reference-trust-logos span:last-child {
+    grid-column: auto !important;
+    display: grid;
+    place-items: center;
+    min-height: 44px;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.16em !important;
+    line-height: 1.35;
+  }
+
+  body.reference-home-page .reference-system {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.reference-home-page .reference-service {
+    min-height: 220px !important;
+    padding: 1.6rem 1.25rem !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--revision-line) !important;
+  }
+
+  body.reference-home-page .reference-service:last-child {
+    border-bottom: 0 !important;
+  }
+
+  body.reference-home-page .reference-service-number {
+    top: 0.6rem !important;
+    left: 1.1rem !important;
+    font-size: 7rem !important;
+  }
+
+  body.reference-home-page .reference-service h2 {
+    font-size: clamp(2.35rem, 12vw, 3.2rem) !important;
+  }
+
+  body.reference-home-page .reference-service i {
+    margin: 0.85rem 0 !important;
+  }
+
+  body.reference-home-page .reference-service p {
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
+  }
+
+  body.reference-home-page .reference-manifesto {
+    min-height: 310px !important;
+    padding: 3.25rem 1.25rem !important;
+  }
+
+  body.reference-home-page .reference-manifesto h2 {
+    font-size: clamp(2.25rem, 10.5vw, 3.25rem) !important;
+    line-height: 1 !important;
+  }
+
+  body.reference-home-page .reference-closing {
+    padding: 1rem !important;
+  }
+
+  body.reference-home-page .reference-closing > div {
+    min-height: 300px !important;
+    padding: 2rem 1rem !important;
+  }
+
+  body.reference-home-page .reference-closing h2 {
+    font-size: clamp(2.2rem, 10vw, 3rem) !important;
+    line-height: 1 !important;
+  }
+
+  body.reference-home-page .reference-closing .btn-gold {
+    width: min(100%, 24rem) !important;
+    min-height: 52px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px !important;
+  }
+}
+
+@media (max-width: 360px) and (max-height: 680px) {
+  body.reference-home-page #hero {
+    padding-block: 1.25rem !important;
+  }
+
+  body.reference-home-page #hero .hero-label {
+    margin-bottom: 0.65rem !important;
+    font-size: 0.56rem !important;
+  }
+
+  body.reference-home-page #hero .hero-title {
+    max-width: 15ch !important;
+    font-size: clamp(2.35rem, 11.6vw, 2.7rem) !important;
+  }
+
+  body.reference-home-page #hero .hero-sub {
+    margin-top: 0.8rem !important;
+    font-size: 0.86rem !important;
+    line-height: 1.42 !important;
+  }
+
+  body.reference-home-page #hero .hero-cta {
+    margin-top: 0.9rem !important;
+  }
+}
