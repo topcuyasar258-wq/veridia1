@@ -2687,3 +2687,64 @@ body.reference-home-page #hero :is(.cta-risk-reversal, .hero-quick-links, .hero-
     line-height: 1.7 !important;
   }
 }
+
+/* Mobile control lock: keep navigation operable even when page CSS is late. */
+@media (max-width: 1000px) {
+  :root {
+    --revision-header-height: 64px;
+  }
+
+  body .nav-logo {
+    display: inline-flex !important;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  body :is(.nav-mobile-right, .nav-actions) {
+    gap: 0.45rem !important;
+  }
+
+  body .revision-nav-theme {
+    position: relative;
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    border-radius: 999px;
+  }
+
+  body .revision-nav-theme [data-theme-label] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  body .revision-nav-theme .theme-toggle-icon {
+    font-size: 1rem;
+  }
+
+  body .hamburger {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 9px !important;
+  }
+
+  body .hamburger span {
+    width: 22px;
+    flex: 0 0 2px;
+  }
+}

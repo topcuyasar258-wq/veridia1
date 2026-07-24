@@ -174,7 +174,12 @@
     </div>
   `;
 
+  let previousFocus = null;
+
   const setMenuOpen = (isOpen) => {
+    const wasOpen = menu.classList.contains("is-open");
+    if (isOpen && !wasOpen) previousFocus = document.activeElement;
+
     menu.classList.toggle("is-open", isOpen);
     menu.classList.toggle("open", isOpen);
     toggle?.classList.toggle("open", isOpen);
@@ -183,6 +188,15 @@
     menu.setAttribute("aria-hidden", String(!isOpen));
     toggle?.setAttribute("aria-expanded", String(isOpen));
     toggle?.setAttribute("aria-label", isOpen ? "Menüyü kapat" : "Menüyü aç");
+
+    if (isOpen) {
+      window.requestAnimationFrame(() => {
+        menu.querySelector(".revision-menu-close")?.focus({ preventScroll: true });
+      });
+    } else if (wasOpen) {
+      previousFocus?.focus({ preventScroll: true });
+      previousFocus = null;
+    }
   };
 
   toggle?.setAttribute("aria-controls", menu.id);
@@ -210,7 +224,27 @@
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setMenuOpen(false);
+    if (!menu.classList.contains("is-open")) return;
+
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+      return;
+    }
+
+    if (event.key === "Tab") {
+      const focusableElements = [...menu.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+        .filter((element) => element.getClientRects().length > 0);
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements.at(-1);
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement?.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement?.focus();
+      }
+    }
   });
 
   const updateHeader = () => nav?.classList.toggle("is-scrolled", window.scrollY > 24);

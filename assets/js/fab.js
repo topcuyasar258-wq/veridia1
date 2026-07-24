@@ -165,7 +165,7 @@
     function updateSuppression() {
       const suppressed = hasBlockingLayer()
       fab.classList.toggle('is-suppressed', suppressed)
-      if (suppressed) closeMenu()
+      if (suppressed && fab.classList.contains('is-open')) closeMenu()
     }
 
     function reveal() {

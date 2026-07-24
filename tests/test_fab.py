@@ -68,6 +68,14 @@ class FloatingActionButtonTests(unittest.TestCase):
             with self.subTest(expected=expected):
                 self.assertIn(expected, script)
 
+    def test_fab_suppression_does_not_retrigger_its_own_observer_forever(self) -> None:
+        script = (ROOT / "assets" / "js" / "fab.js").read_text(encoding="utf-8")
+
+        self.assertIn(
+            "if (suppressed && fab.classList.contains('is-open')) closeMenu()",
+            script,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
