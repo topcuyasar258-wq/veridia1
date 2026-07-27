@@ -397,6 +397,11 @@
       "permanent": true
     },
     {
+      "source": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur.html",
+      "destination": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur",
+      "permanent": true
+    },
+    {
       "source": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir.html",
       "destination": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
       "permanent": true
@@ -573,6 +578,10 @@
     {
       "source": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar",
       "destination": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar.html"
+    },
+    {
+      "source": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur",
+      "destination": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur.html"
     },
     {
       "source": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
