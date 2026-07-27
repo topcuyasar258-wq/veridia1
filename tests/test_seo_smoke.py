@@ -257,6 +257,66 @@ class SeoSmokeTests(unittest.TestCase):
             self.assertIn("/assets/blog/", content)
             self.assertIn('rel="icon"', content)
 
+    def test_queued_blog_articles_use_clean_canonical_urls(self) -> None:
+        article_slugs = (
+            "kadikoyde-guzellik-merkezi-nasil-one-cikar",
+            "guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
+            "yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
+            "guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
+        )
+        for slug in article_slugs:
+            with self.subTest(slug=slug):
+                article_path = ROOT / "blog" / f"{slug}.html"
+                content = article_path.read_text(encoding="utf-8")
+                canonical_url = f"{PRODUCTION_URL}/blog/{slug}"
+                self.assertIn(
+                    f'<link rel="canonical" href="{canonical_url}">',
+                    content,
+                )
+                self.assertIn(
+                    f'<meta property="og:url" content="{canonical_url}">',
+                    content,
+                )
+                schema = json.dumps(read_json_ld(article_path), ensure_ascii=False)
+                self.assertIn(f'"mainEntityOfPage": "{canonical_url}"', schema)
+                self.assertNotIn(f"{canonical_url}.html", schema)
+                body = content.split("<body", 1)[1]
+                self.assertNotRegex(body, r'href="/[^"]+\.html(?:[#?][^"]*)?"')
+
+    def test_recent_blog_article_faq_links_have_targets(self) -> None:
+        article_slugs = (
+            "lazer-epilasyon-merkezi-icin-google-ads-rehberi",
+            "kadikoyde-guzellik-merkezi-nasil-one-cikar",
+            "guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
+            "yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
+            "guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
+        )
+        for slug in article_slugs:
+            with self.subTest(slug=slug):
+                content = (ROOT / "blog" / f"{slug}.html").read_text(encoding="utf-8")
+                self.assertIn('href="#sss"', content)
+                self.assertIn('id="sss"', content)
+
+    def test_queued_blog_titles_match_primary_headings(self) -> None:
+        article_slugs = (
+            "kadikoyde-guzellik-merkezi-nasil-one-cikar",
+            "guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
+            "yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
+            "guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
+        )
+        for slug in article_slugs:
+            with self.subTest(slug=slug):
+                content = (ROOT / "blog" / f"{slug}.html").read_text(encoding="utf-8")
+                title = re.search(r"<title>([^<]+)</title>", content).group(1)
+                heading = re.search(r"<h1>([^<]+)</h1>", content).group(1)
+                og_title = re.search(
+                    r'<meta property="og:title" content="([^"]+)">',
+                    content,
+                ).group(1)
+                self.assertEqual(title, heading)
+                self.assertEqual(og_title, heading)
+                self.assertIn(f'"headline": "{heading}"', content)
+
     def test_homepage_has_service_catalog_and_visible_service_copy(self) -> None:
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('"@type": "ItemList"', homepage)

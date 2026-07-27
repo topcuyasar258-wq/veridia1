@@ -15,13 +15,14 @@ class EntryPopupTests(unittest.TestCase):
         script = (ROOT / "assets" / "entry-popup.js").read_text(encoding="utf-8")
 
         for expected in (
-            "Web Siteniz Teklif Getirsin",
-            "Ücretsiz Ön Görüşme Al",
-            "20.000 TL'den başlayan web sitesi sprinti",
+            "Deniz · Veridia",
+            "WhatsApp'tan Yaz",
+            "20.000 TL'ye",
             "aria-modal",
             "aria-describedby",
             "Escape",
             "previousFocus",
+            "document.activeElement === popup",
         ):
             with self.subTest(expected=expected):
                 self.assertIn(expected, script)
