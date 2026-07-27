@@ -78,22 +78,22 @@
     },
     {
       "source": "/web-tasarim.html",
-      "destination": "/hizmetler/web-tasarim/",
+      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
       "permanent": true
     },
     {
       "source": "/seo-danismanligi.html",
-      "destination": "/hizmetler/seo-danismanligi/",
+      "destination": "/seo/google-gorunurlugu/",
       "permanent": true
     },
     {
       "source": "/google-ads-yonetimi.html",
-      "destination": "/hizmetler/google-ads-yonetimi/",
+      "destination": "/reklam/google-ads-yonetimi/",
       "permanent": true
     },
     {
       "source": "/sosyal-medya-yonetimi.html",
-      "destination": "/hizmetler/sosyal-medya-yonetimi/",
+      "destination": "/reklam/sosyal-medya-yonetimi/",
       "permanent": true
     },
     {
@@ -103,22 +103,22 @@
     },
     {
       "source": "/hizmetler/web-tasarim",
-      "destination": "/hizmetler/web-tasarim/",
+      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
       "permanent": true
     },
     {
       "source": "/hizmetler/seo-danismanligi",
-      "destination": "/hizmetler/seo-danismanligi/",
+      "destination": "/seo/google-gorunurlugu/",
       "permanent": true
     },
     {
       "source": "/hizmetler/google-ads-yonetimi",
-      "destination": "/hizmetler/google-ads-yonetimi/",
+      "destination": "/reklam/google-ads-yonetimi/",
       "permanent": true
     },
     {
       "source": "/hizmetler/sosyal-medya-yonetimi",
-      "destination": "/hizmetler/sosyal-medya-yonetimi/",
+      "destination": "/reklam/sosyal-medya-yonetimi/",
       "permanent": true
     },
     {
@@ -397,6 +397,11 @@
       "permanent": true
     },
     {
+      "source": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur.html",
+      "destination": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur",
+      "permanent": true
+    },
+    {
       "source": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir.html",
       "destination": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
       "permanent": true
@@ -410,6 +415,26 @@
       "source": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi.html",
       "destination": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
       "permanent": true
+    },
+    {
+      "source": "/hizmetler/web-tasarim/",
+      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler/seo-danismanligi/",
+      "destination": "/seo/google-gorunurlugu/",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler/google-ads-yonetimi/",
+      "destination": "/reklam/google-ads-yonetimi/",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler/sosyal-medya-yonetimi/",
+      "destination": "/reklam/sosyal-medya-yonetimi/",
+      "permanent": true
     }
   ],
   "headers": [
@@ -418,7 +443,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://formspree.io https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net; form-action 'self' https://wa.me https://formspree.io; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://formspree.io https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net; form-action 'self' https://wa.me https://formspree.io; upgrade-insecure-requests; frame-src https://www.googletagmanager.com"
         },
         {
           "key": "X-Content-Type-Options",
@@ -439,6 +464,10 @@
         {
           "key": "X-Permitted-Cross-Domain-Policies",
           "value": "none"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
         }
       ]
     },
@@ -453,6 +482,24 @@
     },
     {
       "source": "/assets/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*\\.css)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*\\.js)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -573,6 +620,10 @@
     {
       "source": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar",
       "destination": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar.html"
+    },
+    {
+      "source": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur",
+      "destination": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur.html"
     },
     {
       "source": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",

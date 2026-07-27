@@ -1,7 +1,7 @@
 ;(function (window) {
   const document = window.document
   const STORAGE_KEY = 'veridia-campaign-popup-seen'
-  const SHOW_DELAY_MS = 1400
+  const SHOW_DELAY_MS = 8000
   const WHATSAPP_NUMBER = (window.VERIDIA_CONFIG && window.VERIDIA_CONFIG.whatsapp) || '905055174654'
   const WHATSAPP_MESSAGE =
     'Merhaba Deniz, %50 indirim kampanyası hakkında bilgi almak istiyorum.'
@@ -46,7 +46,7 @@
 #veridiaCampaignPopup{position:relative;width:min(100%,500px);max-height:min(92svh,680px);overflow:auto;border:1px solid rgba(93,159,131,.34);border-radius:18px;background:radial-gradient(circle at 14% 0,rgba(93,159,131,.2),transparent 32%),linear-gradient(150deg,rgba(18,31,27,.98),rgba(9,16,14,.98));box-shadow:0 30px 88px rgba(0,0,0,.46),inset 0 1px rgba(255,255,255,.05);color:var(--off-white,#f4f1ea);font-family:"DM Sans",sans-serif;padding:1.75rem;transform:translateY(16px) scale(.98);transition:transform .28s ease;}
 #veridiaCampaignPopup:focus{outline:none;}
 #veridiaCampaignOverlay.is-visible #veridiaCampaignPopup{transform:translateY(0) scale(1);}
-#veridiaCampaignPopup .vcp-close{position:absolute;top:1rem;right:1rem;width:2.5rem;height:2.5rem;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.04);color:var(--off-white,#f4f1ea);font-size:1.2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s,transform .18s;}
+#veridiaCampaignPopup .vcp-close{position:absolute;top:1rem;right:1rem;width:2.75rem;height:2.75rem;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.04);color:var(--off-white,#f4f1ea);font-size:1.2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s,transform .18s;}
 #veridiaCampaignPopup .vcp-close:hover{background:rgba(255,255,255,.09);border-color:rgba(93,159,131,.45);transform:rotate(4deg);}
 #veridiaCampaignPopup .vcp-who{display:flex;align-items:center;gap:.72rem;max-width:calc(100% - 3.2rem);margin-bottom:1rem;}
 #veridiaCampaignPopup .vcp-avatar{display:flex;flex:none;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border-radius:999px;background:linear-gradient(135deg,#9bb18b,#6f8d70);color:#08120f;font-size:1rem;font-weight:900;}
@@ -89,7 +89,7 @@
 [data-theme="light"] #veridiaCampaignPopup .vcp-secondary{color:#50645b;}
 [data-theme="light"] #veridiaCampaignPopup .vcp-secondary:hover{color:#10241d;}
 [data-theme="light"] #veridiaCampaignPopup .vcp-note{color:rgba(16,36,29,.58);}
-@media (max-width:560px){#veridiaCampaignOverlay{align-items:flex-end;padding:.85rem;}#veridiaCampaignPopup{width:100%;border-radius:16px;padding:1.35rem 1.05rem 1.05rem;}#veridiaCampaignPopup .vcp-close{top:.72rem;right:.72rem;width:2.35rem;height:2.35rem;}#veridiaCampaignPopup .vcp-who{margin-bottom:.78rem;}#veridiaCampaignPopup h2{max-width:15ch;font-size:clamp(1.85rem,9vw,2.25rem);line-height:1.02;}#veridiaCampaignPopup .vcp-copy{font-size:.9rem;line-height:1.48;margin-bottom:.75rem;}#veridiaCampaignPopup .vcp-offer{grid-template-columns:1fr;gap:.35rem;padding:.72rem 0;margin-bottom:.72rem;}#veridiaCampaignPopup .vcp-offer strong{font-size:1.08rem;}#veridiaCampaignPopup .vcp-price-old{text-align:left;font-size:.86rem;}#veridiaCampaignPopup .vcp-points{grid-template-columns:1fr;gap:.35rem;margin-bottom:.8rem;}#veridiaCampaignPopup .vcp-point{padding:.5rem .62rem;}#veridiaCampaignPopup .vcp-point span{display:none;}#veridiaCampaignPopup .vcp-primary{min-height:3rem;font-size:.7rem;letter-spacing:.08em;padding:.82rem 1rem;}#veridiaCampaignPopup .vcp-secondary{font-size:.82rem;padding:.2rem;}#veridiaCampaignPopup .vcp-note{display:none;}}
+@media (max-width:560px){#veridiaCampaignOverlay{align-items:flex-end;padding:.85rem;}#veridiaCampaignPopup{width:100%;border-radius:16px;padding:1.35rem 1.05rem 1.05rem;}#veridiaCampaignPopup .vcp-close{top:.72rem;right:.72rem;width:2.75rem;height:2.75rem;}#veridiaCampaignPopup .vcp-who{margin-bottom:.78rem;}#veridiaCampaignPopup h2{max-width:15ch;font-size:clamp(1.85rem,9vw,2.25rem);line-height:1.02;}#veridiaCampaignPopup .vcp-copy{font-size:.9rem;line-height:1.48;margin-bottom:.75rem;}#veridiaCampaignPopup .vcp-offer{grid-template-columns:1fr;gap:.35rem;padding:.72rem 0;margin-bottom:.72rem;}#veridiaCampaignPopup .vcp-offer strong{font-size:1.08rem;}#veridiaCampaignPopup .vcp-price-old{text-align:left;font-size:.86rem;}#veridiaCampaignPopup .vcp-points{grid-template-columns:1fr;gap:.35rem;margin-bottom:.8rem;}#veridiaCampaignPopup .vcp-point{padding:.5rem .62rem;}#veridiaCampaignPopup .vcp-point span{display:none;}#veridiaCampaignPopup .vcp-primary{min-height:3rem;font-size:.7rem;letter-spacing:.08em;padding:.82rem 1rem;}#veridiaCampaignPopup .vcp-secondary{font-size:.82rem;padding:.2rem;}#veridiaCampaignPopup .vcp-note{display:none;}}
 @media (prefers-reduced-motion:reduce){#veridiaCampaignOverlay,#veridiaCampaignPopup,#veridiaCampaignPopup .vcp-close,#veridiaCampaignPopup .vcp-primary{transition:none!important;transform:none!important;}}
 `
     document.head.appendChild(style)

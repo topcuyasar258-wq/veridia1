@@ -13,6 +13,8 @@
 !robots.txt
 !sitemap.xml
 !vercel.json
+!llms.txt
+!2aaac50ad8517e9bdfe4709305cfe07c.txt
 
 # Legacy service pages stay in the repo for local compatibility, but should not
 # be deployed as public files because they shadow Vercel redirects.
