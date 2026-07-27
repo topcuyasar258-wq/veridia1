@@ -44,7 +44,14 @@ def submit(urls):
         data=json.dumps(payload).encode("utf-8"),
         headers={"Content-Type": "application/json; charset=utf-8"},
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
+    # macOS framework Python'da sistem sertifikalari eksik olabilir; certifi varsa kullan
+    ctx = None
+    try:
+        import certifi, ssl
+        ctx = ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        pass
+    with urllib.request.urlopen(req, timeout=30, context=ctx) as resp:
         print(f"IndexNow yaniti: HTTP {resp.status} ({len(urls)} URL bildirildi)")
     return 0
 
