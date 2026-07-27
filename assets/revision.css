@@ -2748,3 +2748,31 @@ body.reference-home-page #hero :is(.cta-risk-reversal, .hero-quick-links, .hero-
     flex: 0 0 2px;
   }
 }
+
+/* Touch targets: breadcrumb, footer ve ikincil linkler icin min 44px dokunma alani (mobil) */
+@media (max-width: 768px) {
+  .breadcrumb a,
+  nav[aria-label="breadcrumb"] a,
+  .breadcrumb-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 0.35rem;
+  }
+  footer a,
+  .blog-footer a,
+  .sector-footer a,
+  .footer-socials a,
+  .footer-legal-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.15rem 0.35rem;
+  }
+  .sector-links a,
+  .related-panel a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
