@@ -78,22 +78,22 @@
     },
     {
       "source": "/web-tasarim.html",
-      "destination": "/hizmetler/web-tasarim/",
+      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
       "permanent": true
     },
     {
       "source": "/seo-danismanligi.html",
-      "destination": "/hizmetler/seo-danismanligi/",
+      "destination": "/seo/google-gorunurlugu/",
       "permanent": true
     },
     {
       "source": "/google-ads-yonetimi.html",
-      "destination": "/hizmetler/google-ads-yonetimi/",
+      "destination": "/reklam/google-ads-yonetimi/",
       "permanent": true
     },
     {
       "source": "/sosyal-medya-yonetimi.html",
-      "destination": "/hizmetler/sosyal-medya-yonetimi/",
+      "destination": "/reklam/sosyal-medya-yonetimi/",
       "permanent": true
     },
     {
@@ -103,22 +103,22 @@
     },
     {
       "source": "/hizmetler/web-tasarim",
-      "destination": "/hizmetler/web-tasarim/",
+      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
       "permanent": true
     },
     {
       "source": "/hizmetler/seo-danismanligi",
-      "destination": "/hizmetler/seo-danismanligi/",
+      "destination": "/seo/google-gorunurlugu/",
       "permanent": true
     },
     {
       "source": "/hizmetler/google-ads-yonetimi",
-      "destination": "/hizmetler/google-ads-yonetimi/",
+      "destination": "/reklam/google-ads-yonetimi/",
       "permanent": true
     },
     {
       "source": "/hizmetler/sosyal-medya-yonetimi",
-      "destination": "/hizmetler/sosyal-medya-yonetimi/",
+      "destination": "/reklam/sosyal-medya-yonetimi/",
       "permanent": true
     },
     {
@@ -414,6 +414,26 @@
     {
       "source": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi.html",
       "destination": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler/web-tasarim/",
+      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler/seo-danismanligi/",
+      "destination": "/seo/google-gorunurlugu/",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler/google-ads-yonetimi/",
+      "destination": "/reklam/google-ads-yonetimi/",
+      "permanent": true
+    },
+    {
+      "source": "/hizmetler/sosyal-medya-yonetimi/",
+      "destination": "/reklam/sosyal-medya-yonetimi/",
       "permanent": true
     }
   ],
