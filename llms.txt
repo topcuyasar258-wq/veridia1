@@ -1,25 +1,46 @@
 # Veridia Reklam
 
-Veridia Reklam, KOBI'ler ve yerel hizmet isletmeleri icin web tasarim, SEO, Google Ads, Meta reklam ve sosyal medya yonetimi hizmetleri sunan dijital buyume ajansidir.
+Veridia Reklam, KOBİ'ler ve yerel hizmet işletmeleri için web tasarım, SEO, Google Ads, Meta reklam ve sosyal medya yönetimi hizmetleri sunan, İstanbul merkezli bir dijital büyüme ajansıdır. En derin içerik ve uzmanlık kümesi güzellik merkezi / estetik / kuaför dikeyindedir (randevu odaklı yerel pazarlama).
 
 ## Ana Sayfalar
 
-- https://www.veridiareklam.com.tr/ - Ana sayfa ve hizmet ozeti
+- https://www.veridiareklam.com.tr/ - Ana sayfa ve hizmet özeti
 - https://www.veridiareklam.com.tr/seo/ - SEO hizmetleri
-- https://www.veridiareklam.com.tr/reklam/ - Reklam hizmetleri
-- https://www.veridiareklam.com.tr/yazilim/ - Web tasarim ve yazilim hizmetleri
-- https://www.veridiareklam.com.tr/blog - Pazarlama, SEO ve donusum rehberleri
-- https://www.veridiareklam.com.tr/hizli-teklif - Hizli teklif ve on brief akisi
+- https://www.veridiareklam.com.tr/reklam/ - Reklam hizmetleri (Google Ads, Meta, sosyal medya)
+- https://www.veridiareklam.com.tr/yazilim/ - Web tasarım ve yazılım hizmetleri
+- https://www.veridiareklam.com.tr/sektorler/ - Sektöre özel dijital pazarlama çözümleri
+- https://www.veridiareklam.com.tr/blog - Pazarlama, SEO ve dönüşüm rehberleri
+- https://www.veridiareklam.com.tr/hizli-teklif - Hızlı teklif ve ön brief akışı
+- https://www.veridiareklam.com.tr/hakkimizda - Ajans ve kurucu hakkında
 
-## Hizmet Odaklari
+## Hizmet Odakları
 
-- Teknik SEO denetimi, indekslenebilirlik, Core Web Vitals, canonical, schema ve ic linkleme kontrollerini kapsar.
-- SEO danismanligi, arama niyeti, sayfa dili, hizmet sayfasi uyumu ve organik buyume planini birlikte ele alir.
-- Google Ads yonetimi, kampanya yapisi, landing page uyumu, donusum takibi ve teklif mimarisine odaklanir.
-- Meta reklam yonetimi, kreatif test, hedefleme, teklif mesaji ve funnel okumasini tek sistemde toplar.
-- Web tasarim hizmeti, hiz, mobil deneyim, guven sinyalleri ve teklif/iletisim donusumlerini birlikte planlar.
+- Teknik SEO denetimi: indekslenebilirlik, Core Web Vitals, canonical, schema ve iç linkleme kontrolleri. https://www.veridiareklam.com.tr/seo/teknik-seo-denetimi/
+- SEO danışmanlığı ve Google görünürlüğü: arama niyeti, sayfa dili, hizmet sayfası uyumu ve organik büyüme planı. https://www.veridiareklam.com.tr/seo/google-gorunurlugu/
+- Google Ads yönetimi: kampanya yapısı, landing page uyumu, dönüşüm takibi ve teklif mimarisi. https://www.veridiareklam.com.tr/reklam/google-ads-yonetimi/
+- Meta reklam ve sosyal medya yönetimi: kreatif test, hedefleme, teklif mesajı ve funnel okuması. https://www.veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/
+- Web tasarım ve dönüşüm yüzeyleri: hız, mobil deneyim, güven sinyalleri ve teklif/iletişim dönüşümleri. https://www.veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/
 
-## Iletisim
+## Sektörler
+
+- https://www.veridiareklam.com.tr/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/ - Güzellik merkezleri (en kapsamlı dikey)
+- https://www.veridiareklam.com.tr/sektorler/kafe-restoran-dijital-pazarlama/ - Kafe ve restoranlar
+- https://www.veridiareklam.com.tr/sektorler/estetik-klinikleri-icin-dijital-pazarlama/ - Estetik klinikleri
+- https://www.veridiareklam.com.tr/sektorler/dis-klinikleri-icin-dijital-pazarlama/ - Diş klinikleri
+- https://www.veridiareklam.com.tr/sektorler/kuaforler-icin-dijital-pazarlama/ - Kuaförler ve berberler
+- https://www.veridiareklam.com.tr/sektorler/avukatlar-icin-dijital-pazarlama/ - Avukatlar ve hukuk büroları
+
+## Öne Çıkan Rehberler
+
+- https://www.veridiareklam.com.tr/blog/guzellik-merkezi-web-sitesi-nasil-olmali - Güzellik merkezi web sitesinde olması gereken sayfalar ve dönüşüm kurgusu
+- https://www.veridiareklam.com.tr/blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar - Google Haritalar / yerel SEO rehberi
+- https://www.veridiareklam.com.tr/blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir - WhatsApp mesajlarını randevuya çevirme
+- https://www.veridiareklam.com.tr/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir - Randevu no-show sorununu azaltma
+- https://www.veridiareklam.com.tr/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi - Lazer epilasyon merkezleri için Google Ads
+- https://www.veridiareklam.com.tr/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar - Kadıköy'de yerel görünürlük rehberi
+- https://www.veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi - Teknik SEO ve web performansı
+
+## İletişim
 
 - Site: https://www.veridiareklam.com.tr/
 - E-posta: hello@veridiareklam.com.tr
