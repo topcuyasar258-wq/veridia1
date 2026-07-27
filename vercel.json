@@ -385,6 +385,31 @@
       "source": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir.html",
       "destination": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir",
       "permanent": true
+    },
+    {
+      "source": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi.html",
+      "destination": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar.html",
+      "destination": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir.html",
+      "destination": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti.html",
+      "destination": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi.html",
+      "destination": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
+      "permanent": true
     }
   ],
   "headers": [
@@ -540,6 +565,26 @@
     {
       "source": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir",
       "destination": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir.html"
+    },
+    {
+      "source": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi",
+      "destination": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi.html"
+    },
+    {
+      "source": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar",
+      "destination": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar.html"
+    },
+    {
+      "source": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
+      "destination": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir.html"
+    },
+    {
+      "source": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
+      "destination": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti.html"
+    },
+    {
+      "source": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
+      "destination": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi.html"
     }
   ]
 }

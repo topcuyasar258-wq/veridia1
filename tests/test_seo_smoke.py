@@ -661,6 +661,31 @@ class SeoSmokeTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset(actual))
 
+    def test_vercel_config_serves_recent_blog_articles_at_clean_urls(self) -> None:
+        config = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
+        redirects = {
+            (redirect["source"], redirect["destination"])
+            for redirect in config.get("redirects", [])
+        }
+        rewrites = {
+            (rewrite["source"], rewrite["destination"])
+            for rewrite in config.get("rewrites", [])
+        }
+        article_slugs = (
+            "lazer-epilasyon-merkezi-icin-google-ads-rehberi",
+            "kadikoyde-guzellik-merkezi-nasil-one-cikar",
+            "guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
+            "yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
+            "guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
+        )
+
+        for slug in article_slugs:
+            with self.subTest(slug=slug):
+                clean_path = f"/blog/{slug}"
+                html_path = f"{clean_path}.html"
+                self.assertIn((html_path, clean_path), redirects)
+                self.assertIn((clean_path, html_path), rewrites)
+
     def test_vercel_config_redirects_all_legacy_and_slashless_silo_paths(self) -> None:
         config = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
         redirects = config.get("redirects", [])
