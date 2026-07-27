@@ -75,6 +75,25 @@ class MobileCssDeliveryTests(unittest.TestCase):
         self.assertIn("min-height: 44px", blog_css)
         self.assertIn("min-width: 44px", blog_css)
 
+    def test_desktop_theme_toggle_shares_the_nav_cta_visual_style(self) -> None:
+        shared_css = (ROOT / "assets" / "revision.css").read_text(encoding="utf-8")
+
+        self.assertIn(".revision-nav-cta,\n.revision-nav-theme {", shared_css)
+        shared_rule = shared_css.split(
+            ".revision-nav-cta,\n.revision-nav-theme {",
+            maxsplit=1,
+        )[1].split("}", maxsplit=1)[0]
+
+        for declaration in (
+            "display: inline-flex",
+            "min-height: 44px",
+            "border: 1px solid",
+            "font-family: var(--revision-font-body)",
+            "background: transparent",
+        ):
+            with self.subTest(declaration=declaration):
+                self.assertIn(declaration, shared_rule)
+
     def test_mobile_blog_filters_remain_a_compact_horizontal_control(self) -> None:
         css = (ROOT / "assets" / "blog-index.css").read_text(encoding="utf-8")
 
