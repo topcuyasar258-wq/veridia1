@@ -336,12 +336,12 @@ def build_article_template(
     </script>
     <link rel="stylesheet" href="/assets/fonts.css">
     <link rel="stylesheet" href="/assets/page-shell.css">
-    <link rel="stylesheet" href="/assets/revision.css?v=26">
+    <link rel="stylesheet" href="/assets/revision.css?v=35">
     <link rel="stylesheet" href="/assets/blog-detail-revision.css?v=1">
     <script defer src="/assets/config.js"></script>
     <script defer src="/assets/analytics.js"></script>
     <script defer src="/assets/page-shell.js"></script>
-    <script defer src="/assets/revision.js?v=8"></script>
+    <script defer src="/assets/revision.js?v=14"></script>
 </head>
 <body class="revision-article-page" data-custom-cursor="true">
 
