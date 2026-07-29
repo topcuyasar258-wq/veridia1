@@ -342,7 +342,7 @@ def build_article_template(
     <script defer src="/assets/analytics.js"></script>
     <script defer src="/assets/page-shell.js"></script>
     <script defer src="/assets/revision.js?v=8"></script>
-    <link rel="stylesheet" href="/assets/site-motion.css?v=12">
+    <link rel="stylesheet" href="/assets/site-motion.css?v=11">
     <script src="/assets/site-motion.js?v=10" defer></script>
 </head>
 <body class="revision-article-page" data-custom-cursor="true">
