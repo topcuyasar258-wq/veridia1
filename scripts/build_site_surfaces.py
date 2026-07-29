@@ -331,8 +331,9 @@ def render_page(entity: dict, graph: dict, kind: str) -> str:
   <meta name="twitter:description" content="{escape(entity["description"])}">
   <meta name="twitter:image" content="{image_url}">
   <link rel="stylesheet" href="/assets/fonts.css">
-  <link rel="stylesheet" href="/assets/page-shell.css">
-  <link rel="stylesheet" href="/assets/silo-pages.css">
+  <link rel="stylesheet" href="/assets/page-shell.css?v=2">
+  <link rel="stylesheet" href="/assets/silo-pages.css?v=3">
+  <link rel="stylesheet" href="/assets/revision.css?v=35">
   <script type="application/ld+json">
 {page_schema}
   </script>
@@ -341,11 +342,12 @@ def render_page(entity: dict, graph: dict, kind: str) -> str:
   </script>
   <script defer src="/assets/config.js"></script>
   <script defer src="/assets/analytics.js"></script>
-  <script defer src="/assets/page-shell.js"></script>
+  <script defer src="/assets/page-shell.js?v=9"></script>
+  <script defer src="/assets/revision.js?v=14"></script>
   <link rel="stylesheet" href="/assets/site-motion.css?v=12">
   <script src="/assets/site-motion.js?v=10" defer></script>
 </head>
-<body data-custom-cursor="true">
+<body class="revision-silo-page services-page" data-custom-cursor="true">
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
