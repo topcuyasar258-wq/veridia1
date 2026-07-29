@@ -917,7 +917,12 @@ class SeoSmokeTests(unittest.TestCase):
         script = (ROOT / "assets" / "revision.js").read_text(encoding="utf-8")
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
 
-        self.assertIn('href: "/sektorler/", label: "Sektörler"', script)
+        self.assertIn(
+            'Object.freeze({ label: "Sektörler", menu: "sectors" })',
+            script,
+        )
+        self.assertIn('href: "/sektorler/",', script)
+        self.assertIn('label: "Tüm sektörleri keşfet"', script)
         self.assertIn("revision-mobile-sector-group", script)
         self.assertIn("<p class=\"revision-mobile-section-label\">Sektörler</p>", script)
         for href in (
