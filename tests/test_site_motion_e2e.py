@@ -176,6 +176,37 @@ class SiteMotionBrowserTests(unittest.TestCase):
         finally:
             context.close()
 
+    def test_work_page_motion_globe_stays_in_visible_midground(self) -> None:
+        context = self.browser.new_context(
+            viewport={"width": 1440, "height": 900}
+        )
+        page = context.new_page()
+        try:
+            page.goto(f"{self.base_url}/calismalarimiz", wait_until="domcontentloaded")
+            page.wait_for_selector("html.v-motion-enabled")
+            layer = page.evaluate(
+                """
+                () => {
+                  const hero = document.querySelector('.work-hero');
+                  const globe = hero.querySelector('.v-motion-globe');
+                  const grid = hero.querySelector('.work-hero-grid');
+                  const panel = hero.querySelector('.hero-panel');
+                  return {
+                    globeZ: Number(getComputedStyle(globe).zIndex),
+                    gridZ: Number(getComputedStyle(grid).zIndex),
+                    globeOpacity: Number(getComputedStyle(globe).opacity),
+                    panelBackground: getComputedStyle(panel).backgroundColor,
+                  };
+                }
+                """
+            )
+
+            self.assertGreaterEqual(layer["globeOpacity"], 0.9)
+            self.assertLess(layer["globeZ"], layer["gridZ"])
+            self.assertIn("0.58", layer["panelBackground"])
+        finally:
+            context.close()
+
     def test_blog_cards_keep_their_native_filter_and_hover_transitions(
         self,
     ) -> None:
