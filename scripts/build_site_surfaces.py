@@ -342,6 +342,8 @@ def render_page(entity: dict, graph: dict, kind: str) -> str:
   <script defer src="/assets/config.js"></script>
   <script defer src="/assets/analytics.js"></script>
   <script defer src="/assets/page-shell.js"></script>
+  <link rel="stylesheet" href="/assets/site-motion.css?v=10">
+  <script src="/assets/site-motion.js?v=10" defer></script>
 </head>
 <body data-custom-cursor="true">
 
