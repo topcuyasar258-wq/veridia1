@@ -108,6 +108,27 @@ class SiteMotionBrowserTests(unittest.TestCase):
                             "node => getComputedStyle(node).position"
                         ),
                     )
+
+            layer = page.evaluate(
+                """
+                () => {
+                  const content = document.querySelector('#hero .hero-content');
+                  const globe = document.querySelector('#hero .v-motion-globe');
+                  const title = document.querySelector('#hero .hero-title');
+                  const backing = getComputedStyle(content, '::before');
+                  return {
+                    contentZ: Number(getComputedStyle(content).zIndex),
+                    globeZ: Number(getComputedStyle(globe).zIndex),
+                    titleShadow: getComputedStyle(title).textShadow,
+                    backingImage: backing.backgroundImage,
+                  };
+                }
+                """
+            )
+
+            self.assertGreater(layer["contentZ"], layer["globeZ"])
+            self.assertIn("rgba(0, 0, 0", layer["titleShadow"])
+            self.assertIn("radial-gradient", layer["backingImage"])
         finally:
             context.close()
 

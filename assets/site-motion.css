@@ -238,8 +238,10 @@ body.reference-home-page
   .v-scroll-track
   > #hero.v-scroll-story
   > .hero-content {
+  isolation: isolate;
   opacity: var(--v-story-intro-opacity, 1) !important;
   pointer-events: auto;
+  position: relative !important;
   transform: translate3d(
     0,
     var(--v-story-intro-shift, 0),
@@ -247,6 +249,43 @@ body.reference-home-page
   ) !important;
   transition: none !important;
   will-change: opacity, transform;
+  z-index: 4 !important;
+}
+
+body.reference-home-page
+  .v-scroll-track
+  > #hero.v-scroll-story
+  > .hero-content::before {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(3, 8, 6, 0.64) 0%,
+    rgba(3, 8, 6, 0.38) 42%,
+    transparent 72%
+  );
+  content: "";
+  filter: blur(10px);
+  inset: clamp(-2.5rem, -4vw, -1.5rem) clamp(-4rem, -7vw, -2rem);
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+body.reference-home-page
+  .v-scroll-track
+  > #hero.v-scroll-story
+  .hero-title {
+  color: var(--off-white, #f4f1ea) !important;
+  text-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.62),
+    0 2px 14px rgba(0, 0, 0, 0.42) !important;
+}
+
+body.reference-home-page
+  .v-scroll-track
+  > #hero.v-scroll-story
+  .hero-sub {
+  color: rgba(244, 241, 234, 0.86) !important;
+  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.56) !important;
 }
 
 body.reference-home-page

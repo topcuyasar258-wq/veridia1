@@ -4,7 +4,7 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parent.parent
-MOTION_CSS = "/assets/site-motion.css?v=10"
+MOTION_CSS = "/assets/site-motion.css?v=11"
 MOTION_JS = "/assets/site-motion.js?v=10"
 MOTION_STORY_JS = "/assets/site-motion-story.js?v=4"
 
@@ -83,6 +83,8 @@ class SiteMotionTests(unittest.TestCase):
             ".v-scroll-track",
             ".v-scroll-story",
             ".v-scroll-copy",
+            ".hero-content::before",
+            "0 18px 44px rgba(0, 0, 0, 0.62)",
             "@keyframes v-motion-cta-shine",
             "@media (hover: hover) and (pointer: fine)",
             "@media (prefers-reduced-motion: reduce)",
