@@ -1,40 +1,40 @@
 (() => {
   const primaryLinks = Object.freeze([
     Object.freeze({ href: "/", label: "Ana Sayfa" }),
-    Object.freeze({ href: "/hizmetler/", label: "Hizmetlerimiz" }),
-    Object.freeze({ href: "/sektorler/", label: "Sektörler" }),
+    Object.freeze({ label: "Hizmetler", menu: "services" }),
+    Object.freeze({ label: "Sektörler", menu: "sectors" }),
     Object.freeze({ href: "/calismalarimiz", label: "Portfolyo" }),
     Object.freeze({ href: "/hakkimizda", label: "Hakkımızda" }),
     Object.freeze({ href: "/blog", label: "Blog" }),
   ]);
   const serviceLinks = Object.freeze([
-    Object.freeze({ href: "/hizmetler/web-tasarim/", label: "Web Tasarım" }),
-    Object.freeze({ href: "/hizmetler/seo-danismanligi/", label: "SEO Danışmanlığı" }),
-    Object.freeze({ href: "/hizmetler/google-ads-yonetimi/", label: "Google Ads" }),
-    Object.freeze({ href: "/hizmetler/sosyal-medya-yonetimi/", label: "Sosyal Medya" }),
+    Object.freeze({ href: "/yazilim/web-sitesi-ve-donusum-yuzeyleri/", label: "Web Tasarım", description: "Dönüşüm odaklı web ve teklif yüzeyleri" }),
+    Object.freeze({ href: "/seo/google-gorunurlugu/", label: "SEO Danışmanlığı", description: "Teknik temel ve sürdürülebilir görünürlük" }),
+    Object.freeze({ href: "/reklam/google-ads-yonetimi/", label: "Google Ads", description: "Arama niyetini talebe dönüştüren kampanyalar" }),
+    Object.freeze({ href: "/reklam/sosyal-medya-yonetimi/", label: "Sosyal Medya", description: "Planlı içerik ve topluluk yönetimi" }),
   ]);
   const sectorLinks = Object.freeze([
-    Object.freeze({ href: "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/", label: "Güzellik Salonları" }),
-    Object.freeze({ href: "/sektorler/avukatlar-icin-dijital-pazarlama/", label: "Avukatlık" }),
-    Object.freeze({ href: "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/", label: "Estetik Klinikleri" }),
-    Object.freeze({ href: "/sektorler/dis-klinikleri-icin-dijital-pazarlama/", label: "Diş Klinikleri" }),
-    Object.freeze({ href: "/sektorler/kuaforler-icin-dijital-pazarlama/", label: "Kuaförler" }),
-    Object.freeze({ href: "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/", label: "Yerel Servis" }),
+    Object.freeze({ href: "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/", label: "Güzellik Salonları", description: "Randevu ve yerel görünürlük sistemi" }),
+    Object.freeze({ href: "/sektorler/avukatlar-icin-dijital-pazarlama/", label: "Avukatlık", description: "Güven odaklı dijital talep akışı" }),
+    Object.freeze({ href: "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/", label: "Estetik Klinikleri", description: "Danışan yolculuğu ve nitelikli talep" }),
+    Object.freeze({ href: "/sektorler/dis-klinikleri-icin-dijital-pazarlama/", label: "Diş Klinikleri", description: "Tedavi aramasından randevuya" }),
+    Object.freeze({ href: "/sektorler/kuaforler-icin-dijital-pazarlama/", label: "Kuaförler", description: "Yerel keşif ve rezervasyon akışı" }),
+    Object.freeze({ href: "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/", label: "Yerel Servis", description: "Yakındaki aramaları müşteriye dönüştürme" }),
   ]);
   const serviceGroups = Object.freeze([
     Object.freeze({
       label: "Dijital Altyapı",
       links: Object.freeze([
         serviceLinks[0],
-        Object.freeze({ href: "/yazilim/web-sitesi-ve-donusum-yuzeyleri/", label: "Dönüşüm Yüzeyleri" }),
+        Object.freeze({ href: "/yazilim/web-sitesi-ve-donusum-yuzeyleri/", label: "Dönüşüm Yüzeyleri", description: "Landing page ve teklif akışı" }),
       ]),
     }),
     Object.freeze({
       label: "Google Görünürlüğü",
       links: Object.freeze([
         serviceLinks[1],
-        Object.freeze({ href: "/seo/teknik-seo-denetimi/", label: "Teknik SEO Denetimi" }),
-        Object.freeze({ href: "/seo/google-gorunurlugu/", label: "Google Görünürlüğü" }),
+        Object.freeze({ href: "/seo/teknik-seo-denetimi/", label: "Teknik SEO Denetimi", description: "Kritik teknik sorunların önceliklendirilmesi" }),
+        Object.freeze({ href: "/seo/google-gorunurlugu/", label: "Google Görünürlüğü", description: "Doğru aramalarda kalıcı görünürlük" }),
       ]),
     }),
     Object.freeze({
@@ -42,8 +42,36 @@
       links: Object.freeze([
         serviceLinks[2],
         serviceLinks[3],
-        Object.freeze({ href: "/hizli-teklif", label: "Hızlı Teklif Akışı" }),
+        Object.freeze({ href: "/hizli-teklif", label: "Hızlı Teklif Akışı", description: "İhtiyacınıza göre hızlı proje kapsamı" }),
       ]),
+    }),
+  ]);
+  const megaMenus = Object.freeze([
+    Object.freeze({
+      id: "services",
+      eyebrow: "Hizmetler",
+      title: "Tek sistem, dört büyüme alanı.",
+      description: "Web, SEO, reklam ve sosyal medyayı aynı müşteri kazanım hedefinde birleştiriyoruz.",
+      groups: serviceGroups,
+      spotlight: Object.freeze({
+        href: "/hizmetler/",
+        label: "Tüm hizmetleri incele",
+        description: "Doğru başlangıç noktasını birlikte belirleyelim.",
+      }),
+    }),
+    Object.freeze({
+      id: "sectors",
+      eyebrow: "Sektörler",
+      title: "İş modelinize göre kurgulanan yaklaşım.",
+      description: "Hazır kalıplar yerine, müşterinizin karar yolculuğuna göre çalışan bir sistem kuruyoruz.",
+      groups: Object.freeze([
+        Object.freeze({ label: "Uzmanlık Alanları", links: sectorLinks }),
+      ]),
+      spotlight: Object.freeze({
+        href: "/sektorler/",
+        label: "Tüm sektörleri keşfet",
+        description: "Sektörünüze uygun sayfa ve talep akışını görün.",
+      }),
     }),
   ]);
 
@@ -74,15 +102,92 @@
       </div>
     </section>
   `;
+  const renderMegaLinks = (links) => links
+    .map(({ href, label, description = "" }) => `
+      <li>
+        <a class="revision-mega-link" href="${href}" data-revision-mega-close>
+          <span>${label}</span>
+          ${description ? `<small>${description}</small>` : ""}
+        </a>
+      </li>
+    `)
+    .join("");
+  const renderMegaMenu = ({ id, eyebrow, title, description, groups, spotlight }) => `
+    <section class="revision-nav-mega" id="revision-${id}-mega" data-revision-mega="${id}" aria-label="${eyebrow} menüsü" hidden>
+      <div class="revision-mega-shell">
+        <header class="revision-mega-intro">
+          <p>${eyebrow}</p>
+          <h2>${title}</h2>
+          <span>${description}</span>
+        </header>
+        <div class="revision-mega-grid">
+          ${groups.map(({ label, links }) => `
+            <div class="revision-mega-group">
+              <p>${label}</p>
+              <ul>${renderMegaLinks(links)}</ul>
+            </div>
+          `).join("")}
+          <a class="revision-mega-spotlight" href="${spotlight.href}" data-revision-mega-close>
+            <span class="revision-mega-spotlight-label">${spotlight.label}</span>
+            <span>${spotlight.description}</span>
+            <strong aria-hidden="true">↗</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+  `;
 
   const currentPath = normalizePath(window.location.pathname);
   const nav = document.querySelector("#navbar, body > nav[aria-label='Ana Menü']");
   const existingList = nav?.querySelector(".nav-links");
+  const announcement = document.querySelector(".revision-announcement") || document.createElement("aside");
+  const navOverlay = document.querySelector(".revision-nav-overlay") || document.createElement("button");
+
+  if (nav && !announcement.isConnected) {
+    announcement.className = "revision-announcement";
+    announcement.setAttribute("aria-label", "Duyuru");
+    announcement.innerHTML = `
+      <a href="/hizli-teklif">
+        <span class="revision-announcement-copy">Web, SEO ve reklamı tek müşteri kazanım sisteminde birleştirin.</span>
+        <span class="revision-announcement-action">Ücretsiz mini analiz</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    `;
+    nav.before(announcement);
+  }
+
+  if (nav && !navOverlay.isConnected) {
+    navOverlay.className = "revision-nav-overlay";
+    navOverlay.type = "button";
+    navOverlay.tabIndex = -1;
+    navOverlay.setAttribute("aria-label", "Açık menüyü kapat");
+    nav.after(navOverlay);
+  }
 
   if (nav && existingList) {
+    nav.setAttribute("aria-label", "Ana Menü");
+    nav.querySelector(".nav-logo")?.setAttribute("aria-label", "Veridia Ana Sayfa");
     const listTag = existingList.tagName.toLowerCase();
     const linkMarkup = primaryLinks
-      .map(({ href, label }) => {
+      .map(({ href, label, menu: menuId }) => {
+        if (menuId) {
+          const trigger = `
+            <button
+              class="revision-nav-trigger"
+              type="button"
+              id="revision-${menuId}-trigger"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="revision-${menuId}-mega"
+              data-revision-mega-trigger="${menuId}"
+            >
+              <span>${label}</span>
+              <span class="revision-nav-trigger-arrow" aria-hidden="true"></span>
+            </button>
+          `;
+          return listTag === "ul" ? `<li class="revision-nav-item">${trigger}</li>` : trigger;
+        }
+
         const isCurrent = normalizePath(href) === currentPath;
         const link = `<a href="${href}"${isCurrent ? ' aria-current="page"' : ""}>${label}</a>`;
         return listTag === "ul" ? `<li>${link}</li>` : link;
@@ -132,6 +237,8 @@
       cta.textContent = "Proje Başlat";
       appendBeforeMenu(cta);
     }
+
+    nav.insertAdjacentHTML("beforeend", megaMenus.map(renderMegaMenu).join(""));
   }
 
   const existingMenu = document.querySelector("#mobileMenu, .mobile-menu");
@@ -157,8 +264,8 @@
       </div>
 
       <div class="revision-mobile-links" aria-label="Mobil menü">
-        ${renderAccordion({ id: "revision-services", label: "Hizmetler", groups: serviceGroups })}
-        ${renderAccordion({ id: "revision-sectors", label: "Sektörler", groups: [Object.freeze({ label: "Sektörler", links: sectorLinks, className: "revision-mobile-sector-group", labelMarkup: '<p class="revision-mobile-section-label">Sektörler</p>' })] })}
+        ${renderAccordion({ id: "revision-mobile-services", label: "Hizmetler", groups: serviceGroups })}
+        ${renderAccordion({ id: "revision-mobile-sectors", label: "Sektörler", groups: [Object.freeze({ label: "Sektörler", links: sectorLinks, className: "revision-mobile-sector-group", labelMarkup: '<p class="revision-mobile-section-label">Sektörler</p>' })] })}
         <a class="revision-menu-link" href="/calismalarimiz" data-revision-close>Portfolyo</a>
         <a class="revision-menu-link" href="/hakkimizda" data-revision-close>Hakkımızda</a>
         <a class="revision-menu-link" href="/blog" data-revision-close>Blog</a>
@@ -174,11 +281,75 @@
     </div>
   `;
 
+  const megaTriggers = [...(nav?.querySelectorAll("[data-revision-mega-trigger]") || [])];
+  const megaPanels = [...(nav?.querySelectorAll("[data-revision-mega]") || [])];
+  let activeMegaTrigger = null;
+
+  const setMegaMenu = (menuId) => {
+    megaTriggers.forEach((trigger) => {
+      const isActive = trigger.dataset.revisionMegaTrigger === menuId;
+      trigger.setAttribute("aria-expanded", String(isActive));
+      trigger.closest(".revision-nav-item")?.classList.toggle("is-active", isActive);
+      if (isActive) activeMegaTrigger = trigger;
+    });
+
+    megaPanels.forEach((panel) => {
+      const isActive = panel.dataset.revisionMega === menuId;
+      if (isActive) {
+        panel.hidden = false;
+      } else {
+        panel.hidden = true;
+      }
+      panel.classList.toggle("is-open", isActive);
+    });
+
+    const isOpen = Boolean(menuId);
+    nav?.classList.toggle("has-open-mega", isOpen);
+    navOverlay.classList.toggle("is-open", isOpen);
+    navOverlay.setAttribute("aria-hidden", String(!isOpen));
+    if (!isOpen) activeMegaTrigger = null;
+  };
+
+  megaTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      const menuId = trigger.dataset.revisionMegaTrigger;
+      const nextMenu = trigger.getAttribute("aria-expanded") === "true" ? null : menuId;
+      setMegaMenu(nextMenu);
+    });
+
+    trigger.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "touch" || window.matchMedia("(max-width: 1000px)").matches) return;
+      setMegaMenu(trigger.dataset.revisionMegaTrigger);
+    });
+  });
+
+  nav?.addEventListener("pointerleave", (event) => {
+    if (event.pointerType === "touch" || window.matchMedia("(max-width: 1000px)").matches) return;
+    setMegaMenu(null);
+  });
+
+  nav?.addEventListener("focusout", (event) => {
+    if (event.relatedTarget && nav.contains(event.relatedTarget)) return;
+    setMegaMenu(null);
+  });
+
+  nav?.addEventListener("click", (event) => {
+    if (event.target.closest("[data-revision-mega-close]")) setMegaMenu(null);
+  });
+
+  navOverlay.addEventListener("click", () => setMegaMenu(null));
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(max-width: 1000px)").matches) setMegaMenu(null);
+  }, { passive: true });
+  setMegaMenu(null);
+
   let previousFocus = null;
 
   const setMenuOpen = (isOpen) => {
     const wasOpen = menu.classList.contains("is-open");
     if (isOpen && !wasOpen) previousFocus = document.activeElement;
+    if (isOpen) setMegaMenu(null);
 
     menu.classList.toggle("is-open", isOpen);
     menu.classList.toggle("open", isOpen);
@@ -224,6 +395,13 @@
   });
 
   document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav?.classList.contains("has-open-mega")) {
+      const triggerToRestore = activeMegaTrigger;
+      setMegaMenu(null);
+      triggerToRestore?.focus({ preventScroll: true });
+      return;
+    }
+
     if (!menu.classList.contains("is-open")) return;
 
     if (event.key === "Escape") {
