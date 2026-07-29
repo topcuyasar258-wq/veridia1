@@ -344,7 +344,7 @@ def render_page(entity: dict, graph: dict, kind: str) -> str:
   <script defer src="/assets/analytics.js"></script>
   <script defer src="/assets/page-shell.js?v=9"></script>
   <script defer src="/assets/revision.js?v=14"></script>
-  <link rel="stylesheet" href="/assets/site-motion.css?v=12">
+  <link rel="stylesheet" href="/assets/site-motion.css?v=11">
   <script src="/assets/site-motion.js?v=10" defer></script>
 </head>
 <body class="revision-silo-page services-page" data-custom-cursor="true">

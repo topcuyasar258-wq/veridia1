@@ -153,42 +153,6 @@
   opacity: 0.62;
 }
 
-body:not(.reference-home-page) .work-hero.v-motion-hero > .v-motion-globe {
-  filter: brightness(1.18) saturate(1.08);
-  height: 118%;
-  inset: -8% -6% -10% 22%;
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.24) 14%,
-    black 42%,
-    rgba(0, 0, 0, 0.94) 100%
-  );
-  opacity: 0.96;
-  width: 92%;
-  z-index: 1;
-}
-
-body:not(.reference-home-page)
-  .work-hero.v-motion-hero
-  > :not(.v-motion-ambient, .v-motion-globe) {
-  position: relative;
-  z-index: 2;
-}
-
-body:not(.reference-home-page) .work-hero.v-motion-hero .hero-panel {
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.035), rgba(0, 0, 0, 0.14)),
-    rgba(11, 16, 15, 0.58) !important;
-}
-
-[data-theme="light"]
-  body:not(.reference-home-page)
-  .work-hero.v-motion-hero
-  > .v-motion-globe {
-  opacity: 0.74;
-}
-
 .v-story-static {
   background:
     radial-gradient(
