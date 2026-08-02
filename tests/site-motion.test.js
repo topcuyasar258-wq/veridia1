@@ -686,6 +686,39 @@ test("mobile viewport skips scramble setup", () => {
   cleanup();
 });
 
+test("mobile viewport skips scroll story setup", () => {
+  const root = new FakeElement("html");
+  const hero = new FakeElement("hero");
+  const mobileViewportQuery = new FakeMediaQuery(true);
+  const global = {
+    document: {
+      documentElement: root,
+      querySelector(selector) {
+        return selector === "body.reference-home-page #hero" ? hero : null;
+      },
+    },
+    matchMedia(query) {
+      if (query.includes("max-width")) {
+        return mobileViewportQuery;
+      }
+
+      return new FakeMediaQuery(false);
+    },
+    navigator: {},
+  };
+
+  const cleanup = story.init(global);
+
+  assert.equal(root.dataset.vStory, "mobile");
+  assert.equal(root.dataset.vStoryInitialized, "true");
+  assert.equal(hero.classList.contains("v-scroll-story"), false);
+
+  cleanup();
+
+  assert.equal(root.dataset.vStory, undefined);
+  assert.equal(root.dataset.vStoryInitialized, undefined);
+});
+
 test("save-data preference keeps the system static", () => {
   const environment = createEnvironment({ saveData: true });
   motion.init(environment.global);

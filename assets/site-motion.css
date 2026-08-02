@@ -752,3 +752,57 @@ html[data-v-motion="static"] .v-motion-card {
   color: rgba(16, 36, 29, 0.64) !important;
   text-shadow: none !important;
 }
+
+@media (max-width: 760px) {
+  html[data-v-story="mobile"] body.reference-home-page {
+    overflow-x: clip !important;
+  }
+
+  html[data-v-story="mobile"] body.reference-home-page #hero {
+    min-height: calc(100svh - var(--revision-header-height, 64px)) !important;
+    overflow: hidden !important;
+    padding: clamp(1.35rem, 4vh, 2rem) 1rem 5.5rem !important;
+    position: relative !important;
+  }
+
+  html[data-v-story="mobile"]
+    body.reference-home-page
+    #hero
+    .hero-content {
+    transform: none !important;
+    width: min(100%, 36rem) !important;
+  }
+
+  html[data-v-story="mobile"]
+    body.reference-home-page
+    #hero
+    .hero-title {
+    font-size: clamp(2.45rem, 11.4vw, 3.3rem) !important;
+    line-height: 0.96 !important;
+    text-shadow: none !important;
+  }
+
+  html[data-v-story="mobile"]
+    body.reference-home-page
+    #hero
+    .hero-sub {
+    font-size: clamp(0.88rem, 3.8vw, 0.96rem) !important;
+    line-height: 1.48 !important;
+  }
+
+  html[data-v-story="mobile"]
+    body.reference-home-page
+    #hero
+    .hero-cta {
+    margin-top: 1.1rem !important;
+  }
+
+  html[data-v-story="mobile"]
+    body.reference-home-page
+    #hero
+    .hero-cta
+    .btn-gold {
+    width: 100% !important;
+    white-space: normal !important;
+  }
+}

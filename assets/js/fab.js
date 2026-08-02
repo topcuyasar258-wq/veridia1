@@ -163,7 +163,11 @@
     }
 
     function updateSuppression() {
-      const suppressed = hasBlockingLayer()
+      const mobileHomeHero =
+        root.matchMedia?.('(max-width: 760px)').matches === true &&
+        doc.body?.classList.contains('reference-home-page') &&
+        doc.querySelector('#hero')?.getBoundingClientRect().bottom > root.innerHeight * 0.72
+      const suppressed = hasBlockingLayer() || mobileHomeHero
       fab.classList.toggle('is-suppressed', suppressed)
       if (suppressed && fab.classList.contains('is-open')) closeMenu()
     }
@@ -209,6 +213,7 @@
     })
 
     root.addEventListener('scroll', reveal, { passive: true })
+    root.addEventListener('scroll', updateSuppression, { passive: true })
     root.addEventListener('resize', updateSuppression, { passive: true })
 
     const observer = new MutationObserver(updateSuppression)
