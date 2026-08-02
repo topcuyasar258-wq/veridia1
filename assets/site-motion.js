@@ -28,6 +28,7 @@
       scrambleDurationMs: 420,
       scrambleGlyphSwapMs: 52,
       scrambleMaxCharacters: 140,
+      scrambleMinViewportWidth: 769,
       globeDesktopPoints: 180,
       globeMobilePoints: 96,
       globeDesktopFrameMs: 1000 / 48,
@@ -990,6 +991,11 @@
       const finePointerQuery = supportsMatchMedia
         ? global.matchMedia("(hover: hover) and (pointer: fine)")
         : { matches: false };
+      const scrambleViewportQuery = supportsMatchMedia
+        ? global.matchMedia(
+            `(min-width: ${POLICY.scrambleMinViewportWidth}px)`,
+          )
+        : { matches: false };
       const connection =
         global.navigator &&
         (global.navigator.connection ||
@@ -1123,7 +1129,7 @@
       const spotlightCleanups = !motionDisabled && finePointerQuery.matches
         ? cards.map((card) => prepareSpotlight(global, document, card))
         : [];
-      const scrambleTargets = motionDisabled
+      const scrambleTargets = motionDisabled || !scrambleViewportQuery.matches
         ? []
         : Array.from(document.querySelectorAll(SELECTORS.scramble))
             .filter(isMotionCandidate);

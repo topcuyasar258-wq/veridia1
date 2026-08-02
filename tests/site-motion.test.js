@@ -191,6 +191,7 @@ function createEnvironment({
   canvas2d = false,
   reduced = false,
   finePointer = true,
+  scrambleViewport = true,
   saveData = false,
   intersectionObserver = true,
   sectionTop = 1100,
@@ -227,6 +228,7 @@ function createEnvironment({
   cardParent.appendChild(hiddenCard);
 
   const documentListeners = new Map();
+  const queryCounts = new Map();
   const document = {
     documentElement: root,
     visibilityState: "visible",
@@ -234,6 +236,7 @@ function createEnvironment({
       return selector === motion.SELECTORS.hero ? hero : null;
     },
     querySelectorAll(selector) {
+      queryCounts.set(selector, (queryCounts.get(selector) || 0) + 1);
       const results = new Map([
         [motion.SELECTORS.card, [card, legacyCard, hiddenCard]],
         [motion.SELECTORS.section, [hero, section]],
@@ -272,6 +275,7 @@ function createEnvironment({
 
   const reducedQuery = new FakeMediaQuery(reduced);
   const finePointerQuery = new FakeMediaQuery(finePointer);
+  const scrambleViewportQuery = new FakeMediaQuery(scrambleViewport);
   const animationFrames = new Map();
   let nextFrame = 1;
   const observers = [];
@@ -310,9 +314,15 @@ function createEnvironment({
     innerHeight: 720,
     navigator: { connection: { saveData } },
     matchMedia(query) {
-      return query.includes("prefers-reduced-motion")
-        ? reducedQuery
-        : finePointerQuery;
+      if (query.includes("prefers-reduced-motion")) {
+        return reducedQuery;
+      }
+
+      if (query.includes("min-width")) {
+        return scrambleViewportQuery;
+      }
+
+      return finePointerQuery;
     },
     requestAnimationFrame(callback) {
       const frame = nextFrame;
@@ -341,6 +351,8 @@ function createEnvironment({
     cta,
     link,
     reducedQuery,
+    scrambleViewportQuery,
+    queryCounts,
     observers,
     pendingAnimationFrames() {
       return animationFrames.size;
@@ -657,6 +669,20 @@ test("missing IntersectionObserver reveals content immediately", () => {
   assert.equal(environment.card.classList.contains("v-motion-reveal"), false);
   assert.equal(environment.section.classList.contains("is-visible"), true);
   assert.equal(environment.card.children.length, 0);
+  cleanup();
+});
+
+test("mobile viewport skips scramble setup", () => {
+  const environment = createEnvironment({ scrambleViewport: false });
+
+  const cleanup = motion.init(environment.global);
+
+  assert.equal(environment.root.dataset.vMotion, "ready");
+  assert.equal(
+    environment.queryCounts.get(motion.SELECTORS.scramble) || 0,
+    0,
+  );
+
   cleanup();
 });
 
