@@ -450,6 +450,75 @@ class SiteMotionBrowserTests(unittest.TestCase):
         finally:
             context.close()
 
+    def test_mobile_light_story_stays_inside_the_visible_area(self) -> None:
+        context = self.browser.new_context(
+            viewport={"width": 390, "height": 844},
+            has_touch=True,
+            is_mobile=True,
+        )
+        context.add_init_script(
+            "localStorage.setItem('veridia-theme', 'light')"
+        )
+        page = context.new_page()
+        try:
+            page.goto(f"{self.base_url}/", wait_until="domcontentloaded")
+            page.wait_for_selector(".v-scroll-track #hero.v-scroll-story")
+            page.evaluate(
+                "document.documentElement.style.scrollBehavior = 'auto'"
+            )
+            page.evaluate(
+                """
+                () => {
+                  const track = document.querySelector('.v-scroll-track');
+                  const hero = track.querySelector('#hero');
+                  const stickyTop =
+                    parseFloat(getComputedStyle(hero).top) || 0;
+                  const travel =
+                    track.offsetHeight - hero.getBoundingClientRect().height;
+                  window.scrollTo(
+                    0,
+                    track.offsetTop - stickyTop + travel * 0.44
+                  );
+                }
+                """
+            )
+            page.wait_for_timeout(120)
+
+            geometry = page.evaluate(
+                """
+                () => {
+                  const rect = (node) => {
+                    const bounds = node.getBoundingClientRect();
+                    return { top: bounds.top, bottom: bounds.bottom };
+                  };
+                  const hero = document.querySelector('#hero');
+                  const scene = hero.querySelector(
+                    '.v-scroll-scene[aria-hidden="false"]'
+                  );
+                  return {
+                    viewportBottom: innerHeight,
+                    hero: rect(hero),
+                    scene: rect(scene)
+                  };
+                }
+                """
+            )
+
+            self.assertEqual(
+                "light",
+                page.locator("html").get_attribute("data-theme"),
+            )
+            self.assertLessEqual(
+                geometry["hero"]["bottom"],
+                geometry["viewportBottom"] + 1,
+            )
+            self.assertLessEqual(
+                geometry["scene"]["bottom"],
+                geometry["viewportBottom"] - 88,
+            )
+        finally:
+            context.close()
+
     def test_short_landscape_story_keeps_intro_and_cta_inside_the_hero(
         self,
     ) -> None:

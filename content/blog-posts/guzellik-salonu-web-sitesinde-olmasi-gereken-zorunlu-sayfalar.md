@@ -1,7 +1,7 @@
 ---
-title: Güzellik Salonu Web Sitesinde Olması Gereken Zorunlu Sayfalar
-summary: Güzellik salonu web sitesinde hangi sayfaların zorunlu olduğunu; güven, randevu dönüşümü, SEO ve mobil kullanıcı deneyimi odağında netleştiren rehber.
-description: Güzellik salonu web sitesinde olması gereken zorunlu sayfaları; ana sayfa, hizmet sayfaları, fiyat yaklaşımı, SSS, yorumlar ve iletişim akışı üzerinden keşfedin.
+title: Güzellik Salonu Web Sitesi Sayfa Yapısı: Örnek Site Haritası
+summary: Güzellik salonu web sitesinde ana sayfa, hizmet, yorum, SSS, iletişim ve randevu sayfalarının hangi görevle konumlanması gerektiğini anlatan site mimarisi rehberi.
+description: Güzellik salonu web sitesi sayfa yapısı nasıl olmalı? Örnek site haritası, menü mimarisi, URL mantığı ve iç link şemasını keşfedin.
 slug: guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar
 date: 2026-07-07
 published_at: 2026-07-07T00:00:00+03:00
@@ -13,40 +13,42 @@ tags:
   - hizmet sayfasi
   - randevu donusumu
   - lokal seo
-targetKeyword: guzellik salonu web sitesinde olmasi gereken sayfalar
+targetKeyword: guzellik salonu web sitesi sayfa yapısı
 secondaryKeywords:
-  - guzellik merkezi web sitesi nasil olmali
-  - guzellik salonu web tasarim
+  - guzellik salonu site haritasi
+  - guzellik merkezi web sitesi sayfa mimarisi
   - guzellik merkezi hizmet sayfasi
-  - guzellik merkezi online randevu
-  - guzellik merkezi SEO
+  - guzellik salonu menu yapisi
+  - guzellik merkezi ic link semasi
 service_slug: web-sitesi-ve-donusum-yuzeyleri
 reading_time: 11 dk okuma
-intro: Güzellik salonu web sitesinde yalnızca ana sayfa olması yetmez. Kullanıcının hizmeti anlaması, merkeze güvenmesi ve randevu aksiyonuna ilerlemesi için belirli sayfaların net görevlerle kurgulanması gerekir.
-card_summary: Ana sayfa, hizmet sayfaları, sık sorulan sorular, yorumlar, iletişim ve randevu akışının güzellik salonu web sitesinde nasıl konumlanması gerektiğini anlatıyoruz.
+intro: Güzellik salonu web sitesi sayfa yapısı, yalnızca hangi sayfaların açılacağını değil; bu sayfaların menüde, URL yapısında ve iç link akışında hangi görevi üstleneceğini belirler.
+card_summary: Ana sayfa, hizmet sayfaları, yorumlar, SSS, iletişim ve randevu akışının örnek bir site haritasında nasıl konumlanması gerektiğini anlatıyoruz.
 toc: true
 internalLinkPlan:
   - anchor: güzellik merkezleri için dijital pazarlama
     url: /sektorler/guzellik-merkezleri-icin-dijital-pazarlama/
     purpose: Sektorel landing sayfasina ticari gecis vermek
   - anchor: web tasarım
-    url: /hizmetler/web-tasarim/
+    url: /yazilim/web-sitesi-ve-donusum-yuzeyleri/
     purpose: Hizmet yuzeyine dogal gecis saglamak
   - anchor: güzellik merkezi web sitesi nasıl olmalı
     url: /blog/guzellik-merkezi-web-sitesi-nasil-olmali
-    purpose: Ilgili onceki rehbere gecis vermek
+    purpose: Tasarim, mobil deneyim ve donusum odakli ayrintili rehbere gecis vermek
   - anchor: ücretsiz analiz
     url: /hizli-teklif
     purpose: CTA ile talep toplamak
 ---
 
-# Güzellik Salonu Web Sitesinde Olması Gereken Zorunlu Sayfalar
+# Güzellik Salonu Web Sitesi Sayfa Yapısı: Örnek Site Haritası
 
 Bir güzellik salonu web sitesi yalnızca “internette görünelim” diye açılan birkaç sayfadan ibaret olmamalı. Kullanıcı sizi çoğu zaman Instagram’da, Google Haritalar’da ya da doğrudan hizmet aramasında görür; ardından web sitesine gelip hızlıca şu sorulara cevap arar: “Burada hangi hizmetler var?”, “Bu işletme güvenilir mi?”, “Bana uygun mu?” ve “Şimdi nasıl randevu alırım?” Bu soruların cevabı dağınık kalırsa, trafik gelse bile randevu talebi zayıf kalır.
 
+Bu yazının odağı tasarım rengi, görsel stil veya mobil deneyim detayları değil; sayfa mimarisidir. Yani hangi sayfa hangi arama niyetini karşılayacak, menüde nasıl görünecek, hangi URL yapısını kullanacak ve hangi sayfaya iç link verecek sorularına cevap arıyoruz. Tasarım ve dönüşüm detayları için [güzellik merkezi web sitesi nasıl olmalı](/blog/guzellik-merkezi-web-sitesi-nasil-olmali) rehberi tamamlayıcı kaynak olarak düşünülmelidir.
+
 Bu nedenle iyi bir güzellik salonu sitesi; içerik, güven ve aksiyon mantığını birlikte taşır. Sayfa sayısının fazla olması tek başına avantaj değildir. Önemli olan her sayfanın belirli bir işi olmasıdır. Veridia’da [güzellik merkezleri için dijital pazarlama](/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/) yaklaşımını kurgularken web sitesini sadece vitrin olarak değil, randevuya giden yolun en kritik adımı olarak ele alıyoruz.
 
-## Neden “zorunlu sayfalar” konusu bu kadar önemli?
+## Neden sayfa yapısı konusu bu kadar önemli?
 
 Birçok güzellik merkezi web sitesinde şu sorun görülür: ana sayfa güzel görünür ama hizmetler yüzeyseldir, iletişim bilgileri dağınıktır, kullanıcı yorumları görünmez, sık sorulan sorular yoktur ve randevu akışı net değildir. Böyle bir yapıda kullanıcı siteyi inceler ama karar vermek için yeterli netliği bulamaz.
 
@@ -57,7 +59,24 @@ Güzellik sektöründe web sitesinin görevi sadece bilgi vermek değildir. Ayn�
 - Lokal arama niyetini karşılamak
 - Kullanıcıyı WhatsApp, telefon ya da form aksiyonuna taşımak
 
-Bu nedenle bazı sayfalar “olsa iyi olur” değil, doğrudan zorunludur.
+Bu nedenle bazı sayfalar “olsa iyi olur” değil, doğrudan site haritasının ana omurgasıdır.
+
+## Örnek site haritası nasıl kurgulanmalı?
+
+Başlangıç için yalın ama ölçeklenebilir bir güzellik salonu site haritası şöyle kurulabilir:
+
+| Sayfa | Önerilen URL | Görevi |
+| --- | --- | --- |
+| Ana sayfa | `/` | Marka, lokasyon, ana hizmetler ve randevu aksiyonunu özetler |
+| Hizmet kategori sayfası | `/hizmetler/` | Tüm hizmetleri kullanıcıya ve arama motoruna düzenli gösterir |
+| Tekil hizmet sayfası | `/hizmetler/lazer-epilasyon/` | Spesifik hizmet aramasını ve karar sorularını karşılar |
+| Hakkımızda / uzmanlık | `/hakkimizda/` | Güven, ekip ve yaklaşım sinyali verir |
+| Yorumlar | `/yorumlar/` | Sosyal kanıtı tek yerde toplar |
+| SSS | `/sik-sorulan-sorular/` | Tereddütleri ve bilgi aramalarını karşılar |
+| İletişim | `/iletisim/` | Harita, telefon, WhatsApp ve çalışma saatlerini netleştirir |
+| Randevu / teklif | `/randevu/` | Form veya WhatsApp akışıyla dönüşümü tamamlar |
+
+Bu yapı, tasarım rehberindeki “site nasıl görünmeli?” sorusundan farklı olarak “site nasıl organize edilmeli?” sorusuna cevap verir.
 
 ## 1. Ana sayfa: doğru yerde olduğunu hissettiren giriş yüzeyi
 
@@ -89,7 +108,7 @@ Bir hizmet sayfasında şu bölümler olmalıdır:
 - Bölge ve arama niyetiyle uyumlu açıklamalar
 - Randevu veya WhatsApp CTA’sı
 
-Örneğin kullanıcı “Kadıköy lazer epilasyon” aramasıyla geldiyse onu genel ana sayfaya değil, ilgili hizmete yaklaşan bir sayfaya taşımak çok daha güçlü dönüşüm üretir. Bu yüzden hizmet sayfaları hem [web tasarım](/hizmetler/web-tasarim/) hem de lokal görünürlük açısından zorunlu bir katmandır.
+Örneğin kullanıcı “Kadıköy lazer epilasyon” aramasıyla geldiyse onu genel ana sayfaya değil, ilgili hizmete yaklaşan bir sayfaya taşımak çok daha güçlü dönüşüm üretir. Bu yüzden hizmet sayfaları hem [web tasarım](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) hem de lokal görünürlük açısından zorunlu bir katmandır.
 
 ## 3. Hakkımızda veya uzmanlık sayfası: güven bariyerini düşüren alan
 

@@ -493,6 +493,10 @@ test("story timeline moves focus, changes copy, and fractures at the exit", () =
   assert.ok(fracture.fracture > 0);
   assert.ok(fracture.fracture < 1);
 
+  const lateExit = story.resolveStoryTimeline(0.98);
+  assert.equal(lateExit.activeScene, 2);
+  assert.ok(lateExit.opacities[2] > 0.5);
+
   const end = story.resolveStoryTimeline(1);
   assert.equal(end.activeScene, -1);
   assert.equal(end.fracture, 1);

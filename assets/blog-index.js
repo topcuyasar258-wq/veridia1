@@ -27,7 +27,8 @@
   function filter(category){
     pills.forEach(pill=>pill.classList.toggle("is-active",pill.dataset.category===category));
     cards.forEach(card=>{
-      if(category==="all"||card.dataset.category===category)show(card);
+      const categories=(card.dataset.category||"").split(/\s+/);
+      if(category==="all"||categories.includes(category))show(card);
       else hide(card);
     });
   }

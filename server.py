@@ -2,10 +2,13 @@
 from __future__ import annotations
 
 import json
+import html
 import ipaddress
 import logging
 import os
 import posixpath
+import re
+import socket
 import sqlite3
 import ssl
 import threading
@@ -17,7 +20,7 @@ from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qs, quote, unquote, urlparse
+from urllib.parse import parse_qs, quote, unquote, urljoin, urlparse
 from urllib import error, request
 from instagram_utils import (
     Metrics,
@@ -25,6 +28,11 @@ from instagram_utils import (
     parse_timestamp,
     safe_int,
 )
+
+try:
+    import certifi
+except ImportError:  # pragma: no cover - optional local certificate bundle
+    certifi = None
 
 
 ROOT = Path(__file__).resolve().parent
@@ -57,7 +65,35 @@ MAX_REQUEST_BODY_BYTES = int(os.environ.get("MAX_REQUEST_BODY_BYTES", "4096"))
 RATE_LIMIT_WINDOW_SECS = int(os.environ.get("RATE_LIMIT_WINDOW_SECS", "300"))
 RATE_LIMIT_MAX_REQUESTS = int(os.environ.get("RATE_LIMIT_MAX_REQUESTS", "5"))
 MAX_PROXY_IMAGE_BYTES = int(os.environ.get("MAX_PROXY_IMAGE_BYTES", "5242880"))
+MAX_SITE_ANALYSIS_HTML_BYTES = int(os.environ.get("MAX_SITE_ANALYSIS_HTML_BYTES", str(2 * 1024 * 1024)))
+SITE_ANALYSIS_TIMEOUT_SECS = int(os.environ.get("SITE_ANALYSIS_TIMEOUT_SECS", "10"))
 CONTACT_FORWARD_URL = os.environ.get("CONTACT_FORWARD_URL", "").strip()
+CANONICAL_ORIGIN = (
+    os.environ.get("SITE_URL", "https://www.veridiareklam.com.tr").strip()
+    or "https://www.veridiareklam.com.tr"
+).rstrip("/")
+_canonical_url = urlparse(CANONICAL_ORIGIN)
+if (
+    _canonical_url.scheme != "https"
+    or not _canonical_url.hostname
+    or _canonical_url.username
+    or _canonical_url.password
+    or _canonical_url.path not in ("", "/")
+    or _canonical_url.query
+    or _canonical_url.fragment
+):
+    raise RuntimeError("SITE_URL must be an HTTPS origin without a path, query, or credentials.")
+CANONICAL_HOST = _canonical_url.hostname.lower()
+CANONICAL_HOST_ALIASES = frozenset(
+    {
+        CANONICAL_HOST,
+        (
+            CANONICAL_HOST.removeprefix("www.")
+            if CANONICAL_HOST.startswith("www.")
+            else f"www.{CANONICAL_HOST}"
+        ),
+    }
+)
 
 DEFAULT_ALLOWED_ORIGINS = (
     f"http://127.0.0.1:{PORT}",
@@ -87,34 +123,45 @@ PUBLIC_FILE_PATHS = frozenset(
         "/sitemap.xml",
     }
 )
-PUBLIC_DIR_PREFIXES = ("/assets/", "/blog/", "/seo/", "/reklam/", "/yazilim/", "/sektorler/", "/hizmetler/", "/automation/forms/")
+PUBLIC_DIR_PREFIXES = (
+    "/assets/",
+    "/blog/",
+    "/seo/",
+    "/reklam/",
+    "/yazilim/",
+    "/sektorler/",
+    "/hizmetler/",
+    "/araclar/",
+    "/automation/forms/",
+)
 LEGACY_REDIRECTS = {
     "/index.html": "/",
     "/asdfadsf.html": "/",
     "/veridia-ajans.html": "/",
     "/neler-yapiyoruz.html": "/hizmetler/",
     "/blog/": "/blog",
+    "/blog/avukatlar-icin-google-reklamlari/": "/blog/avukatlar-icin-google-reklamlari",
     "/blog/b2b-pazarlamada-donusum-hunisi.html": "/blog/b2b-donusum-hunisi",
     "/blog/guzellik-merkezi-dijital-pazarlama": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
     "/blog/guzellik-merkezi-dijital-pazarlama.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-    "/blog/guzellik-merkezleri-icin-seo-nedir": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-    "/blog/guzellik-merkezleri-icin-seo-nedir.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-    "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-    "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-    "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
-    "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
-    "/web-tasarim.html": "/hizmetler/web-tasarim/",
-    "/seo-danismanligi.html": "/hizmetler/seo-danismanligi/",
-    "/google-ads-yonetimi.html": "/hizmetler/google-ads-yonetimi/",
-    "/sosyal-medya-yonetimi.html": "/hizmetler/sosyal-medya-yonetimi/",
+    "/web-tasarim.html": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+    "/seo-danismanligi.html": "/seo/google-gorunurlugu/",
+    "/google-ads-yonetimi.html": "/reklam/google-ads-yonetimi/",
+    "/sosyal-medya-yonetimi.html": "/reklam/sosyal-medya-yonetimi/",
     "/hizmetler": "/hizmetler/",
-    "/hizmetler/web-tasarim": "/hizmetler/web-tasarim/",
-    "/hizmetler/seo-danismanligi": "/hizmetler/seo-danismanligi/",
-    "/hizmetler/google-ads-yonetimi": "/hizmetler/google-ads-yonetimi/",
-    "/hizmetler/sosyal-medya-yonetimi": "/hizmetler/sosyal-medya-yonetimi/",
+    "/hizmetler/web-tasarim": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+    "/hizmetler/web-tasarim/": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+    "/hizmetler/seo-danismanligi": "/seo/google-gorunurlugu/",
+    "/hizmetler/seo-danismanligi/": "/seo/google-gorunurlugu/",
+    "/hizmetler/google-ads-yonetimi": "/reklam/google-ads-yonetimi/",
+    "/hizmetler/google-ads-yonetimi/": "/reklam/google-ads-yonetimi/",
+    "/hizmetler/sosyal-medya-yonetimi": "/reklam/sosyal-medya-yonetimi/",
+    "/hizmetler/sosyal-medya-yonetimi/": "/reklam/sosyal-medya-yonetimi/",
     "/seo": "/seo/",
     "/seo/teknik-seo-denetimi": "/seo/teknik-seo-denetimi/",
     "/seo/google-gorunurlugu": "/seo/google-gorunurlugu/",
+    "/araclar/site-analizi": "/araclar/site-analizi/",
+    "/araclar/site-analizi.html": "/araclar/site-analizi/",
     "/reklam": "/reklam/",
     "/reklam/sosyal-medya-yonetimi": "/reklam/sosyal-medya-yonetimi/",
     "/reklam/google-ads-yonetimi": "/reklam/google-ads-yonetimi/",
@@ -236,7 +283,11 @@ def build_opener(*, allow_redirects: bool, insecure_ssl: bool) -> request.Opener
     handlers: list[Any] = []
     if not allow_redirects:
         handlers.append(NoRedirectHandler())
-    context = ssl._create_unverified_context() if insecure_ssl else ssl.create_default_context()
+    context = (
+        ssl._create_unverified_context()
+        if insecure_ssl
+        else ssl.create_default_context(cafile=certifi.where() if certifi else None)
+    )
     handlers.append(request.HTTPSHandler(context=context))
     return request.build_opener(*handlers)
 
@@ -270,6 +321,255 @@ def fetch_binary_url(url: str) -> tuple[bytes, str]:
         if not content_type.startswith("image/"):
             raise AnalyzeError(HTTPStatus.BAD_GATEWAY, "Upstream içerik görsel değil.")
         return body, content_type
+
+
+def is_blocked_public_ip(ip_value: str) -> bool:
+    try:
+        ip = ipaddress.ip_address(ip_value)
+    except ValueError:
+        return True
+    return (
+        ip.is_private
+        or ip.is_loopback
+        or ip.is_link_local
+        or ip.is_multicast
+        or ip.is_reserved
+        or ip.is_unspecified
+    )
+
+
+def validate_site_analysis_url(raw_url: str) -> str:
+    parsed = urlparse(str(raw_url or "").strip())
+    if not parsed.scheme:
+        parsed = urlparse(f"https://{str(raw_url or '').strip()}")
+
+    if parsed.scheme not in {"http", "https"}:
+        raise AnalyzeError(HTTPStatus.UNPROCESSABLE_ENTITY, "Yalnızca http veya https URL'leri analiz edilebilir.")
+    if not parsed.hostname or parsed.username or parsed.password:
+        raise AnalyzeError(HTTPStatus.UNPROCESSABLE_ENTITY, "Geçerli bir URL girin.")
+
+    hostname = parsed.hostname.lower()
+    if hostname == "localhost" or hostname.endswith(".localhost"):
+        raise AnalyzeError(HTTPStatus.UNPROCESSABLE_ENTITY, "Bu host güvenlik nedeniyle analiz edilemez.")
+
+    try:
+        ipaddress.ip_address(hostname)
+        addresses = {hostname}
+    except ValueError:
+        try:
+            addresses = {info[4][0] for info in socket.getaddrinfo(hostname, parsed.port or None)}
+        except socket.gaierror as exc:
+            raise AnalyzeError(HTTPStatus.UNPROCESSABLE_ENTITY, "Alan adı çözümlenemedi.") from exc
+
+    if any(is_blocked_public_ip(address) for address in addresses):
+        raise AnalyzeError(HTTPStatus.UNPROCESSABLE_ENTITY, "Özel veya yerel IP adresleri analiz edilemez.")
+
+    netloc = parsed.hostname
+    if parsed.port:
+        netloc = f"{netloc}:{parsed.port}"
+    cleaned = parsed._replace(netloc=netloc or "", fragment="")
+    return cleaned.geturl()
+
+
+def fetch_site_analysis_html(start_url: str) -> dict[str, Any]:
+    current_url = validate_site_analysis_url(start_url)
+    opener = build_opener(allow_redirects=False, insecure_ssl=False)
+
+    for redirect_count in range(4):
+        current_url = validate_site_analysis_url(current_url)
+        started_at = time.perf_counter()
+        req = request.Request(
+            current_url,
+            headers={
+                "User-Agent": "VeridiaSiteAnalizi/1.0 (+https://www.veridiareklam.com.tr/araclar/site-analizi/)",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            },
+        )
+        try:
+            with opener.open(req, timeout=SITE_ANALYSIS_TIMEOUT_SECS) as response:
+                content_type = response.headers.get_content_type() or ""
+                body = response.read(MAX_SITE_ANALYSIS_HTML_BYTES + 1)
+                if len(body) > MAX_SITE_ANALYSIS_HTML_BYTES:
+                    raise AnalyzeError(HTTPStatus.REQUEST_ENTITY_TOO_LARGE, "Sayfa içeriği 2MB sınırını aşıyor.")
+                return {
+                    "final_url": current_url,
+                    "status": response.status,
+                    "content_type": content_type,
+                    "html": body.decode(response.headers.get_content_charset() or "utf-8", errors="replace"),
+                    "elapsed_ms": int((time.perf_counter() - started_at) * 1000),
+                    "redirects": redirect_count,
+                }
+        except error.HTTPError as exc:
+            if exc.code in {301, 302, 303, 307, 308}:
+                location = exc.headers.get("Location")
+                if not location:
+                    raise AnalyzeError(HTTPStatus.BAD_GATEWAY, "Hedef sayfa geçersiz bir yönlendirme döndürdü.") from exc
+                if redirect_count == 3:
+                    raise AnalyzeError(HTTPStatus.LOOP_DETECTED, "Hedef sayfa 3 yönlendirmeden fazla yönlendiriyor.") from exc
+                current_url = urljoin(current_url, location)
+                continue
+            raise AnalyzeError(HTTPStatus.BAD_GATEWAY, "Hedef sayfa alınamadı.") from exc
+        except error.URLError as exc:
+            raise AnalyzeError(HTTPStatus.BAD_GATEWAY, "Hedef sayfa alınamadı.") from exc
+
+    raise AnalyzeError(HTTPStatus.LOOP_DETECTED, "Hedef sayfa 3 yönlendirmeden fazla yönlendiriyor.")
+
+
+def html_text(value: str) -> str:
+    without_tags = re.sub(r"<[^>]+>", " ", value or "")
+    return re.sub(r"\s+", " ", html.unescape(without_tags)).strip()
+
+
+def find_meta_content(page_html: str, key: str, value: str) -> str:
+    wanted = value.lower()
+    for tag in re.findall(r"<meta\b[^>]*>", page_html, flags=re.IGNORECASE):
+        attrs = dict(
+            (name.lower(), html.unescape(double or single or bare or ""))
+            for name, double, single, bare in re.findall(
+                r"([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*(?:\"([^\"]*)\"|'([^']*)'|([^\s\"'>=]+))",
+                tag,
+            )
+        )
+        if attrs.get(key, "").lower() == wanted:
+            return attrs.get("content", "")
+    return ""
+
+
+def local_site_analysis(raw_url: str) -> dict[str, Any]:
+    analyzed_url = validate_site_analysis_url(raw_url)
+    fetched = fetch_site_analysis_html(analyzed_url)
+    page_html = fetched["html"]
+    title = html_text((re.search(r"<title\b[^>]*>([\s\S]*?)</title>", page_html, re.IGNORECASE) or ["", ""])[1])
+    description = html_text(find_meta_content(page_html, "name", "description"))
+    viewport = find_meta_content(page_html, "name", "viewport")
+    robots = find_meta_content(page_html, "name", "robots")
+    h1_count = len(re.findall(r"<h1\b[^>]*>", page_html, flags=re.IGNORECASE))
+    canonical = bool(re.search(r"<link\b[^>]*rel=[\"'][^\"']*\bcanonical\b", page_html, flags=re.IGNORECASE))
+    schema = bool(re.search(r"<script\b[^>]*type=[\"']application/ld\+json[\"']", page_html, flags=re.IGNORECASE))
+    og_title = bool(find_meta_content(page_html, "property", "og:title"))
+    og_image = bool(find_meta_content(page_html, "property", "og:image"))
+    images = re.findall(r"<img\b[^>]*>", page_html, flags=re.IGNORECASE)
+    images_with_alt = sum(1 for tag in images if re.search(r"\salt\s*=\s*([\"']).+?\1", tag, flags=re.IGNORECASE))
+    alt_percent = round((images_with_alt / len(images)) * 100) if images else 100
+
+    speed_score = 90 if fetched["elapsed_ms"] < 1200 else 70 if fetched["elapsed_ms"] < 3000 else 45
+    technical_score = round(
+        sum(
+            [
+                100 if canonical else 45,
+                100 if schema else 65,
+                100 if "noindex" not in robots.lower() else 0,
+                100 if urlparse(fetched["final_url"]).scheme == "https" else 20,
+            ]
+        )
+        / 4
+    )
+    content_score = round(
+        sum(
+            [
+                100 if 30 <= len(title) <= 60 else 60 if title else 0,
+                100 if 120 <= len(description) <= 160 else 60 if description else 0,
+                100 if h1_count == 1 else 35,
+                100 if og_title and og_image else 60,
+                100 if alt_percent >= 80 else 55 if alt_percent >= 50 else 25,
+            ]
+        )
+        / 5
+    )
+    mobile_score = 100 if viewport else 35
+    overall = round(speed_score * 0.25 + technical_score * 0.3 + content_score * 0.3 + mobile_score * 0.15)
+
+    findings = [
+        {
+            "status": "good" if speed_score >= 80 else "warning" if speed_score >= 60 else "critical",
+            "category": "Hız",
+            "title": "HTML yanıt süresi",
+            "explanation": f"Sayfa HTML'i yaklaşık {fetched['elapsed_ms']} ms içinde alındı.",
+            "fix": "PageSpeed raporunda görsel, JavaScript ve cache önerilerini ayrıca kontrol edin.",
+        },
+        {
+            "status": "good" if title and 30 <= len(title) <= 60 else "warning" if title else "critical",
+            "category": "İçerik",
+            "title": "Title etiketi",
+            "explanation": f"Title uzunluğu {len(title)} karakter.",
+            "fix": "Title metnini ana hizmet vaadiyle yazın ve 30-60 karakter aralığında tutun.",
+        },
+        {
+            "status": "good" if description and 120 <= len(description) <= 160 else "warning" if description else "critical",
+            "category": "İçerik",
+            "title": "Meta description",
+            "explanation": f"Meta description uzunluğu {len(description)} karakter.",
+            "fix": "Açıklamayı arama sonucunda tıklama niyeti oluşturacak şekilde 120-160 karakter aralığında yazın.",
+        },
+        {
+            "status": "good" if h1_count == 1 else "critical",
+            "category": "İçerik",
+            "title": "H1 yapısı",
+            "explanation": "Sayfada tek bir H1 bulunuyor." if h1_count == 1 else f"Sayfada {h1_count} adet H1 bulundu.",
+            "fix": "Sayfada yalnızca bir ana H1 bırakın; alt başlıkları H2/H3 yapısına taşıyın.",
+        },
+        {
+            "status": "good" if canonical else "warning",
+            "category": "Teknik SEO",
+            "title": "Canonical etiketi",
+            "explanation": "Canonical etiketi mevcut." if canonical else "Canonical etiketi bulunamadı.",
+            "fix": "Kanonik URL'yi sayfanın tercih edilen indexlenebilir adresine işaret edecek şekilde ekleyin.",
+        },
+        {
+            "status": "good" if viewport else "critical",
+            "category": "Mobil",
+            "title": "Viewport meta",
+            "explanation": "Mobil viewport meta etiketi mevcut." if viewport else "Mobil viewport meta etiketi bulunamadı.",
+            "fix": "Head alanına width=device-width ve initial-scale=1 içeren viewport meta etiketi ekleyin.",
+        },
+        {
+            "status": "good" if alt_percent >= 80 else "warning" if alt_percent >= 50 else "critical",
+            "category": "İçerik",
+            "title": "Görsel alt metinleri",
+            "explanation": f"{len(images)} görselin %{alt_percent} kadarında alt metni var.",
+            "fix": "Anlam taşıyan her görsele kısa, açıklayıcı ve sayfa bağlamına uygun alt metni ekleyin.",
+        },
+        {
+            "status": "good" if schema else "warning",
+            "category": "Teknik SEO",
+            "title": "JSON-LD schema",
+            "explanation": "JSON-LD schema mevcut." if schema else "JSON-LD schema bulunamadı.",
+            "fix": "Sayfa türüne göre Organization, Service, FAQPage, Article veya Product gibi uygun schema ekleyin.",
+        },
+    ]
+    findings.sort(key=lambda item: {"critical": 0, "warning": 1, "good": 2}.get(item["status"], 1))
+
+    return {
+        "analyzedUrl": analyzed_url,
+        "finalUrl": fetched["final_url"],
+        "statusCode": fetched["status"],
+        "generatedAt": datetime.now(timezone.utc).isoformat(),
+        "scores": {
+            "overall": overall,
+            "categories": {
+                "speed": speed_score,
+                "technicalSeo": technical_score,
+                "content": content_score,
+                "mobile": mobile_score,
+            },
+        },
+        "metrics": {},
+        "findings": findings,
+        "warnings": ["Yerel sunucuda PageSpeed yerine hızlı HTML/on-page ön analizi çalıştı."],
+        "reportId": f"local-{int(time.time() * 1000)}",
+    }
+
+
+def validate_site_analysis_lead(payload: dict[str, Any]) -> dict[str, str]:
+    email_value = str(payload.get("email", "")).strip().lower()
+    phone_value = str(payload.get("phone", "")).strip()
+    if payload.get("consent") is not True:
+        raise AnalyzeError(HTTPStatus.UNPROCESSABLE_ENTITY, "Açık rıza olmadan kayıt oluşturulamaz.")
+    if not re.match(r"^[^\s@]+@[^\s@]+\.[^\s@]+$", email_value):
+        raise AnalyzeError(HTTPStatus.UNPROCESSABLE_ENTITY, "Geçerli bir e-posta adresi girin.")
+    if not re.match(r"^[+()\d\s-]{10,24}$", phone_value):
+        raise AnalyzeError(HTTPStatus.UNPROCESSABLE_ENTITY, "Geçerli bir telefon numarası girin.")
+    return {"email": email_value, "phone": phone_value}
 
 
 def normalize_request_path(raw_path: str) -> str | None:
@@ -312,6 +612,54 @@ def clean_html_path(path: str) -> str:
 
 def redirect_location(path: str, query: str = "") -> str:
     return f"{path}?{query}" if query else path
+
+
+def canonicalize_public_path(path: str) -> str:
+    if path == "/404.html":
+        return path
+
+    current_path = path
+    visited_paths: set[str] = set()
+    while current_path not in visited_paths:
+        visited_paths.add(current_path)
+        legacy_destination = LEGACY_REDIRECTS.get(current_path)
+        if legacy_destination is not None:
+            current_path = legacy_destination
+            continue
+        if current_path.endswith(".html"):
+            current_path = clean_html_path(current_path)
+            continue
+        return current_path
+
+    logger.error("Redirect cycle detected while canonicalizing %s", path)
+    return current_path
+
+
+def parse_request_hostname(host_header: str) -> str | None:
+    if not host_header or any(character in host_header for character in "\r\n/\\"):
+        return None
+    try:
+        return urlparse(f"//{host_header}", allow_fragments=False).hostname
+    except ValueError:
+        return None
+
+
+def canonical_redirect_target(handler: "AppHandler", path: str, query: str = "") -> str | None:
+    canonical_path = canonicalize_public_path(path)
+    request_host = parse_request_hostname(handler.headers.get("Host", ""))
+    is_public_site_host = request_host in CANONICAL_HOST_ALIASES
+    has_canonical_origin = (
+        request_host == CANONICAL_HOST
+        and handler.is_secure_request()
+    )
+
+    if canonical_path == path and (not is_public_site_host or has_canonical_origin):
+        return None
+
+    location = redirect_location(canonical_path, query)
+    if is_public_site_host:
+        return f"{CANONICAL_ORIGIN}{location}"
+    return location
 
 
 def resolve_public_path(path: str) -> str | None:
@@ -360,13 +708,37 @@ def get_allowed_origin_header(origin: str | None) -> str | None:
     return None
 
 
+def is_request_from_trusted_proxy(handler: "AppHandler") -> bool:
+    client_ip = parse_ip_literal(handler.client_address[0]) or handler.client_address[0]
+    return client_ip in TRUSTED_PROXY_IPS
+
+
 def get_rate_limit_key(handler: "AppHandler") -> str:
     client_ip = parse_ip_literal(handler.client_address[0]) or handler.client_address[0]
-    if client_ip not in TRUSTED_PROXY_IPS:
+    if not is_request_from_trusted_proxy(handler):
         return client_ip
 
     forwarded_chain = get_forwarded_ip_chain(handler)
     return forwarded_chain[0] if forwarded_chain else client_ip
+
+
+def get_forwarded_proto(handler: "AppHandler") -> str | None:
+    if not is_request_from_trusted_proxy(handler):
+        return None
+
+    forwarded_header = handler.headers.get("Forwarded", "")
+    for entry in forwarded_header.split(","):
+        for segment in entry.split(";"):
+            key, _, raw_value = segment.strip().partition("=")
+            if key.lower() != "proto":
+                continue
+            proto = raw_value.strip().strip('"').strip("'").lower()
+            if proto in {"http", "https"}:
+                return proto
+
+    x_forwarded_proto = handler.headers.get("X-Forwarded-Proto", "")
+    proto = x_forwarded_proto.split(",", 1)[0].strip().lower()
+    return proto if proto in {"http", "https"} else None
 
 
 def get_forwarded_ip_chain(handler: "AppHandler") -> list[str]:
@@ -668,11 +1040,11 @@ def build_insights(profile: dict[str, Any], metrics: Metrics, history: dict[str,
         )
     elif metrics.authenticity_risk >= 40:
         insights.append(
-            f"Otantiklik sinyalleri karışık. Yorum oranı ve postlar arası oynaklık daha dengeli hale gelirse risk aşağı iner."
+            "Otantiklik sinyalleri karışık. Yorum oranı ve postlar arası oynaklık daha dengeli hale gelirse risk aşağı iner."
         )
     else:
         insights.append(
-            f"Otantiklik riski düşük. Yorum davranışı ve hesap yapısı organik profile daha yakın sinyal veriyor."
+            "Otantiklik riski düşük. Yorum davranışı ve hesap yapısı organik profile daha yakın sinyal veriyor."
         )
 
     if metrics.consistency >= 75:
@@ -983,11 +1355,9 @@ class AppHandler(SimpleHTTPRequestHandler):
         return headers
 
     def is_secure_request(self) -> bool:
-        forwarded_proto = self.headers.get("X-Forwarded-Proto", "").split(",", 1)[0].strip().lower()
-        if forwarded_proto == "https":
+        if getattr(self.connection, "cipher", None) is not None:
             return True
-
-        return getattr(self.connection, "cipher", None) is not None
+        return get_forwarded_proto(self) == "https"
 
     def send_error(
         self,
@@ -1015,9 +1385,19 @@ class AppHandler(SimpleHTTPRequestHandler):
         if self.command != "HEAD":
             self.wfile.write(body)
 
+    def send_canonical_redirect(self, normalized_path: str, query: str = "") -> bool:
+        destination = canonical_redirect_target(self, normalized_path, query)
+        if destination is None:
+            return False
+
+        self.send_response(HTTPStatus.MOVED_PERMANENTLY)
+        self.send_header("Location", destination)
+        self.end_headers()
+        return True
+
     def do_OPTIONS(self) -> None:
         normalized_path = normalize_request_path(self.path)
-        if normalized_path not in {"/api/analyze-instagram", "/api/contact"}:
+        if normalized_path not in {"/api/analyze-instagram", "/api/analyze", "/api/contact"}:
             self.send_error(HTTPStatus.NOT_FOUND)
             return
 
@@ -1047,23 +1427,15 @@ class AppHandler(SimpleHTTPRequestHandler):
             self.handle_profile_image_proxy(parsed.query)
             return
 
+        if self.send_canonical_redirect(normalized_path, parsed.query):
+            return
+
         if normalized_path == "/":
             self.path = "/index.html"
             super().do_GET()
             return
 
-        if normalized_path.endswith(".html") and normalized_path != "/404.html" and normalized_path not in LEGACY_REDIRECTS:
-            self.send_response(HTTPStatus.MOVED_PERMANENTLY)
-            self.send_header("Location", redirect_location(clean_html_path(normalized_path), parsed.query))
-            self.end_headers()
-            return
-
         resolved_path = resolve_public_path(normalized_path)
-        if resolved_path in LEGACY_REDIRECTS:
-            self.send_response(HTTPStatus.MOVED_PERMANENTLY)
-            self.send_header("Location", redirect_location(LEGACY_REDIRECTS[resolved_path], parsed.query))
-            self.end_headers()
-            return
 
         if resolved_path is None:
             self.send_error(HTTPStatus.NOT_FOUND)
@@ -1101,13 +1473,17 @@ class AppHandler(SimpleHTTPRequestHandler):
             self.send_error(exc.status, "Image proxy rejected upstream response.")
         except error.HTTPError as exc:
             self.send_error(exc.code, "Upstream image fetch failed.")
-        except error.URLError as exc:
+        except error.URLError:
             self.send_error(HTTPStatus.BAD_GATEWAY, "Image proxy failed.")
 
     def do_POST(self) -> None:
         normalized_path = normalize_request_path(self.path)
         if normalized_path == "/api/contact":
             self.handle_contact_submission()
+            return
+
+        if normalized_path == "/api/analyze":
+            self.handle_site_analysis()
             return
 
         if normalized_path != "/api/analyze-instagram":
@@ -1152,12 +1528,56 @@ class AppHandler(SimpleHTTPRequestHandler):
             json_response(self, exc.status, {"ok": False, "error": exc.message})
         except json.JSONDecodeError:
             json_response(self, HTTPStatus.BAD_REQUEST, {"ok": False, "error": "Geçersiz JSON gönderildi."})
-        except Exception as exc:  # noqa: BLE001
+        except Exception:  # noqa: BLE001
             logger.exception("Unexpected error while handling Instagram analysis")
             json_response(
                 self,
                 HTTPStatus.INTERNAL_SERVER_ERROR,
                 {"ok": False, "error": "Beklenmeyen bir sunucu hatasi olustu."},
+            )
+
+    def handle_site_analysis(self) -> None:
+        try:
+            origin = self.headers.get("Origin")
+            if origin and not is_origin_allowed(origin):
+                raise AnalyzeError(HTTPStatus.FORBIDDEN, "Bu origin icin izin yok.")
+
+            content_type = self.headers.get("Content-Type", "")
+            if "application/json" not in content_type:
+                raise AnalyzeError(HTTPStatus.UNSUPPORTED_MEDIA_TYPE, "Istek JSON olmalidir.")
+
+            length = safe_int(self.headers.get("Content-Length", "0"), default=0)
+            if length > MAX_REQUEST_BODY_BYTES * 4:
+                raise AnalyzeError(HTTPStatus.REQUEST_ENTITY_TOO_LARGE, "Istek govdesi cok buyuk.")
+
+            retry_after = consume_rate_limit(self)
+            if retry_after is not None:
+                json_response(
+                    self,
+                    HTTPStatus.TOO_MANY_REQUESTS,
+                    {"error": {"code": "rate_limit_exceeded", "message": "Cok fazla istek gonderildi. Lutfen daha sonra tekrar deneyin."}},
+                    extra_headers={"Retry-After": str(retry_after)},
+                )
+                return
+
+            payload = json.loads(self.rfile.read(length).decode("utf-8") or "{}")
+            if payload.get("action") == "lead":
+                validate_site_analysis_lead(payload)
+                json_response(self, HTTPStatus.OK, {"data": {"saved": True}})
+                return
+
+            result = local_site_analysis(str(payload.get("url", "")))
+            json_response(self, HTTPStatus.OK, {"data": result})
+        except AnalyzeError as exc:
+            json_response(self, exc.status, {"error": {"code": "site_analysis_error", "message": exc.message}})
+        except json.JSONDecodeError:
+            json_response(self, HTTPStatus.BAD_REQUEST, {"error": {"code": "invalid_json", "message": "Gecerli JSON gonderin."}})
+        except Exception:  # noqa: BLE001
+            logger.exception("Unexpected error while handling site analysis")
+            json_response(
+                self,
+                HTTPStatus.INTERNAL_SERVER_ERROR,
+                {"error": {"code": "internal_error", "message": "Analiz sirasinda beklenmeyen bir hata olustu."}},
             )
 
     def handle_contact_submission(self) -> None:
@@ -1218,23 +1638,15 @@ class AppHandler(SimpleHTTPRequestHandler):
             self.send_error(HTTPStatus.NOT_FOUND)
             return
 
+        if self.send_canonical_redirect(normalized_path, parsed.query):
+            return
+
         if normalized_path == "/":
             self.path = "/index.html"
             super().do_HEAD()
             return
 
-        if normalized_path.endswith(".html") and normalized_path != "/404.html" and normalized_path not in LEGACY_REDIRECTS:
-            self.send_response(HTTPStatus.MOVED_PERMANENTLY)
-            self.send_header("Location", redirect_location(clean_html_path(normalized_path), parsed.query))
-            self.end_headers()
-            return
-
         resolved_path = resolve_public_path(normalized_path)
-        if resolved_path in LEGACY_REDIRECTS:
-            self.send_response(HTTPStatus.MOVED_PERMANENTLY)
-            self.send_header("Location", redirect_location(LEGACY_REDIRECTS[resolved_path], parsed.query))
-            self.end_headers()
-            return
 
         if resolved_path is None:
             self.send_error(HTTPStatus.NOT_FOUND)

@@ -88,27 +88,27 @@ class NeonInspiredNavbarTests(unittest.TestCase):
         for relative_path in self.NAV_SURFACES:
             with self.subTest(path=relative_path):
                 page = (ROOT / relative_path).read_text(encoding="utf-8")
-                self.assertIn("/assets/revision.css?v=35", page)
-                self.assertIn("/assets/revision.js?v=14", page)
+                self.assertIn("/assets/revision.css?v=36", page)
+                self.assertIn("/assets/revision.js?v=15", page)
 
     def test_canonical_service_surfaces_use_the_revision_shell(self) -> None:
         for relative_path in self.CANONICAL_SERVICE_SURFACES:
             with self.subTest(path=relative_path):
                 page = (ROOT / relative_path).read_text(encoding="utf-8")
 
-                self.assertIn("/assets/revision.css?v=35", page)
-                self.assertIn("/assets/revision.js?v=14", page)
+                self.assertIn("/assets/revision.css?v=36", page)
+                self.assertIn("/assets/revision.js?v=15", page)
                 self.assertRegex(
                     page,
                     r'<body[^>]*class="[^"]*\brevision-silo-page\b[^"]*"',
                 )
                 self.assertLess(
                     page.index("/assets/silo-pages.css"),
-                    page.index("/assets/revision.css?v=35"),
+                    page.index("/assets/revision.css?v=36"),
                 )
                 self.assertLess(
                     page.index("/assets/page-shell.js"),
-                    page.index("/assets/revision.js?v=14"),
+                    page.index("/assets/revision.js?v=15"),
                 )
 
     def test_service_surface_generator_keeps_the_revision_shell(self) -> None:
@@ -122,20 +122,20 @@ class NeonInspiredNavbarTests(unittest.TestCase):
             with self.subTest(surface=generated):
                 self.assertIn("/assets/page-shell.css?v=2", generated)
                 self.assertIn("/assets/silo-pages.css?v=3", generated)
-                self.assertIn("/assets/revision.css?v=35", generated)
+                self.assertIn("/assets/revision.css?v=36", generated)
                 self.assertIn("/assets/page-shell.js?v=9", generated)
-                self.assertIn("/assets/revision.js?v=14", generated)
+                self.assertIn("/assets/revision.js?v=15", generated)
                 self.assertIn(
                     '<body class="revision-silo-page services-page"',
                     generated,
                 )
                 self.assertLess(
                     generated.index("/assets/silo-pages.css?v=3"),
-                    generated.index("/assets/revision.css?v=35"),
+                    generated.index("/assets/revision.css?v=36"),
                 )
                 self.assertLess(
                     generated.index("/assets/page-shell.js?v=9"),
-                    generated.index("/assets/revision.js?v=14"),
+                    generated.index("/assets/revision.js?v=15"),
                 )
 
     def test_every_shared_navigation_consumer_uses_one_cache_version(self) -> None:

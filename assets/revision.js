@@ -147,7 +147,7 @@
     announcement.className = "revision-announcement";
     announcement.setAttribute("aria-label", "Duyuru");
     announcement.innerHTML = `
-      <a href="/hizli-teklif">
+      <a href="/araclar/site-analizi/">
         <span class="revision-announcement-copy">Web, SEO ve reklamı tek müşteri kazanım sisteminde birleştirin.</span>
         <span class="revision-announcement-action">Ücretsiz mini analiz</span>
         <span aria-hidden="true">↗</span>

@@ -109,11 +109,11 @@
         progress,
         0.56,
         0.68,
-        0.84,
-        0.98,
+        0.97,
+        1,
       );
       const activeScene =
-        progress >= 0.98
+        progress >= 1
           ? -1
           : progress < 0.25
             ? 0

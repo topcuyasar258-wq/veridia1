@@ -112,13 +112,45 @@ class ServerSecurityTests(unittest.TestCase):
                 self.assertEqual(status, HTTPStatus.OK)
                 self.assertIn(expected, body.decode("utf-8"))
 
-    def test_service_landing_routes_are_public(self) -> None:
-        routes = {
-            "/hizmetler/web-tasarim/": "Web Tasarım ve Landing Page",
-            "/hizmetler/seo-danismanligi/": "SEO Danışmanlığı",
-            "/hizmetler/google-ads-yonetimi/": "Google Ads Yönetimi",
-            "/hizmetler/sosyal-medya-yonetimi/": "Sosyal Medya Yönetimi",
+    def test_consolidated_service_routes_redirect_to_canonical_silos(self) -> None:
+        redirects = {
+            "/hizmetler/web-tasarim": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+            "/hizmetler/seo-danismanligi": "/seo/google-gorunurlugu/",
+            "/hizmetler/google-ads-yonetimi": "/reklam/google-ads-yonetimi/",
+            "/hizmetler/sosyal-medya-yonetimi": "/reklam/sosyal-medya-yonetimi/",
         }
+
+        for method in ("GET", "HEAD"):
+            for source, destination in redirects.items():
+                for path in (source, f"{source}/", f"{source}/index.html"):
+                    with self.subTest(method=method, path=path):
+                        status, _, headers = self.http_request(
+                            method,
+                            path,
+                            follow_redirects=False,
+                        )
+                        self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                        self.assertEqual(headers.get("Location"), destination)
+
+        status, _, headers = self.http_request(
+            "GET",
+            "/hizmetler/google-ads-yonetimi/?utm_source=legacy",
+            follow_redirects=False,
+        )
+        self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+        self.assertEqual(
+            headers.get("Location"),
+            "/reklam/google-ads-yonetimi/?utm_source=legacy",
+        )
+
+    def test_canonical_silo_service_routes_are_public(self) -> None:
+        routes = {
+            "/yazilim/web-sitesi-ve-donusum-yuzeyleri/": "Web Tasarım ve Landing Page",
+            "/seo/google-gorunurlugu/": "SEO Danışmanlığı",
+            "/reklam/google-ads-yonetimi/": "Google Ads Yönetimi",
+            "/reklam/sosyal-medya-yonetimi/": "Sosyal Medya Yönetimi",
+        }
+
         for path, expected in routes.items():
             with self.subTest(path=path):
                 status, body, _ = self.http_request("GET", path)
@@ -137,10 +169,7 @@ class ServerSecurityTests(unittest.TestCase):
             "/yazilim": "/yazilim/",
             "/yazilim/web-sitesi-ve-donusum-yuzeyleri": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
             "/hizmetler": "/hizmetler/",
-            "/hizmetler/web-tasarim": "/hizmetler/web-tasarim/",
-            "/hizmetler/seo-danismanligi": "/hizmetler/seo-danismanligi/",
-            "/hizmetler/google-ads-yonetimi": "/hizmetler/google-ads-yonetimi/",
-            "/hizmetler/sosyal-medya-yonetimi": "/hizmetler/sosyal-medya-yonetimi/",
+            "/araclar/site-analizi": "/araclar/site-analizi/",
             "/sektorler": "/sektorler/",
             "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
             "/sektorler/avukatlar-icin-dijital-pazarlama": "/sektorler/avukatlar-icin-dijital-pazarlama/",
@@ -173,14 +202,77 @@ class ServerSecurityTests(unittest.TestCase):
         self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
         self.assertEqual(headers.get("Location"), "/blog/b2b-donusum-hunisi")
 
+    def test_site_analysis_tool_route_is_public(self) -> None:
+        status, body, _ = self.http_request("GET", "/araclar/site-analizi/")
+
+        self.assertEqual(status, HTTPStatus.OK)
+        self.assertIn("Site Analizi Aracı", body.decode("utf-8"))
+
+        status, _, headers = self.http_request(
+            "GET",
+            "/araclar/site-analizi.html",
+            follow_redirects=False,
+        )
+        self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+        self.assertEqual(headers.get("Location"), "/araclar/site-analizi/")
+
+    def test_site_analysis_api_rejects_local_urls(self) -> None:
+        status, body, _ = self.http_request(
+            "POST",
+            "/api/analyze",
+            body=json.dumps({"url": "http://127.0.0.1:8000"}).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+        )
+
+        payload = json.loads(body.decode("utf-8"))
+        self.assertEqual(status, HTTPStatus.UNPROCESSABLE_ENTITY)
+        self.assertEqual(payload["error"]["code"], "site_analysis_error")
+
+    def test_site_analysis_api_returns_frontend_report_shape(self) -> None:
+        html = """
+        <!doctype html>
+        <html>
+          <head>
+            <title>Örnek Web Sitesi Analiz Başlığı</title>
+            <meta name="description" content="Bu açıklama arama sonucu için yeterli uzunlukta yazılmış örnek bir meta description metnidir ve kullanıcıya sayfanın değerini anlatır.">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="canonical" href="https://example.com/">
+            <meta property="og:title" content="Örnek">
+            <meta property="og:image" content="https://example.com/og.jpg">
+            <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service"}</script>
+          </head>
+          <body><h1>Örnek Başlık</h1><img src="/a.jpg" alt="Açıklayıcı görsel"></body>
+        </html>
+        """
+        with mock.patch.object(
+            server,
+            "fetch_site_analysis_html",
+            return_value={
+                "final_url": "https://example.com/",
+                "status": 200,
+                "content_type": "text/html",
+                "html": html,
+                "elapsed_ms": 420,
+                "redirects": 0,
+            },
+        ):
+            status, body, _ = self.http_request(
+                "POST",
+                "/api/analyze",
+                body=json.dumps({"url": "https://example.com"}).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+            )
+
+        payload = json.loads(body.decode("utf-8"))
+        self.assertEqual(status, HTTPStatus.OK)
+        self.assertIn("scores", payload["data"])
+        self.assertIn("findings", payload["data"])
+        self.assertEqual(payload["data"]["finalUrl"], "https://example.com/")
+
     def test_consolidated_beauty_article_redirects_to_pillar(self) -> None:
         for path in (
             "/blog/guzellik-merkezi-dijital-pazarlama",
             "/blog/guzellik-merkezi-dijital-pazarlama.html",
-            "/blog/guzellik-merkezleri-icin-seo-nedir",
-            "/blog/guzellik-merkezleri-icin-seo-nedir.html",
-            "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
-            "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
             "/guzellik-klinik-dijital-pazarlama",
             "/guzellik-klinik-dijital-pazarlama.html",
         ):
@@ -189,20 +281,46 @@ class ServerSecurityTests(unittest.TestCase):
                 self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
                 self.assertEqual(headers.get("Location"), "/blog/guzellik-merkezleri-icin-dijital-pazarlama")
 
-    def test_consolidated_beauty_web_article_redirects_to_web_guide(self) -> None:
+    def test_restored_beauty_articles_serve_clean_urls(self) -> None:
         for path in (
+            "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar",
+            "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
+            "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi",
+            "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
+            "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur",
+            "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
+            "/blog/guzellik-merkezleri-icin-seo-nedir",
+            "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
             "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
-            "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
         ):
             with self.subTest(path=path):
                 status, _, headers = self.http_request("GET", path, follow_redirects=False)
+                self.assertEqual(status, HTTPStatus.OK)
+                self.assertIsNone(headers.get("Location"))
+
+    def test_restored_beauty_article_html_paths_redirect_to_clean_urls(self) -> None:
+        redirects = {
+            "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar.html": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar",
+            "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir.html": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
+            "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi.html": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi",
+            "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti.html": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
+            "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur.html": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur",
+            "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi.html": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
+            "/blog/guzellik-merkezleri-icin-seo-nedir.html": "/blog/guzellik-merkezleri-icin-seo-nedir",
+            "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
+            "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
+        }
+        for path, expected_location in redirects.items():
+            with self.subTest(path=path):
+                status, _, headers = self.http_request("GET", path, follow_redirects=False)
                 self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
-                self.assertEqual(headers.get("Location"), "/blog/guzellik-merkezi-web-sitesi-nasil-olmali")
+                self.assertEqual(headers.get("Location"), expected_location)
 
     def test_html_page_paths_redirect_to_clean_urls(self) -> None:
         redirects = {
             "/blog.html": "/blog",
             "/blog/": "/blog",
+            "/blog/avukatlar-icin-google-reklamlari/": "/blog/avukatlar-icin-google-reklamlari",
             "/calismalarimiz.html": "/calismalarimiz",
             "/hizli-teklif.html?sektor=restoran-kafe": "/hizli-teklif?sektor=restoran-kafe",
             "/blog/instagram-algoritmasi-2026.html": "/blog/instagram-algoritmasi-2026",
@@ -213,6 +331,133 @@ class ServerSecurityTests(unittest.TestCase):
                 status, _, headers = self.http_request("GET", path, follow_redirects=False)
                 self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
                 self.assertEqual(headers.get("Location"), destination)
+
+    def test_directory_backed_blog_article_has_one_canonical_route(self) -> None:
+        canonical_route = "/blog/avukatlar-icin-google-reklamlari"
+        for method in ("GET", "HEAD"):
+            with self.subTest(method=method, route="canonical"):
+                status, _, headers = self.http_request(method, canonical_route, follow_redirects=False)
+                self.assertEqual(status, HTTPStatus.OK)
+                self.assertIsNone(headers.get("Location"))
+
+            for alternate_route in (f"{canonical_route}/", f"{canonical_route}/index.html"):
+                with self.subTest(method=method, route=alternate_route):
+                    status, _, headers = self.http_request(
+                        method,
+                        alternate_route,
+                        follow_redirects=False,
+                    )
+                    self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                    self.assertEqual(headers.get("Location"), canonical_route)
+
+    def test_production_url_variants_redirect_directly_to_https_www_clean_url(self) -> None:
+        canonical_url = "https://www.veridiareklam.com.tr/hizli-teklif?sektor=restoran-kafe"
+
+        with mock.patch.object(server, "TRUSTED_PROXY_IPS", frozenset({"127.0.0.1"})):
+            for method in ("GET", "HEAD"):
+                for scheme in ("http", "https"):
+                    for host in ("veridiareklam.com.tr", "www.veridiareklam.com.tr"):
+                        for route in (
+                            "/hizli-teklif?sektor=restoran-kafe",
+                            "/hizli-teklif.html?sektor=restoran-kafe",
+                        ):
+                            is_canonical = (
+                                scheme == "https"
+                                and host == "www.veridiareklam.com.tr"
+                                and ".html" not in route
+                            )
+                            with self.subTest(method=method, scheme=scheme, host=host, route=route):
+                                status, _, headers = self.http_request(
+                                    method,
+                                    route,
+                                    headers={
+                                        "Host": host,
+                                        "X-Forwarded-Proto": scheme,
+                                    },
+                                    follow_redirects=False,
+                                )
+
+                                if is_canonical:
+                                    self.assertEqual(status, HTTPStatus.OK)
+                                    self.assertIsNone(headers.get("Location"))
+                                else:
+                                    self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                                    self.assertEqual(headers.get("Location"), canonical_url)
+
+    def test_production_redirects_collapse_path_normalization_into_one_hop(self) -> None:
+        redirects = {
+            "/index.html?utm_source=test": "https://www.veridiareklam.com.tr/?utm_source=test",
+            "/seo/index.html": "https://www.veridiareklam.com.tr/seo/",
+            "/web-tasarim.html": "https://www.veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+            "/hizmetler/web-tasarim": "https://www.veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+            "/hizmetler/web-tasarim/index.html": "https://www.veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+            "/blog/b2b-pazarlamada-donusum-hunisi.html": (
+                "https://www.veridiareklam.com.tr/blog/b2b-donusum-hunisi"
+            ),
+        }
+
+        for route, destination in redirects.items():
+            with self.subTest(route=route):
+                status, _, headers = self.http_request(
+                    "GET",
+                    route,
+                    headers={
+                        "Host": "veridiareklam.com.tr",
+                        "X-Forwarded-Proto": "http",
+                    },
+                    follow_redirects=False,
+                )
+
+                self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+                self.assertEqual(headers.get("Location"), destination)
+
+    def test_untrusted_forwarded_proto_cannot_bypass_https_redirect(self) -> None:
+        with mock.patch.object(server, "TRUSTED_PROXY_IPS", frozenset()):
+            status, _, headers = self.http_request(
+                "GET",
+                "/hizli-teklif",
+                headers={
+                    "Host": "www.veridiareklam.com.tr",
+                    "X-Forwarded-Proto": "https",
+                },
+                follow_redirects=False,
+            )
+
+        self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+        self.assertEqual(
+            headers.get("Location"),
+            "https://www.veridiareklam.com.tr/hizli-teklif",
+        )
+
+    def test_trusted_standard_forwarded_proto_avoids_https_redirect_loop(self) -> None:
+        with mock.patch.object(server, "TRUSTED_PROXY_IPS", frozenset({"127.0.0.1"})):
+            status, _, headers = self.http_request(
+                "GET",
+                "/hizli-teklif",
+                headers={
+                    "Host": "www.veridiareklam.com.tr",
+                    "Forwarded": 'for=203.0.113.10;proto="https"',
+                },
+                follow_redirects=False,
+            )
+
+        self.assertEqual(status, HTTPStatus.OK)
+        self.assertIsNone(headers.get("Location"))
+
+    def test_redirect_location_never_reflects_an_untrusted_host_header(self) -> None:
+        status, _, headers = self.http_request(
+            "GET",
+            "/hizli-teklif.html",
+            headers={
+                "Host": "attacker.example",
+                "X-Forwarded-Proto": "http",
+            },
+            follow_redirects=False,
+        )
+
+        self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
+        self.assertEqual(headers.get("Location"), "/hizli-teklif")
+        self.assertNotIn("attacker.example", headers.get("Location", ""))
 
     def test_legacy_beauty_sector_url_redirects_to_canonical_sector_landing(self) -> None:
         for path in ("/guzellik-merkezleri-icin-dijital-pazarlama",):
@@ -245,10 +490,10 @@ class ServerSecurityTests(unittest.TestCase):
 
     def test_legacy_service_pages_redirect_to_silo_urls(self) -> None:
         redirects = {
-            "/web-tasarim.html": "/hizmetler/web-tasarim/",
-            "/seo-danismanligi.html": "/hizmetler/seo-danismanligi/",
-            "/google-ads-yonetimi.html": "/hizmetler/google-ads-yonetimi/",
-            "/sosyal-medya-yonetimi.html": "/hizmetler/sosyal-medya-yonetimi/",
+            "/web-tasarim.html": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+            "/seo-danismanligi.html": "/seo/google-gorunurlugu/",
+            "/google-ads-yonetimi.html": "/reklam/google-ads-yonetimi/",
+            "/sosyal-medya-yonetimi.html": "/reklam/sosyal-medya-yonetimi/",
         }
 
         for path, destination in redirects.items():

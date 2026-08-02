@@ -960,7 +960,7 @@ section.about-hero {
 body:has(#hero) #hero,
 body:has(.hero-title) .hero {
   position: relative;
-  min-height: calc(100svh - 74px) !important;
+  min-height: calc(100svh - var(--revision-header-height)) !important;
   display: grid !important;
   align-items: center !important;
   padding: clamp(5rem, 10vw, 9rem) var(--revision-gutter) !important;
@@ -1174,7 +1174,7 @@ figcaption,
 
   body:has(#hero) #hero,
   body:has(.hero-title) .hero {
-    min-height: calc(100svh - 64px) !important;
+    min-height: calc(100svh - var(--revision-header-height)) !important;
     padding-block: 4.5rem !important;
   }
 

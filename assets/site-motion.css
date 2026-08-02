@@ -445,6 +445,10 @@ body.reference-home-page
   }
 
   .v-scroll-scene {
+    bottom: max(
+      calc(5.5rem + env(safe-area-inset-bottom)),
+      14vh
+    );
     width: min(92vw, 560px);
   }
 
