@@ -727,3 +727,28 @@ html[data-v-motion="static"] .v-motion-card {
   transform: none !important;
   translate: none !important;
 }
+
+[data-theme="light"]
+  body.reference-home-page
+  .v-scroll-track
+  > #hero.v-scroll-story
+  > .hero-content::before {
+  display: none !important;
+}
+
+[data-theme="light"]
+  body.reference-home-page
+  .v-scroll-track
+  > #hero.v-scroll-story
+  .hero-title {
+  text-shadow: none !important;
+}
+
+[data-theme="light"]
+  body.reference-home-page
+  .v-scroll-track
+  > #hero.v-scroll-story
+  .hero-sub {
+  color: rgba(16, 36, 29, 0.64) !important;
+  text-shadow: none !important;
+}
