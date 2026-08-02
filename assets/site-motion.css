@@ -108,6 +108,16 @@
   will-change: auto;
 }
 
+[data-theme="light"] .hero-title,
+[data-theme="light"] [data-v-scramble],
+[data-theme="light"] .v-scramble-glyph {
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .v-scramble-glyph {
+  filter: none !important;
+}
+
 .v-motion-ambient {
   animation: v-motion-ambient-drift 14s ease-in-out infinite alternate;
   background:
