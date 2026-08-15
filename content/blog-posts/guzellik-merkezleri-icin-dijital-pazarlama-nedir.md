@@ -1,7 +1,7 @@
 ---
-title: Güzellik Merkezleri İçin Dijital Pazarlama Nedir? Daha Fazla Randevu Almanın Yolu
-summary: Güzellik merkezi sahipleri için dijital pazarlamanın ne olduğunu; randevu talebi, WhatsApp mesajı, form dönüşümü ve yerel görünürlük odağında netleştiren başlangıç rehberi.
-description: Güzellik merkezleri için dijital pazarlamanın Google Haritalar, web sitesi, SEO, reklam ve WhatsApp dönüşümleriyle nasıl randevuya dönüştüğünü öğrenin.
+title: Güzellik Merkezi Dijital Pazarlamaya Nereden Başlamalı? İlk 90 Gün Planı
+summary: Yeni veya dağınık dijital yapıya sahip güzellik merkezleri için ilk 90 günde Google Haritalar, web sitesi, reklam ve ölçüm önceliklerini sıraya koyan plan.
+description: Güzellik merkezi dijital pazarlama planı nasıl kurulur? İlk 90 günde görünürlük, randevu akışı, reklam ve ölçüm adımlarını sıraya koyun.
 slug: guzellik-merkezleri-icin-dijital-pazarlama-nedir
 date: 2026-06-29
 published_at: 2026-06-29T00:00:00+03:00
@@ -14,28 +14,25 @@ tags:
   - guzellik salonu web tasarim
   - Google reklamlari
   - Instagram reklamlari
-targetKeyword: guzellik merkezleri icin dijital pazarlama
+targetKeyword: guzellik merkezi dijital pazarlama planı
 secondaryKeywords:
-  - guzellik merkezi dijital pazarlama
-  - guzellik merkezi SEO
-  - guzellik salonu web tasarim
-  - guzellik merkezi Google reklamlari
-  - guzellik merkezi sosyal medya yonetimi
-  - lokal SEO
-  - Google Haritalar gorunurlugu
+  - guzellik merkezi ilk 90 gun pazarlama
+  - guzellik merkezi dijital kurulum planı
+  - guzellik merkezi randevu artırma planı
+  - guzellik merkezi pazarlama yol haritasi
 service_slug: google-gorunurlugu
 reading_time: 12 dk okuma
-intro: Güzellik merkezi sahipleri için dijital pazarlama; yalnızca görünür olmak değil, yerel arama niyetini randevuya dönüştüren sistemli bir yapı kurmaktır. Bu yazıda temel katmanları, ölçüm mantığını ve ilk yapılması gerekenleri net şekilde ele alıyoruz.
-card_summary: Güzellik merkezleri için dijital pazarlamanın temelini; Google Haritalar görünürlüğü, mobil uyumlu web sitesi, lokal SEO, reklam bütçesi ve dönüşüm takibi üzerinden açıklıyoruz.
+intro: Güzellik merkezi dijital pazarlama planı, ilk 90 günde her kanala aynı anda yüklenmek yerine önce görünürlük, sonra dönüşüm yüzeyi, sonra reklam ve ölçüm sırasını kurmayı gerektirir.
+card_summary: İlk 90 gün içinde Google Haritalar, web sitesi, lokal görünürlük, reklam ve takip altyapısının hangi sırayla kurulması gerektiğini anlatıyoruz.
 toc: true
 internalLinkPlan:
-  - anchor: güzellik merkezleri için dijital pazarlama
+  - anchor: güzellik merkezleri için dijital pazarlama hizmeti
     url: /sektorler/guzellik-merkezleri-icin-dijital-pazarlama
     purpose: Sektorel landing sayfasina otorite ve ticari gecis tasimak
   - anchor: güzellik merkezi SEO
     url: /seo/google-gorunurlugu/
     purpose: SEO hizmetine ticari niyetli gecis vermek
-  - anchor: Güzellik Merkezi Dijital Pazarlama Rehberi
+  - anchor: kapsamlı güzellik merkezi dijital pazarlama rehberi
     url: /blog/guzellik-merkezleri-icin-dijital-pazarlama
     purpose: Daha kapsamli ilgili blog yazisina yonlendirmek
   - anchor: ucretsiz analiz
@@ -43,13 +40,13 @@ internalLinkPlan:
     purpose: CTA ile analiz talebi toplamak
 ---
 
-# Güzellik Merkezleri İçin Dijital Pazarlama Nedir? Daha Fazla Randevu Almanın Yolu
+# Güzellik Merkezi Dijital Pazarlamaya Nereden Başlamalı? İlk 90 Gün Planı
 
-Güzellik merkezleri için dijital pazarlama, yalnızca Instagram'da paylaşım yapmak ya da ara sıra reklam açmak değildir. Esas amaç; yerel arama niyeti taşıyan kullanıcıyı sizi bulduğu ilk andan, randevu talebi bıraktığı ana kadar doğru şekilde yönlendiren bir sistem kurmaktır. Bir kişi Google'da hizmet arıyor, Google Haritalar görünürlüğü üzerinden sizi inceliyor, mobil uyumlu web sitesi içinde hizmet sayfası okuyor, sonra WhatsApp mesajı atıyor ya da form dolduruyor. Eğer bu zincirin bir halkası zayıfsa, görünürlük olsa bile müşteri kazanımı zayıf kalır.
+Güzellik merkezi dijital pazarlama planı, yalnızca Instagram'da paylaşım yapmak ya da ara sıra reklam açmak değildir. Esas amaç; ilk 90 günde yerel arama niyeti taşıyan kullanıcıyı sizi bulduğu ilk andan, randevu talebi bıraktığı ana kadar doğru şekilde yönlendiren minimum ama ölçülebilir bir sistem kurmaktır. Bir kişi Google'da hizmet arıyor, Google Haritalar görünürlüğü üzerinden sizi inceliyor, mobil uyumlu web sitesi içinde hizmet sayfası okuyor, sonra WhatsApp mesajı atıyor ya da form dolduruyor. Eğer bu zincirin bir halkası zayıfsa, görünürlük olsa bile müşteri kazanımı zayıf kalır.
 
 Veridia Reklam Ajansı olarak güzellik merkezleri için dijital pazarlamayı sadece görünürlük çalışması olarak değil; randevu, WhatsApp mesajı, form dönüşümü ve ölçülebilir müşteri kazanımı sağlayan bütüncül bir sistem olarak ele alıyoruz. Bu yüzden konuya yalnızca SEO, yalnızca sosyal medya ya da yalnızca reklam olarak bakmıyoruz. Web sitesi SEO ve reklam sürecini birlikte ele alıyor; her kanalın bir sonraki adıma hizmet etmesini hedefliyoruz.
 
-Bu yazı, "dijital pazarlama tam olarak nedir?" sorusuna net cevap arayan güzellik merkezi, güzellik salonu, estetik kliniği, lazer epilasyon merkezi ve kuaför salonu sahipleri için bir başlangıç çerçevesi sunar. Hedefimiz iddialı vaatler vermek değil; daha görünür hale gelmenize yardım eden, reklam bütçesinin daha ölçülebilir kullanılmasını sağlayan ve randevuya dönen bir yapı kurmayı hedefleyen temel sistemi anlaşılır hale getirmektir.
+Bu yazı, "nereden başlamalıyım?" sorusuna net cevap arayan güzellik merkezi, güzellik salonu, estetik kliniği, lazer epilasyon merkezi ve kuaför salonu sahipleri için 90 günlük bir başlangıç çerçevesi sunar. Daha kapsamlı ve ticari çözüm sayfası için [güzellik merkezleri için dijital pazarlama hizmeti](/sektorler/guzellik-merkezleri-icin-dijital-pazarlama) sayfasına, kanal bazlı detaylar için ise ilgili SEO, web sitesi, Instagram ve Google Ads rehberlerine geçmek daha doğru olur.
 
 ## Güzellik merkezlerinde dijital pazarlama hangi problemi çözer?
 

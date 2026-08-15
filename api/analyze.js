@@ -6,9 +6,11 @@ const MAX_REQUEST_BYTES = 16 * 1024
 const MAX_HTML_BYTES = 2 * 1024 * 1024
 const MAX_ALT_CHECK_BYTES = 64 * 1024
 const FETCH_TIMEOUT_MS = 10_000
+const PSI_TIMEOUT_MS = Number.parseInt(process.env.PSI_TIMEOUT_MS || "60000", 10)
 const MAX_REDIRECTS = 3
 const RATE_LIMIT = 10
 const RATE_LIMIT_WINDOW_SECONDS = 60 * 60
+const memoryRateLimits = new Map()
 
 class HttpError extends Error {
   constructor(status, code, message, retryAfter = null) {
@@ -243,6 +245,23 @@ function redisConfig() {
   return url && token ? { url: url.replace(/\/$/, ""), token } : null
 }
 
+function enforceMemoryRateLimit(key) {
+  const now = Date.now()
+  const windowMs = RATE_LIMIT_WINDOW_SECONDS * 1000
+  const active = (memoryRateLimits.get(key) || []).filter((timestamp) => now - timestamp < windowMs)
+  if (active.length >= RATE_LIMIT) {
+    const retryAfter = Math.max(60, Math.ceil((windowMs - (now - active[0])) / 1000))
+    throw new HttpError(429, "rate_limit_exceeded", "Saatlik analiz limitine ulaşıldı.", retryAfter)
+  }
+  active.push(now)
+  memoryRateLimits.set(key, active)
+  return {
+    limit: RATE_LIMIT,
+    remaining: Math.max(0, RATE_LIMIT - active.length),
+    resetSeconds: RATE_LIMIT_WINDOW_SECONDS,
+  }
+}
+
 async function redisCommand(command, ...args) {
   const config = redisConfig()
   if (!config) {
@@ -284,6 +303,7 @@ function rateKeyForIp(ip) {
 
 async function enforceRateLimit(req) {
   const key = rateKeyForIp(clientIp(req))
+  if (!redisConfig()) return enforceMemoryRateLimit(key)
   const count = Number(await redisCommand("INCR", key))
   if (count === 1) await redisCommand("EXPIRE", key, RATE_LIMIT_WINDOW_SECONDS)
   if (count > RATE_LIMIT) {
@@ -491,7 +511,7 @@ async function fetchPsi(url) {
   if (process.env.PSI_API_KEY) endpoint.searchParams.set("key", process.env.PSI_API_KEY)
 
   const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
+  const timeout = setTimeout(() => controller.abort(), PSI_TIMEOUT_MS)
   try {
     const response = await fetch(endpoint.toString(), { signal: controller.signal })
     const payload = await response.json().catch(() => ({}))

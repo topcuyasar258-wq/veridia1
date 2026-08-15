@@ -8,8 +8,7 @@
 <meta name="theme-color" content="#0a0a0f">
 <meta name="format-detection" content="telephone=no">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="icon" href="./assets/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="./assets/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="icon" href="./assets/favicon-512.png" type="image/png">
 <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 <meta property="og:title" content="Veridia Reklam | Web Tasarım, SEO ve Google Ads Ajansı">
 <meta property="og:description" content="Küçük ve orta ölçekli işletmeler için web tasarım, SEO ve Google Ads çalışmalarını müşteri adayı üreten bir dijital sistem olarak planlıyoruz.">
@@ -50,33 +49,30 @@
       "name": "İstanbul Web Tasarım, SEO ve Reklam Ajansı | Veridia",
       "description": "İstanbul'da web tasarım, SEO, Google Ads ve sosyal medya yönetimi ile daha görünür ve daha dönüşüm odaklı bir büyüme planı kurun.",
       "inLanguage": "tr",
-      "isPartOf": {
-        "@id": "https://www.veridiareklam.com.tr/#website"
-      },
-      "about": {
-        "@id": "https://www.veridiareklam.com.tr/#organization"
-      },
+      "isPartOf": { "@id": "https://www.veridiareklam.com.tr/#website" },
+      "about": { "@id": "https://www.veridiareklam.com.tr/#organization" },
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://www.veridiareklam.com.tr/assets/veridia-social-cover.png",
         "width": 1200,
         "height": 630
-      }
+      },
+      "breadcrumb": { "@id": "https://www.veridiareklam.com.tr/#breadcrumb" }
     },
     {
       "@id": "https://www.veridiareklam.com.tr/#organization",
-      "@type": "Organization",
+      "@type": ["LocalBusiness", "Organization"],
       "name": "Veridia",
+      "alternateName": [
+        "Veridia Reklam",
+        "Veridia Ajans",
+        "Veridia Reklam Ajansı",
+        "Veridia Web Tasarım",
+        "Veridia SEO Ajansı"
+      ],
       "legalName": "Veridia Reklam",
-      "alternateName": ["Veridia Ajans", "Veridia Reklam Ajansı"],
-      "founder": {
-        "@type": "Person",
-        "@id": "https://www.veridiareklam.com.tr/#person-yasar-ishak-topcu",
-        "name": "Yaşar İshak Topçu",
-        "jobTitle": "Kurucu, SEO ve Dijital Büyüme Danışmanı",
-        "worksFor": { "@id": "https://www.veridiareklam.com.tr/#organization" }
-      },
       "description": "İstanbul'da web tasarım, SEO, Google Ads ve sosyal medya yönetimi ile küçük ve orta ölçekli işletmeler için uygulanabilir büyüme planı sunan dijital ajans.",
+      "disambiguatingDescription": "Veridia, Türkiye'de web tasarım, SEO, Google Ads ve sosyal medya yönetimi hizmetleri sunan dijital pazarlama ajansıdır.",
       "slogan": "İstanbul'un web tasarım, SEO ve reklam ortağı",
       "telephone": "+90-505-517-4654",
       "email": "hello@veridiareklam.com.tr",
@@ -88,9 +84,27 @@
         "width": 512,
         "height": 512
       },
-      "areaServed": {
-        "@type": "City",
-        "name": "İstanbul"
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "areaServed": { "@type": "City", "name": "İstanbul" },
+      "priceRange": "₺₺",
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "Yaşar İshak Topçu"
+        },
+        {
+          "@type": "Person",
+          "name": "Betül Berfin Akyüz"
+        }
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Veridia Reklam",
+        "url": "https://www.veridiareklam.com.tr/"
       },
       "knowsAbout": [
         "Web Tasarım",
@@ -114,21 +128,10 @@
           "telephone": "+90-505-517-4654",
           "contactType": "customer service",
           "email": "hello@veridiareklam.com.tr",
-          "availableLanguage": [
-            {
-              "@type": "Language",
-              "name": "Turkish"
-            }
-          ],
+          "availableLanguage": [{ "@type": "Language", "name": "Turkish" }],
           "hoursAvailable": {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday"
-            ],
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             "opens": "09:00",
             "closes": "18:00"
           }
@@ -137,12 +140,7 @@
           "@type": "ContactPoint",
           "contactType": "sales",
           "email": "hello@veridiareklam.com.tr",
-          "availableLanguage": [
-            {
-              "@type": "Language",
-              "name": "Turkish"
-            }
-          ]
+          "availableLanguage": [{ "@type": "Language", "name": "Turkish" }]
         }
       ],
       "hasOfferCatalog": {
@@ -153,144 +151,108 @@
             "@type": "Offer",
             "name": "Web Tasarım Hizmeti",
             "description": "Dönüşüm odaklı kurumsal web sitesi, landing page ve teklif akışı kurulumu. İstanbul'daki işletmeler için mobil uyumlu yapı.",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
+            "areaServed": { "@type": "City", "name": "İstanbul" },
             "itemOffered": {
               "@type": "Service",
               "@id": "https://www.veridiareklam.com.tr/#service-web-tasarim",
               "name": "Web Tasarım",
               "serviceType": "Web Design",
-              "provider": {
-                "@id": "https://www.veridiareklam.com.tr/#organization"
-              },
+              "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" },
               "serviceOutput": "Kurumsal web sitesi kurgusu, sayfa yapısı, teklif butonu akışı ve mobil dönüşüm önerileri",
-              "areaServed": {
-                "@type": "City",
-                "name": "İstanbul"
-              }
+              "areaServed": { "@type": "City", "name": "İstanbul" }
             }
           },
           {
             "@type": "Offer",
             "name": "SEO Danışmanlığı Hizmeti",
             "description": "Teknik SEO, sayfa dili ve Google görünürlüğü için uygulanabilir SEO planı. İstanbul'daki işletmeler için görünürlük odaklı çalışma.",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
+            "areaServed": { "@type": "City", "name": "İstanbul" },
             "itemOffered": {
               "@type": "Service",
               "@id": "https://www.veridiareklam.com.tr/#service-seo-danismanligi",
               "name": "SEO Danışmanlığı",
               "serviceType": "SEO Consulting",
-              "provider": {
-                "@id": "https://www.veridiareklam.com.tr/#organization"
-              },
+              "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" },
               "serviceOutput": "Teknik SEO tespit listesi, önceliklendirilmiş yol haritası, sayfa bazlı görünürlük önerileri",
-              "areaServed": {
-                "@type": "City",
-                "name": "İstanbul"
-              }
+              "areaServed": { "@type": "City", "name": "İstanbul" }
             }
           },
           {
             "@type": "Offer",
             "name": "Google Ads Yönetimi Hizmeti",
             "description": "Google Ads kampanya kurulumu, arama niyeti eşleşmesi ve landing page uyumu. İstanbul'daki işletmeler için lead odaklı reklam yönetimi.",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
+            "areaServed": { "@type": "City", "name": "İstanbul" },
             "itemOffered": {
               "@type": "Service",
               "@id": "https://www.veridiareklam.com.tr/#service-google-ads-yonetimi",
               "name": "Google Ads Yönetimi",
               "serviceType": "Google Ads Management",
-              "provider": {
-                "@id": "https://www.veridiareklam.com.tr/#organization"
-              },
+              "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" },
               "serviceOutput": "Kampanya yapısı, arama terimi optimizasyonu, reklam metni ve dönüşüm odaklı raporlama",
-              "areaServed": {
-                "@type": "City",
-                "name": "İstanbul"
-              }
+              "areaServed": { "@type": "City", "name": "İstanbul" }
             }
           },
           {
             "@type": "Offer",
             "name": "Sosyal Medya Yönetimi Hizmeti",
             "description": "İçerik planı, yayın takvimi ve topluluk yönetimi sistemi. İstanbul markalarına özgü sosyal medya yönetimi.",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
+            "areaServed": { "@type": "City", "name": "İstanbul" },
             "itemOffered": {
               "@type": "Service",
               "@id": "https://www.veridiareklam.com.tr/#service-sosyal-medya-yonetimi",
               "name": "Sosyal Medya Yönetimi",
               "serviceType": "Social Media Management",
-              "provider": {
-                "@id": "https://www.veridiareklam.com.tr/#organization"
-              },
+              "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" },
               "serviceOutput": "Aylık içerik planı, yayın takvimi, topluluk yönetimi yaklaşımı ve performans raporu",
-              "areaServed": {
-                "@type": "City",
-                "name": "İstanbul"
-              }
+              "areaServed": { "@type": "City", "name": "İstanbul" }
             }
           },
           {
             "@type": "Offer",
             "name": "Kurumsal Kimlik Hizmeti",
             "description": "Logo sistemi, renk dili, tipografi ve marka kullanım seti. İstanbul'daki işletmeler için güven veren kurumsal görünüm.",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
+            "areaServed": { "@type": "City", "name": "İstanbul" },
             "itemOffered": {
               "@type": "Service",
               "@id": "https://www.veridiareklam.com.tr/#service-kurumsal-kimlik",
               "name": "Kurumsal Kimlik",
               "serviceType": "Brand Identity Design",
-              "provider": {
-                "@id": "https://www.veridiareklam.com.tr/#organization"
-              },
+              "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" },
               "serviceOutput": "Logo ailesi, renk sistemi, tipografi kuralları ve temel marka kullanım dosyaları",
-              "areaServed": {
-                "@type": "City",
-                "name": "İstanbul"
-              }
+              "areaServed": { "@type": "City", "name": "İstanbul" }
             }
           },
           {
             "@type": "Offer",
             "name": "E-Ticaret Sitesi Hizmeti",
             "description": "Ürün, kategori, sepet ve ödeme akışını dönüşüm odaklı kurgulayan e-ticaret site kurulumu. İstanbul merkezli markalar için satış odaklı yapı.",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
+            "areaServed": { "@type": "City", "name": "İstanbul" },
             "itemOffered": {
               "@type": "Service",
               "@id": "https://www.veridiareklam.com.tr/#service-e-ticaret-sitesi",
               "name": "E-Ticaret Sitesi",
               "serviceType": "Ecommerce Web Design",
-              "provider": {
-                "@id": "https://www.veridiareklam.com.tr/#organization"
-              },
+              "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" },
               "serviceOutput": "Kategori yapısı, ürün sayfası kurgusu, sepet akışı ve satış odaklı mağaza deneyimi",
-              "areaServed": {
-                "@type": "City",
-                "name": "İstanbul"
-              }
+              "areaServed": { "@type": "City", "name": "İstanbul" }
             }
           }
         ]
       },
       "sameAs": [
         "https://www.instagram.com/veridiareklamajansi"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.veridiareklam.com.tr/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+            "item": "https://www.veridiareklam.com.tr"
+        }
       ]
     },
     {
@@ -307,13 +269,8 @@
             "serviceType": "Web Tasarım",
             "description": "Kurumsal web sitesi, landing page ve teklif akışı kurgusu. İstanbul'daki işletmeler için dönüşüm odaklı yapı.",
             "serviceOutput": "Sayfa yapısı, teklif butonu akışı ve web deneyimi önerileri",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
-            "provider": {
-              "@id": "https://www.veridiareklam.com.tr/#organization"
-            }
+            "areaServed": { "@type": "City", "name": "İstanbul" },
+            "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" }
           }
         },
         {
@@ -326,13 +283,8 @@
             "serviceType": "SEO Danışmanlığı",
             "description": "Teknik SEO, sayfa dili ve Google görünürlüğü için uygulanabilir yol haritası.",
             "serviceOutput": "SEO tespit listesi, sayfa önerileri, önceliklendirilmiş plan",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
-            "provider": {
-              "@id": "https://www.veridiareklam.com.tr/#organization"
-            }
+            "areaServed": { "@type": "City", "name": "İstanbul" },
+            "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" }
           }
         },
         {
@@ -345,13 +297,8 @@
             "serviceType": "Google Ads Yönetimi",
             "description": "Arama niyetine göre kurulan reklam yapısı ve landing page uyumu ile lead odaklı kampanya yönetimi.",
             "serviceOutput": "Kampanya yapısı, optimizasyon raporu, dönüşüm takibi",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
-            "provider": {
-              "@id": "https://www.veridiareklam.com.tr/#organization"
-            }
+            "areaServed": { "@type": "City", "name": "İstanbul" },
+            "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" }
           }
         },
         {
@@ -364,13 +311,8 @@
             "serviceType": "Sosyal Medya Yönetimi",
             "description": "İçerik planı, paylaşım ritmi ve topluluk yönetimi sistemi. İstanbul markalarına özel sosyal medya stratejisi.",
             "serviceOutput": "Aylık içerik planı, yayın takvimi, performans raporu",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
-            "provider": {
-              "@id": "https://www.veridiareklam.com.tr/#organization"
-            }
+            "areaServed": { "@type": "City", "name": "İstanbul" },
+            "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" }
           }
         },
         {
@@ -383,13 +325,8 @@
             "serviceType": "Kurumsal Kimlik Tasarımı",
             "description": "Logo sistemi, renk dili, tipografi ve marka kullanım seti. İstanbul'daki işletmeler için güven veren kurumsal görünüm.",
             "serviceOutput": "Logo ailesi, renk sistemi, tipografi kuralları ve temel marka kullanım dosyaları",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
-            "provider": {
-              "@id": "https://www.veridiareklam.com.tr/#organization"
-            }
+            "areaServed": { "@type": "City", "name": "İstanbul" },
+            "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" }
           }
         },
         {
@@ -402,13 +339,8 @@
             "serviceType": "E-Ticaret Web Tasarımı",
             "description": "Ürün, kategori, sepet ve ödeme akışını dönüşüm odaklı kurgulayan e-ticaret site kurulumu. İstanbul merkezli markalar için satış odaklı yapı.",
             "serviceOutput": "Kategori yapısı, ürün sayfası kurgusu, sepet akışı ve satış odaklı mağaza deneyimi",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
-            "provider": {
-              "@id": "https://www.veridiareklam.com.tr/#organization"
-            }
+            "areaServed": { "@type": "City", "name": "İstanbul" },
+            "provider": { "@id": "https://www.veridiareklam.com.tr/#organization" }
           }
         }
       ]
@@ -421,19 +353,17 @@
 <link rel="stylesheet" href="./assets/index-critical.css?v=6">
 <link rel="stylesheet" href="./assets/shared.css?v=13">
 <link rel="stylesheet" href="./assets/home-contact.css?v=3">
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="preconnect" href="https://www.google-analytics.com">
 <script defer src="./assets/config.js?v=4"></script>
 <script defer src="./assets/analytics.js"></script>
 <script defer src="./assets/page-shell.js?v=9"></script>
 <script defer src="./assets/home-loader.js?v=8"></script>
 <script defer src="./assets/entry-popup.js?v=2"></script>
-<link rel="stylesheet" href="/assets/revision.css?v=35">
+<link rel="stylesheet" href="/assets/revision.css?v=36">
 <link rel="stylesheet" href="./assets/home-mobile-tune.css?v=7">
-<script defer src="/assets/revision.js?v=14"></script>
+<script defer src="/assets/revision.js?v=15"></script>
 <link rel="stylesheet" href="/assets/css/fab.css?v=1">
-<script defer src="/assets/js/fab.js?v=3"></script>
-<link rel="stylesheet" href="/assets/site-motion.css?v=15">
+<script defer src="/assets/js/fab.js?v=2"></script>
+<link rel="stylesheet" href="/assets/site-motion.css?v=13">
 <script src="/assets/site-motion-story.js?v=5" defer></script>
 <script src="/assets/site-motion.js?v=12" defer></script>
 </head>
@@ -447,14 +377,13 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="menu-close" type="button" data-mobile-close aria-label="Menüyü kapat">✕</button>
-  <a href="/#contact" class="mobile-menu-cta" data-mobile-close data-focus-analysis>Mini Analiz İste</a>
+  <a href="/araclar/site-analizi/" class="mobile-menu-cta" data-mobile-close>Mini Analiz İste</a>
   <div class="mobile-menu-links" aria-label="Mobil menü">
-    <a href="/#services" data-mobile-close>Hizmetler</a>
-    <a href="/#sectors" data-mobile-close>Sektörler</a>
-    <a href="/#portfolio" data-mobile-close>Portfolyo</a>
-    <a href="/hakkimizda" data-mobile-close>Hakkımızda</a>
-    <a href="/blog" data-mobile-close>Blog</a>
-    <a href="/#contact" data-mobile-close>İletişim</a>
+    <a href="/hizmetler/" data-mobile-close>Hizmetler</a>
+    <a href="/seo/" data-mobile-close>SEO</a>
+    <a href="/reklam/" data-mobile-close>Reklam</a>
+    <a href="/yazilim/" data-mobile-close>Web</a>
+    <a href="/iletisim" data-mobile-close>İletişim</a>
   </div>
   <div class="mobile-menu-socials" aria-label="Hızlı iletişim">
     <a href="https://www.instagram.com/veridiareklamajansi" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
@@ -467,14 +396,14 @@
 <nav id="navbar">
   <a href="/" class="nav-logo">Veridia</a>
   <ul class="nav-links">
-    <li><a href="/">Ana Sayfa</a></li>
-    <li><a href="/hizmetler/">Hizmetlerimiz</a></li>
-    <li><a href="/calismalarimiz">Portfolyo</a></li>
-    <li><a href="/hakkimizda">Hakkımızda</a></li>
-    <li><a href="/blog">Blog</a></li>
+    <li><a href="/hizmetler/">Hizmetler</a></li>
+    <li><a href="/seo/">SEO</a></li>
+    <li><a href="/reklam/">Reklam</a></li>
+    <li><a href="/yazilim/">Web</a></li>
+    <li><a href="/iletisim">İletişim</a></li>
   </ul>
   <div class="nav-mobile-right" style="display: flex; align-items: center; gap: 1rem;">
-    <a href="/#contact" class="nav-mobile-cta" style="display: none;" data-focus-analysis>Analiz Al</a>
+    <a href="/araclar/site-analizi/" class="nav-mobile-cta" style="display: none;">Analiz Al</a>
     <button class="revision-nav-theme" type="button" data-theme-toggle aria-label="Açık temaya geç">
       <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">🌙</span>
       <span data-theme-label>Koyu</span>
@@ -498,8 +427,8 @@
     </div>
     <p class="cta-risk-reversal">40+ işletmenin dijital darboğazını çözdük. Hiçbir taahhüt gerektirmez.</p>
     <div class="hero-quick-links" aria-label="Hızlı aksiyonlar">
-      <a href="/#contact" data-focus-analysis>SEO analizi</a>
-      <a href="/#contact" data-focus-analysis>Web dönüşüm kontrolü</a>
+      <a href="/araclar/site-analizi/">SEO analizi</a>
+      <a href="/araclar/site-analizi/">Web dönüşüm kontrolü</a>
       <a href="/#contact" data-focus-analysis>Reklam kaybı kontrolü</a>
     </div>
     <div class="hero-trust-line" style="margin-top:2rem;font-size:0.85rem;color:var(--text-muted);opacity:0.8;letter-spacing:0.05em;text-transform:uppercase;">
@@ -625,7 +554,7 @@
       </a>
     </div>
     <div class="needs-actions">
-      <a href="/#contact" class="btn-gold btn-conversion" data-focus-analysis>Ücretsiz Site Analizi Al</a>
+      <a href="/araclar/site-analizi/" class="btn-gold btn-conversion">Ücretsiz Site Analizi Al</a>
     </div>
   </div>
 </section>
@@ -1087,7 +1016,7 @@
       <h3 style="color: var(--off-white); font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; margin-bottom: 1rem;">İşletmeniz için hangi dijital strateji daha mantıklı?</h3>
       <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">Web siteniz, sosyal medya hesaplarınız ve reklam yapınız birlikte incelenerek size özel bir yol haritası hazırlanır.</p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="/#contact" class="btn-gold btn-conversion" data-focus-analysis>Ücretsiz Site Analizi Al</a>
+        <a href="/araclar/site-analizi/" class="btn-gold btn-conversion">Ücretsiz Site Analizi Al</a>
       </div>
       <p class="cta-risk-reversal">Bugüne kadar 40+ işletmenin dijital darboğazını çözdük. Hiçbir taahhüt gerektirmez.</p>
     </div>
@@ -1129,6 +1058,17 @@
 </section>
 
 <section id="mini-analiz" class="premium-contact-section">
+  <div class="analysis-tool-panel reveal">
+    <div class="analysis-tool-copy">
+      <p class="section-label">Ücretsiz Mini Analiz</p>
+      <h2>Önce sitenizi otomatik kontrol edin, sonra birlikte yorumlayalım.</h2>
+      <p>Site analizi aracı; hız, teknik SEO, içerik ve mobil uyum sinyallerini tek ekranda toplar. E-posta istemeden raporu açar, kritik maddeleri önce gösterir.</p>
+    </div>
+    <div class="analysis-tool-actions">
+      <a href="/araclar/site-analizi/" class="btn-gold btn-conversion">Site Analiz Aracını Aç</a>
+      <a href="/#contact" class="btn-outline" data-focus-analysis>Manuel Mini Analiz İste</a>
+    </div>
+  </div>
   <div class="contact-fit">
     <div class="mobile-readmore reveal" data-mobile-readmore style="--mobile-readmore-collapsed: 13rem;">
       <div class="analysis-detail-grid mobile-readmore__content" data-mobile-readmore-content>
@@ -1228,7 +1168,7 @@
       <p class="premium-contact-desc">Web sitenizden, SEO’dan veya reklamlardan yeterli dönüşüm alamıyorsanız Veridia olarak kısa bir ön analiz yapabiliriz. Sitenizin Google’da nasıl göründüğünü, kullanıcıyı ne kadar iyi yönlendirdiğini ve hangi alanlarda iyileştirme gerektiğini birlikte değerlendirelim.</p>
 
       <div class="premium-contact-features" style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:2rem;">
-        <a href="/#contact" class="btn-gold btn-conversion" data-focus-analysis>Sitem Neden Müşteri Kaçırıyor? Ücretsiz Bulun</a>
+        <a href="/araclar/site-analizi/" class="btn-gold btn-conversion">Sitem Neden Müşteri Kaçırıyor? Ücretsiz Bulun</a>
       </div>
       <p class="cta-risk-reversal">Bugüne kadar 40+ işletmenin dijital darboğazını çözdük. Hiçbir taahhüt gerektirmez.</p>
 
@@ -1313,7 +1253,7 @@
 </section>
 
 <div class="mobile-sticky-nav" role="navigation" aria-label="Mobil hızlı aksiyonlar">
-  <a href="/#contact" class="mobile-sticky-nav__link mobile-sticky-nav__link--accent" data-focus-analysis>
+  <a href="/araclar/site-analizi/" class="mobile-sticky-nav__link mobile-sticky-nav__link--accent">
     <span class="mobile-sticky-nav__label">Ücretsiz Analizi Başlat</span>
   </a>
 </div>
@@ -1324,9 +1264,11 @@
   <p class="footer-text">© 2026 Veridia Ajans. Tüm hakları saklıdır.</p>
   <div class="footer-right">
     <div class="footer-socials">
-      <a href="/#contact" data-whatsapp-message="Merhaba Veridia, site üzerinden ulaşıyorum." target="_blank" rel="noopener">WhatsApp</a>
-      <a href="mailto:hello@veridiareklam.com.tr">E-posta</a>
-      <a href="/blog">Blog</a>
+      <a href="/hizmetler/">Hizmetler</a>
+      <a href="/seo/">SEO</a>
+      <a href="/reklam/">Reklam</a>
+      <a href="/yazilim/">Web</a>
+      <a href="/iletisim">İletişim</a>
     </div>
     <div class="footer-socials footer-legal-links">
       <a href="/gizlilik-politikasi">Gizlilik Politikası</a>

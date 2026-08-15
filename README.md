@@ -58,8 +58,8 @@ HOST=127.0.0.1
 SITE_URL=https://www.veridiareklam.com.tr
 ```
 
-`SITE_URL`, blog yazisi olusturma aracinin canonical, Open Graph ve sitemap adreslerini dogru domain ile uretmesi icin kullanilir.
-`TRUSTED_PROXY_IPS`, sunucu bir reverse proxy arkasinda calisiyorsa rate limit icin hangi proxy IP'lerinin `Forwarded` veya `X-Forwarded-For` header'larina guvenilecegini belirler. Bos birakilirsa sadece dogrudan baglanan istemci IP'si kullanilir.
+`SITE_URL`, blog yazisi olusturma aracinin canonical, Open Graph ve sitemap adreslerini uretir; Python sunucusu da public host ve HTTPS yonlendirmelerinde bu origin'i kullanir. Deger, path icermeyen bir HTTPS origin'i olmalidir.
+`TRUSTED_PROXY_IPS`, sunucu bir reverse proxy arkasinda calisiyorsa hangi proxy IP'lerinin `Forwarded`, `X-Forwarded-For` ve `X-Forwarded-Proto` header'larina guvenilecegini belirler. Bos birakilirsa bu header'lar HTTPS ve rate limit kararlarinda yok sayilir. Reverse proxy kullanan dagitimlarda, HTTPS redirect dongusu olusmamasi icin dogrudan baglanan proxy IP'lerini bu listeye ekle.
 
 ## Kaynaklar
 

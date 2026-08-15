@@ -7,6 +7,47 @@
     radial-gradient(circle at 82% 24%, rgba(201, 168, 76, 0.08), transparent 24%),
     radial-gradient(circle at 14% 78%, rgba(120, 196, 156, 0.06), transparent 22%);
 }
+.analysis-tool-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: end;
+  max-width: 1280px;
+  margin: 0 auto 4.5rem;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  border: 1px solid rgba(201, 168, 76, 0.14);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.045), rgba(0,0,0,0.16)),
+    rgba(17, 27, 24, 0.9);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.22);
+}
+.analysis-tool-copy {
+  max-width: 52rem;
+}
+.analysis-tool-copy h2 {
+  margin: 0 0 1rem;
+  color: var(--off-white);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.2rem, 4vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1.02;
+}
+.analysis-tool-copy p:not(.section-label) {
+  color: var(--wave-text, var(--text-muted));
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+.analysis-tool-actions {
+  display: grid;
+  gap: 0.75rem;
+  min-width: min(100%, 22rem);
+}
+.analysis-tool-actions .btn-gold,
+.analysis-tool-actions .btn-outline {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
 .premium-contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
@@ -21,6 +62,7 @@
 }
 @media (max-width: 900px) {
   .premium-contact-grid { grid-template-columns: 1fr; gap: 5rem; padding: 0 5%; }
+  .analysis-tool-panel { grid-template-columns: 1fr; margin-inline: 5%; }
 }
 .contact-left-panel {
   display: flex;
@@ -494,6 +536,11 @@
   border-color: rgba(0,0,0,0.05);
 }
 [data-theme="light"] .p-feature strong { color: #1a1a1a; }
+[data-theme="light"] .analysis-tool-panel {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(31,75,54,0.14);
+  box-shadow: 0 24px 58px rgba(31,75,54,0.08);
+}
 [data-theme="light"] .contact-right-panel {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.98), rgba(246, 247, 243, 0.98)),

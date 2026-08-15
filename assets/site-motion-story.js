@@ -109,11 +109,11 @@
         progress,
         0.56,
         0.68,
-        0.84,
-        0.98,
+        0.97,
+        1,
       );
       const activeScene =
-        progress >= 0.98
+        progress >= 1
           ? -1
           : progress < 0.25
             ? 0
@@ -634,24 +634,12 @@
               "(max-height: 520px) and (orientation: landscape)",
             )
           : { matches: false };
-      const mobileViewportQuery =
-        typeof global.matchMedia === "function"
-          ? global.matchMedia("(max-width: 760px)")
-          : { matches: true };
       const connection =
         global.navigator &&
         (global.navigator.connection ||
           global.navigator.mozConnection ||
           global.navigator.webkitConnection);
       const saveData = Boolean(connection && connection.saveData);
-      if (mobileViewportQuery.matches) {
-        root.dataset.vStory = "mobile";
-        return function destroyMobileStoryState() {
-          delete root.dataset.vStoryInitialized;
-          delete root.dataset.vStory;
-        };
-      }
-
       if (
         reducedMotionQuery.matches ||
         compactViewportQuery.matches ||

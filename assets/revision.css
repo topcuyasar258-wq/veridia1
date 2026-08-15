@@ -960,7 +960,7 @@ section.about-hero {
 body:has(#hero) #hero,
 body:has(.hero-title) .hero {
   position: relative;
-  min-height: calc(100svh - 74px) !important;
+  min-height: calc(100svh - var(--revision-header-height)) !important;
   display: grid !important;
   align-items: center !important;
   padding: clamp(5rem, 10vw, 9rem) var(--revision-gutter) !important;
@@ -1174,7 +1174,7 @@ figcaption,
 
   body:has(#hero) #hero,
   body:has(.hero-title) .hero {
-    min-height: calc(100svh - 64px) !important;
+    min-height: calc(100svh - var(--revision-header-height)) !important;
     padding-block: 4.5rem !important;
   }
 
@@ -3295,35 +3295,5 @@ body > nav[aria-label="Ana Menü"].is-scrolled {
 
   body.reference-home-page #hero {
     min-height: calc(100svh - var(--revision-header-height)) !important;
-  }
-}
-
-/* Touch targets: breadcrumb, footer ve ikincil linkler icin min 44px dokunma alani (mobil) */
-@media (max-width: 768px) {
-  .breadcrumb a,
-  nav[aria-label="breadcrumb"] a,
-  .breadcrumb-nav a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    padding: 0 0.35rem;
-  }
-
-  footer a,
-  .blog-footer a,
-  .sector-footer a,
-  .footer-socials a,
-  .footer-legal-links a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    padding: 0.15rem 0.35rem;
-  }
-
-  .sector-links a,
-  .related-panel a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
   }
 }

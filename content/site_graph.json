@@ -181,6 +181,19 @@
       "priority": "0.5"
     },
     {
+      "url": "/araclar/site-analizi/",
+      "file": "araclar/site-analizi/index.html",
+      "title": "Ücretsiz Site Analizi",
+      "changefreq": "monthly",
+      "priority": "0.7",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Veridia Site Analizi Kapak Görseli"
+        }
+      ]
+    },
+    {
       "url": "/dijital-pazarlama-stratejisi",
       "file": "dijital-pazarlama-stratejisi.html",
       "title": "Sektörünüze Özel Dijital Pazarlama Stratejisi",
@@ -596,21 +609,6 @@
       "card_summary": "Randevuya gelmeyen müşteri sorunu mu yaşıyorsunuz? Onay mesajı, hatırlatma zamanlaması ve depozito politikasıyla no-show oranını azaltan rehber."
     },
     {
-      "slug": "lazer-epilasyon-merkezi-icin-google-ads-rehberi",
-      "url": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi",
-      "file": "blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi.html",
-      "title": "Lazer Epilasyon Merkezi İçin Google Ads Rehberi",
-      "summary": "Lazer epilasyon reklamı verirken bütçe mi eriyor? Doğru kampanya yapısı, anahtar kelime ve landing page uyumuyla randevu getiren Google Ads rehberi.",
-      "description": "Lazer epilasyon reklamı verirken bütçe mi eriyor? Doğru kampanya yapısı, anahtar kelime ve landing page uyumuyla randevu getiren Google Ads rehberi.",
-      "published_at": "2026-07-22T00:00:00+03:00",
-      "modified_at": "2026-07-22T00:00:00+03:00",
-      "date_label": "22 Temmuz 2026",
-      "reading_time": "11 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "google-ads-yonetimi",
-      "card_summary": "Lazer epilasyon reklamı verirken bütçe mi eriyor? Doğru kampanya yapısı, anahtar kelime ve landing page uyumuyla randevu getiren Google Ads rehberi."
-    },
-    {
       "slug": "yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
       "url": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
       "file": "blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti.html",
@@ -624,6 +622,21 @@
       "author": "Veridia Strateji Ekibi",
       "service_slug": "google-gorunurlugu",
       "card_summary": "Güzellik merkezi açarken yapılması gerekenler mi arıyorsunuz? Açılış öncesi ve sonrası dijital kurulumu adım adım tamamlayan checklist'i inceleyin."
+    },
+    {
+      "slug": "lazer-epilasyon-merkezi-icin-google-ads-rehberi",
+      "url": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi",
+      "file": "blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi.html",
+      "title": "Lazer Epilasyon Merkezi İçin Google Ads Rehberi",
+      "summary": "Lazer epilasyon reklamı verirken bütçe mi eriyor? Doğru kampanya yapısı, anahtar kelime ve landing page uyumuyla randevu getiren Google Ads rehberi.",
+      "description": "Lazer epilasyon reklamı verirken bütçe mi eriyor? Doğru kampanya yapısı, anahtar kelime ve landing page uyumuyla randevu getiren Google Ads rehberi.",
+      "published_at": "2026-07-22T00:00:00+03:00",
+      "modified_at": "2026-07-22T00:00:00+03:00",
+      "date_label": "22 Temmuz 2026",
+      "reading_time": "11 dk okuma",
+      "author": "Veridia Strateji Ekibi",
+      "service_slug": "google-ads-yonetimi",
+      "card_summary": "Lazer epilasyon reklamı verirken bütçe mi eriyor? Doğru kampanya yapısı, anahtar kelime ve landing page uyumuyla randevu getiren Google Ads rehberi."
     },
     {
       "slug": "guzellik-salonu-instagramdan-musteri-nasil-bulur",
@@ -671,6 +684,20 @@
       "card_summary": "Güzellik merkezleri için mobil hız, zorunlu sayfalar, hizmet sayfası netliği, güven unsurları, WhatsApp aksiyonu ve form dönüşümünü randevu odaklı bir web sitesi yapısında topluyoruz."
     },
     {
+      "slug": "guzellik-merkezleri-icin-dijital-pazarlama",
+      "url": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "file": "blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
+      "title": "Güzellik Merkezleri İçin Dijital Pazarlama: Daha Fazla Randevu ve Müşteri Kazanmanın Yolları",
+      "summary": "Güzellik merkezleri için Google Haritalar, SEO, web sitesi, reklam ve WhatsApp randevu akışını tek müşteri kazanım sistemi olarak anlatan kapsamlı rehber.",
+      "description": "Güzellik merkezleri için dijital pazarlama, SEO, web sitesi, Google Business Profile, Instagram, reklam ve yorum yönetimi rehberi.",
+      "published_at": "2026-06-17T00:00:00+03:00",
+      "modified_at": "2026-07-16T00:00:00+03:00",
+      "date_label": "17 Haziran 2026",
+      "reading_time": "40 dk okuma",
+      "author": "Veridia Strateji Ekibi",
+      "service_slug": "google-gorunurlugu"
+    },
+    {
       "slug": "avukatlar-icin-google-reklamlari",
       "url": "/blog/avukatlar-icin-google-reklamlari",
       "file": "blog/avukatlar-icin-google-reklamlari/index.html",
@@ -684,6 +711,21 @@
       "author": "Veridia Strateji Ekibi",
       "service_slug": "google-ads-yonetimi",
       "card_summary": "Hukuk büroları için Google Ads kampanya kurgusu, etik reklam dili, bütçe planı, landing page ve dönüşüm takibini müvekkil adayı kazanma odağıyla anlatıyoruz."
+    },
+    {
+      "slug": "mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
+      "url": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
+      "file": "blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
+      "title": "Mobil Uyumsuzluk Reklam Bütçesini Nasıl Eritir?",
+      "summary": "Mobil uyumsuzluk reklam bütçesini nasıl boşa harcar? Başparmak dostu tasarım, kısa formlar, güven sinyalleri, CTA akışı ve Core Web Vitals üzerinden mobil dönüşüm kaybını inceliyoruz.",
+      "description": "Mobil uyumsuzluk reklam bütçesini nasıl boşa harcar? Kısa formlar, CTA akışı, güven sinyalleri ve Core Web Vitals üzerinden dönüşüm kaybını inceleyin.",
+      "published_at": "2026-05-04T00:00:00+03:00",
+      "modified_at": "2026-05-04T00:00:00+03:00",
+      "date_label": "4 Mayıs 2026",
+      "reading_time": "11 dk okuma",
+      "author": "Veridia Strateji Ekibi",
+      "service_slug": "web-sitesi-ve-donusum-yuzeyleri",
+      "card_summary": "Mobilde yalnızca açılan değil, başparmakla rahat ilerlenen ve [dönüşüm odaklı web tasarım](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) mantığıyla çalışan sayfaların reklam bütçesini nasıl koruduğunu anlatıyoruz."
     },
     {
       "slug": "hizmet-sitelerinde-cta-nasil-olmali",
@@ -701,19 +743,34 @@
       "card_summary": "[Dönüşüm odaklı web tasarım](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) için Bize Ulaşın butonunun neden zayıf kaldığını; CTA metni, micro-copy, form mantığı ve sayfa tipine göre aksiyon kurgusuyla anlatıyoruz."
     },
     {
-      "slug": "mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
-      "url": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
-      "file": "blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
-      "title": "Mobil Uyumsuzluk Reklam Bütçesini Nasıl Eritir?",
-      "summary": "Mobil uyumsuzluk reklam bütçesini nasıl boşa harcar? Başparmak dostu tasarım, kısa formlar, güven sinyalleri, CTA akışı ve Core Web Vitals üzerinden mobil dönüşüm kaybını inceliyoruz.",
-      "description": "Mobil uyumsuzluk reklam bütçesini nasıl boşa harcar? Kısa formlar, CTA akışı, güven sinyalleri ve Core Web Vitals üzerinden dönüşüm kaybını inceleyin.",
-      "published_at": "2026-05-04T00:00:00+03:00",
-      "modified_at": "2026-05-04T00:00:00+03:00",
-      "date_label": "4 Mayıs 2026",
-      "reading_time": "11 dk okuma",
+      "slug": "web-sitesi-yavassa-musteri-neden-kacar",
+      "url": "/blog/web-sitesi-yavassa-musteri-neden-kacar",
+      "file": "blog/web-sitesi-yavassa-musteri-neden-kacar.html",
+      "title": "Web Sitesi Yavaşsa Müşteri Neden Kaçar?",
+      "summary": "Yavaş açılan web sitesi müşteri kaybına, düşük güven algısına ve dönüşüm oranlarının düşmesine neden olabilir. Site hızı, SEO ve satış performansı için neden önemlidir?",
+      "description": "Yavaş açılan web sitelerinin müşteri kaybı, güven algısı ve dönüşüm oranı üzerindeki etkisini; site hızı, SEO ve satış performansıyla birlikte inceleyin.",
+      "published_at": "2026-04-28T00:00:00+03:00",
+      "modified_at": "2026-04-28T00:00:00+03:00",
+      "date_label": "28 Nisan 2026",
+      "reading_time": "5 dk okuma",
+      "author": "Veridia Strateji Ekibi",
+      "service_slug": "web-sitesi-ve-donusum-yuzeyleri"
+    },
+    {
+      "slug": "web-siteniz-neden-musteri-getirmiyor",
+      "url": "/blog/web-siteniz-neden-musteri-getirmiyor",
+      "file": "blog/web-siteniz-neden-musteri-getirmiyor.html",
+      "title": "Web Siteniz Neden Müşteri Getirmiyor?",
+      "summary": "Trafik almasına rağmen talep üretmeyen web sitelerinde sorun çoğu zaman reklam bütçesinde değil; mesaj, hız, mobil deneyim, güven sinyalleri ve CTA kurgusundaki kırılmalardadır.",
+      "description": "Web siteniz neden müşteri getirmiyor sorusunu 7 kritik hatayla inceleyin; dönüşüm, hız, mobil deneyim, CTA ve ölçüm altyapısındaki sorunları bulun.",
+      "published_at": "2026-04-24T00:00:00+03:00",
+      "modified_at": "2026-04-24T00:00:00+03:00",
+      "date_label": "24 Nisan 2026",
+      "reading_time": "10 dk okuma",
       "author": "Veridia Strateji Ekibi",
       "service_slug": "web-sitesi-ve-donusum-yuzeyleri",
-      "card_summary": "Mobilde yalnızca açılan değil, başparmakla rahat ilerlenen ve [dönüşüm odaklı web tasarım](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) mantığıyla çalışan sayfaların reklam bütçesini nasıl koruduğunu anlatıyoruz."
+      "source": "markdown",
+      "card_summary": "Trafik alıp talep üretemeyen [web sitesi](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) örneklerinde sorun çoğu zaman reklamda değil; mesaj, hız, mobil akış ve dönüşüm kurgusundadır."
     },
     {
       "slug": "teknik-seo-ve-web-performansi",
@@ -756,50 +813,6 @@
       "reading_time": "6 dk okuma",
       "author": "Veridia Strateji Ekibi",
       "service_slug": "google-ads-yonetimi"
-    },
-    {
-      "slug": "web-siteniz-neden-musteri-getirmiyor",
-      "url": "/blog/web-siteniz-neden-musteri-getirmiyor",
-      "file": "blog/web-siteniz-neden-musteri-getirmiyor.html",
-      "title": "Web Siteniz Neden Müşteri Getirmiyor?",
-      "summary": "Trafik almasına rağmen talep üretmeyen web sitelerinde sorun çoğu zaman reklam bütçesinde değil; mesaj, hız, mobil deneyim, güven sinyalleri ve CTA kurgusundaki kırılmalardadır.",
-      "description": "Web siteniz neden müşteri getirmiyor sorusunu 7 kritik hatayla inceleyin; dönüşüm, hız, mobil deneyim, CTA ve ölçüm altyapısındaki sorunları bulun.",
-      "published_at": "2026-04-24T00:00:00+03:00",
-      "modified_at": "2026-04-24T00:00:00+03:00",
-      "date_label": "24 Nisan 2026",
-      "reading_time": "10 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "web-sitesi-ve-donusum-yuzeyleri",
-      "source": "markdown",
-      "card_summary": "Trafik alıp talep üretemeyen [web sitesi](/yazilim/web-sitesi-ve-donusum-yuzeyleri/) örneklerinde sorun çoğu zaman reklamda değil; mesaj, hız, mobil akış ve dönüşüm kurgusundadır."
-    },
-    {
-      "slug": "web-sitesi-yavassa-musteri-neden-kacar",
-      "url": "/blog/web-sitesi-yavassa-musteri-neden-kacar",
-      "file": "blog/web-sitesi-yavassa-musteri-neden-kacar.html",
-      "title": "Web Sitesi Yavaşsa Müşteri Neden Kaçar?",
-      "summary": "Yavaş açılan web sitesi müşteri kaybına, düşük güven algısına ve dönüşüm oranlarının düşmesine neden olabilir. Site hızı, SEO ve satış performansı için neden önemlidir?",
-      "description": "Yavaş açılan web sitelerinin müşteri kaybı, güven algısı ve dönüşüm oranı üzerindeki etkisini; site hızı, SEO ve satış performansıyla birlikte inceleyin.",
-      "published_at": "2026-04-28T00:00:00+03:00",
-      "modified_at": "2026-04-28T00:00:00+03:00",
-      "date_label": "28 Nisan 2026",
-      "reading_time": "5 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "web-sitesi-ve-donusum-yuzeyleri"
-    },
-    {
-      "slug": "guzellik-merkezleri-icin-dijital-pazarlama",
-      "url": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-      "file": "blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
-      "title": "Güzellik Merkezleri İçin Dijital Pazarlama: Daha Fazla Randevu ve Müşteri Kazanmanın Yolları",
-      "summary": "Güzellik merkezleri için Google Haritalar, SEO, web sitesi, reklam ve WhatsApp randevu akışını tek müşteri kazanım sistemi olarak anlatan kapsamlı rehber.",
-      "description": "Güzellik merkezleri için dijital pazarlama, SEO, web sitesi, Google Business Profile, Instagram, reklam ve yorum yönetimi rehberi.",
-      "published_at": "2026-06-17T00:00:00+03:00",
-      "modified_at": "2026-07-16T00:00:00+03:00",
-      "date_label": "17 Haziran 2026",
-      "reading_time": "40 dk okuma",
-      "author": "Veridia Strateji Ekibi",
-      "service_slug": "google-gorunurlugu"
     }
   ]
 }

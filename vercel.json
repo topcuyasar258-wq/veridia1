@@ -1,440 +1,562 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
   "redirects": [
     {
       "source": "/index.html",
-      "destination": "/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/",
+      "statusCode": 301
     },
     {
       "source": "/asdfadsf.html",
-      "destination": "/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/",
+      "statusCode": 301
     },
     {
       "source": "/veridia-ajans.html",
-      "destination": "/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/",
+      "statusCode": 301
     },
     {
       "source": "/neler-yapiyoruz.html",
-      "destination": "/hizmetler/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/hizmetler/",
+      "statusCode": 301
     },
     {
       "source": "/blog/b2b-pazarlamada-donusum-hunisi.html",
-      "destination": "/blog/b2b-donusum-hunisi",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/blog/b2b-donusum-hunisi",
+      "statusCode": 301
     },
     {
       "source": "/blog/guzellik-merkezi-dijital-pazarlama",
-      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
     },
     {
       "source": "/blog/guzellik-merkezi-dijital-pazarlama.html",
-      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-merkezleri-icin-seo-nedir",
-      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-merkezleri-icin-seo-nedir.html",
-      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
-      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
-      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
     },
     {
       "source": "/guzellik-klinik-dijital-pazarlama",
-      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
     },
     {
       "source": "/guzellik-klinik-dijital-pazarlama.html",
-      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
-      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
-      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
     },
     {
       "source": "/web-tasarim.html",
-      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "statusCode": 301
     },
     {
       "source": "/seo-danismanligi.html",
-      "destination": "/seo/google-gorunurlugu/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/seo/google-gorunurlugu/",
+      "statusCode": 301
     },
     {
       "source": "/google-ads-yonetimi.html",
-      "destination": "/reklam/google-ads-yonetimi/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/reklam/google-ads-yonetimi/",
+      "statusCode": 301
     },
     {
       "source": "/sosyal-medya-yonetimi.html",
-      "destination": "/reklam/sosyal-medya-yonetimi/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/",
+      "statusCode": 301
     },
     {
       "source": "/hizmetler",
-      "destination": "/hizmetler/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/hizmetler/",
+      "statusCode": 301
     },
     {
       "source": "/hizmetler/web-tasarim",
-      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
-      "permanent": true
-    },
-    {
-      "source": "/hizmetler/seo-danismanligi",
-      "destination": "/seo/google-gorunurlugu/",
-      "permanent": true
-    },
-    {
-      "source": "/hizmetler/google-ads-yonetimi",
-      "destination": "/reklam/google-ads-yonetimi/",
-      "permanent": true
-    },
-    {
-      "source": "/hizmetler/sosyal-medya-yonetimi",
-      "destination": "/reklam/sosyal-medya-yonetimi/",
-      "permanent": true
-    },
-    {
-      "source": "/seo",
-      "destination": "/seo/",
-      "permanent": true
-    },
-    {
-      "source": "/seo/teknik-seo-denetimi",
-      "destination": "/seo/teknik-seo-denetimi/",
-      "permanent": true
-    },
-    {
-      "source": "/seo/google-gorunurlugu",
-      "destination": "/seo/google-gorunurlugu/",
-      "permanent": true
-    },
-    {
-      "source": "/reklam",
-      "destination": "/reklam/",
-      "permanent": true
-    },
-    {
-      "source": "/reklam/sosyal-medya-yonetimi",
-      "destination": "/reklam/sosyal-medya-yonetimi/",
-      "permanent": true
-    },
-    {
-      "source": "/reklam/google-ads-yonetimi",
-      "destination": "/reklam/google-ads-yonetimi/",
-      "permanent": true
-    },
-    {
-      "source": "/reklam/meta-reklam-yonetimi",
-      "destination": "/reklam/meta-reklam-yonetimi/",
-      "permanent": true
-    },
-    {
-      "source": "/yazilim",
-      "destination": "/yazilim/",
-      "permanent": true
-    },
-    {
-      "source": "/yazilim/web-sitesi-ve-donusum-yuzeyleri",
-      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
-      "permanent": true
-    },
-    {
-      "source": "/sektorler",
-      "destination": "/sektorler/",
-      "permanent": true
-    },
-    {
-      "source": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama",
-      "destination": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/sektorler/avukatlar-icin-dijital-pazarlama",
-      "destination": "/sektorler/avukatlar-icin-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/sektorler/estetik-klinikleri-icin-dijital-pazarlama",
-      "destination": "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/sektorler/dis-klinikleri-icin-dijital-pazarlama",
-      "destination": "/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/sektorler/kuaforler-icin-dijital-pazarlama",
-      "destination": "/sektorler/kuaforler-icin-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama",
-      "destination": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/sektorler/kafe-restoran-dijital-pazarlama",
-      "destination": "/sektorler/kafe-restoran-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/sektorler/moda-e-ticaret-dijital-pazarlama",
-      "destination": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/sektorler/teknoloji-b2b-dijital-pazarlama",
-      "destination": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/sektorler/yasam-ev-markalari-dijital-pazarlama",
-      "destination": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/guzellik-merkezleri-icin-dijital-pazarlama",
-      "destination": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/araclar/site-analizi",
-      "destination": "/araclar/site-analizi/",
-      "permanent": true
-    },
-    {
-      "source": "/araclar/site-analizi.html",
-      "destination": "/araclar/site-analizi/",
-      "permanent": true
-    },
-    {
-      "source": "/blog.html",
-      "destination": "/blog",
-      "permanent": true
-    },
-    {
-      "source": "/calismalarimiz.html",
-      "destination": "/calismalarimiz",
-      "permanent": true
-    },
-    {
-      "source": "/hakkimizda.html",
-      "destination": "/hakkimizda",
-      "permanent": true
-    },
-    {
-      "source": "/calisma-surecimiz.html",
-      "destination": "/calisma-surecimiz",
-      "permanent": true
-    },
-    {
-      "source": "/hizli-teklif.html",
-      "destination": "/hizli-teklif",
-      "permanent": true
-    },
-    {
-      "source": "/iletisim.html",
-      "destination": "/iletisim",
-      "permanent": true
-    },
-    {
-      "source": "/dijital-pazarlama-stratejisi.html",
-      "destination": "/dijital-pazarlama-stratejisi",
-      "permanent": true
-    },
-    {
-      "source": "/kafe-restoran-dijital-pazarlama.html",
-      "destination": "/sektorler/kafe-restoran-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/kafe-restoran-dijital-pazarlama",
-      "destination": "/sektorler/kafe-restoran-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/moda-e-ticaret-dijital-pazarlama.html",
-      "destination": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/moda-e-ticaret-dijital-pazarlama",
-      "destination": "/sektorler/moda-e-ticaret-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/teknoloji-b2b-dijital-pazarlama.html",
-      "destination": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/teknoloji-b2b-dijital-pazarlama",
-      "destination": "/sektorler/teknoloji-b2b-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/yasam-ev-markalari-dijital-pazarlama.html",
-      "destination": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/yasam-ev-markalari-dijital-pazarlama",
-      "destination": "/sektorler/yasam-ev-markalari-dijital-pazarlama/",
-      "permanent": true
-    },
-    {
-      "source": "/gizlilik-politikasi.html",
-      "destination": "/gizlilik-politikasi",
-      "permanent": true
-    },
-    {
-      "source": "/kvkk-aydinlatma-metni.html",
-      "destination": "/kvkk-aydinlatma-metni",
-      "permanent": true
-    },
-    {
-      "source": "/blog/",
-      "destination": "/blog",
-      "permanent": true
-    },
-    {
-      "source": "/blog/b2b-donusum-hunisi.html",
-      "destination": "/blog/b2b-donusum-hunisi",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
-      "destination": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
-      "destination": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
-      "permanent": true
-    },
-    {
-      "source": "/blog/hizmet-sitelerinde-cta-nasil-olmali.html",
-      "destination": "/blog/hizmet-sitelerinde-cta-nasil-olmali",
-      "permanent": true
-    },
-    {
-      "source": "/blog/instagram-algoritmasi-2026.html",
-      "destination": "/blog/instagram-algoritmasi-2026",
-      "permanent": true
-    },
-    {
-      "source": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
-      "destination": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
-      "permanent": true
-    },
-    {
-      "source": "/blog/teknik-seo-ve-web-performansi.html",
-      "destination": "/blog/teknik-seo-ve-web-performansi",
-      "permanent": true
-    },
-    {
-      "source": "/blog/web-siteniz-neden-musteri-getirmiyor.html",
-      "destination": "/blog/web-siteniz-neden-musteri-getirmiyor",
-      "permanent": true
-    },
-    {
-      "source": "/blog/web-sitesi-yavassa-musteri-neden-kacar.html",
-      "destination": "/blog/web-sitesi-yavassa-musteri-neden-kacar",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar.html",
-      "destination": "/blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar",
-      "permanent": true
-    },
-    {
-      "source": "/blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir.html",
-      "destination": "/blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir.html",
-      "destination": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir",
-      "permanent": true
-    },
-    {
-      "source": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi.html",
-      "destination": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi",
-      "permanent": true
-    },
-    {
-      "source": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar.html",
-      "destination": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur.html",
-      "destination": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir.html",
-      "destination": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
-      "permanent": true
-    },
-    {
-      "source": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti.html",
-      "destination": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
-      "permanent": true
-    },
-    {
-      "source": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi.html",
-      "destination": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "statusCode": 301
     },
     {
       "source": "/hizmetler/web-tasarim/",
-      "destination": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hizmetler/seo-danismanligi",
+      "destination": "https://www.veridiareklam.com.tr/seo/google-gorunurlugu/",
+      "statusCode": 301
     },
     {
       "source": "/hizmetler/seo-danismanligi/",
-      "destination": "/seo/google-gorunurlugu/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/seo/google-gorunurlugu/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hizmetler/google-ads-yonetimi",
+      "destination": "https://www.veridiareklam.com.tr/reklam/google-ads-yonetimi/",
+      "statusCode": 301
     },
     {
       "source": "/hizmetler/google-ads-yonetimi/",
-      "destination": "/reklam/google-ads-yonetimi/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/reklam/google-ads-yonetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hizmetler/sosyal-medya-yonetimi",
+      "destination": "https://www.veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/",
+      "statusCode": 301
     },
     {
       "source": "/hizmetler/sosyal-medya-yonetimi/",
-      "destination": "/reklam/sosyal-medya-yonetimi/",
-      "permanent": true
+      "destination": "https://www.veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo",
+      "destination": "https://www.veridiareklam.com.tr/seo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/teknik-seo-denetimi",
+      "destination": "https://www.veridiareklam.com.tr/seo/teknik-seo-denetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/google-gorunurlugu",
+      "destination": "https://www.veridiareklam.com.tr/seo/google-gorunurlugu/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reklam",
+      "destination": "https://www.veridiareklam.com.tr/reklam/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reklam/sosyal-medya-yonetimi",
+      "destination": "https://www.veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reklam/google-ads-yonetimi",
+      "destination": "https://www.veridiareklam.com.tr/reklam/google-ads-yonetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reklam/meta-reklam-yonetimi",
+      "destination": "https://www.veridiareklam.com.tr/reklam/meta-reklam-yonetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/yazilim",
+      "destination": "https://www.veridiareklam.com.tr/yazilim/",
+      "statusCode": 301
+    },
+    {
+      "source": "/yazilim/web-sitesi-ve-donusum-yuzeyleri",
+      "destination": "https://www.veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "statusCode": 301
+    },
+    {
+      "source": "/araclar/site-analizi",
+      "destination": "https://www.veridiareklam.com.tr/araclar/site-analizi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/araclar/site-analizi.html",
+      "destination": "https://www.veridiareklam.com.tr/araclar/site-analizi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/araclar/site-analizi/index.html",
+      "destination": "https://www.veridiareklam.com.tr/araclar/site-analizi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/avukatlar-icin-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/avukatlar-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/estetik-klinikleri-icin-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/estetik-klinikleri-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/dis-klinikleri-icin-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/kuaforler-icin-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/kuaforler-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/kafe-restoran-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/kafe-restoran-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/moda-e-ticaret-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/moda-e-ticaret-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/teknoloji-b2b-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/teknoloji-b2b-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/yasam-ev-markalari-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/yasam-ev-markalari-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guzellik-merkezleri-icin-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog.html",
+      "destination": "https://www.veridiareklam.com.tr/blog",
+      "statusCode": 301
+    },
+    {
+      "source": "/calismalarimiz.html",
+      "destination": "https://www.veridiareklam.com.tr/calismalarimiz",
+      "statusCode": 301
+    },
+    {
+      "source": "/hakkimizda.html",
+      "destination": "https://www.veridiareklam.com.tr/hakkimizda",
+      "statusCode": 301
+    },
+    {
+      "source": "/calisma-surecimiz.html",
+      "destination": "https://www.veridiareklam.com.tr/calisma-surecimiz",
+      "statusCode": 301
+    },
+    {
+      "source": "/hizli-teklif.html",
+      "destination": "https://www.veridiareklam.com.tr/hizli-teklif",
+      "statusCode": 301
+    },
+    {
+      "source": "/iletisim.html",
+      "destination": "https://www.veridiareklam.com.tr/iletisim",
+      "statusCode": 301
+    },
+    {
+      "source": "/dijital-pazarlama-stratejisi.html",
+      "destination": "https://www.veridiareklam.com.tr/dijital-pazarlama-stratejisi",
+      "statusCode": 301
+    },
+    {
+      "source": "/kafe-restoran-dijital-pazarlama.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/kafe-restoran-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/kafe-restoran-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/kafe-restoran-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/moda-e-ticaret-dijital-pazarlama.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/moda-e-ticaret-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/moda-e-ticaret-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/moda-e-ticaret-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/teknoloji-b2b-dijital-pazarlama.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/teknoloji-b2b-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/teknoloji-b2b-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/teknoloji-b2b-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/yasam-ev-markalari-dijital-pazarlama.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/yasam-ev-markalari-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/yasam-ev-markalari-dijital-pazarlama",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/yasam-ev-markalari-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gizlilik-politikasi.html",
+      "destination": "https://www.veridiareklam.com.tr/gizlilik-politikasi",
+      "statusCode": 301
+    },
+    {
+      "source": "/kvkk-aydinlatma-metni.html",
+      "destination": "https://www.veridiareklam.com.tr/kvkk-aydinlatma-metni",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/",
+      "destination": "https://www.veridiareklam.com.tr/blog",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/b2b-donusum-hunisi.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/b2b-donusum-hunisi",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/hizmet-sitelerinde-cta-nasil-olmali.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/hizmet-sitelerinde-cta-nasil-olmali",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/instagram-algoritmasi-2026.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/instagram-algoritmasi-2026",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/mobil-uyumsuzluk-reklam-butcesini-nasil-bosa-harcar",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/teknik-seo-ve-web-performansi.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/teknik-seo-ve-web-performansi",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/web-siteniz-neden-musteri-getirmiyor.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/web-siteniz-neden-musteri-getirmiyor",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/web-sitesi-yavassa-musteri-neden-kacar.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/web-sitesi-yavassa-musteri-neden-kacar",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-seo-nedir",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-seo-nedir.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/avukatlar-icin-google-reklamlari/index.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/avukatlar-icin-google-reklamlari",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/avukatlar-icin-google-reklamlari/",
+      "destination": "https://www.veridiareklam.com.tr/blog/avukatlar-icin-google-reklamlari",
+      "statusCode": 301
+    },
+    {
+      "source": "/hizmetler/index.html",
+      "destination": "https://www.veridiareklam.com.tr/hizmetler/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hizmetler/google-ads-yonetimi/index.html",
+      "destination": "https://www.veridiareklam.com.tr/reklam/google-ads-yonetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hizmetler/seo-danismanligi/index.html",
+      "destination": "https://www.veridiareklam.com.tr/seo/google-gorunurlugu/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hizmetler/sosyal-medya-yonetimi/index.html",
+      "destination": "https://www.veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hizmetler/web-tasarim/index.html",
+      "destination": "https://www.veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/index.html",
+      "destination": "https://www.veridiareklam.com.tr/seo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/google-gorunurlugu/index.html",
+      "destination": "https://www.veridiareklam.com.tr/seo/google-gorunurlugu/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/teknik-seo-denetimi/index.html",
+      "destination": "https://www.veridiareklam.com.tr/seo/teknik-seo-denetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reklam/index.html",
+      "destination": "https://www.veridiareklam.com.tr/reklam/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reklam/google-ads-yonetimi/index.html",
+      "destination": "https://www.veridiareklam.com.tr/reklam/google-ads-yonetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reklam/meta-reklam-yonetimi/index.html",
+      "destination": "https://www.veridiareklam.com.tr/reklam/meta-reklam-yonetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reklam/sosyal-medya-yonetimi/index.html",
+      "destination": "https://www.veridiareklam.com.tr/reklam/sosyal-medya-yonetimi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/yazilim/index.html",
+      "destination": "https://www.veridiareklam.com.tr/yazilim/",
+      "statusCode": 301
+    },
+    {
+      "source": "/yazilim/web-sitesi-ve-donusum-yuzeyleri/index.html",
+      "destination": "https://www.veridiareklam.com.tr/yazilim/web-sitesi-ve-donusum-yuzeyleri/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/avukatlar-icin-dijital-pazarlama/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/avukatlar-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/dis-klinikleri-icin-dijital-pazarlama/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/estetik-klinikleri-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/kafe-restoran-dijital-pazarlama/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/kafe-restoran-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/kuaforler-icin-dijital-pazarlama/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/kuaforler-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/moda-e-ticaret-dijital-pazarlama/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/moda-e-ticaret-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/teknoloji-b2b-dijital-pazarlama/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/teknoloji-b2b-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/yasam-ev-markalari-dijital-pazarlama/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/yasam-ev-markalari-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path((?!api(?:/|$)).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "veridiareklam.com.tr"
+        }
+      ],
+      "destination": "https://www.veridiareklam.com.tr/:path*",
+      "statusCode": 301
     }
   ],
   "headers": [
@@ -443,7 +565,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://www.google.com https://www.google.com.tr; form-action 'self' https://wa.me https://formspree.io; upgrade-insecure-requests; frame-src https://www.googletagmanager.com"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://formspree.io https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net; form-action 'self' https://wa.me https://formspree.io; upgrade-insecure-requests"
         },
         {
           "key": "X-Content-Type-Options",
@@ -464,10 +586,6 @@
         {
           "key": "X-Permitted-Cross-Domain-Policies",
           "value": "none"
-        },
-        {
-          "key": "Strict-Transport-Security",
-          "value": "max-age=63072000; includeSubDomains; preload"
         }
       ]
     },
@@ -482,24 +600,6 @@
     },
     {
       "source": "/assets/fonts/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/assets/(.*\\.css)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/assets/(.*\\.js)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -562,10 +662,6 @@
       "destination": "/kvkk-aydinlatma-metni.html"
     },
     {
-      "source": "/araclar/site-analizi/",
-      "destination": "/araclar/site-analizi/index.html"
-    },
-    {
       "source": "/blog/b2b-donusum-hunisi",
       "destination": "/blog/b2b-donusum-hunisi.html"
     },
@@ -612,30 +708,6 @@
     {
       "source": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir",
       "destination": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir.html"
-    },
-    {
-      "source": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi",
-      "destination": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi.html"
-    },
-    {
-      "source": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar",
-      "destination": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar.html"
-    },
-    {
-      "source": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur",
-      "destination": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur.html"
-    },
-    {
-      "source": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir",
-      "destination": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir.html"
-    },
-    {
-      "source": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
-      "destination": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti.html"
-    },
-    {
-      "source": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
-      "destination": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi.html"
     }
   ]
 }

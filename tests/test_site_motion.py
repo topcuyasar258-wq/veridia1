@@ -6,7 +6,7 @@ import unittest
 ROOT = Path(__file__).resolve().parent.parent
 MOTION_CSS = "/assets/site-motion.css?v=11"
 MOTION_JS = "/assets/site-motion.js?v=10"
-MOTION_STORY_JS = "/assets/site-motion-story.js?v=4"
+MOTION_STORY_JS = "/assets/site-motion-story.js?v=5"
 
 
 def marketing_pages() -> list[Path]:
@@ -24,7 +24,7 @@ def marketing_pages() -> list[Path]:
 class SiteMotionTests(unittest.TestCase):
     def test_every_marketing_surface_loads_versioned_motion_assets(self) -> None:
         pages = marketing_pages()
-        self.assertGreaterEqual(len(pages), 50)
+        self.assertGreaterEqual(len(pages), 53)
 
         for path in pages:
             source = path.read_text(encoding="utf-8")
@@ -83,8 +83,6 @@ class SiteMotionTests(unittest.TestCase):
             ".v-scroll-track",
             ".v-scroll-story",
             ".v-scroll-copy",
-            ".hero-content::before",
-            "0 18px 44px rgba(0, 0, 0, 0.62)",
             "@keyframes v-motion-cta-shine",
             "@media (hover: hover) and (pointer: fine)",
             "@media (prefers-reduced-motion: reduce)",
