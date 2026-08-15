@@ -29,6 +29,9 @@ internalLinkPlan:
   - anchor: "Google Haritalar rehberi"
     url: /blog/guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar
     purpose: Ilgili hizmet veya cluster sayfasina dogal gecis saglamak
+  - anchor: "güzellik merkezi dijital pazarlama hizmeti"
+    url: /sektorler/guzellik-merkezleri-icin-dijital-pazarlama/
+    purpose: Sektor hub sayfasina otorite ve ticari gecis saglamak
   - anchor: "ücretsiz analiz"
     url: /hizli-teklif
     purpose: Ilgili hizmet veya cluster sayfasina dogal gecis saglamak

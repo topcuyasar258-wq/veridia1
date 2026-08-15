@@ -183,6 +183,16 @@
       "statusCode": 301
     },
     {
+      "source": "/sektorler/guzellik-merkezi-seo",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/guzellik-merkezi-seo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/guzellik-merkezi-google-ads",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/guzellik-merkezi-google-ads/",
+      "statusCode": 301
+    },
+    {
       "source": "/sektorler/avukatlar-icin-dijital-pazarlama",
       "destination": "https://www.veridiareklam.com.tr/sektorler/avukatlar-icin-dijital-pazarlama/",
       "statusCode": 301
@@ -515,6 +525,16 @@
     {
       "source": "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/index.html",
       "destination": "https://www.veridiareklam.com.tr/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/guzellik-merkezi-seo/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/guzellik-merkezi-seo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sektorler/guzellik-merkezi-google-ads/index.html",
+      "destination": "https://www.veridiareklam.com.tr/sektorler/guzellik-merkezi-google-ads/",
       "statusCode": 301
     },
     {

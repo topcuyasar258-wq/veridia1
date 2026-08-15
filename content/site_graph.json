@@ -62,6 +62,32 @@
       ]
     },
     {
+      "url": "/sektorler/guzellik-merkezi-seo/",
+      "file": "sektorler/guzellik-merkezi-seo/index.html",
+      "title": "Güzellik Merkezi SEO ve Google Haritalar",
+      "changefreq": "monthly",
+      "priority": "0.7",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Güzellik Merkezi SEO ve Google Haritalar"
+        }
+      ]
+    },
+    {
+      "url": "/sektorler/guzellik-merkezi-google-ads/",
+      "file": "sektorler/guzellik-merkezi-google-ads/index.html",
+      "title": "Güzellik Merkezi Google Ads Yönetimi",
+      "changefreq": "monthly",
+      "priority": "0.7",
+      "images": [
+        {
+          "path": "/assets/veridia-social-cover.png",
+          "title": "Güzellik Merkezi Google Ads Yönetimi"
+        }
+      ]
+    },
+    {
       "url": "/sektorler/avukatlar-icin-dijital-pazarlama/",
       "file": "sektorler/avukatlar-icin-dijital-pazarlama/index.html",
       "title": "Avukatlar İçin Dijital Pazarlama",

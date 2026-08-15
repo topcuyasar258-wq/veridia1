@@ -29,6 +29,9 @@ internalLinkPlan:
   - anchor: "lazer epilasyon Google Ads rehberi"
     url: /blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi
     purpose: Ilgili hizmet veya cluster sayfasina dogal gecis saglamak
+  - anchor: "güzellik merkezi Google Ads"
+    url: /sektorler/guzellik-merkezi-google-ads/
+    purpose: Reklam niyetli spoke sayfasina ticari gecis saglamak
   - anchor: "ücretsiz analiz"
     url: /hizli-teklif
     purpose: Ilgili hizmet veya cluster sayfasina dogal gecis saglamak

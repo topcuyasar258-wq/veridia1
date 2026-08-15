@@ -29,6 +29,9 @@ internalLinkPlan:
   - anchor: "güzellik merkezleri için dijital pazarlama"
     url: /sektorler/guzellik-merkezleri-icin-dijital-pazarlama/
     purpose: Ilgili hizmet veya cluster sayfasina dogal gecis saglamak
+  - anchor: "güzellik merkezi Google Ads"
+    url: /sektorler/guzellik-merkezi-google-ads/
+    purpose: Reklam niyetli spoke sayfasina ticari gecis saglamak
   - anchor: "ücretsiz analiz"
     url: /hizli-teklif
     purpose: Ilgili hizmet veya cluster sayfasina dogal gecis saglamak

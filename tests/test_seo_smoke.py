@@ -66,6 +66,8 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertNotIn(f"{PRODUCTION_URL}/hizmetler/web-tasarim/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/sektorler/guzellik-merkezi-seo/", sitemap)
+        self.assertIn(f"{PRODUCTION_URL}/sektorler/guzellik-merkezi-google-ads/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/avukatlar-icin-dijital-pazarlama/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/estetik-klinikleri-icin-dijital-pazarlama/", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/sektorler/dis-klinikleri-icin-dijital-pazarlama/", sitemap)
@@ -696,6 +698,8 @@ class SeoSmokeTests(unittest.TestCase):
             ("/yazilim/web-sitesi-ve-donusum-yuzeyleri", "/yazilim/web-sitesi-ve-donusum-yuzeyleri/"),
             ("/sektorler", "/sektorler/"),
             ("/sektorler/guzellik-merkezleri-icin-dijital-pazarlama", "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/"),
+            ("/sektorler/guzellik-merkezi-seo", "/sektorler/guzellik-merkezi-seo/"),
+            ("/sektorler/guzellik-merkezi-google-ads", "/sektorler/guzellik-merkezi-google-ads/"),
             ("/sektorler/avukatlar-icin-dijital-pazarlama", "/sektorler/avukatlar-icin-dijital-pazarlama/"),
             ("/sektorler/estetik-klinikleri-icin-dijital-pazarlama", "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/"),
             ("/sektorler/dis-klinikleri-icin-dijital-pazarlama", "/sektorler/dis-klinikleri-icin-dijital-pazarlama/"),
@@ -865,6 +869,16 @@ class SeoSmokeTests(unittest.TestCase):
                 f"{PRODUCTION_URL}/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
             ),
             (
+                ROOT / "sektorler" / "guzellik-merkezi-seo" / "index.html",
+                "Güzellik Merkezi SEO ve Google Haritalar | Veridia",
+                f"{PRODUCTION_URL}/sektorler/guzellik-merkezi-seo/",
+            ),
+            (
+                ROOT / "sektorler" / "guzellik-merkezi-google-ads" / "index.html",
+                "Güzellik Merkezi Google Ads Yönetimi | Veridia",
+                f"{PRODUCTION_URL}/sektorler/guzellik-merkezi-google-ads/",
+            ),
+            (
                 ROOT / "sektorler" / "avukatlar-icin-dijital-pazarlama" / "index.html",
                 "Avukatlar İçin Dijital Pazarlama | Veridia Reklam Ajansı",
                 f"{PRODUCTION_URL}/sektorler/avukatlar-icin-dijital-pazarlama/",
@@ -918,6 +932,26 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("FAQPage", page)
         self.assertIn("/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/", page)
         self.assertIn("/blog/guzellik-merkezi-web-sitesi-nasil-olmali", page)
+
+    def test_beauty_blog_articles_link_to_sector_hub(self) -> None:
+        hub = "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/"
+        article_names = (
+            "guzellik-merkezi-web-sitesi-nasil-olmali.html",
+            "guzellik-merkezleri-icin-dijital-pazarlama.html",
+            "guzellik-estetik-reklamlari-metada-neden-reddedilir.html",
+            "guzellik-merkezi-google-haritalarda-ust-siraya-nasil-cikar.html",
+            "guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir.html",
+            "guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi.html",
+            "guzellik-salonu-instagramdan-musteri-nasil-bulur.html",
+            "kadikoyde-guzellik-merkezi-nasil-one-cikar.html",
+            "lazer-epilasyon-merkezi-icin-google-ads-rehberi.html",
+            "whatsapp-fiyat-nedir-mesaji-randevuya-nasil-cevrilir.html",
+            "yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti.html",
+        )
+        for article_name in article_names:
+            with self.subTest(article=article_name):
+                page = (ROOT / "blog" / article_name).read_text(encoding="utf-8")
+                self.assertIn(hub, page)
 
     def test_sector_hub_links_all_active_sector_landings_and_tracks_ctas(self) -> None:
         page = (ROOT / "sektorler" / "index.html").read_text(encoding="utf-8")
