@@ -953,6 +953,24 @@ class SeoSmokeTests(unittest.TestCase):
                 page = (ROOT / "blog" / article_name).read_text(encoding="utf-8")
                 self.assertIn(hub, page)
 
+    def test_vercel_rewrites_published_beauty_blog_articles(self) -> None:
+        config = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
+        rewrites = {
+            rewrite["source"]: rewrite["destination"]
+            for rewrite in config.get("rewrites", [])
+        }
+        expected = {
+            "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar": "/blog/kadikoyde-guzellik-merkezi-nasil-one-cikar.html",
+            "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir": "/blog/guzellik-merkezi-randevu-no-show-sorunu-nasil-azaltilir.html",
+            "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi": "/blog/lazer-epilasyon-merkezi-icin-google-ads-rehberi.html",
+            "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti.html",
+            "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur.html",
+            "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi.html",
+        }
+        for source, destination in expected.items():
+            with self.subTest(source=source):
+                self.assertEqual(rewrites.get(source), destination)
+
     def test_sector_hub_links_all_active_sector_landings_and_tracks_ctas(self) -> None:
         page = (ROOT / "sektorler" / "index.html").read_text(encoding="utf-8")
         for href in (
