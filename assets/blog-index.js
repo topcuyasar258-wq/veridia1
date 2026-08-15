@@ -5,11 +5,16 @@
   const defaultDisplay=new WeakMap();
 
   function show(card){
-    if(card.dataset.visibility==="visible")return;
     root.clearTimeout(timers.get(card));
+    const wasHidden=card.style.display==="none";
     card.style.display=defaultDisplay.get(card)||"flex";
+    // display:none -> flex gecisinden sonra reflow zorlanmazsa tarayici iki
+    // degisikligi tek karede birlestirir ve opacity gecisi calismaz.
+    if(wasHidden)void card.offsetWidth;
+    // Sinif senkron kaldirilir: requestAnimationFrame'e birakildiginda araya
+    // giren bir hide() cagrisi karti kalici olarak saydam biraktiriyordu.
+    card.classList.remove("is-filtered-out");
     card.dataset.visibility="visible";
-    root.requestAnimationFrame(()=>card.classList.remove("is-filtered-out"));
   }
 
   function hide(card){
@@ -18,6 +23,7 @@
     card.dataset.visibility="hiding";
     card.classList.add("is-filtered-out");
     const timer=root.setTimeout(()=>{
+      if(card.dataset.visibility!=="hiding")return;
       card.style.display="none";
       card.dataset.visibility="hidden";
     },320);
