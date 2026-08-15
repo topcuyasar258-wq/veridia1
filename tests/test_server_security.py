@@ -270,16 +270,23 @@ class ServerSecurityTests(unittest.TestCase):
         self.assertEqual(payload["data"]["finalUrl"], "https://example.com/")
 
     def test_consolidated_beauty_article_redirects_to_pillar(self) -> None:
-        for path in (
-            "/blog/guzellik-merkezi-dijital-pazarlama",
-            "/blog/guzellik-merkezi-dijital-pazarlama.html",
-            "/guzellik-klinik-dijital-pazarlama",
-            "/guzellik-klinik-dijital-pazarlama.html",
-        ):
+        redirects = {
+            "/blog/guzellik-merkezi-dijital-pazarlama": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            "/blog/guzellik-merkezi-dijital-pazarlama.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            "/guzellik-klinik-dijital-pazarlama": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            "/guzellik-klinik-dijital-pazarlama.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            "/blog/guzellik-merkezleri-icin-seo-nedir": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            "/blog/guzellik-merkezleri-icin-seo-nedir.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+            "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+        }
+        for path, destination in redirects.items():
             with self.subTest(path=path):
                 status, _, headers = self.http_request("GET", path, follow_redirects=False)
                 self.assertEqual(status, HTTPStatus.MOVED_PERMANENTLY)
-                self.assertEqual(headers.get("Location"), "/blog/guzellik-merkezleri-icin-dijital-pazarlama")
+                self.assertEqual(headers.get("Location"), destination)
 
     def test_restored_beauty_articles_serve_clean_urls(self) -> None:
         for path in (
@@ -289,9 +296,6 @@ class ServerSecurityTests(unittest.TestCase):
             "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
             "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur",
             "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
-            "/blog/guzellik-merkezleri-icin-seo-nedir",
-            "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
-            "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
         ):
             with self.subTest(path=path):
                 status, _, headers = self.http_request("GET", path, follow_redirects=False)
@@ -306,9 +310,9 @@ class ServerSecurityTests(unittest.TestCase):
             "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti.html": "/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti",
             "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur.html": "/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur",
             "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi.html": "/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi",
-            "/blog/guzellik-merkezleri-icin-seo-nedir.html": "/blog/guzellik-merkezleri-icin-seo-nedir",
-            "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
-            "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
+            "/blog/guzellik-merkezleri-icin-seo-nedir.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html": "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html": "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
         }
         for path, expected_location in redirects.items():
             with self.subTest(path=path):

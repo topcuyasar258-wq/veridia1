@@ -13,7 +13,7 @@
 <meta property="og:title" content="Veridia Reklam | Web Tasarım, SEO ve Google Ads Ajansı">
 <meta property="og:description" content="Küçük ve orta ölçekli işletmeler için web tasarım, SEO ve Google Ads çalışmalarını müşteri adayı üreten bir dijital sistem olarak planlıyoruz.">
 <meta property="og:image" content="https://www.veridiareklam.com.tr/assets/veridia-social-cover.png">
-<meta property="og:url" content="https://www.veridiareklam.com.tr">
+<meta property="og:url" content="https://www.veridiareklam.com.tr/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="Veridia">
@@ -24,7 +24,7 @@
 <meta name="twitter:title" content="Veridia Reklam | Web Tasarım, SEO ve Google Ads Ajansı">
 <meta name="twitter:description" content="Küçük ve orta ölçekli işletmeler için web tasarım, SEO ve Google Ads çalışmalarını müşteri adayı üreten bir dijital sistem olarak planlıyoruz.">
 <meta name="twitter:image" content="https://www.veridiareklam.com.tr/assets/veridia-social-cover.png">
-<link rel="canonical" href="https://www.veridiareklam.com.tr">
+<link rel="canonical" href="https://www.veridiareklam.com.tr/">
 <script defer src="./assets/theme-init.js?v=1"></script>
 <link rel="preload" href="./assets/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="./assets/fonts/cormorant-garamond-normal-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
@@ -38,14 +38,14 @@
     {
       "@type": "WebSite",
       "@id": "https://www.veridiareklam.com.tr/#website",
-      "url": "https://www.veridiareklam.com.tr",
+      "url": "https://www.veridiareklam.com.tr/",
       "name": "Veridia Ajans",
       "inLanguage": "tr"
     },
     {
       "@type": "WebPage",
       "@id": "https://www.veridiareklam.com.tr/#webpage",
-      "url": "https://www.veridiareklam.com.tr",
+      "url": "https://www.veridiareklam.com.tr/",
       "name": "İstanbul Web Tasarım, SEO ve Reklam Ajansı | Veridia",
       "description": "İstanbul'da web tasarım, SEO, Google Ads ve sosyal medya yönetimi ile daha görünür ve daha dönüşüm odaklı bir büyüme planı kurun.",
       "inLanguage": "tr",
@@ -61,14 +61,22 @@
     },
     {
       "@id": "https://www.veridiareklam.com.tr/#organization",
-      "@type": "Organization",
+      "@type": ["LocalBusiness", "Organization"],
       "name": "Veridia",
+      "alternateName": [
+        "Veridia Reklam",
+        "Veridia Ajans",
+        "Veridia Reklam Ajansı",
+        "Veridia Web Tasarım",
+        "Veridia SEO Ajansı"
+      ],
       "legalName": "Veridia Reklam",
       "description": "İstanbul'da web tasarım, SEO, Google Ads ve sosyal medya yönetimi ile küçük ve orta ölçekli işletmeler için uygulanabilir büyüme planı sunan dijital ajans.",
+      "disambiguatingDescription": "Veridia, Türkiye'de web tasarım, SEO, Google Ads ve sosyal medya yönetimi hizmetleri sunan dijital pazarlama ajansıdır.",
       "slogan": "İstanbul'un web tasarım, SEO ve reklam ortağı",
       "telephone": "+90-505-517-4654",
       "email": "hello@veridiareklam.com.tr",
-      "url": "https://www.veridiareklam.com.tr",
+      "url": "https://www.veridiareklam.com.tr/",
       "image": "https://www.veridiareklam.com.tr/assets/veridia-social-cover.png",
       "logo": {
         "@type": "ImageObject",
@@ -76,7 +84,28 @@
         "width": 512,
         "height": 512
       },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressCountry": "TR"
+      },
       "areaServed": { "@type": "City", "name": "İstanbul" },
+      "priceRange": "₺₺",
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "Yaşar İshak Topçu"
+        },
+        {
+          "@type": "Person",
+          "name": "Betül Berfin Akyüz"
+        }
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Veridia Reklam",
+        "url": "https://www.veridiareklam.com.tr/"
+      },
       "knowsAbout": [
         "Web Tasarım",
         "Kurumsal Web Sitesi",
@@ -325,6 +354,7 @@
 <link rel="stylesheet" href="./assets/shared.css?v=13">
 <link rel="stylesheet" href="./assets/home-contact.css?v=3">
 <script defer src="./assets/config.js?v=4"></script>
+<script defer src="./assets/analytics.js"></script>
 <script defer src="./assets/page-shell.js?v=9"></script>
 <script defer src="./assets/home-loader.js?v=8"></script>
 <script defer src="./assets/entry-popup.js?v=2"></script>
@@ -349,12 +379,11 @@
   <button class="menu-close" type="button" data-mobile-close aria-label="Menüyü kapat">✕</button>
   <a href="/araclar/site-analizi/" class="mobile-menu-cta" data-mobile-close>Mini Analiz İste</a>
   <div class="mobile-menu-links" aria-label="Mobil menü">
-    <a href="/#services" data-mobile-close>Hizmetler</a>
-    <a href="/#sectors" data-mobile-close>Sektörler</a>
-    <a href="/#portfolio" data-mobile-close>Portfolyo</a>
-    <a href="/hakkimizda" data-mobile-close>Hakkımızda</a>
-    <a href="/blog" data-mobile-close>Blog</a>
-    <a href="/#contact" data-mobile-close>İletişim</a>
+    <a href="/hizmetler/" data-mobile-close>Hizmetler</a>
+    <a href="/seo/" data-mobile-close>SEO</a>
+    <a href="/reklam/" data-mobile-close>Reklam</a>
+    <a href="/yazilim/" data-mobile-close>Web</a>
+    <a href="/iletisim" data-mobile-close>İletişim</a>
   </div>
   <div class="mobile-menu-socials" aria-label="Hızlı iletişim">
     <a href="https://www.instagram.com/veridiareklamajansi" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
@@ -367,11 +396,11 @@
 <nav id="navbar">
   <a href="/" class="nav-logo">Veridia</a>
   <ul class="nav-links">
-    <li><a href="/">Ana Sayfa</a></li>
-    <li><a href="/hizmetler/">Hizmetlerimiz</a></li>
-    <li><a href="/calismalarimiz">Portfolyo</a></li>
-    <li><a href="/hakkimizda">Hakkımızda</a></li>
-    <li><a href="/blog">Blog</a></li>
+    <li><a href="/hizmetler/">Hizmetler</a></li>
+    <li><a href="/seo/">SEO</a></li>
+    <li><a href="/reklam/">Reklam</a></li>
+    <li><a href="/yazilim/">Web</a></li>
+    <li><a href="/iletisim">İletişim</a></li>
   </ul>
   <div class="nav-mobile-right" style="display: flex; align-items: center; gap: 1rem;">
     <a href="/araclar/site-analizi/" class="nav-mobile-cta" style="display: none;">Analiz Al</a>
@@ -1235,9 +1264,11 @@
   <p class="footer-text">© 2026 Veridia Ajans. Tüm hakları saklıdır.</p>
   <div class="footer-right">
     <div class="footer-socials">
-      <a href="/#contact" data-whatsapp-message="Merhaba Veridia, site üzerinden ulaşıyorum." target="_blank" rel="noopener">WhatsApp</a>
-      <a href="mailto:hello@veridiareklam.com.tr">E-posta</a>
-      <a href="/blog">Blog</a>
+      <a href="/hizmetler/">Hizmetler</a>
+      <a href="/seo/">SEO</a>
+      <a href="/reklam/">Reklam</a>
+      <a href="/yazilim/">Web</a>
+      <a href="/iletisim">İletişim</a>
     </div>
     <div class="footer-socials footer-legal-links">
       <a href="/gizlilik-politikasi">Gizlilik Politikası</a>

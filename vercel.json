@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
   "redirects": [
     {
       "source": "/index.html",
@@ -379,6 +380,36 @@
     {
       "source": "/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir.html",
       "destination": "https://www.veridiareklam.com.tr/blog/guzellik-estetik-reklamlari-metada-neden-reddedilir",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-seo-nedir",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-seo-nedir.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
+      "destination": "https://www.veridiareklam.com.tr/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
       "statusCode": 301
     },
     {

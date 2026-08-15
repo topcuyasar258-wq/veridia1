@@ -93,9 +93,9 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn(f"{PRODUCTION_URL}/blog/yeni-acilan-guzellik-merkezi-dijital-kurulum-checklisti", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/blog/guzellik-salonu-instagramdan-musteri-nasil-bulur", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/blog/guzellik-merkezi-reklamlari-negatif-anahtar-kelime-listesi", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/blog/guzellik-merkezleri-icin-seo-nedir", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar", sitemap)
-        self.assertIn(f"{PRODUCTION_URL}/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/blog/guzellik-merkezleri-icin-seo-nedir", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar", sitemap)
+        self.assertNotIn(f"{PRODUCTION_URL}/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir", sitemap)
         self.assertNotIn(f"{PRODUCTION_URL}/blog/guzellik-merkezi-dijital-pazarlama", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/gizlilik-politikasi", sitemap)
         self.assertIn(f"{PRODUCTION_URL}/kvkk-aydinlatma-metni", sitemap)
@@ -257,7 +257,7 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn('"@type": "ItemList"', homepage)
         self.assertIn("Web Tasarım", homepage)
         self.assertIn('id="services"', homepage)
-        self.assertIn(f'rel="canonical" href="{PRODUCTION_URL}"', homepage)
+        self.assertIn(f'rel="canonical" href="{PRODUCTION_URL}/"', homepage)
         self.assertIn("veridia-social-cover.png", homepage)
         self.assertIn("assets/config.js", homepage)
         self.assertIn("assets/home-loader.js", homepage)
@@ -276,8 +276,8 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertNotIn('<script defer src="./assets/home.js"></script>', homepage)
         self.assertNotIn('<script defer src="./assets/site-data.js"></script>', homepage)
         self.assertNotIn('<script defer src="./assets/quote-pricing.js"></script>', homepage)
-        self.assertIn('<link data-deferred-style data-href="./assets/shared.css?v=12" data-style-media="all">', homepage)
-        self.assertIn('<link data-deferred-style data-href="./assets/home-mobile-tune.css?v=6" data-style-media="all">', homepage)
+        self.assertIn('<link rel="stylesheet" href="./assets/shared.css?v=13">', homepage)
+        self.assertIn('<link rel="stylesheet" href="./assets/home-mobile-tune.css?v=7">', homepage)
         self.assertIn('<link rel="stylesheet" href="./assets/fonts.css?v=5">', homepage)
         self.assertNotIn('<link data-deferred-style data-href="./assets/fonts.css?v=4" data-style-media="all">', homepage)
         self.assertNotIn('\n<link rel="stylesheet" href="./assets/shared.css?v=12">', homepage)
@@ -287,15 +287,17 @@ class SeoSmokeTests(unittest.TestCase):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertNotIn('http-equiv="refresh"', index)
         self.assertNotIn("window.location.replace", index)
-        self.assertIn(f'rel="canonical" href="{PRODUCTION_URL}"', index)
+        self.assertIn(f'rel="canonical" href="{PRODUCTION_URL}/"', index)
         self.assertIn("<title>Veridia Reklam", index)
 
     def test_homepage_schema_uses_verifiable_organization_signals(self) -> None:
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('"@id": "https://www.veridiareklam.com.tr/#organization"', homepage)
-        self.assertIn('"@type": "Organization"', homepage)
+        self.assertIn('"@type": ["LocalBusiness", "Organization"]', homepage)
         self.assertIn("assets/veridia-icon.png", homepage)
-        self.assertNotIn('"LocalBusiness"', homepage)
+        self.assertIn('"LocalBusiness"', homepage)
+        self.assertIn('"@type": "PostalAddress"', homepage)
+        self.assertIn('"addressLocality": "İstanbul"', homepage)
         self.assertNotIn('"SearchAction"', homepage)
         self.assertNotIn('"FAQPage"', homepage)
         self.assertNotIn('"streetAddress"', homepage)
@@ -309,7 +311,7 @@ class SeoSmokeTests(unittest.TestCase):
     def test_contact_and_service_ctas_point_to_real_targets(self) -> None:
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('action="/api/contact"', homepage)
-        self.assertNotIn('/iletisim', homepage)
+        self.assertIn('/iletisim', homepage)
         self.assertIn('/hizli-teklif', homepage)
 
         for page_name in (
@@ -644,6 +646,30 @@ class SeoSmokeTests(unittest.TestCase):
                 "/guzellik-klinik-dijital-pazarlama.html",
                 "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
             ),
+            (
+                "/blog/guzellik-merkezleri-icin-seo-nedir",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/blog/guzellik-merkezleri-icin-seo-nedir.html",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama-nedir.html",
+                "/blog/guzellik-merkezleri-icin-dijital-pazarlama",
+            ),
+            (
+                "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar",
+                "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+            ),
+            (
+                "/blog/guzellik-salonu-web-sitesinde-olmasi-gereken-zorunlu-sayfalar.html",
+                "/blog/guzellik-merkezi-web-sitesi-nasil-olmali",
+            ),
         }
         self.assertTrue(expected.issubset(actual))
 
@@ -909,23 +935,20 @@ class SeoSmokeTests(unittest.TestCase):
         self.assertIn("sectors_beauty_card_click", page)
         self.assertNotIn("Yakında", page)
 
-    def test_revision_mobile_menu_links_directly_to_sector_landings(self) -> None:
+    def test_revision_mobile_menu_links_to_primary_service_pages(self) -> None:
         script = (ROOT / "assets" / "revision.js").read_text(encoding="utf-8")
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
 
-        self.assertIn('href: "/sektorler/", label: "Sektörler"', script)
-        self.assertIn("revision-mobile-sector-group", script)
-        self.assertIn("<p class=\"revision-mobile-section-label\">Sektörler</p>", script)
         for href in (
-            "/sektorler/guzellik-merkezleri-icin-dijital-pazarlama/",
-            "/sektorler/avukatlar-icin-dijital-pazarlama/",
-            "/sektorler/estetik-klinikleri-icin-dijital-pazarlama/",
-            "/sektorler/dis-klinikleri-icin-dijital-pazarlama/",
-            "/sektorler/kuaforler-icin-dijital-pazarlama/",
-            "/sektorler/yerel-servis-isletmeleri-icin-dijital-pazarlama/",
+            "/hizmetler/",
+            "/seo/",
+            "/reklam/",
+            "/yazilim/",
+            "/iletisim",
         ):
             with self.subTest(href=href):
                 self.assertIn(f'href: "{href}"', script)
+                self.assertIn(href, homepage)
         self.assertRegex(homepage, r'/assets/revision\.js\?v=\d+')
         self.assertRegex(homepage, r'/assets/revision\.css\?v=\d+')
 

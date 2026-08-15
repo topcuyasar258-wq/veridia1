@@ -1,11 +1,10 @@
 (() => {
   const primaryLinks = Object.freeze([
-    Object.freeze({ href: "/", label: "Ana Sayfa" }),
-    Object.freeze({ label: "Hizmetler", menu: "services" }),
-    Object.freeze({ label: "Sektörler", menu: "sectors" }),
-    Object.freeze({ href: "/calismalarimiz", label: "Portfolyo" }),
-    Object.freeze({ href: "/hakkimizda", label: "Hakkımızda" }),
-    Object.freeze({ href: "/blog", label: "Blog" }),
+    Object.freeze({ href: "/hizmetler/", label: "Hizmetler" }),
+    Object.freeze({ href: "/seo/", label: "SEO" }),
+    Object.freeze({ href: "/reklam/", label: "Reklam" }),
+    Object.freeze({ href: "/yazilim/", label: "Web" }),
+    Object.freeze({ href: "/iletisim", label: "İletişim" }),
   ]);
   const serviceLinks = Object.freeze([
     Object.freeze({ href: "/yazilim/web-sitesi-ve-donusum-yuzeyleri/", label: "Web Tasarım", description: "Dönüşüm odaklı web ve teklif yüzeyleri" }),
@@ -264,11 +263,11 @@
       </div>
 
       <div class="revision-mobile-links" aria-label="Mobil menü">
-        ${renderAccordion({ id: "revision-mobile-services", label: "Hizmetler", groups: serviceGroups })}
-        ${renderAccordion({ id: "revision-mobile-sectors", label: "Sektörler", groups: [Object.freeze({ label: "Sektörler", links: sectorLinks, className: "revision-mobile-sector-group", labelMarkup: '<p class="revision-mobile-section-label">Sektörler</p>' })] })}
-        <a class="revision-menu-link" href="/calismalarimiz" data-revision-close>Portfolyo</a>
-        <a class="revision-menu-link" href="/hakkimizda" data-revision-close>Hakkımızda</a>
-        <a class="revision-menu-link" href="/blog" data-revision-close>Blog</a>
+        <a class="revision-menu-link" href="/hizmetler/" data-revision-close>Hizmetler</a>
+        <a class="revision-menu-link" href="/seo/" data-revision-close>SEO</a>
+        <a class="revision-menu-link" href="/reklam/" data-revision-close>Reklam</a>
+        <a class="revision-menu-link" href="/yazilim/" data-revision-close>Web</a>
+        <a class="revision-menu-link" href="/iletisim" data-revision-close>İletişim</a>
       </div>
 
       <div class="revision-mobile-actions" aria-label="Hızlı aksiyonlar">
