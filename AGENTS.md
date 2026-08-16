@@ -42,11 +42,13 @@ Bu repo statik HTML yuzeyleri ile bunlari servis eden yerel bir Python sunucusun
 - `analysis_snapshots.sqlite3` dosyasini kaynak kod gibi ele alma; migrate etmiyorsan veya veri ihtiyaci yoksa degistirme.
 - Apify actor ayarlari `.env` uzerinden degisebilir; mevcut degerleri kod icinden varsayma.
 - `automation/` klasoru ayri bir operasyon yuzeyi; landing veya API degisiklikleri bu form/workflow zincirini etkiliyorsa capraz kontrol yap.
+- `vercel.json` icinde `cleanUrls: false`. Bu yuzden yeni bir kok seviye sayfa veya blog yazisi eklerken **iki** kayit birden gerekir: temiz URL'i dosyaya baglayan bir `rewrite` (`/blog/yazi` -> `/blog/yazi.html`) ve `.html` adresini temiz URL'e gonderen bir 301 `redirect` (`/blog/yazi.html` -> `/blog/yazi`). Sadece rewrite eklenirse ayni icerik hem `/blog/yazi` hem `/blog/yazi.html` adresinde 200 doner ve kopya URL olusur. `/dizin`, `/dizin/` ve `/dizin/index.html` normalizasyonunu Vercel kendisi yapar; onlar icin ek kural gerekmez.
 - Bir ayrinti repoda net degilse tahmin etme veya bilgi uydurma.
 - Eksik veya dogrulanamayan bir ayrinti gerekiyorsa bunu kisa bir notla belirt; yerini doldurmak icin yeni bilgi uydurma.
 
 ## Kontrol
 
+- Sayfa, link, canonical, sitemap veya `vercel.json` yonlendirmesi degistiyse `python3 -m unittest tests.test_seo_routing tests.test_seo_smoke` calistir. `test_seo_routing`, `vercel.json` yonlendirme katmanini modelleyerek kopya URL, kirik ic link, redirect zinciri, canonical uyumsuzlugu ve sitemap sapmasini yakalar.
 - Degisiklikten sonra `python3 server.py` hatasiz aciliyor mu bak.
 - Arayuz degistiyse `/`, `/blog` ve ilgili servis sayfasi akisini tarayicida kontrol et.
 - Analiz akisina dokunulduysa en azindan `/api/analyze-instagram` istemcisinin dogru endpoint'e gittigini ve form/durum alanlarinin bozulmadigini kontrol et.
