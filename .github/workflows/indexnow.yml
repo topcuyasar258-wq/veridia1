@@ -1,0 +1,84 @@
+name: IndexNow
+
+# main'e bir degisiklik girdiginde, o commit'te eklenen/degisen sayfalarin
+# public URL'lerini IndexNow'a bildirir. Boylece Bing/Yandex (ve Copilot'un
+# besledigi Bing indeksi) yeni yaziyi beklemeden gorur.
+#
+# Gizli anahtar gerekmez: IndexNow anahtari repo kokundeki
+# <key>.txt dosyasinda durur ve zaten public olarak yayinlanir.
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+  workflow_dispatch:
+    inputs:
+      sitemap:
+        description: "Sitemap'teki tum URL'leri bildir"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    name: Degisen URL'leri bildir
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        # Degisen dosyalari bulabilmek icin onceki commit de gerekli.
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Bildirilecek URL'leri belirle
+        id: urls
+        run: |
+          if [ "${{ inputs.sitemap }}" = "true" ]; then
+            echo "mode=sitemap" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Bu push'ta degisen HTML dosyalarini, site_graph.json'daki public
+          # URL eslesmesini kullanarak canli adreslere cevir.
+          git diff --name-only HEAD^ HEAD -- '*.html' > changed.txt || true
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, pathlib
+          site = "https://www.veridiareklam.com.tr"
+          graph = json.loads(pathlib.Path("content/site_graph.json").read_text(encoding="utf-8"))
+          by_file = {}
+          for group in ("static_pages", "hubs", "services", "blog_posts"):
+              for item in graph.get(group, []):
+                  if item.get("file") and item.get("url"):
+                      by_file[item["file"]] = item["url"]
+          changed = [
+              line.strip()
+              for line in pathlib.Path("changed.txt").read_text(encoding="utf-8").splitlines()
+              if line.strip()
+          ]
+          urls = sorted({site + by_file[f] for f in changed if f in by_file})
+          print("mode=list")
+          print("list=" + " ".join(urls))
+          PY
+
+      - name: IndexNow'a bildir
+        run: |
+          if [ "${{ steps.urls.outputs.mode }}" = "sitemap" ]; then
+            python3 scripts/indexnow_submit.py --sitemap
+          elif [ -n "${{ steps.urls.outputs.list }}" ]; then
+            python3 scripts/indexnow_submit.py ${{ steps.urls.outputs.list }}
+          else
+            echo "Bildirilecek public URL yok, atlandi."
+          fi

@@ -64,5 +64,16 @@ Bu arac:
 
 - yazi dosyasini olusturur,
 - `content/site_graph.json` kaydini ekler,
-- `blog.html` kartini ekler,
+- `blog.html` kartini ve Blog JSON-LD listesini gunceller,
+- `vercel.json` yonlendirmelerini ekler (rewrite + `.html` -> temiz URL 301),
 - hub sayfalarini ve `sitemap.xml` dosyasini yeniden uretir.
+
+Tum URL'ler temiz (uzantisiz) uretilir; elle duzeltme gerekmez. Yazi
+eklendikten sonra dogrulamak icin:
+
+```bash
+python3 -m unittest tests.test_seo_routing tests.test_seo_smoke
+```
+
+Bu testler kopya URL, kirik ic link, redirect zinciri, canonical uyumsuzlugu
+ve sitemap sapmasini yakalar; ayni kontroller her PR'da CI'da da calisir.

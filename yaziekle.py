@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 GRAPH_PATH = ROOT / "content" / "site_graph.json"
 BUILD_SCRIPT = ROOT / "scripts" / "build_site_surfaces.py"
+VERCEL_PATH = ROOT / "vercel.json"
 
 MONTH_MAP = {
     "January": "Ocak",
@@ -156,13 +157,13 @@ def build_breadcrumbs(hub: dict | None, service: dict | None, title: str, site_u
                 "@type": "ListItem",
                 "position": position,
                 "name": "Blog",
-                "item": canonical(site_url, "/blog.html"),
+                "item": canonical(site_url, "/blog"),
             }
         )
         visual_parts.extend(
             [
                 '  <span aria-hidden="true">→</span>',
-                '  <a href="/blog.html">Blog</a>',
+                '  <a href="/blog">Blog</a>',
             ]
         )
         position += 1
@@ -172,7 +173,7 @@ def build_breadcrumbs(hub: dict | None, service: dict | None, title: str, site_u
             "@type": "ListItem",
             "position": position,
             "name": title,
-            "item": canonical(site_url, f"/blog/{article_slug}.html"),
+            "item": canonical(site_url, f"/blog/{article_slug}"),
         }
     )
     visual_parts.extend(
@@ -208,7 +209,7 @@ def build_related_links(graph: dict, service: dict | None, current_slug: str) ->
         return """<div class="related-panel">
   <h2>İlgili Sayfalar</h2>
   <div class="related-links">
-    <a href="/blog.html" class="secondary-link">Tüm Yazılar</a>
+    <a href="/blog" class="secondary-link">Tüm Yazılar</a>
   </div>
 </div>"""
 
@@ -246,7 +247,7 @@ def build_article_template(
 ) -> str:
     graph = graph or load_graph()
     site_url = get_site_url(graph)
-    article_url = f"{site_url}/blog/{url_name}.html"
+    article_url = f"{site_url}/blog/{url_name}"
     safe_title = escape_text(title)
     safe_summary = escape_text(summary)
     safe_author = escape_text(author)
@@ -298,9 +299,9 @@ def build_article_template(
     )
 
     primary_cta_label = escape_text(service["blog_cta_label"] if service else "Blog'a Dön")
-    primary_cta_href = service["url"] if service else "/blog.html"
+    primary_cta_href = service["url"] if service else "/blog"
     secondary_cta_label = escape_text(hub["title"] if hub else "Tüm Yazılar")
-    secondary_cta_href = hub["url"] if hub else "/blog.html"
+    secondary_cta_href = hub["url"] if hub else "/blog"
 
     return f"""<!DOCTYPE html>
 <html lang="tr">
@@ -353,7 +354,7 @@ def build_article_template(
 
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="menu-close" type="button" data-mobile-close aria-label="Menüyü kapat">✕</button>
-  <a href="/blog.html">Blog</a>
+  <a href="/blog">Blog</a>
   <a href="/seo/">SEO</a>
   <a href="/reklam/">Reklam</a>
   <a href="/yazilim/">Yazılım</a>
@@ -364,7 +365,7 @@ def build_article_template(
 <nav id="navbar">
   <a href="/" class="nav-logo">Veridia</a>
   <ul class="nav-links">
-    <li><a href="/blog.html" aria-current="page">Blog</a></li>
+    <li><a href="/blog" aria-current="page">Blog</a></li>
     <li><a href="/seo/">SEO</a></li>
     <li><a href="/reklam/">Reklam</a></li>
     <li><a href="/yazilim/">Yazılım</a></li>
@@ -410,6 +411,13 @@ def build_article_template(
     </div>
 
     {related_links_html}
+
+    <section class="author-box" aria-label="Yazar bilgisi" style="margin: 3rem 0; padding: 1.4rem; border: 1px solid rgba(201,168,76,0.18); border-radius: 12px; background: rgba(255,255,255,0.03);">
+      <h2 style="margin-top: 0;">Yazar</h2>
+      <p><strong>{safe_author}</strong></p>
+      <p>Bu yazı Veridia'nın SEO, web performansı, reklam ölçümü ve dönüşüm odaklı web yüzeyleri üzerine çalışan yayın ekibi tarafından hazırlanır; teknik ve stratejik bölümler kurucular Yaşar İshak Topçu ve Betül Berfin Akyüz tarafından gözden geçirilir.</p>
+      <p><a href="/hakkimizda">Veridia'nın çalışma yaklaşımını ve kurucu bilgilerini inceleyin.</a></p>
+    </section>
   </article>
 </main>
 
@@ -436,7 +444,7 @@ def insert_blog_card(
     content = blog_path.read_text(encoding="utf-8")
     category = service["blog_category"] if service else "all"
     label = service["blog_label"] if service else "Yeni Yazı"
-    secondary_href = service["url"] if service else "/blog.html"
+    secondary_href = service["url"] if service else "/blog"
     secondary_label = service["blog_cta_label"] if service else "Tüm Yazılar"
 
     safe_title = escape_text(title)
@@ -451,10 +459,10 @@ def insert_blog_card(
                 <span>{escape_text(reading_time)}</span>
                 <span>Yazar: {safe_author}</span>
             </div>
-            <h2><a href="/blog/{url_name}.html">{safe_title}</a></h2>
+            <h2><a href="/blog/{url_name}">{safe_title}</a></h2>
             <p>{safe_summary}</p>
             <div class="blog-card-footer">
-                <a href="/blog/{url_name}.html" class="read-more">Makaleyi Oku</a>
+                <a href="/blog/{url_name}" class="read-more">Makaleyi Oku</a>
                 <a href="{secondary_href}" class="secondary-link">{escape_text(secondary_label)}</a>
             </div>
         </article>
@@ -483,12 +491,51 @@ def update_blog_json_ld(blog_path: Path, graph: dict) -> None:
         }
         entries.append(entry)
 
-    rendered_entries = json.dumps(entries, ensure_ascii=False, indent=12)
-    replacement = f'"blogPost": {rendered_entries}'
-    pattern = re.compile(r'"blogPost":\s*\[(?:.|\n)*?\n\s*\]\n\s*\}\n\s*,', re.MULTILINE)
-    content, count = pattern.subn(f'{replacement}\n        }},', content, count=1)
-    if count:
+    # JSON-LD'yi regex ile degil, gercekten parse ederek guncelle. Onceki
+    # regex yaklasimi blog.html bicimi degisince sessizce eslesmeyi birakip
+    # hicbir sey yapmiyordu; bu yuzden yeni yazilar Blog semasina hic
+    # girmiyordu. Artik blok bulunamazsa gorunur sekilde hata verilir.
+    blocks = list(
+        re.finditer(
+            r'(<script type="application/ld\+json">)(.*?)(</script>)',
+            content,
+            flags=re.DOTALL,
+        )
+    )
+    for match in blocks:
+        raw = match.group(2)
+        try:
+            data = json.loads(raw)
+        except json.JSONDecodeError:
+            continue
+
+        target = None
+
+        def find_blog(node: object) -> None:
+            nonlocal target
+            if isinstance(node, dict):
+                if "blogPost" in node:
+                    target = node
+                for value in node.values():
+                    find_blog(value)
+            elif isinstance(node, list):
+                for value in node:
+                    find_blog(value)
+
+        find_blog(data)
+        if target is None:
+            continue
+
+        target["blogPost"] = entries
+        rendered = json.dumps(data, ensure_ascii=False, indent=2)
+        content = content[: match.start(2)] + "\n" + rendered + "\n" + content[match.end(2) :]
         blog_path.write_text(content, encoding="utf-8")
+        return
+
+    raise RuntimeError(
+        f"{blog_path.name} icinde 'blogPost' iceren JSON-LD blogu bulunamadi; "
+        "Blog semasi guncellenemedi."
+    )
 
 
 def append_post_to_graph(
@@ -511,7 +558,7 @@ def append_post_to_graph(
     graph["blog_posts"].append(
         {
             "slug": slug,
-            "url": f"/blog/{slug}.html",
+            "url": f"/blog/{slug}",
             "file": f"blog/{slug}.html",
             "title": title,
             "summary": summary,
@@ -524,6 +571,55 @@ def append_post_to_graph(
             "service_slug": service_slug,
         }
     )
+
+
+def add_vercel_routes(slug: str, site_url: str) -> tuple[bool, bool]:
+    """Yeni yazi icin `vercel.json` yonlendirme kayitlarini ekler.
+
+    `cleanUrls: false` oldugu icin her temiz URL iki kayit ister:
+      - rewrite : /blog/<slug>       -> /blog/<slug>.html   (temiz URL'i servis eder)
+      - redirect: /blog/<slug>.html  -> /blog/<slug>  (301)  (kopya URL'i kapatir)
+
+    Redirect eksik kalirsa ayni icerik iki adreste birden 200 doner. Kayitlar
+    idempotent eklenir; islem yapilip yapilmadigini (rewrite, redirect) dondurur.
+    """
+    config = json.loads(VERCEL_PATH.read_text(encoding="utf-8"))
+    redirects = config.setdefault("redirects", [])
+    rewrites = config.setdefault("rewrites", [])
+
+    clean_path = f"/blog/{slug}"
+    html_path = f"/blog/{slug}.html"
+
+    added_rewrite = False
+    if not any(rule.get("source") == clean_path for rule in rewrites):
+        rewrites.append({"source": clean_path, "destination": html_path})
+        added_rewrite = True
+
+    added_redirect = False
+    if not any(rule.get("source") == html_path for rule in redirects):
+        new_rule = {
+            "source": html_path,
+            "destination": f"{site_url.rstrip('/')}{clean_path}",
+            "statusCode": 301,
+        }
+        # Sondaki apex -> www yakalayici kuralinin onune ekle; Vercel'de ilk
+        # eslesen kural kazanir.
+        catch_all = next(
+            (
+                index
+                for index, rule in enumerate(redirects)
+                if rule.get("has") or ":" in rule.get("source", "")
+            ),
+            len(redirects),
+        )
+        redirects.insert(catch_all, new_rule)
+        added_redirect = True
+
+    if added_rewrite or added_redirect:
+        VERCEL_PATH.write_text(
+            json.dumps(config, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+    return added_rewrite, added_redirect
 
 
 def rebuild_site_surfaces() -> None:
@@ -625,12 +721,18 @@ def main() -> None:
     )
     update_blog_json_ld(ROOT / "blog.html", graph)
 
+    added_rewrite, added_redirect = add_vercel_routes(url_name, get_site_url(graph))
+
     rebuild_site_surfaces()
 
     print(f"\n✅ blog/{url_name}.html oluşturuldu")
     print("✅ content/site_graph.json güncellendi")
     print("✅ blog.html kart listesi güncellendi")
     print("✅ blog.html JSON-LD listesi güncellendi")
+    if added_rewrite or added_redirect:
+        print("✅ vercel.json yönlendirmeleri eklendi (rewrite + 301 redirect)")
+    else:
+        print("ℹ️  vercel.json yönlendirmeleri zaten mevcuttu")
     print("✅ hub sayfaları ve sitemap yeniden üretildi")
     print("\nNot: Yazı taslağı bilinçli olarak iskelet halinde üretilir; gerçek içeriği gönderdiğinizde aynı mimariyle birlikte doldurabiliriz.")
 
