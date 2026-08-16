@@ -1,0 +1,41 @@
+name: SEO Tests
+
+# Production Vercel uzerinde yayinlaniyor ve degisiklikler PR ile merge
+# ediliyor. Bu workflow PR'larda kirmizi yanarak SEO regresyonunun main'e
+# girmesini engeller.
+#
+# Kapsam bilincli olarak dar: reponun geri kalaninda bu degisiklikten once
+# de kirmizi olan testler var, hepsi baglanirsa deploy surekli bloke olur.
+# Buraya yalnizca SEO yuzeyini koruyan iki modul bagli.
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seo-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  seo-tests:
+    name: Teknik SEO regresyon testleri
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      # Testler yalnizca standart kutuphaneyi kullanir; bagimlilik kurulumu
+      # gerekmez.
+      - name: Run SEO tests
+        run: python -m unittest tests.test_seo_routing tests.test_seo_smoke --verbose
